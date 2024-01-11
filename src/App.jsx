@@ -21,7 +21,7 @@ import Laptop from './components/routes/Laptop.jsx';
 import ForHome from './components/routes/Home.jsx';
 import Kitchen from './components/routes/Kitchen.jsx';
 import Climate from './components/routes/Climate.jsx';
-import ChargingStation from './components/routes/Chargingstation.jsx';
+import ChargingStation from './components/routes/ChargingStation.jsx';
 //
 
 const App = () => {
