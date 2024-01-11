@@ -1,0 +1,32 @@
+.container {
+  position: relative;
+  z-index: 1;
+  min-width: 70px;
+  min-height: 36px;
+}
+
+.buttonLang__container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 10px;
+}
+
+.buttonLang__language {
+  display: flex;
+  padding: 10px 7px 10px;
+  cursor: pointer;
+  height: 36px;
+}
+
+.buttonLang__flag {
+  width: 20px;
+  height: 17px;
+}
+
+.buttonLang__text {
+  font-size: 20px;
+  font-weight: 600;
+  margin-left: 3px;
+}

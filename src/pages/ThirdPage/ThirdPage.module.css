@@ -1,0 +1,24 @@
+.thirdPageContainer {
+  display: flex;
+  flex-direction: row;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.filterNav {
+  width: 340px;
+  height: 1427px;
+  margin-top: 108px;
+
+  background-color: white;
+}
+
+.productCard {
+  margin-left: 92px;
+  margin-top: 108px;
+  width: 910px;
+  height: 1427px;
+
+  /* border: 1px solid tomato; */
+}

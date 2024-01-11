@@ -1,0 +1,32 @@
+.slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide__slider {
+  max-width: 907px;
+  max-height: 551px;
+  display: flex;
+  margin-left: 61px;
+  margin-right: 50px;
+}
+.slide__title {
+  text-align: center;
+  font-family: 'Montserrat';
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 44px;
+}
+
+.slide__container {
+  max-width: 907px;
+  height: 551px;
+  overflow: hidden;
+}
+
+.slide__img {
+  width: 907px;
+  height: 551px;
+}
