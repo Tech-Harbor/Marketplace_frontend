@@ -1,46 +1,46 @@
 .footer {
-   width: 100%;
-   height: var(--height-full-scrin);
-   background-color: #254499;
-   text-align: center;
-   color: #fff;
-   font-size: 14px;
-   line-height: 17.07px;
-   margin-top: 30px;
+  width: 100%;
+  height: var(--height-full-scrin);
+  background-color: #254499;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  line-height: 17.07px;
+  margin-top: 30px;
 }
 
 .container {
-   justify-content: space-between;
-   align-items: center;
-   flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-.container > *{
-   margin: 10px;
+.container > * {
+  margin: 10px;
 }
 
-.social_networks{
-   width: 174px;
-   height: var(--height-full-scrin);
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
+.social_networks {
+  width: 174px;
+  height: var(--height-full-scrin);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.icon{
-   font-size: 30px;
+.icon {
+  font-size: 30px;
 }
 
 .social_networks > .icon {
-   cursor: pointer;
+  cursor: pointer;
 }
 
 .call_center {
-   width: 253px;
-   height: var(--height-full-scrin);
-   display: flex;
-   justify-content: space-between;
-   text-align: left;
+  width: 253px;
+  height: var(--height-full-scrin);
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
 }
 
 .number {
@@ -50,14 +50,14 @@
 }
 
 .mail {
-   text-align: left;
+  text-align: left;
 }
 
 .delivery {
-   display: flex;
-   align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .delivery span {
-   margin-left: 15px;
+  margin-left: 15px;
 }
