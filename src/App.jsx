@@ -4,10 +4,6 @@ import MainLayout from './components/MainLayout/MainLayout.jsx';
 import Home from './pages/Home/Home.jsx';
 import Login from './pages/Login/Login.jsx';
 import Register from './pages/Register/Register.jsx';
-// import SecondPage from './pages/SecondPage/SecondPage.jsx';
-// import ThirdPage from './pages/ThirdPage/ThirdPage.jsx';
-
-//
 import FormTest from './components/FormForTest/FormTest.jsx';
 import FormForTestWithImage from './components/FormForTestWithImage/FormForTestWithImage.jsx';
 import Mobile from './components/routes/Mobile.jsx';
@@ -21,8 +17,7 @@ import Laptop from './components/routes/Laptop.jsx';
 import ForHome from './components/routes/Home.jsx';
 import Kitchen from './components/routes/Kitchen.jsx';
 import Climate from './components/routes/Climate.jsx';
-import ChargingStation from './components/routes/Chargingstation.jsx';
-//
+import ChargingStation from './components/routes/ChargingStation.jsx';
 
 const App = () => {
   return (
