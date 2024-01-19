@@ -1,7 +1,7 @@
-import axios from 'axios';
+import axios from "axios"
 
 const apiSettings = axios.create({
-  baseURL: 'http://localhost:8080/',
+  baseURL: 'https://marketplace-p93k.onrender.com/api/',
 });
 
 export default apiSettings;
