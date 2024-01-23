@@ -18,7 +18,7 @@ const SelectLang = () => {
     setCurrentLang(Languages[Languages.indexOf(e.currentTarget.id)]);
   };
 
-  const sortedLanguages = [currentLang, ...Languages.filter(i => i !== currentLang )]
+  const sortedLanguages = [currentLang, ...Languages.filter(i => i !== currentLang)];
 
   return (
     <div className={styles.container}>
