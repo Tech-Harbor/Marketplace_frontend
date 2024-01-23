@@ -5,13 +5,12 @@ import styles from './ProductCardList.module.css';
 const ProductCardList = ({ db }) => {
   return (
     <div className={styles.productCardList}>
-      {db.map(({ id, discription, price, image }) => (
+      {db.map(({ id, description_product, price }) => (
         <ProductCardListItem
           key={id}
           id={id}
-          discription={discription}
+          description_product={description_product}
           price={price}
-          image={image}
         />
       ))}
     </div>

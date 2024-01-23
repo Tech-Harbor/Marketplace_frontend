@@ -1,4 +1,6 @@
 import ProductCardList from '../../components/ProductCardList/ProductCardList';
+import NavigationButtons from '../../components/NavigationButtons/NavigationButtons';
+
 import styles from './ThirdPage.module.css';
 
 const db = [
@@ -38,12 +40,17 @@ const db = [
 
 const ThirdPage = () => {
   return (
-    <div className={styles.thirdPageContainer}>
-      <div className={styles.filterNav}></div>
-      <div className={styles.productCard}>
-        <ProductCardList db={db} />
+    <>
+      <div className={styles.thirdPage_navContainer}>
+        <NavigationButtons />
       </div>
-    </div>
+      <div className={styles.thirdPage_contentContainer}>
+        <div className={styles.thirdPage_filter}></div>
+        <div className={styles.thirdPage_productCard}>
+          <ProductCardList db={db} />
+        </div>
+      </div>
+    </>
   );
 };
 

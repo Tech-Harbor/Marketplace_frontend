@@ -5,13 +5,10 @@
 }
 
 .header__wraper {
-  display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 10px 0 10px 0;
-  margin-left: 50px;
-  margin-right: 50px;
 }
 
 .logo {

@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import styles from './SideBar.module.css';
+import PropTypes from 'prop-types';
 
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import PersonalVideoIcon from '@mui/icons-material/PersonalVideo';
@@ -14,10 +14,30 @@ import AcUnitIcon from '@mui/icons-material/AcUnit';
 import HandymanIcon from '@mui/icons-material/Handyman';
 import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
 
-const SideBar = () => {
+import styles from './SideBar.module.css';
+
+const defaultStyles = {
+  sideBar: {
+    minWidth: '400px',
+    height: '631px',
+    borderRadius: '0 0 20px 20px',
+    backgroundColor: 'rgba(40, 97, 200, 1)',
+  },
+  sideBar__list: {
+    display: 'flex',
+    flexDirection: 'column',
+    marginTop: '40px',
+    marginLeft: '13px',
+  },
+};
+const SideBar = ({ customStyles }) => {
   return (
-    <div className={styles.sideBar}>
-      <ul className={styles.sideBar__list}>
+    <div style={customStyles ? { ...customStyles.sideBar } : { ...defaultStyles.sideBar }}>
+      <ul
+        style={
+          customStyles ? { ...customStyles.sideBar__list } : { ...defaultStyles.sideBar__list }
+        }
+      >
         <li className={styles.sideBar__item}>
           <NavLink
             to="/mobiles"
@@ -42,7 +62,7 @@ const SideBar = () => {
         </li>
         <li className={styles.sideBar__item}>
           <NavLink
-            to="/foto"
+            to="/photo"
             className={({ isActive }) =>
               isActive ? styles.sideBar__link__activeLink : styles.sideBar__link
             }
@@ -156,3 +176,23 @@ const SideBar = () => {
 };
 
 export default SideBar;
+
+SideBar.propTypes = {
+  customStyles: PropTypes.shape({
+    sideBar__list: PropTypes.shape({
+      display: PropTypes.string.isRequired,
+      flexDirection: PropTypes.string.isRequired,
+      marginTop: PropTypes.string.isRequired,
+      marginLeft: PropTypes.string.isRequired,
+    }).isRequired,
+    sideBar: PropTypes.shape({
+      minWidth: PropTypes.string.isRequired,
+      height: PropTypes.string.isRequired,
+      borderRadius: PropTypes.string.isRequired,
+      backgroundColor: PropTypes.string.isRequired,
+      position: PropTypes.string.isRequired,
+      top: PropTypes.string.isRequired,
+      left: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
+};

@@ -1,0 +1,56 @@
+.btnNav {
+  display: flex;
+  flex-direction: row;
+}
+
+.btnNav_wraper {
+  position: relative;
+}
+
+.btnNav_catalog {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 38px;
+
+  background-color: var(--color-bg-nav-catalog);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  font-family: 'Montserrat';
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--color-btn-text);
+}
+
+.btnNav_route1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  height: 38px;
+
+  background-color: var(--color-bg-nav-route1);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  font-family: 'Montserrat';
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--color-btn-text);
+}
+
+.btnNav_route2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  height: 38px;
+
+  background-color: var(--color-bg-nav-route2);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  font-family: 'Montserrat';
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--color-btn-text);
+}
