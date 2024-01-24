@@ -1,6 +1,6 @@
 import styles from './ProductCard.module.css';
 
-import TestGoods from '../../assets/imges/TestGoods.png';
+import PropTypes from 'prop-types';
 
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import BalanceOutlinedIcon from '@mui/icons-material/BalanceOutlined';
@@ -10,7 +10,7 @@ const ProductCard = (props) => {
   return (
     <div className={styles.product_card}>
       <div className={styles.about_product}>
-        <img src={TestGoods} alt="product" className={styles.img_product} />
+        <img src={props.image.imageUrl} alt={props.image.name} className={styles.img_product} />
         <span className={styles.name_product}>{props.name}</span>
         <span className={styles.price_product}>{props.price} ₴</span>
       </div>
@@ -23,5 +23,11 @@ const ProductCard = (props) => {
       </div>
     </div>
   );
+};
+
+ProductCard.prototype={
+  name: PropTypes.string,
+  price: ProductCard.number,
+  image: PropTypes.object,
 };
 export default ProductCard;

@@ -16,10 +16,12 @@
 }
 
 .name_product {
+  height: 30px;
   display: block;
   font-size: 12px;
   margin-bottom: 12px;
   text-align: left;
+  overflow: hidden;
 }
 
 .price_product {
