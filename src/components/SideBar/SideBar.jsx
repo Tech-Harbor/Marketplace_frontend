@@ -1,5 +1,4 @@
 import { NavLink } from 'react-router-dom';
-import styles from './SideBar.module.css';
 
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import PersonalVideoIcon from '@mui/icons-material/PersonalVideo';
@@ -13,6 +12,8 @@ import BlenderIcon from '@mui/icons-material/Blender';
 import AcUnitIcon from '@mui/icons-material/AcUnit';
 import HandymanIcon from '@mui/icons-material/Handyman';
 import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
+
+import styles from './SideBar.module.css';
 
 const SideBar = () => {
   return (
@@ -42,7 +43,7 @@ const SideBar = () => {
         </li>
         <li className={styles.sideBar__item}>
           <NavLink
-            to="/foto"
+            to="/photo"
             className={({ isActive }) =>
               isActive ? styles.sideBar__link__activeLink : styles.sideBar__link
             }

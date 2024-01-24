@@ -18,10 +18,11 @@ const SecondCPage = () => {
           <CardList data={dataToShow} />
         </div>
       </div>
+
       <Slider
         settings={{ type: 'carousel', startAt: 0, perView: 5 }}
         title="Новинки"
-        slideSArray={[]}
+        slideArray={[]}
       />
     </>
   );
