@@ -15,7 +15,7 @@ const Header = () => {
 
   return (
     <div className={styles.header}>
-      <div className={`${styles.header__wraper} width_limiter`}>
+      <div className={`${styles.header__wrapper} width_limiter`}>
         <div className={styles.logo}>
           <NavLink className={styles.logo__link} to={hrefLink}>
             <img alt={'Logo'} src={Logo} className={styles.logo__svg} />

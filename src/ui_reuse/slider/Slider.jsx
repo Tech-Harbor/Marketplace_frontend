@@ -19,9 +19,9 @@ const Slider = props => {
         <div className={styles.title}>{props.title}</div>
         <div className="glide__track" data-glide-el="track">
           <ul className="glide__slides">
-            {props.slideSArray.map((e, index) => (
-              <li className="glide__slide" key={index}>
-                {e}
+            {props.slideArray.map((item, idx) => (
+              <li className="glide__slide" key={idx}>
+                {item}
               </li>
             ))}
           </ul>
@@ -51,7 +51,7 @@ Slider.propTypes = {
     gap: PropTypes.number,
   }).isRequired,
   title: PropTypes.string.isRequired,
-  slideSArray: PropTypes.arrayOf(PropTypes.elementType).isRequired,
+  slideArray: PropTypes.arrayOf(PropTypes.elementType),
 };
 
 export default Slider;

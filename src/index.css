@@ -27,6 +27,9 @@
   --color-hover-card: #6093ee;
   --color-card-icon: #254499;
   --color-btn-text: #ffffff;
+  --color-bg-nav-catalog: #032282;
+  --color-bg-nav-route1: #052a9ced;
+  --color-bg-nav-route2: #0535c9e5;
 }
 
 body {
