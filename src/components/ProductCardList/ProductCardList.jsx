@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import ProductCardListItem from '../ProductCardListItem/ProductCardListItem';
 
 import styles from './ProductCardList.module.css';
@@ -5,17 +6,28 @@ import styles from './ProductCardList.module.css';
 const ProductCardList = ({ db }) => {
   return (
     <div className={styles.productCardList}>
-      {db.map(({ id, discription, price, image }) => (
+      {db.map(({ id, description, price, image }) => (
         <ProductCardListItem
           key={id}
           id={id}
-          discription={discription}
+          description={description}
           price={price}
           image={image}
         />
       ))}
     </div>
   );
+};
+
+ProductCardList.propTypes = {
+  db: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      description: PropTypes.string,
+      price: PropTypes.number,
+      image: PropTypes.string,
+    })
+  ),
 };
 
 export default ProductCardList;
