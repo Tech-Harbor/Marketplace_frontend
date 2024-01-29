@@ -1,23 +1,17 @@
 import styles from './ProductCard.module.css';
 
-import TestGoods from '../../assets/imges/TestGoods.png';
+import PropTypes from 'prop-types';
 
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import BalanceOutlinedIcon from '@mui/icons-material/BalanceOutlined';
 
-import useGetDate from '../../hooks/useGetData';
-
-const ProductCard = () => {
-  const [data] = useGetDate('products/');
-
+const ProductCard = ({ name, price, image }) => {
   return (
-    <div className={styles.product_card} onClick={() => console.log(data)}>
+    <div className={styles.product_card}>
       <div className={styles.about_product}>
-        <img src={TestGoods} alt="product" className={styles.img_product} />
-        <span className={styles.name_product}>
-          Samsung Galaxy S21 FE G990B 6/128GB Light Violet (SM-G990BLVFSEK) NEW
-        </span>
-        <span className={styles.price_product}>20 000 ₴</span>
+        <img src={image.imageUrl} alt={image.name} className={styles.img_product} />
+        <span className={styles.name_product}>{name}</span>
+        <span className={styles.price_product}>{price} ₴</span>
       </div>
       <div className={styles.menu_for_buy}>
         <button className={styles.buy}>КУПИТИ</button>
@@ -30,4 +24,14 @@ const ProductCard = () => {
   );
 };
 
+ProductCard.propTypes = {
+  name: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  image: PropTypes.exact({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    imageUrl: PropTypes.string,
+    imageId: PropTypes.string,
+  }).isRequired,
+};
 export default ProductCard;

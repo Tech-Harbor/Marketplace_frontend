@@ -1,9 +1,9 @@
-import axios from '../api/axiosAPI';
+import axios from '../api/axiosAPI.js';
 
 import { useEffect, useState } from 'react';
 
-export default function useGetDate(url) {
-  const [data, setDatas] = useState({
+export default function useGetData(url) {
+  const [data, setData] = useState({
     data: null,
     error: null,
   });
@@ -12,14 +12,14 @@ export default function useGetDate(url) {
     const takeData = async () => {
       try {
         const { data } = await axios.get(url);
-        setDatas(prevData => ({ ...prevData, data }));
+        setData(prevData => ({ ...prevData, data }));
       } catch (error) {
-        setDatas(prevData => ({ ...prevData, error: error.message }));
+        setData(prevData => ({ ...prevData, error: error.message }));
       }
     };
 
     takeData();
   }, [url]);
 
-  return [data];
+  return {...data};
 }

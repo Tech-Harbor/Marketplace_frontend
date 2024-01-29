@@ -20,6 +20,7 @@ import Climate from './components/routes/Climate.jsx';
 import ChargingStation from './components/routes/ChargingStation.jsx';
 
 const App = () => {
+
   return (
     <Routes>
       <Route path="" element={<MainLayout />}>

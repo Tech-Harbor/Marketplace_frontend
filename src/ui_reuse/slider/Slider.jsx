@@ -51,7 +51,7 @@ Slider.propTypes = {
     gap: PropTypes.number,
   }).isRequired,
   title: PropTypes.string.isRequired,
-  slideArray: PropTypes.arrayOf(PropTypes.elementType),
+  slideArray: PropTypes.arrayOf(PropTypes.element),
 };
 
 export default Slider;
