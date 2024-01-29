@@ -1,6 +1,6 @@
 import ProductCardList from '../../components/ProductCardList/ProductCardList';
 
-import styles from './ThirdPage.module.css';
+import styles from './ThirdPage.module.scss';
 
 const db = [
   {

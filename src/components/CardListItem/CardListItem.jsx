@@ -1,6 +1,6 @@
-import { NavLink, useLocation } from 'react-router-dom';
-import styles from './CardListItem.module.css';
 import PropTypes from 'prop-types';
+import { NavLink, useLocation } from 'react-router-dom';
+import styles from './CardListItem.module.scss';
 
 const CardListItem = ({ name, image, path }) => {
   const { pathname } = useLocation();
@@ -9,7 +9,7 @@ const CardListItem = ({ name, image, path }) => {
     <>
       <NavLink to={`${pathname}/${path}`} className={styles.card}>
         <div className={styles.card__containerFirst}>
-          <img className={styles.card__image} src={image} />
+          <img className={styles.card__image} src={image} alt={'card'} />
         </div>
 
         <div className={styles.card__containerSecond}>

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-import styles from './SelectLang.module.css';
 import UA from '../../assets/svg/UA.svg';
 import US from '../../assets/svg/US.svg';
+import styles from './SelectLang.module.scss';
 
 const Languages = ['UA', 'US'];
 

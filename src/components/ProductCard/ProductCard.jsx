@@ -1,4 +1,4 @@
-import styles from './ProductCard.module.css';
+import styles from './ProductCard.module.scss';
 
 import PropTypes from 'prop-types';
 
@@ -13,6 +13,7 @@ const ProductCard = ({ name, price, image }) => {
         <span className={styles.name_product}>{name}</span>
         <span className={styles.price_product}>{price} ₴</span>
       </div>
+
       <div className={styles.menu_for_buy}>
         <button className={styles.buy}>КУПИТИ</button>
         <div className={styles.icons}>

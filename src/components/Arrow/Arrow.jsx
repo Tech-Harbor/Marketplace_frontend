@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import styles from './Arrow.module.css';
+import styles from './Arrow.module.scss';
 
 export const Arrow = props => {
   const { className, style, onClick, type = 'prev' } = props;
