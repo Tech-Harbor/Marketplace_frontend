@@ -6,12 +6,10 @@ import Loader from '../../components/Loader/Loader.jsx';
 
 import styles from './Home.module.css';
 
-import useGetDate from '../../hooks/useGetData.jsx';
+import useGetData from '../../hooks/useGetData.js';
 
 const Home = () => {
-  const [data] = useGetDate("products");
-
-  //Я написав LOL спеціально, замість загрузки! Я попрошу дизайнера придумати загрузку, і заміню все!
+  const {data} = useGetData("products");
 
   return (
     <>
@@ -20,15 +18,17 @@ const Home = () => {
         <CustomArrows />
       </div>
       <div className={styles.slider}>
-        {data.data === null ? <Loader/> : <Slider
+        {!data && <Loader/>}
+        {data && (<Slider
           settings={{ type: 'carousel', startAt: 0, perView: 4, gap: 100 }}
           title="Новинки"
-          slideSArray={
-            data.data.map(e =>
-              <ProductCard key={e.id} name={e.name} price={e.price} image={e.image[0]}/>
+          slideArray={
+            data.map(i =>
+            <ProductCard key={i.id} name={i.name} price={i.price} image={i.image[0]}/>
             )
           }
-        />}
+        />
+        )}
       </div>
     </>
   );
