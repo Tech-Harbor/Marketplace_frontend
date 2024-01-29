@@ -1,17 +1,16 @@
-// import ProductCard from '../../components/ProductCard/ProductCard.jsx';
 import SideBar from '../../components/SideBar/SideBar';
 import Slider from '../../ui_reuse/slider/Slider';
 import CardList from '../../components/CardList/CardList';
-import { useDataByPath } from './useDataByPath.js';
-
-import useGetData from '../../hooks/useGetData.js';
 import Loader from '../../components/Loader/Loader.jsx';
 import ProductCard from '../../components/ProductCard/ProductCard.jsx';
+
+import { useDataByPath } from '../../hooks/useDataByPath.js';
+import useGetData from '../../hooks/useGetData.js';
+
 import styles from './SecondPage.module.css';
 
 const SecondCPage = () => {
   const [title, dataToShow] = useDataByPath();
-
   const { data } = useGetData('products');
 
   return (
@@ -23,7 +22,9 @@ const SecondCPage = () => {
           <CardList data={dataToShow} />
         </div>
       </div>
+
       {!data && <Loader />}
+
       {data && (
         <Slider
           settings={{ type: 'carousel', startAt: 0, perView: 4, gap: 100 }}

@@ -9,7 +9,7 @@ import styles from './Home.module.css';
 import useGetData from '../../hooks/useGetData.js';
 
 const Home = () => {
-  const {data} = useGetData("products");
+  const { data } = useGetData('products');
 
   return (
     <>
@@ -17,19 +17,18 @@ const Home = () => {
         <SideBar />
         <CustomArrows />
       </div>
-      <div className={styles.slider}>
-        {!data && <Loader/>}
-        {data && (<Slider
+
+      {!data && <Loader />}
+
+      {data && (
+        <Slider
           settings={{ type: 'carousel', startAt: 0, perView: 4, gap: 100 }}
           title="Новинки"
-          slideArray={
-            data.map(i =>
-            <ProductCard key={i.id} name={i.name} price={i.price} image={i.image[0]}/>
-            )
-          }
+          slideArray={data.map(i => (
+            <ProductCard key={i.id} name={i.name} price={i.price} image={i.image[0]} />
+          ))}
         />
-        )}
-      </div>
+      )}
     </>
   );
 };
