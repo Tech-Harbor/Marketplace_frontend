@@ -1,17 +1,4 @@
-/* .container_suspense {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-} */
-
-/* .container_suspense {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-} */
-.shell {
-  /*width: 1440px;*/
-}
+.shell {}
 
 .item__container {
   display: flex;
