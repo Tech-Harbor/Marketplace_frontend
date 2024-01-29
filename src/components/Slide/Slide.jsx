@@ -5,7 +5,7 @@ import image1 from '../../assets/slide1.jpg';
 import image2 from '../../assets/slide2.jpg';
 import image3 from '../../assets/slide3.jpg';
 
-import styles from './Slide.module.css';
+import styles from './Slide.module.scss';
 
 export default function CustomArrows() {
   const settings = {

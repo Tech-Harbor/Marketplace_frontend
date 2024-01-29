@@ -3,11 +3,9 @@
   height: 341px;
   margin: 0;
   padding: 0;
-
-  /* border: 1px solid blue; */
 }
 
-.prodCardItem__wraper {
+.prodCardItem__wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,8 +17,8 @@
   height: 220px;
 }
 
-.prodCardItem__discription {
-  font-family: 'Montserrat';
+.prodCardItem__description {
+  font-family: 'Montserrat', serif;
   font-size: 12px;
   font-weight: 400;
   line-height: 15px;
@@ -31,7 +29,7 @@
   margin-top: 12px;
   margin-bottom: 10px;
 
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 20px;
@@ -52,7 +50,7 @@
   padding: 6px 24px 6px 24px;
   border-radius: 5px;
 
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', serif;
   font-size: 12px;
   font-weight: 400;
   color: var(--color-btn-text);

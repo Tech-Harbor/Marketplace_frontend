@@ -8,7 +8,7 @@ import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import SelectLang from '../SelectLang/SelectLang';
 import Logo from '../../assets/svg/logo.svg';
 
-import styles from './Header.module.css';
+import styles from './Header.module.scss';
 
 const Header = () => {
   const hrefLink = '/';

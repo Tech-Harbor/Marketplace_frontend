@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import ProductCardListItem from '../ProductCardListItem/ProductCardListItem';
 
-import styles from './ProductCardList.module.css';
+import styles from './ProductCardList.module.scss';
 
 const ProductCardList = ({ db }) => {
   return (

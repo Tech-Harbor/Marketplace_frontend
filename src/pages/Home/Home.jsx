@@ -4,9 +4,9 @@ import Slider from '../../ui_reuse/slider/Slider';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import Loader from '../../components/Loader/Loader.jsx';
 
-import styles from './Home.module.css';
-
 import useGetData from '../../hooks/useGetData.js';
+
+import styles from './Home.module.scss';
 
 const Home = () => {
   const { data } = useGetData('products');

@@ -7,7 +7,7 @@ import ProductCard from '../../components/ProductCard/ProductCard.jsx';
 import { useDataByPath } from '../../hooks/useDataByPath.js';
 import useGetData from '../../hooks/useGetData.js';
 
-import styles from './SecondPage.module.css';
+import styles from './SecondPage.module.scss';
 
 const SecondCPage = () => {
   const [title, dataToShow] = useDataByPath();

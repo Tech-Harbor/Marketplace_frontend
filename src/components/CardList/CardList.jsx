@@ -1,7 +1,7 @@
 import CardListItem from '../CardListItem/CardListItem';
 import PropTypes from 'prop-types';
 
-import styles from './CardList.module.css';
+import styles from './CardList.module.scss';
 
 const CardList = ({ data }) => {
   return (

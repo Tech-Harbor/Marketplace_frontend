@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
 import Glide from '@glidejs/glide';
 import '@glidejs/glide/dist/css/glide.core.min.css';
-import '../baseCss/width_limiter.css';
-import styles from './Slider.module.css';
+
+import '../baseCss/width_limiter.scss';
+import styles from './Slider.module.scss';
 
 const Slider = props => {
   useEffect(() => {

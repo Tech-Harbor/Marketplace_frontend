@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import PersonalVideoIcon from '@mui/icons-material/PersonalVideo';
 import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
-import VideocamIcon from '@mui/icons-material/Videocam';
+import VideoCamIcon from '@mui/icons-material/Videocam';
 import HeadphonesIcon from '@mui/icons-material/Headphones';
 import MouseIcon from '@mui/icons-material/Mouse';
 import TabletMacIcon from '@mui/icons-material/TabletMac';
@@ -13,7 +13,7 @@ import AcUnitIcon from '@mui/icons-material/AcUnit';
 import HandymanIcon from '@mui/icons-material/Handyman';
 import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
 
-import styles from './SideBar.module.css';
+import styles from './SideBar.module.scss';
 
 const SideBar = () => {
   return (
@@ -59,7 +59,7 @@ const SideBar = () => {
               isActive ? styles.sideBar__link__activeLink : styles.sideBar__link
             }
           >
-            <VideocamIcon className={styles.sideBar__icon} />
+            <VideoCamIcon className={styles.sideBar__icon} />
             ТВ та відеотехніка
           </NavLink>
         </li>

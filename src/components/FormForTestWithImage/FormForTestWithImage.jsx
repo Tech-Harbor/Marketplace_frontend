@@ -1,4 +1,4 @@
-import styles from './FormForTestWithImage.module.css';
+import styles from './FormForTestWithImage.module.scss';
 
 import { useRef } from 'react';
 
