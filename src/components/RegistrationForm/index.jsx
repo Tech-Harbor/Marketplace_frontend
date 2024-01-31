@@ -1,32 +1,37 @@
 import styled from 'styled-components';
-import Title from './Title';
+import { Title } from './Title';
 import Flex from './Flex';
 import Form from './Form';
-
-const Wrapper = styled.div`
-  margin-left: auto;
-  margin-right: auto;
-
-  width: 360px;
-  min-height: 100vh;
-  /* height: 328px; */
-  padding: 0 16px;
-
-  background-color: #fff;
-`;
+import device from './MediaQueries';
 
 const RegistrationForm = () => {
   return (
     <Wrapper>
       <Flex justify="center" direction="column" align="center">
-        <Title color="red" margin="13.5px">
-          Реєстрація
-        </Title>
-
+        <Title>Реєстрація</Title>
         <Form />
       </Flex>
     </Wrapper>
   );
 };
 
+const Wrapper = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 16px;
+
+  width: 360px;
+  height: 100%;
+
+  background-color: #fff;
+
+  @media ${device.laptopL} {
+    margin-top: 27px;
+    margin-bottom: 23px;
+    padding: 0 25px;
+
+    width: 708px;
+    height: 936px;
+  }
+`;
 export default RegistrationForm;
