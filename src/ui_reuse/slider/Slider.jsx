@@ -6,7 +6,7 @@ import Glide from '@glidejs/glide';
 import '@glidejs/glide/dist/css/glide.core.min.css';
 
 import '../baseCss/width_limiter.scss';
-import styles from './Slider.module.scss';
+import s from './Slider.module.scss';
 
 const Slider = props => {
   useEffect(() => {
@@ -15,9 +15,9 @@ const Slider = props => {
   }, [props.settings]);
 
   return (
-    <div className={`${styles.container} width_limiter`}>
-      <div className={`glide ${styles.slider}`}>
-        <div className={styles.title}>{props.title}</div>
+    <div className={`${s.container} width_limiter`}>
+      <div className={`glide ${s.slider}`}>
+        <div className={s.title}>{props.title}</div>
         <div className="glide__track" data-glide-el="track">
           <ul className="glide__slides">
             {props.slideArray.map((item, idx) => (
@@ -29,12 +29,12 @@ const Slider = props => {
         </div>
         <div className="glide__arrows" data-glide-el="controls">
           <ArrowBackIosNewRoundedIcon
-            className={`glide__arrow glide__arrow--left ${styles.arrow} ${styles.arrow_left}`}
+            className={`glide__arrow glide__arrow--left ${s.arrow} ${s.arrow_left}`}
             data-glide-dir="<"
             fontSize="string"
           />
           <ArrowBackIosNewRoundedIcon
-            className={`glide__arrow glide__arrow--right ${styles.arrow} ${styles.arrow_right}`}
+            className={`glide__arrow glide__arrow--right ${s.arrow} ${s.arrow_right}`}
             data-glide-dir=">"
             fontSize="string"
           />

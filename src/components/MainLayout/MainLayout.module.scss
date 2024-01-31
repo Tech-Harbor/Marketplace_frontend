@@ -1,6 +1,14 @@
 .shell {
 }
 
+.mainContainer {
+  display: flex;
+  flex-direction: row;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .item__container {
   display: flex;
   flex-direction: row;

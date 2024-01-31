@@ -6,38 +6,38 @@ import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
 import AirportShuttleIcon from '@mui/icons-material/AirportShuttle';
 
 import '../../ui_reuse/baseCss/width_limiter.scss';
-import styles from './Footer.module.scss';
+import s from './Footer.module.scss';
 
 function Footer() {
   return (
-    <div className={styles.footer}>
-      <div className={`${styles.container} width_limiter`}>
-        <div className={styles.social_networks}>
+    <div className={s.footer}>
+      <div className={`${s.container} width_limiter`}>
+        <div className={s.social_networks}>
           <img src={logo} alt="Logo" />
-          <InstagramIcon className={styles.icon} fontSize="string" />
-          <TelegramIcon className={styles.icon} fontSize="string" />
-          <FacebookIcon className={styles.icon} fontSize="string" />
+          <InstagramIcon className={s.icon} fontSize="string" />
+          <TelegramIcon className={s.icon} fontSize="string" />
+          <FacebookIcon className={s.icon} fontSize="string" />
         </div>
-        <div className={styles.call_center}>
-          <LocalPhoneOutlinedIcon className={styles.icon} fontSize="string" />
-          <div className={styles.number}>
+        <div className={s.call_center}>
+          <LocalPhoneOutlinedIcon className={s.icon} fontSize="string" />
+          <div className={s.number}>
             <span>Call-центр</span>
             <br />
             <span>0-800-80-80-80</span>
           </div>
-          <div className={styles.days_work}>
+          <div className={s.days_work}>
             <span>ПН-ПТ</span>
             <br />
             <span>8:00 - 22:00</span>
           </div>
         </div>
-        <div className={styles.mail}>
+        <div className={s.mail}>
           <span>E-mail:</span>
           <br />
           <span>techhaven@gmail.com</span>
         </div>
-        <div className={styles.delivery}>
-          <AirportShuttleIcon className={styles.icon} fontSize="string" />
+        <div className={s.delivery}>
+          <AirportShuttleIcon className={s.icon} fontSize="string" />
           <span>Доставка: Укр. Пошта, Нова Пошта</span>
         </div>
       </div>

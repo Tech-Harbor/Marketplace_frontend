@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
-import styles from './Arrow.module.scss';
+import s from './Arrow.module.scss';
 
 export const Arrow = props => {
   const { className, style, onClick, type = 'prev' } = props;
 
   return (
     <div
-      className={`${className} ${type === 'prev' ? styles.prev__arrow : styles.next__arrow} ${
-        type === 'prev' ? styles.custom__prev__arrow : styles.custom__next__arrow
+      className={`${className} ${type === 'prev' ? s.prev__arrow : s.next__arrow} ${
+        type === 'prev' ? s.custom__prev__arrow : s.custom__next__arrow
       }`}
       style={{
         ...style,
