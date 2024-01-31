@@ -13,141 +13,117 @@ import AcUnitIcon from '@mui/icons-material/AcUnit';
 import HandymanIcon from '@mui/icons-material/Handyman';
 import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
 
-import styles from './SideBar.module.scss';
+import s from './SideBar.module.scss';
 
 const SideBar = () => {
   return (
-    <div className={styles.sideBar}>
-      <ul className={styles.sideBar__list}>
-        <li className={styles.sideBar__item}>
+    <div className={s.sideBar}>
+      <ul className={s.sideBar__list}>
+        <li className={s.sideBar__item}>
           <NavLink
-            to="/mobiles"
-            className={({ isActive }) =>
-              isActive ? styles.sideBar__link__activeLink : styles.sideBar__link
-            }
+            to="/category/mobiles"
+            className={({ isActive }) => (isActive ? s.sideBar__link__activeLink : s.sideBar__link)}
           >
-            <PhoneIphoneIcon className={styles.sideBar__icon} />
+            <PhoneIphoneIcon className={s.sideBar__icon} />
             Телефони та аксесуари
           </NavLink>
         </li>
-        <li className={styles.sideBar__item}>
+        <li className={s.sideBar__item}>
           <NavLink
-            to="/desktops"
-            className={({ isActive }) =>
-              isActive ? styles.sideBar__link__activeLink : styles.sideBar__link
-            }
+            to="/category/desktops"
+            className={({ isActive }) => (isActive ? s.sideBar__link__activeLink : s.sideBar__link)}
           >
-            <PersonalVideoIcon className={styles.sideBar__icon} />
+            <PersonalVideoIcon className={s.sideBar__icon} />
             Комп’ютери та комплектуючі
           </NavLink>
         </li>
-        <li className={styles.sideBar__item}>
+        <li className={s.sideBar__item}>
           <NavLink
-            to="/photo"
-            className={({ isActive }) =>
-              isActive ? styles.sideBar__link__activeLink : styles.sideBar__link
-            }
+            to="/category/photo"
+            className={({ isActive }) => (isActive ? s.sideBar__link__activeLink : s.sideBar__link)}
           >
-            <PhotoCameraIcon className={styles.sideBar__icon} />
+            <PhotoCameraIcon className={s.sideBar__icon} />
             Фото та відео
           </NavLink>
         </li>
-        <li className={styles.sideBar__item}>
+        <li className={s.sideBar__item}>
           <NavLink
-            to="/tvs"
-            className={({ isActive }) =>
-              isActive ? styles.sideBar__link__activeLink : styles.sideBar__link
-            }
+            to="/category/tvs"
+            className={({ isActive }) => (isActive ? s.sideBar__link__activeLink : s.sideBar__link)}
           >
-            <VideoCamIcon className={styles.sideBar__icon} />
+            <VideoCamIcon className={s.sideBar__icon} />
             ТВ та відеотехніка
           </NavLink>
         </li>
-        <li className={styles.sideBar__item}>
+        <li className={s.sideBar__item}>
           <NavLink
-            to="/audio"
-            className={({ isActive }) =>
-              isActive ? styles.sideBar__link__activeLink : styles.sideBar__link
-            }
+            to="/category/audio"
+            className={({ isActive }) => (isActive ? s.sideBar__link__activeLink : s.sideBar__link)}
           >
-            <HeadphonesIcon className={styles.sideBar__icon} />
+            <HeadphonesIcon className={s.sideBar__icon} />
             Аудіотехніка
           </NavLink>
         </li>
-        <li className={styles.sideBar__item}>
+        <li className={s.sideBar__item}>
           <NavLink
-            to="/games"
-            className={({ isActive }) =>
-              isActive ? styles.sideBar__link__activeLink : styles.sideBar__link
-            }
+            to="/category/games"
+            className={({ isActive }) => (isActive ? s.sideBar__link__activeLink : s.sideBar__link)}
           >
-            <MouseIcon className={styles.sideBar__icon} />
+            <MouseIcon className={s.sideBar__icon} />
             Ігри та ігрові приставки
           </NavLink>
         </li>
-        <li className={styles.sideBar__item}>
+        <li className={s.sideBar__item}>
           <NavLink
-            to="/tablets"
-            className={({ isActive }) =>
-              isActive ? styles.sideBar__link__activeLink : styles.sideBar__link
-            }
+            to="/category/tablets"
+            className={({ isActive }) => (isActive ? s.sideBar__link__activeLink : s.sideBar__link)}
           >
-            <TabletMacIcon className={styles.sideBar__icon} />
+            <TabletMacIcon className={s.sideBar__icon} />
             Планшети та електронні книги
           </NavLink>
         </li>
-        <li className={styles.sideBar__item}>
+        <li className={s.sideBar__item}>
           <NavLink
-            to="/laptops"
-            className={({ isActive }) =>
-              isActive ? styles.sideBar__link__activeLink : styles.sideBar__link
-            }
+            to="/category/laptops"
+            className={({ isActive }) => (isActive ? s.sideBar__link__activeLink : s.sideBar__link)}
           >
-            <ComputerIcon className={styles.sideBar__icon} />
+            <ComputerIcon className={s.sideBar__icon} />
             Ноутбуки та аксесуари
           </NavLink>
         </li>
-        <li className={styles.sideBar__item}>
+        <li className={s.sideBar__item}>
           <NavLink
-            to="/home"
-            className={({ isActive }) =>
-              isActive ? styles.sideBar__link__activeLink : styles.sideBar__link
-            }
+            to="/category/home"
+            className={({ isActive }) => (isActive ? s.sideBar__link__activeLink : s.sideBar__link)}
           >
-            <HandymanIcon className={styles.sideBar__icon} />
+            <HandymanIcon className={s.sideBar__icon} />
             Техніка для дому
           </NavLink>
         </li>
-        <li className={styles.sideBar__item}>
+        <li className={s.sideBar__item}>
           <NavLink
-            to="/kitchen"
-            className={({ isActive }) =>
-              isActive ? styles.sideBar__link__activeLink : styles.sideBar__link
-            }
+            to="/category/kitchen"
+            className={({ isActive }) => (isActive ? s.sideBar__link__activeLink : s.sideBar__link)}
           >
-            <BlenderIcon className={styles.sideBar__icon} />
+            <BlenderIcon className={s.sideBar__icon} />
             Техніка для кухні
           </NavLink>
         </li>
-        <li className={styles.sideBar__item}>
+        <li className={s.sideBar__item}>
           <NavLink
-            to="/climate"
-            className={({ isActive }) =>
-              isActive ? styles.sideBar__link__activeLink : styles.sideBar__link
-            }
+            to="/category/climate"
+            className={({ isActive }) => (isActive ? s.sideBar__link__activeLink : s.sideBar__link)}
           >
-            <AcUnitIcon className={styles.sideBar__icon} />
+            <AcUnitIcon className={s.sideBar__icon} />
             Кліматичне обладнання
           </NavLink>
         </li>
-        <li className={styles.sideBar__item}>
+        <li className={s.sideBar__item}>
           <NavLink
-            to="/charging_stations"
-            className={({ isActive }) =>
-              isActive ? styles.sideBar__link__activeLink : styles.sideBar__link
-            }
+            to="/category/charging_stations"
+            className={({ isActive }) => (isActive ? s.sideBar__link__activeLink : s.sideBar__link)}
           >
-            <HourglassEmptyIcon className={styles.sideBar__icon} />
+            <HourglassEmptyIcon className={s.sideBar__icon} />
             Зарядні станції
           </NavLink>
         </li>

@@ -4,49 +4,51 @@ import SvgIcon from '@mui/material/SvgIcon';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import BalanceOutlinedIcon from '@mui/icons-material/BalanceOutlined';
 
-import styles from './ProductCardListItem.module.scss';
+import s from './ProductCardListItem.module.scss';
 
-const ProductCardListItem = ({ image, description, price }) => {
+const ProductCardListItem = ({ name, price, image }) => {
   return (
-    <>
-      <NavLink to={''} className={styles.prodCardItem}>
-        <div className={styles.prodCardItem__wrapper}>
-          <img className={styles.prodCardItem__img} src={image} alt={'product card'} />
-        </div>
+    <div className={s.prodCardItem}>
+      <div className={s.prodCardItem__wrapper}>
+        <img className={s.prodCardItem__img} src={image.imageUrl} alt={'product card'} />
+      </div>
 
-        <div className={styles.prodCardItem__content}>
-          <p className={styles.prodCardItem__description}>{description}</p>
-          <p className={styles.prodCardItem__price}>{price} ₴</p>
-        </div>
+      <div>
+        <p className={s.prodCardItem__description}>{name}</p>
+        <p className={s.prodCardItem__price}>{price} ₴</p>
+      </div>
 
-        <div className={styles.prodCardItem__nav}>
-          <NavLink to={''} className={styles.prodCardItem__btn}>
-            ПЕРЕГЛЯНУТИ
+      <div className={s.prodCardItem__nav}>
+        <NavLink to={''} className={s.prodCardItem__btn}>
+          ПЕРЕГЛЯНУТИ
+        </NavLink>
+        <div>
+          <NavLink to={''} className={s.prodCardItem__basket}>
+            <SvgIcon sx={{ width: 30, height: 30 }}>
+              <ShoppingCartOutlinedIcon />
+            </SvgIcon>
           </NavLink>
-          <div className={styles.prodCardItem__linkIcon}>
-            <NavLink to={''} className={styles.prodCardItem__basket}>
-              <SvgIcon sx={{ width: 30, height: 30 }}>
-                <ShoppingCartOutlinedIcon />
-              </SvgIcon>
-            </NavLink>
 
-            <NavLink to={''} className={styles.prodCardItem__balance}>
-              <SvgIcon sx={{ width: 30, height: 30 }}>
-                <BalanceOutlinedIcon />
-              </SvgIcon>
-            </NavLink>
-          </div>
+          <NavLink to={''} className={s.prodCardItem__balance}>
+            <SvgIcon sx={{ width: 30, height: 30 }}>
+              <BalanceOutlinedIcon />
+            </SvgIcon>
+          </NavLink>
         </div>
-      </NavLink>
-    </>
+      </div>
+    </div>
   );
 };
 
 ProductCardListItem.propTypes = {
-  id: PropTypes.number,
-  description: PropTypes.string,
+  name: PropTypes.string,
   price: PropTypes.number,
-  image: PropTypes.string,
+  image: PropTypes.exact({
+    id: PropTypes.number,
+    imageId: PropTypes.string,
+    imageUrl: PropTypes.string,
+    name: PropTypes.string,
+  }),
 };
 
 export default ProductCardListItem;

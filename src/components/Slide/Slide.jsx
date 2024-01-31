@@ -5,7 +5,7 @@ import image1 from '../../assets/slide1.jpg';
 import image2 from '../../assets/slide2.jpg';
 import image3 from '../../assets/slide3.jpg';
 
-import styles from './Slide.module.scss';
+import s from './Slide.module.scss';
 
 export default function CustomArrows() {
   const settings = {
@@ -18,17 +18,17 @@ export default function CustomArrows() {
   };
 
   return (
-    <div className={styles.slide}>
-      <h2 className={styles.slide__title}>ТОП продажів</h2>
-      <Slider className={styles.slide__slider} {...settings}>
-        <div className={styles.slide__container}>
-          <img className={styles.slide__img} src={image1} alt={'slide one'} />
+    <div className={s.slide}>
+      <h2 className={s.slide__title}>ТОП продажів</h2>
+      <Slider className={s.slide__slider} {...settings}>
+        <div className={s.slide__container}>
+          <img className={s.slide__img} src={image1} alt={'slide one'} />
         </div>
-        <div className={styles.slide__container}>
-          <img className={styles.slide__img} src={image2} alt={'slide two'} />
+        <div className={s.slide__container}>
+          <img className={s.slide__img} src={image2} alt={'slide two'} />
         </div>
-        <div className={styles.slide__container}>
-          <img className={styles.slide__img} src={image3} alt={'slide three'} />
+        <div className={s.slide__container}>
+          <img className={s.slide__img} src={image3} alt={'slide three'} />
         </div>
       </Slider>
     </div>

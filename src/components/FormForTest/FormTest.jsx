@@ -1,4 +1,4 @@
-import styles from './FormTest.module.scss';
+import s from './FormTest.module.scss';
 
 import { useRef } from 'react';
 
@@ -47,7 +47,7 @@ function FormTest() {
   };
 
   return (
-    <form className={styles.form_test}>
+    <form className={s.form_test}>
       <label>
         name <input type="text" name="name" ref={ref1} />
       </label>

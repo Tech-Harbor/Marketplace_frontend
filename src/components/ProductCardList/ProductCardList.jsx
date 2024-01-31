@@ -1,33 +1,36 @@
 import PropTypes from 'prop-types';
 import ProductCardListItem from '../ProductCardListItem/ProductCardListItem';
 
-import styles from './ProductCardList.module.scss';
+import s from './ProductCardList.module.scss';
 
-const ProductCardList = ({ db }) => {
+const ProductCardList = ({ data }) => {
   return (
-    <div className={styles.productCardList}>
-      {db.map(({ id, description, price, image }) => (
-        <ProductCardListItem
-          key={id}
-          id={id}
-          description={description}
-          price={price}
-          image={image}
-        />
+    <ul className={s.productCardList}>
+      {data.map(({ id, name, price, image }) => (
+        <li key={id}>
+          <ProductCardListItem name={name} price={price} image={image[0]} />
+        </li>
       ))}
-    </div>
+    </ul>
   );
 };
 
 ProductCardList.propTypes = {
-  db: PropTypes.arrayOf(
+  data: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
-      description: PropTypes.string,
+      name: PropTypes.string,
       price: PropTypes.number,
-      image: PropTypes.string,
+      image: PropTypes.arrayOf(
+        PropTypes.exact({
+          id: PropTypes.number,
+          imageId: PropTypes.string,
+          imageUrl: PropTypes.string,
+          name: PropTypes.string,
+        })
+      ),
     })
-  ),
+  ).isRequired,
 };
 
 export default ProductCardList;
