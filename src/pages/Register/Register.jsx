@@ -1,7 +1,7 @@
-import styles from './Register.module.scss';
+// import RegistrationForm from '../../components/RegistrationForm';
 
-const Register = () => {
-  return <p className={styles.register}>Register</p>;
-};
+// const Register = () => {
+//   return <RegistrationForm />;
+// };
 
-export default Register;
+// export default Register;

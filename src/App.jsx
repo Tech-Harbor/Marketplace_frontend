@@ -1,9 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
 
-import MainLayout from './components/MainLayout/MainLayout.jsx';
+// import MainLayout from './components/MainLayout/MainLayout.jsx';
 import Home from './pages/Home/Home.jsx';
 import Login from './pages/Login/Login.jsx';
-import Register from './pages/Register/Register.jsx';
+// import Register from './pages/Register/Register.jsx';
 import FormTest from './components/FormForTest/FormTest.jsx';
 import FormForTestWithImage from './components/FormForTestWithImage/FormForTestWithImage.jsx';
 import Mobile from './components/routes/Mobile.jsx';
@@ -18,12 +18,16 @@ import ForHome from './components/routes/Home.jsx';
 import Kitchen from './components/routes/Kitchen.jsx';
 import Climate from './components/routes/Climate.jsx';
 import ChargingStation from './components/routes/ChargingStation.jsx';
+import Header from './components/Header/Header.jsx';
+import Footer from './components/Footer/Footer.jsx';
+import RegistrationForm from './components/RegistrationForm/index.jsx';
 
 const App = () => {
-
   return (
-    <Routes>
-      <Route path="" element={<MainLayout />}>
+    <>
+      <Header />
+      <Routes>
+        {/* <Route path="" element={<MainLayout />}> */}
         <Route path="/" element={<Home />} />
         <Route path="/mobiles/*" element={<Mobile />} />
         <Route path="/desktops/*" element={<Desktop />} />
@@ -37,13 +41,15 @@ const App = () => {
         <Route path="/kitchen/*" element={<Kitchen />} />
         <Route path="/climate/*" element={<Climate />} />
         <Route path="/charging_stations/*" element={<ChargingStation />} />
-      </Route>
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
+        {/* </Route> */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<RegistrationForm />} />
 
-      <Route path="/form" element={<FormTest />} />
-      <Route path="/formImage" element={<FormForTestWithImage />} />
-    </Routes>
+        <Route path="/form" element={<FormTest />} />
+        <Route path="/formImage" element={<FormForTestWithImage />} />
+      </Routes>
+      <Footer />
+    </>
   );
 };
 
