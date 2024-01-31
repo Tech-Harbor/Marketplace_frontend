@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 
 const StyledForm = styled.form`
-  /* color: var(--color-bg-form); */
-  /* background-color: #fff; */
   width: 100%;
   min-height: 100%;
 `;
 
 const StyledLabel = styled.label`
   display: block;
+
   margin-top: ${props => props.marginTop || '21px'};
 
   font-family: Inter;
@@ -20,10 +19,11 @@ const StyledLabel = styled.label`
 `;
 
 const StyledInput = styled.input`
+  margin-top: ${props => props.marginTop || '10px'};
+  padding: 8px, 24px, 8px, 24px;
+
   width: 328px;
   height: 45px;
-
-  padding: 8px, 24px, 8px, 24px;
 
   border: none;
   border-radius: 10px;
