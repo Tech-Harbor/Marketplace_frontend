@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import UA from '../../assets/svg/UA.svg';
 import US from '../../assets/svg/US.svg';
-import styles from './SelectLang.module.scss';
+import s from './SelectLang.module.scss';
 
 const Languages = ['UA', 'US'];
 
@@ -21,31 +21,26 @@ const SelectLang = () => {
   const sortedLanguages = [currentLang, ...Languages.filter(i => i !== currentLang)];
 
   return (
-    <div className={styles.container}>
-      <ul className={styles.buttonLang__container} id="len" onClick={showLanguage}>
+    <div className={s.container}>
+      <ul className={s.buttonLang__container} id="len" onClick={showLanguage}>
         {/* Default lang */}
         {!toggle && (
-          <li className={styles.buttonLang__language}>
+          <li className={s.buttonLang__language}>
             <img
               src={currentLang === 'UA' ? UA : US}
               alt={currentLang}
-              className={styles.buttonLang__flag}
+              className={s.buttonLang__flag}
             />
-            <span className={styles.buttonLang__text}>{currentLang}</span>
+            <span className={s.buttonLang__text}>{currentLang}</span>
           </li>
         )}
 
         {/* Select lang list  */}
         {toggle &&
           sortedLanguages.map((i, idx) => (
-            <li
-              onClick={e => setLanguage(e)}
-              className={styles.buttonLang__language}
-              key={idx}
-              id={i}
-            >
-              <img src={i === 'UA' ? UA : US} alt={i} className={styles.buttonLang__flag} />
-              <span className={styles.buttonLang__text}>{i}</span>
+            <li onClick={e => setLanguage(e)} className={s.buttonLang__language} key={idx} id={i}>
+              <img src={i === 'UA' ? UA : US} alt={i} className={s.buttonLang__flag} />
+              <span className={s.buttonLang__text}>{i}</span>
             </li>
           ))}
       </ul>

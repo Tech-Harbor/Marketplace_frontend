@@ -1,4 +1,11 @@
-.thirdPage_contentContainer {
+.productCardList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-row-gap: 80px;
+  grid-column-gap: 60px;
+}
+
+.productListPage_contentContainer {
   display: flex;
   flex-direction: row;
   max-width: 1440px;
@@ -6,14 +13,14 @@
   margin-right: auto;
 }
 
-.thirdPage_filter {
+.productListPage_filter {
   width: 340px;
   height: 1427px;
   margin-top: 108px;
   background-color: white;
 }
 
-.thirdPage_productCard {
+.productListPage_productCard {
   margin-left: 92px;
   margin-top: 108px;
   width: 910px;

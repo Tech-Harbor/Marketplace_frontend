@@ -1,16 +1,16 @@
-import styles from './Loader.module.scss';
+import s from './Loader.module.scss';
 
 const Loader = () => {
   return (
-    <div className={styles.loader}>
-      <div className={styles.dot}></div>
-      <div className={styles.dot}></div>
-      <div className={styles.dot}></div>
-      <div className={styles.dot}></div>
-      <div className={styles.dot}></div>
-      <div className={styles.dot}></div>
-      <div className={styles.dot}></div>
-      <div className={styles.dot}></div>
+    <div className={s.loader}>
+      <div className={s.dot}></div>
+      <div className={s.dot}></div>
+      <div className={s.dot}></div>
+      <div className={s.dot}></div>
+      <div className={s.dot}></div>
+      <div className={s.dot}></div>
+      <div className={s.dot}></div>
+      <div className={s.dot}></div>
     </div>
   );
 };
