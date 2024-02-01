@@ -1,9 +1,14 @@
-import styled from 'styled-components';
-import Button from './Button';
-import { Text } from './Title';
-import device from './MediaQueries';
+import { Button } from '../Button/Button';
+import { StyledForm } from './Form.styled';
+import { Text } from '../Title_Text/Title_Text';
+import {
+  StyledInput,
+  StyledLabel,
+  StyledLabelPassword,
+  StyledLabelRepeatPassword,
+} from '../Input_Label/Input_Label';
 
-const Form = props => {
+export const Form = props => {
   return (
     <StyledForm {...props}>
       <StyledLabel label="name" id="name">
@@ -62,64 +67,3 @@ const Form = props => {
     </StyledForm>
   );
 };
-
-export default Form;
-
-const StyledForm = styled.form`
-  width: 100%;
-  min-height: 100%;
-`;
-
-const StyledLabel = styled.label`
-  display: block;
-
-  margin-top: ${props => props.marginTop || '21px'};
-
-  font-family: Inter;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 17px;
-  letter-spacing: 0em;
-  text-align: left;
-
-  @media ${device.laptopL} {
-    margin-top: 43px;
-
-    font-size: 16px;
-    line-height: 19.36px;
-  }
-`;
-
-const StyledLabelPassword = styled(StyledLabel)`
-  margin-top: 42px;
-
-  @media ${device.laptopL} {
-    margin-top: 52px;
-  }
-`;
-
-const StyledLabelRepeatPassword = styled(StyledLabel)`
-  margin-top: 17px;
-`;
-
-const StyledInput = styled.input.attrs({ type: 'text', required: true, autocomplete: true })`
-  margin-top: ${props => props.marginTop || '10px'};
-  padding: 12px 19px;
-
-  width: 100%;
-  height: 45px;
-
-  border: none;
-  border-radius: 10px;
-  background-color: #dadada;
-
-  &:focus-visible {
-    outline: none;
-  }
-
-  @media ${device.laptopL} {
-    padding: 18px 36px;
-
-    height: 66px;
-  }
-`;

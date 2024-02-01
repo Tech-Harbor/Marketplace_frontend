@@ -1,18 +1,9 @@
 import styled from 'styled-components';
-import device from './MediaQueries';
+
+import { device } from '../../../utils';
 // import PropTypes from 'prop-types';
 
-const Title = props => {
-  return <StyledTitle {...props} />;
-};
-
-const Text = props => {
-  return <StyledText {...props}></StyledText>;
-};
-
-export { Title, Text };
-
-const StyledTitle = styled.h1`
+export const StyledTitle = styled.h1`
   margin-top: 7px;
   padding: 6.5px 34px;
 
@@ -34,7 +25,7 @@ const StyledTitle = styled.h1`
   }
 `;
 
-const StyledText = styled.p`
+export const StyledText = styled.p`
   font-family: Inter;
   font-size: 24px;
   font-weight: 400;

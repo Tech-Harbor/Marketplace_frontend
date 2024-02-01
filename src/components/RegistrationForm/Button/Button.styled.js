@@ -1,13 +1,8 @@
 import styled from 'styled-components';
-import device from './MediaQueries';
 
-const Button = props => {
-  return <StyledButton {...props}></StyledButton>;
-};
+import { device } from '../../../utils';
 
-export default Button;
-
-const StyledButton = styled.button`
+export const StyledButton = styled.button`
   margin: 67px 0 10px 0;
   padding: 8px, 24px, 8px, 24px;
 
