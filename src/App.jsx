@@ -7,6 +7,7 @@ import RegisterPage from './pages/RegisterPage/RegisterPage.jsx';
 import FormTest from './components/FormForTest/FormTest.jsx';
 import FormForTestWithImage from './components/FormForTestWithImage/FormForTestWithImage.jsx';
 import ProductsPage from './pages/ProductsPage/ProductsPage.jsx';
+import Auth from './pages/AuthPage/Auth.jsx';
 
 const App = () => {
   return (
@@ -16,6 +17,8 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/category/:name" element={<ProductsPage />} />
         </Route>
+
+        <Route path="/auth" element={<Auth />} />
 
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
