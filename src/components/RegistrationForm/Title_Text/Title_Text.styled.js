@@ -4,6 +4,7 @@ import { device } from '../../../utils';
 // import PropTypes from 'prop-types';
 
 export const StyledTitle = styled.h1`
+  position: relative;
   margin-top: 7px;
   padding: 6.5px 34px;
 
@@ -14,6 +15,19 @@ export const StyledTitle = styled.h1`
   line-height: normal;
 
   /* color: #000; */
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+
+    border-radius: 2px;
+    background-color: #000;
+  }
 
   @media ${device.laptopL} {
     margin-top: 26px;

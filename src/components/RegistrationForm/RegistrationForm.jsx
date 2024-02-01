@@ -1,5 +1,5 @@
 import { Form } from './Form/Form';
-import { Flex } from './Flex/Flex';
+import { Flex } from './helpers/Flex';
 import { Title } from './Title_Text/Title_Text';
 
 import { Wrapper } from './RegistrationForm.styled';
