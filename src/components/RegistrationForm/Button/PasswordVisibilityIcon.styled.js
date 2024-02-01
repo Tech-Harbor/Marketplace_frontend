@@ -7,6 +7,4 @@ export const ButtonWrapper = styled.button({
 
   // reset styles
   backgroundColor: 'transparent',
-  border: 0,
-  padding: 0,
 });

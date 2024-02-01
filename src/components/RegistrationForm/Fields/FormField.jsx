@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 import { FlexDiv } from '../FlexDiv/FlexDiv';
-import { PasswordVisibilityIcon } from '../Button/PasswordIcon';
+import { PasswordVisibilityIcon } from '../Button/PasswordVisibilityIcon';
 import {
   StyledInput,
   StyledInputIcon,

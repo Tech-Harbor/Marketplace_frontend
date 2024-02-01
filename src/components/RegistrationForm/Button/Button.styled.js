@@ -14,8 +14,6 @@ export const StyledButton = styled.button`
 
   background-color: ${props => props.bg_color || '#9E9EB2'};
 
-  cursor: pointer;
-
   @media ${device.laptopL} {
     margin: 58px 0 20px 0;
   }

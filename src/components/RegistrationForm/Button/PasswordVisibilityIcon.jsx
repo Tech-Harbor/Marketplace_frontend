@@ -1,6 +1,5 @@
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
-
-import { ButtonWrapper } from './PasswordIcon.styled';
+import { ButtonWrapper } from './PasswordVisibilityIcon.styled';
 
 export const PasswordVisibilityIcon = () => {
   return (
