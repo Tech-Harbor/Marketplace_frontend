@@ -2,6 +2,9 @@ import styled from 'styled-components';
 
 import { device } from '../../../utils';
 
+/**
+ * Styles for inputs
+ */
 export const StyledInput = styled.input.attrs({
   type: 'text',
   required: true,
@@ -32,6 +35,9 @@ export const StyledInputIcon = styled(StyledInput)`
   padding-right: 36px; // reserved place for icon
 `;
 
+/**
+ * Styles for labels
+ */
 export const StyledLabel = styled.label`
   display: block;
 

@@ -1,5 +1,5 @@
 import { Form } from './Form/Form';
-import { Flex } from './helpers/Flex';
+import { FlexDiv } from './FlexDiv/FlexDiv';
 import { Title } from './Title_Text/Title_Text';
 
 import { Wrapper } from './RegistrationForm.styled';
@@ -7,10 +7,11 @@ import { Wrapper } from './RegistrationForm.styled';
 export const RegistrationForm = () => {
   return (
     <Wrapper>
-      <Flex justify="center" direction="column" align="center">
+      <FlexDiv justify="center" direction="column" align="center">
         <Title>Реєстрація</Title>
+
         <Form />
-      </Flex>
+      </FlexDiv>
     </Wrapper>
   );
 };
