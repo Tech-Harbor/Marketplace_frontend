@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 
 import { device } from '../../../utils';
-// import PropTypes from 'prop-types';
 
+/**
+ * Styles for Title component (h1)
+ */
 export const StyledTitle = styled.h1`
   position: relative;
+
   margin-top: 7px;
   padding: 6.5px 34px;
 
@@ -14,11 +17,11 @@ export const StyledTitle = styled.h1`
   font-weight: 400;
   line-height: normal;
 
-  /* color: #000; */
-
+  /* Underlined Title */
   &::after {
-    content: '';
     position: absolute;
+
+    content: '';
     bottom: 0;
     left: 0;
 
@@ -29,6 +32,7 @@ export const StyledTitle = styled.h1`
     background-color: #000;
   }
 
+  /* Styles for Laptop 1440px */
   @media ${device.laptopL} {
     margin-top: 26px;
     margin-bottom: 36px;
@@ -39,6 +43,9 @@ export const StyledTitle = styled.h1`
   }
 `;
 
+/**
+ * Styles for Text component (p)
+ */
 export const StyledText = styled.p`
   font-family: Inter;
   font-size: 24px;
@@ -49,12 +56,3 @@ export const StyledText = styled.p`
 
   color: #fff;
 `;
-
-// const Title = ({ children, color }) => {
-//   return <StyledTitle color={color}>{children}</StyledTitle>;
-// };
-
-// Title.propTypes = {
-//   children: PropTypes.string.isRequired,
-//   color: PropTypes.string.isRequired,
-// };

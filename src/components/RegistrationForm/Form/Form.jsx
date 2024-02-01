@@ -3,11 +3,14 @@ import { StyledForm } from './Form.styled';
 import { Text } from '../Title_Text/Title_Text';
 import {
   StyledInput,
+  StyledInputIcon,
   StyledLabel,
   StyledLabelPassword,
   StyledLabelRepeatPassword,
 } from '../Input_Label/Input_Label';
 
+import { Flex } from '../helpers/Flex';
+import PasswordIcon from '../Fields/PasswordIcon';
 export const Form = props => {
   return (
     <StyledForm {...props}>
@@ -44,22 +47,29 @@ export const Form = props => {
       <StyledLabelPassword label="password" id="password">
         Пароль
       </StyledLabelPassword>
-      <StyledInput
-        name="password"
-        id="password"
-        // value={password}
-        // onChange={e => setPassword(e.target.value)}
-      ></StyledInput>
+      <Flex position="relative">
+        <StyledInputIcon
+          name="password"
+          id="password"
+          // value={password}
+          // onChange={e => setPassword(e.target.value)}
+        ></StyledInputIcon>
+        <PasswordIcon />
+      </Flex>
 
       <StyledLabelRepeatPassword label="repeatPassword" id="repeatPassword">
         Повторіть пароль
       </StyledLabelRepeatPassword>
-      <StyledInput
-        name="repeatPassword"
-        id="repeatPassword"
-        // value={repeatPassword}
-        // onChange={e => setRepeatPassword(e.target.value)}
-      ></StyledInput>
+
+      <Flex position="relative">
+        <StyledInputIcon
+          name="repeatPassword"
+          id="repeatPassword"
+          // value={repeatPassword}
+          // onChange={e => setRepeatPassword(e.target.value)}
+        ></StyledInputIcon>
+        <PasswordIcon />
+      </Flex>
 
       <Button>
         <Text>Зареєструватися</Text>

@@ -28,6 +28,10 @@ export const StyledInput = styled.input.attrs({
   }
 `;
 
+export const StyledInputIcon = styled(StyledInput)`
+  padding-right: 36px; // reserved place for icon
+`;
+
 export const StyledLabel = styled.label`
   display: block;
 
