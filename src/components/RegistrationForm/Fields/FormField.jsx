@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 
+import { FlexDiv } from '../FlexDiv/FlexDiv';
+import { PasswordVisibilityIcon } from '../Button/PasswordIcon';
 import {
   StyledInput,
   StyledInputIcon,
@@ -7,8 +9,6 @@ import {
   StyledLabelPassword,
   StyledLabelRepeatPassword,
 } from './FormField.styled';
-import { FlexDiv } from '../FlexDiv/FlexDiv';
-import { PasswordVisibilityIcon } from '../Button/PasswordIcon';
 
 export const FormField = ({ name, id, text }) => {
   return (
