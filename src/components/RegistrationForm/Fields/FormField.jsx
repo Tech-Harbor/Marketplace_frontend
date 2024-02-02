@@ -39,7 +39,7 @@ export const FormFieldPassword = ({ name, id, text, clsLabel }) => {
         />
 
         <StyledWrapperButton>
-          <VisibilityOutlinedIcon />
+          <VisibilityOutlinedIcon style={{ color: '#000' }} />
         </StyledWrapperButton>
       </StyledFlexDiv>
     </>
