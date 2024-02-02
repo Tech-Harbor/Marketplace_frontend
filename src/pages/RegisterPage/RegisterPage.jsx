@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { RegistrationForm } from '../../components/RegistrationForm';
+
 const PageContainer = styled.div`
   display: flex;
   align-items: center;

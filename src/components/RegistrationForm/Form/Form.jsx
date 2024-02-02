@@ -1,4 +1,3 @@
-// import { StyledForm } from './Form.styled';
 import { FormField, FormFieldPassword } from '../Fields/FormField';
 import { StyledForm, StyledButton, StyledText } from './Form.styled';
 
@@ -13,16 +12,15 @@ export const Form = () => {
         name="password"
         id="password"
         text="Пароль"
-        clsLabel="password"
-        clsInput="icon-place"
+        clsLabel="password icon-place"
+        // clsInput="icon-place"
       />
-
       <FormFieldPassword
         name="repeat-password"
         id="repeat-password"
         text="Повторіть пароль"
-        clsLabel="repeat-password"
-        clsInput="icon-place"
+        clsLabel="repeat-password icon-place"
+        // clsInput="icon-place"
       />
 
       <StyledButton>

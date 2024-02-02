@@ -1,15 +1,13 @@
 import { Form } from './Form/Form';
 
-import { StyledFlexDiv, StyledTitle, Wrapper } from './RegistrationForm.styled';
+import { StyledTitle, FormWrapper } from './RegistrationForm.styled';
 
 export const RegistrationForm = () => {
   return (
-    <Wrapper>
-      <StyledFlexDiv $justify="center" $direction="column" $align="center">
-        <StyledTitle>Реєстрація</StyledTitle>
+    <FormWrapper>
+      <StyledTitle>Реєстрація</StyledTitle>
 
-        <Form />
-      </StyledFlexDiv>
-    </Wrapper>
+      <Form />
+    </FormWrapper>
   );
 };

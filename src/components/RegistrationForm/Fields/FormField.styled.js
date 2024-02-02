@@ -10,7 +10,7 @@ export const StyledInput = styled.input.attrs({
   required: true,
   autoComplete: 'true',
 })`
-  margin-top: ${props => props.$marginTop || '10px'};
+  margin-top: 10px;
   padding: 12px 19px;
 
   width: 100%;
@@ -43,7 +43,7 @@ export const StyledInput = styled.input.attrs({
 export const StyledLabel = styled.label`
   display: block;
 
-  margin-top: ${props => props.$marginTop || '21px'};
+  margin-top: 21px;
 
   font-family: Inter;
   font-size: 14px;

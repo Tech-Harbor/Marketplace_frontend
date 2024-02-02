@@ -3,15 +3,25 @@ import styled from 'styled-components';
 import { device } from '../../utils';
 
 /**
+ * Helper for using display: flex;
+ */
+const StyledFlexDiv = styled.div`
+  margin: 0 auto;
+
+  display: flex;
+  position: ${props => props.$position || 'static'};
+  flex-direction: ${props => props.$direction || 'column'};
+  align-items: ${props => props.$align || 'center'};
+  justify-content: ${props => props.$justify || 'center'};
+`;
+
+/**
  * Styles for RegistrationForm
  */
-export const Wrapper = styled.div`
-  margin-left: auto;
-  margin-right: auto;
+export const FormWrapper = styled(StyledFlexDiv)`
   padding: 0 16px;
 
   width: 360px;
-  height: 100%;
 
   background-color: #fff;
 
@@ -21,7 +31,6 @@ export const Wrapper = styled.div`
     padding: 0 25px;
 
     width: 708px;
-    height: 936px;
 
     border-radius: 10px;
   }
@@ -31,7 +40,7 @@ export const Wrapper = styled.div`
  * Styles for Title component (h1)
  */
 export const StyledTitle = styled.h1`
-  position: relative;
+  position: relative; // for underlined Title
 
   margin-top: 7px;
   padding: 6.5px 34px;
@@ -68,15 +77,4 @@ export const StyledTitle = styled.h1`
   }
 `;
 
-/**
- * Helper for using display: flex;
- */
-export const StyledFlexDiv = styled.div`
-  margin: 0 auto;
-
-  display: flex;
-  position: ${props => props.$position || 'static'};
-  flex-direction: ${props => props.$direction || 'row'};
-  align-items: ${props => props.$align || 'stretch'};
-  justify-content: ${props => props.$justify || 'stretch'};
-`;
+export { StyledFlexDiv };

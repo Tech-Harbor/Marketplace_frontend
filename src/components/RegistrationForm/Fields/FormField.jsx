@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 
 import { StyledFlexDiv } from '../RegistrationForm.styled';
@@ -21,7 +22,7 @@ export const FormField = ({ name, id, text }) => {
   );
 };
 
-export const FormFieldPassword = ({ name, id, text, clsLabel, clsInput }) => {
+export const FormFieldPassword = ({ name, id, text, clsLabel }) => {
   return (
     <>
       <StyledLabel label={name} id={id} className={clsLabel}>
@@ -32,7 +33,7 @@ export const FormFieldPassword = ({ name, id, text, clsLabel, clsInput }) => {
         <StyledInput
           name={name}
           id={id}
-          className={clsInput}
+          className={clsLabel}
           // value={repeat-password}
           // onChange={e => setPassword(e.target.value)}
         />
