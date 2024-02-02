@@ -7,7 +7,6 @@ import {
   StyledInputIcon,
   StyledLabel,
   StyledLabelPassword,
-  StyledLabelRepeatPassword,
   StyledWrapperButton,
 } from './FormField.styled';
 import { StyledFlexDiv } from '../RegistrationForm.styled';
@@ -29,20 +28,12 @@ export const FormField = ({ name, id, text }) => {
   );
 };
 
-export const FormFieldPassword = ({ name, id, text }) => {
+export const FormFieldPassword = ({ name, id, text, class_psw }) => {
   return (
     <>
-      {name === 'password' && (
-        <StyledLabelPassword label={name} id={id}>
-          {text}
-        </StyledLabelPassword>
-      )}
-
-      {name === 'repeatPassword' && (
-        <StyledLabelRepeatPassword label={name} id={id}>
-          {text}
-        </StyledLabelRepeatPassword>
-      )}
+      <StyledLabelPassword className={class_psw} label={name} id={id}>
+        {text}
+      </StyledLabelPassword>
 
       <StyledFlexDiv position="relative">
         <StyledInputIcon
@@ -70,6 +61,7 @@ FormFieldPassword.propTypes = {
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
+  class_psw: PropTypes.string.isRequired,
 };
 
 StyledLabel.propTypes = {

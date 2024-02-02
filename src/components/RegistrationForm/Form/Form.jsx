@@ -9,8 +9,13 @@ export const Form = props => {
       <FormField name="surname" id="surname" text="Ваше прізвище" />
       <FormField name="login" id="login" text="Введіть електронну пошту чи номер телефону" />
 
-      <FormFieldPassword name="password" id="password" text="Пароль" />
-      <FormFieldPassword name="repeatPassword" id="repeatPassword" text="Повторіть пароль" />
+      <FormFieldPassword name="password" id="password" text="Пароль" class_psw="password" />
+      <FormFieldPassword
+        name="repeatPassword"
+        id="repeatPassword"
+        text="Повторіть пароль"
+        class_psw="password-repeat"
+      />
 
       <StyledButton>
         <StyledText>Зареєструватися</StyledText>

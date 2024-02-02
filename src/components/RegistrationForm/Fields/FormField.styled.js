@@ -61,16 +61,22 @@ export const StyledLabel = styled.label`
 `;
 
 export const StyledLabelPassword = styled(StyledLabel)`
-  margin-top: 42px;
+  &.password {
+    margin-top: 42px;
 
-  @media ${device.laptopL} {
-    margin-top: 52px;
+    @media ${device.laptopL} {
+      margin-top: 52px;
+    }
+  }
+
+  &.password-repeat {
+    margin-top: 17px;
   }
 `;
 
-export const StyledLabelRepeatPassword = styled(StyledLabel)`
-  margin-top: 17px;
-`;
+// export const StyledLabelRepeatPassword = styled(StyledLabel)`
+//   margin-top: 17px;
+// `;
 
 /**
  * Styles for wrapper button of icon
