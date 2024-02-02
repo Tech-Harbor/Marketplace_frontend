@@ -26,7 +26,6 @@ export const StyledInput = styled.input.attrs({
     outline: none;
   }
 
-  /* Styles for Laptop 1440px */
   @media ${device.laptopL} {
     padding: 18px 36px;
 
@@ -53,12 +52,10 @@ export const StyledLabel = styled.label`
   letter-spacing: 0em;
   text-align: left;
 
-  /* Styles for Laptop 1024px */
   @media ${device.laptop} {
     margin-top: 12px;
   }
 
-  /* Styles for Laptop 1440px */
   @media ${device.laptopL} {
     margin-top: 43px;
 
@@ -69,11 +66,10 @@ export const StyledLabel = styled.label`
   &.password {
     margin-top: 42px;
 
-    /* Styles for Laptop 1024px */
     @media ${device.laptop} {
       margin-top: 25px;
     }
-    /* Styles for Laptop 1440px */
+
     @media ${device.laptopL} {
       margin-top: 52px;
     }
@@ -82,11 +78,10 @@ export const StyledLabel = styled.label`
   &.repeat-password {
     margin-top: 17px;
 
-    /* Styles for Laptop 1024px */
     @media ${device.laptop} {
       margin-top: 12px;
     }
-    /* Styles for Laptop 1440px */
+
     @media ${device.laptopL} {
       margin-top: 17px;
     }

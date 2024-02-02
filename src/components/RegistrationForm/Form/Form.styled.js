@@ -37,11 +37,9 @@ export const StyledButton = styled.button`
 
   background-color: var(--color-bg-form_btn-disable);
 
-  /* Styles for Laptop 1024px */
   @media ${device.laptop} {
     margin: 28px 0 9px 0;
   }
-  /* Styles for Laptop 1440px */
   @media ${device.laptopL} {
     margin: 58px 0 20px 0;
   }

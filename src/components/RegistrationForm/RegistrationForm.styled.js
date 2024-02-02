@@ -65,7 +65,6 @@ export const StyledTitle = styled.h1`
     background-color: var(--color-primary);
   }
 
-  /* Styles for Laptop 1024px */
   @media ${device.laptop} {
     margin-top: 17px;
     margin-bottom: 8px; // 20px-12px from Title margin-bottom
@@ -75,7 +74,6 @@ export const StyledTitle = styled.h1`
     line-height: 24px;
   }
 
-  /* Styles for Laptop 1440px */
   @media ${device.laptopL} {
     margin-top: 26px;
     margin-bottom: 36px;
