@@ -72,6 +72,8 @@ export const StyledTitle = styled.h1`
  * Helper for using display: flex;
  */
 export const StyledFlexDiv = styled.div`
+  margin: 0 auto;
+
   display: flex;
   position: ${props => props.$position || 'static'};
   flex-direction: ${props => props.$direction || 'row'};
