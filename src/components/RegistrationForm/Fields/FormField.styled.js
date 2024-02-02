@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { device } from '../../../utils';
 
 /**
- * Styles for inputs
+ * Styles for input component
  */
 export const StyledInput = styled.input.attrs({
   type: 'text',
@@ -31,14 +31,14 @@ export const StyledInput = styled.input.attrs({
 
     height: 66px;
   }
-`;
 
-export const StyledInputIcon = styled(StyledInput)`
-  padding-right: 36px; // reserved place for icon
+  &.icon-place {
+    padding-right: 36px; // reserved place for icon
+  }
 `;
 
 /**
- * Styles for labels
+ * Styles for label component
  */
 export const StyledLabel = styled.label`
   display: block;
@@ -58,9 +58,7 @@ export const StyledLabel = styled.label`
     font-size: 16px;
     line-height: 19.36px;
   }
-`;
 
-export const StyledLabelPassword = styled(StyledLabel)`
   &.password {
     margin-top: 42px;
 
@@ -69,14 +67,10 @@ export const StyledLabelPassword = styled(StyledLabel)`
     }
   }
 
-  &.password-repeat {
+  &.repeat-password {
     margin-top: 17px;
   }
 `;
-
-// export const StyledLabelRepeatPassword = styled(StyledLabel)`
-//   margin-top: 17px;
-// `;
 
 /**
  * Styles for wrapper button of icon

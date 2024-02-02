@@ -1,52 +1,40 @@
 import PropTypes from 'prop-types';
-
-// import { FlexDiv } from '../FlexDiv/FlexDiv';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
-import {
-  StyledInput,
-  StyledInputIcon,
-  StyledLabel,
-  StyledLabelPassword,
-  StyledWrapperButton,
-} from './FormField.styled';
-import { StyledFlexDiv } from '../RegistrationForm.styled';
 
-export const FormField = ({ name, id, text }) => {
+import { StyledFlexDiv } from '../RegistrationForm.styled';
+import { StyledInput, StyledLabel, StyledWrapperButton } from './FormField.styled';
+
+export const FormField = ({ name, id, text, clsLabel, clsInput }) => {
   return (
     <>
-      <StyledLabel label={name} id={id}>
+      <StyledLabel label={name} id={id} className={clsLabel}>
         {text}
       </StyledLabel>
 
-      <StyledInput
-        name={name}
-        id={name}
-        // value={name}
-        // onChange={e => setName(e.target.value)}
-      ></StyledInput>
-    </>
-  );
-};
-
-export const FormFieldPassword = ({ name, id, text, class_psw }) => {
-  return (
-    <>
-      <StyledLabelPassword className={class_psw} label={name} id={id}>
-        {text}
-      </StyledLabelPassword>
-
-      <StyledFlexDiv position="relative">
-        <StyledInputIcon
+      {(name === 'name' || name === 'surname' || name === 'login') && (
+        <StyledInput
           name={name}
-          id={id}
-          // value={password}
-          // onChange={e => setPassword(e.target.value)}
-        ></StyledInputIcon>
+          id={name}
+          // value={name}
+          // onChange={e => setName(e.target.value)}
+        ></StyledInput>
+      )}
 
-        <StyledWrapperButton>
-          <VisibilityOutlinedIcon />
-        </StyledWrapperButton>
-      </StyledFlexDiv>
+      {(name === 'password' || name === 'repeat-password') && (
+        <StyledFlexDiv position="relative">
+          <StyledInput
+            name={name}
+            id={id}
+            className={clsInput}
+            // value={repeat-password}
+            // onChange={e => setPassword(e.target.value)}
+          ></StyledInput>
+
+          <StyledWrapperButton>
+            <VisibilityOutlinedIcon />
+          </StyledWrapperButton>
+        </StyledFlexDiv>
+      )}
     </>
   );
 };
@@ -55,13 +43,8 @@ FormField.propTypes = {
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
-};
-
-FormFieldPassword.propTypes = {
-  name: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  class_psw: PropTypes.string.isRequired,
+  clsLabel: PropTypes.string,
+  clsInput: PropTypes.string,
 };
 
 StyledLabel.propTypes = {
