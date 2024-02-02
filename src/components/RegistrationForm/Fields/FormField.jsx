@@ -22,10 +22,10 @@ export const FormField = ({ name, id, text }) => {
   );
 };
 
-export const FormFieldPassword = ({ name, id, text, clsLabel }) => {
+export const FormFieldPassword = ({ name, id, text, clsField }) => {
   return (
     <>
-      <StyledLabel label={name} id={id} className={clsLabel}>
+      <StyledLabel label={name} id={id} className={clsField}>
         {text}
       </StyledLabel>
 
@@ -33,13 +33,13 @@ export const FormFieldPassword = ({ name, id, text, clsLabel }) => {
         <StyledInput
           name={name}
           id={id}
-          className={clsLabel}
+          className={clsField}
           // value={repeat-password}
           // onChange={e => setPassword(e.target.value)}
         />
 
         <StyledWrapperButton>
-          <VisibilityOutlinedIcon style={{ color: '#000' }} />
+          <VisibilityOutlinedIcon style={{ color: 'var(--color-primary)' }} />
         </StyledWrapperButton>
       </StyledFlexDiv>
     </>
@@ -50,14 +50,12 @@ FormField.propTypes = {
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
-  clsLabel: PropTypes.string,
-  clsInput: PropTypes.string,
+  clsField: PropTypes.string,
 };
 
 FormFieldPassword.propTypes = {
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
-  clsLabel: PropTypes.string,
-  clsInput: PropTypes.string,
+  clsField: PropTypes.string,
 };

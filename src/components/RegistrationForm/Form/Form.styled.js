@@ -17,15 +17,16 @@ export const StyledText = styled.p`
   letter-spacing: 0em;
   text-align: center;
 
-  color: #fff;
+  color: var(--color-btn-text);
 `;
 
 /**
  * Styles for form button
  */
+
 // .attrs({ disabled: true })
 export const StyledButton = styled.button`
-  margin: 67px 0 10px 0;
+  margin: 67px 0 17px 0;
   padding: 8px, 24px, 8px, 24px;
 
   width: 100%;
@@ -34,8 +35,13 @@ export const StyledButton = styled.button`
   border: none;
   border-radius: 10px;
 
-  background-color: #9e9eb2;
+  background-color: var(--color-bg-form_btn-disable);
 
+  /* Styles for Laptop 1024px */
+  @media ${device.laptop} {
+    margin: 28px 0 9px 0;
+  }
+  /* Styles for Laptop 1440px */
   @media ${device.laptopL} {
     margin: 58px 0 20px 0;
   }

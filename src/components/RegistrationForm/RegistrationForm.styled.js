@@ -20,18 +20,17 @@ const StyledFlexDiv = styled.div`
  */
 export const FormWrapper = styled(StyledFlexDiv)`
   padding: 0 16px;
-
   width: 360px;
+  background-color: var(--color-bg-form);
 
-  background-color: #fff;
+  @media ${device.laptop} {
+    padding: 0 25px;
+    width: 658px;
+    border-radius: 10px;
+  }
 
   @media ${device.laptopL} {
-    margin-top: 27px;
-    margin-bottom: 23px;
-    padding: 0 25px;
-
     width: 708px;
-
     border-radius: 10px;
   }
 `;
@@ -63,7 +62,17 @@ export const StyledTitle = styled.h1`
     height: 2px;
 
     border-radius: 2px;
-    background-color: #000;
+    background-color: var(--color-primary);
+  }
+
+  /* Styles for Laptop 1024px */
+  @media ${device.laptop} {
+    margin-top: 17px;
+    margin-bottom: 8px; // 20px-12px from Title margin-bottom
+    padding: 6px 90px;
+
+    font-size: 20px;
+    line-height: 24px;
   }
 
   /* Styles for Laptop 1440px */
@@ -73,7 +82,7 @@ export const StyledTitle = styled.h1`
     padding: 14px 92px;
 
     font-size: 24px;
-    line-height: 29.05px;
+    line-height: 29px;
   }
 `;
 

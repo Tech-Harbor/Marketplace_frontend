@@ -18,14 +18,15 @@ export const StyledInput = styled.input.attrs({
 
   border: none;
   border-radius: 10px;
-  background-color: #dadada;
+  background-color: var(--color-bg-form_input);
 
-  color: #000;
+  color: var(--color-primary);
 
   &:focus-visible {
     outline: none;
   }
 
+  /* Styles for Laptop 1440px */
   @media ${device.laptopL} {
     padding: 18px 36px;
 
@@ -33,7 +34,7 @@ export const StyledInput = styled.input.attrs({
   }
 
   &.icon-place {
-    padding-right: 36px; // reserved place for icon
+    padding-right: 50px; // reserved place for icon
   }
 `;
 
@@ -52,6 +53,12 @@ export const StyledLabel = styled.label`
   letter-spacing: 0em;
   text-align: left;
 
+  /* Styles for Laptop 1024px */
+  @media ${device.laptop} {
+    margin-top: 12px;
+  }
+
+  /* Styles for Laptop 1440px */
   @media ${device.laptopL} {
     margin-top: 43px;
 
@@ -62,6 +69,11 @@ export const StyledLabel = styled.label`
   &.password {
     margin-top: 42px;
 
+    /* Styles for Laptop 1024px */
+    @media ${device.laptop} {
+      margin-top: 25px;
+    }
+    /* Styles for Laptop 1440px */
     @media ${device.laptopL} {
       margin-top: 52px;
     }
@@ -69,6 +81,15 @@ export const StyledLabel = styled.label`
 
   &.repeat-password {
     margin-top: 17px;
+
+    /* Styles for Laptop 1024px */
+    @media ${device.laptop} {
+      margin-top: 12px;
+    }
+    /* Styles for Laptop 1440px */
+    @media ${device.laptopL} {
+      margin-top: 17px;
+    }
   }
 `;
 

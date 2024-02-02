@@ -12,14 +12,14 @@ export const Form = () => {
         name="password"
         id="password"
         text="Пароль"
-        clsLabel="password icon-place"
+        clsField="password icon-place"
         // clsInput="icon-place"
       />
       <FormFieldPassword
         name="repeat-password"
         id="repeat-password"
         text="Повторіть пароль"
-        clsLabel="repeat-password icon-place"
+        clsField="repeat-password icon-place"
         // clsInput="icon-place"
       />
 
