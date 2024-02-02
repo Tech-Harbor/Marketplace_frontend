@@ -1,7 +1,6 @@
-import { StyledForm } from './Form.styled';
+// import { StyledForm } from './Form.styled';
 import { FormField, FormFieldPassword } from '../Fields/FormField';
-import { Text } from '../Title_Text/Title_Text';
-import { Button } from '../Button/Button';
+import { StyledForm, StyledButton, StyledText } from './Form.styled';
 
 export const Form = props => {
   return (
@@ -13,9 +12,9 @@ export const Form = props => {
       <FormFieldPassword name="password" id="password" text="Пароль" />
       <FormFieldPassword name="repeatPassword" id="repeatPassword" text="Повторіть пароль" />
 
-      <Button>
-        <Text>Зареєструватися</Text>
-      </Button>
+      <StyledButton>
+        <StyledText>Зареєструватися</StyledText>
+      </StyledButton>
     </StyledForm>
   );
 };

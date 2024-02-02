@@ -20,6 +20,8 @@ export const StyledInput = styled.input.attrs({
   border-radius: 10px;
   background-color: #dadada;
 
+  color: #000;
+
   &:focus-visible {
     outline: none;
   }
@@ -69,3 +71,15 @@ export const StyledLabelPassword = styled(StyledLabel)`
 export const StyledLabelRepeatPassword = styled(StyledLabel)`
   margin-top: 17px;
 `;
+
+/**
+ * Styles for wrapper button of icon
+ */
+export const StyledWrapperButton = styled.button({
+  position: 'absolute',
+  right: '24px',
+  top: 'calc(50% - 7px)',
+
+  // reset styles
+  backgroundColor: 'transparent',
+});

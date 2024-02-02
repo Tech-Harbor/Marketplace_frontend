@@ -1,14 +1,16 @@
 import PropTypes from 'prop-types';
 
-import { FlexDiv } from '../FlexDiv/FlexDiv';
-import { PasswordVisibilityIcon } from '../Button/PasswordVisibilityIcon';
+// import { FlexDiv } from '../FlexDiv/FlexDiv';
+import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import {
   StyledInput,
   StyledInputIcon,
   StyledLabel,
   StyledLabelPassword,
   StyledLabelRepeatPassword,
+  StyledWrapperButton,
 } from './FormField.styled';
+import { StyledFlexDiv } from '../RegistrationForm.styled';
 
 export const FormField = ({ name, id, text }) => {
   return (
@@ -42,7 +44,7 @@ export const FormFieldPassword = ({ name, id, text }) => {
         </StyledLabelRepeatPassword>
       )}
 
-      <FlexDiv position="relative">
+      <StyledFlexDiv position="relative">
         <StyledInputIcon
           name={name}
           id={id}
@@ -50,8 +52,10 @@ export const FormFieldPassword = ({ name, id, text }) => {
           // onChange={e => setPassword(e.target.value)}
         ></StyledInputIcon>
 
-        <PasswordVisibilityIcon />
-      </FlexDiv>
+        <StyledWrapperButton>
+          <VisibilityOutlinedIcon />
+        </StyledWrapperButton>
+      </StyledFlexDiv>
     </>
   );
 };
