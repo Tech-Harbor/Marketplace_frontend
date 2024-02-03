@@ -2,9 +2,7 @@ import styled from 'styled-components';
 
 import { device } from '../../utils';
 
-/**
- * Helper for using display: flex;
- */
+// Helper for using display: flex;
 const StyledFlexDiv = styled.div`
   display: flex;
   flex-direction: ${props => props.$direction || 'column'};
@@ -16,9 +14,7 @@ const StyledFlexDiv = styled.div`
   }
 `;
 
-/**
- * Styles for RegistrationForm
- */
+// Styles for RegistrationForm
 export const FormWrapper = styled(StyledFlexDiv)`
   padding: 0 16px;
   width: 360px;
@@ -36,9 +32,7 @@ export const FormWrapper = styled(StyledFlexDiv)`
   }
 `;
 
-/**
- * Styles for Title component (h1)
- */
+// Styles for Title component (h1)
 export const StyledTitle = styled.h1`
   position: relative; // for underlined Title
   margin-top: 7px;

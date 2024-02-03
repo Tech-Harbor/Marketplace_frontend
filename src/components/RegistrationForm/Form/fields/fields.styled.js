@@ -3,9 +3,7 @@ import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 
 import { device } from '../../../../utils/index.js';
 
-/**
- * Styles for input component
- */
+// Styles for input component
 export const StyledInput = styled.input.attrs({
   type: 'text',
   required: true,
@@ -34,9 +32,8 @@ export const StyledInput = styled.input.attrs({
   }
 `;
 
-/**
- * Styles for label component
- */
+// Styles for label component
+
 export const StyledLabel = styled.label`
   display: block;
   margin-top: 21px;
@@ -82,9 +79,7 @@ export const StyledLabel = styled.label`
   }
 `;
 
-/**
- * Styles for wrapper button of icon
- */
+// Styles for wrapper button of icon
 export const StyledWrapperButton = styled.button({
   position: 'absolute',
   right: '24px',

@@ -1,6 +1,4 @@
-import {FormField} from './fields/FormField.jsx';
-import {FormFieldPassword} from "./fields/FormFieldPassword.jsx";
-
+import {FormField, FormFieldPassword} from './fields/index.js';
 import {StyledForm, StyledButton} from './Form.styled';
 
 
@@ -9,7 +7,7 @@ export const Form = () => {
         <StyledForm>
             <FormField name="name" id="name" text="Ваше ім’я"/>
             <FormField name="surname" id="surname" text="Ваше прізвище"/>
-            <FormField name="login" id="login" text="Введіть електронну пошту чи номер телефону"/>
+            <FormField name="login" id="login" text="Введіть електронну пошту"/>
 
             <FormFieldPassword
                 name="password"

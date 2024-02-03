@@ -6,12 +6,9 @@ export const StyledForm = styled.form`
   min-height: 100%;
 `;
 
-/**
- * Styles for form button
- */
-
-// .attrs({ disabled: true })
+// Styles for form button
 export const StyledButton = styled.button`
+  // .attrs({ disabled: true })
   margin: 67px 0 17px 0;
   padding: 8px 24px;
   width: 100%;

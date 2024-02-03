@@ -12,6 +12,7 @@ export const FormFieldPassword = ({name, id, text, clsField}) => {
 
             <StyledFlexDiv className="icon-position">
                 <StyledInput
+                    type="password"
                     name={name}
                     id={id}
                     className={`icon-place ${clsField}`}
