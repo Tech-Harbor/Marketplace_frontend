@@ -1,6 +1,8 @@
-import {FormField, FormFieldPassword} from './FormField.jsx';
+import {FormField} from './FormField.jsx';
+import {FormFieldPassword} from "./FormFieldPassword.jsx";
 
 import {StyledForm, StyledButton} from './Form.styled';
+
 
 export const Form = () => {
     return (

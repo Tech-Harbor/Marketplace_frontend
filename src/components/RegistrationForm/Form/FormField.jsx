@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 
-import {StyledFlexDiv} from '../RegistrationForm.styled.js';
-import {StyledIconForInput, StyledInput, StyledLabel, StyledWrapperButton} from './FormField.styled.js';
+import {StyledInput, StyledLabel} from './FormField.styled.js';
 
 export const FormField = ({name, id, text}) => {
     return (
@@ -20,30 +19,6 @@ export const FormField = ({name, id, text}) => {
     );
 };
 
-export const FormFieldPassword = ({name, id, text, clsField}) => {
-    return (
-        <>
-            <StyledLabel label={name} id={id} className={`icon-place ${clsField}`}>
-                {text}
-            </StyledLabel>
-
-            <StyledFlexDiv className="icon-position">
-                <StyledInput
-                    name={name}
-                    id={id}
-                    className={`icon-place ${clsField}`}
-                    // value={repeat-password}
-                    // onChange={e => setPassword(e.target.value)}
-                />
-
-                <StyledWrapperButton>
-                    <StyledIconForInput/>
-                </StyledWrapperButton>
-            </StyledFlexDiv>
-        </>
-    );
-};
-
 FormField.propTypes = {
     name: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
@@ -51,9 +26,4 @@ FormField.propTypes = {
     clsField: PropTypes.string,
 };
 
-FormFieldPassword.propTypes = {
-    name: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
-    clsField: PropTypes.string,
-};
+

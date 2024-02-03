@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
+
 import { device } from '../../../utils/index.js';
 
 /**
@@ -79,20 +79,4 @@ export const StyledLabel = styled.label`
       margin-top: 17px;
     }
   }
-`;
-
-/**
- * Styles for wrapper button of icon
- */
-export const StyledWrapperButton = styled.button({
-  position: 'absolute',
-  right: '24px',
-  top: 'calc(50% - 7px)',
-
-  // reset styles
-  backgroundColor: 'transparent',
-});
-
-export const StyledIconForInput = styled(VisibilityOutlinedIcon)`
-  color: var(--color-primary);
 `;
