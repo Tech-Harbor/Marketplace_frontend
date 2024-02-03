@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import { device } from '../../../utils';
 
 /**
@@ -12,14 +12,11 @@ export const StyledInput = styled.input.attrs({
 })`
   margin-top: 10px;
   padding: 12px 19px;
-
   width: 100%;
   height: 45px;
-
   border: none;
   border-radius: 10px;
   background-color: var(--color-bg-form_input);
-
   color: var(--color-primary);
 
   &:focus-visible {
@@ -28,7 +25,6 @@ export const StyledInput = styled.input.attrs({
 
   @media ${device.laptopL} {
     padding: 18px 36px;
-
     height: 66px;
   }
 
@@ -42,14 +38,12 @@ export const StyledInput = styled.input.attrs({
  */
 export const StyledLabel = styled.label`
   display: block;
-
   margin-top: 21px;
-
-  font-family: Inter;
+  font-family: Inter, serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;
-  letter-spacing: 0em;
+  letter-spacing: 0;
   text-align: left;
 
   @media ${device.laptop} {
@@ -58,7 +52,6 @@ export const StyledLabel = styled.label`
 
   @media ${device.laptopL} {
     margin-top: 43px;
-
     font-size: 16px;
     line-height: 19.36px;
   }
@@ -99,3 +92,7 @@ export const StyledWrapperButton = styled.button({
   // reset styles
   backgroundColor: 'transparent',
 });
+
+export const StyledIconForInput = styled(VisibilityOutlinedIcon)`
+  color: var(--color-primary);
+`;

@@ -1,9 +1,7 @@
 import PropTypes from 'prop-types';
 
-import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
-
 import { StyledFlexDiv } from '../RegistrationForm.styled';
-import { StyledInput, StyledLabel, StyledWrapperButton } from './FormField.styled';
+import {StyledIconForInput, StyledInput, StyledLabel, StyledWrapperButton} from './FormField.styled';
 
 export const FormField = ({ name, id, text }) => {
   return (
@@ -25,7 +23,7 @@ export const FormField = ({ name, id, text }) => {
 export const FormFieldPassword = ({ name, id, text, clsField }) => {
   return (
     <>
-      <StyledLabel label={name} id={id} className={clsField}>
+      <StyledLabel label={name} id={id} className={`icon-place ${clsField}`}>
         {text}
       </StyledLabel>
 
@@ -33,13 +31,13 @@ export const FormFieldPassword = ({ name, id, text, clsField }) => {
         <StyledInput
           name={name}
           id={id}
-          className={clsField}
+          className={`icon-place ${clsField}`}
           // value={repeat-password}
           // onChange={e => setPassword(e.target.value)}
         />
 
         <StyledWrapperButton>
-          <VisibilityOutlinedIcon style={{ color: 'var(--color-primary)' }} />
+          <StyledIconForInput />
         </StyledWrapperButton>
       </StyledFlexDiv>
     </>

@@ -6,7 +6,6 @@ export const RegistrationForm = () => {
   return (
     <FormWrapper>
       <StyledTitle>Реєстрація</StyledTitle>
-
       <Form />
     </FormWrapper>
   );

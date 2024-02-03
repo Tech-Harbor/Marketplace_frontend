@@ -6,8 +6,6 @@ import { device } from '../../utils';
  * Helper for using display: flex;
  */
 const StyledFlexDiv = styled.div`
-  margin: 0 auto;
-
   display: flex;
   position: ${props => props.$position || 'static'};
   flex-direction: ${props => props.$direction || 'column'};
@@ -40,10 +38,8 @@ export const FormWrapper = styled(StyledFlexDiv)`
  */
 export const StyledTitle = styled.h1`
   position: relative; // for underlined Title
-
   margin-top: 7px;
   padding: 6.5px 34px;
-
   font-family: Inter;
   font-size: 16px;
   font-style: normal;
@@ -53,14 +49,11 @@ export const StyledTitle = styled.h1`
   /* Underlined Title */
   &::after {
     position: absolute;
-
     content: '';
     bottom: 0;
     left: 0;
-
     width: 100%;
     height: 2px;
-
     border-radius: 2px;
     background-color: var(--color-primary);
   }
@@ -69,7 +62,6 @@ export const StyledTitle = styled.h1`
     margin-top: 17px;
     margin-bottom: 8px; // 20px-12px from Title margin-bottom
     padding: 6px 90px;
-
     font-size: 20px;
     line-height: 24px;
   }
@@ -78,7 +70,6 @@ export const StyledTitle = styled.h1`
     margin-top: 26px;
     margin-bottom: 36px;
     padding: 14px 92px;
-
     font-size: 24px;
     line-height: 29px;
   }

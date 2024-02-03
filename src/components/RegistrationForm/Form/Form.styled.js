@@ -10,13 +10,12 @@ export const StyledForm = styled.form`
  * Styles for Text component (p)
  */
 export const StyledText = styled.p`
-  font-family: Inter;
+  font-family: Inter, serif;
   font-size: 24px;
   font-weight: 400;
   line-height: 29px;
-  letter-spacing: 0em;
+  letter-spacing: 0;
   text-align: center;
-
   color: var(--color-btn-text);
 `;
 
@@ -27,19 +26,17 @@ export const StyledText = styled.p`
 // .attrs({ disabled: true })
 export const StyledButton = styled.button`
   margin: 67px 0 17px 0;
-  padding: 8px, 24px, 8px, 24px;
-
+  padding: 8px 24px;
   width: 100%;
   height: 66px;
-
   border: none;
   border-radius: 10px;
-
   background-color: var(--color-bg-form_btn-disable);
 
   @media ${device.laptop} {
     margin: 28px 0 9px 0;
   }
+
   @media ${device.laptopL} {
     margin: 58px 0 20px 0;
   }

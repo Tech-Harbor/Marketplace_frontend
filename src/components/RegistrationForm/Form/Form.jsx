@@ -1,4 +1,4 @@
-import { FormField, FormFieldPassword } from '../Fields/FormField';
+import { FormField, FormFieldPassword } from '../FormField/FormField';
 import { StyledForm, StyledButton, StyledText } from './Form.styled';
 
 export const Form = () => {
@@ -12,14 +12,14 @@ export const Form = () => {
         name="password"
         id="password"
         text="Пароль"
-        clsField="password icon-place"
+        clsField="password"
         // clsInput="icon-place"
       />
       <FormFieldPassword
         name="repeat-password"
         id="repeat-password"
         text="Повторіть пароль"
-        clsField="repeat-password icon-place"
+        clsField="repeat-password"
         // clsInput="icon-place"
       />
 

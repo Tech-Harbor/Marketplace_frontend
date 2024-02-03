@@ -4,6 +4,7 @@ import { RegistrationForm } from '../../components/RegistrationForm';
 const PageContainer = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 100vh;
 `;
 
