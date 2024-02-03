@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
-import { device } from '../../../utils';
+import { device } from '../../../utils/index.js';
 
 /**
  * Styles for input component
@@ -39,7 +39,7 @@ export const StyledInput = styled.input.attrs({
 export const StyledLabel = styled.label`
   display: block;
   margin-top: 21px;
-  font-family: Inter, serif;
+  font-family: Inter, sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;

@@ -7,10 +7,14 @@ import { device } from '../../utils';
  */
 const StyledFlexDiv = styled.div`
   display: flex;
-  position: ${props => props.$position || 'static'};
+  // position: ${props => props.$position || 'static'};
   flex-direction: ${props => props.$direction || 'column'};
   align-items: ${props => props.$align || 'center'};
   justify-content: ${props => props.$justify || 'center'};
+
+  &.icon-position {
+    position: relative;
+  }
 `;
 
 /**
@@ -40,7 +44,7 @@ export const StyledTitle = styled.h1`
   position: relative; // for underlined Title
   margin-top: 7px;
   padding: 6.5px 34px;
-  font-family: Inter;
+  font-family: Inter, sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;

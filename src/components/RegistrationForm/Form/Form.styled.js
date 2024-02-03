@@ -7,19 +7,6 @@ export const StyledForm = styled.form`
 `;
 
 /**
- * Styles for Text component (p)
- */
-export const StyledText = styled.p`
-  font-family: Inter, serif;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 29px;
-  letter-spacing: 0;
-  text-align: center;
-  color: var(--color-btn-text);
-`;
-
-/**
  * Styles for form button
  */
 
@@ -32,6 +19,14 @@ export const StyledButton = styled.button`
   border: none;
   border-radius: 10px;
   background-color: var(--color-bg-form_btn-disable);
+
+  font-family: Inter, sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 29px;
+  letter-spacing: 0;
+  text-align: center;
+  color: var(--color-btn-text);
 
   @media ${device.laptop} {
     margin: 28px 0 9px 0;
