@@ -1,5 +1,5 @@
-import {FormField} from './FormField.jsx';
-import {FormFieldPassword} from "./FormFieldPassword.jsx";
+import {FormField} from './fields/FormField.jsx';
+import {FormFieldPassword} from "./fields/FormFieldPassword.jsx";
 
 import {StyledForm, StyledButton} from './Form.styled';
 

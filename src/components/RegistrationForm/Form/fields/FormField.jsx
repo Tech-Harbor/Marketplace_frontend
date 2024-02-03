@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import {StyledInput, StyledLabel} from './FormField.styled.js';
+import {StyledInput, StyledLabel} from './fields.styled.js';
 
 export const FormField = ({name, id, text}) => {
     return (
@@ -18,6 +18,7 @@ export const FormField = ({name, id, text}) => {
         </>
     );
 };
+
 
 FormField.propTypes = {
     name: PropTypes.string.isRequired,

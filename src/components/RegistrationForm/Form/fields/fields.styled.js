@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 
-import { device } from '../../../utils/index.js';
+import { device } from '../../../../utils/index.js';
 
 /**
  * Styles for input component
@@ -23,13 +24,13 @@ export const StyledInput = styled.input.attrs({
     outline: none;
   }
 
+  &.icon-place {
+    padding-right: 50px; // reserved place for icon
+  }
+
   @media ${device.laptopL} {
     padding: 18px 36px;
     height: 66px;
-  }
-
-  &.icon-place {
-    padding-right: 50px; // reserved place for icon
   }
 `;
 
@@ -45,16 +46,6 @@ export const StyledLabel = styled.label`
   line-height: 17px;
   letter-spacing: 0;
   text-align: left;
-
-  @media ${device.laptop} {
-    margin-top: 12px;
-  }
-
-  @media ${device.laptopL} {
-    margin-top: 43px;
-    font-size: 16px;
-    line-height: 19.36px;
-  }
 
   &.password {
     margin-top: 42px;
@@ -79,4 +70,30 @@ export const StyledLabel = styled.label`
       margin-top: 17px;
     }
   }
+
+  @media ${device.laptop} {
+    margin-top: 12px;
+  }
+
+  @media ${device.laptopL} {
+    margin-top: 43px;
+    font-size: 16px;
+    line-height: 19.36px;
+  }
+`;
+
+/**
+ * Styles for wrapper button of icon
+ */
+export const StyledWrapperButton = styled.button({
+  position: 'absolute',
+  right: '24px',
+  top: 'calc(50% - 7px)',
+
+  // reset styles
+  backgroundColor: 'transparent',
+});
+
+export const StyledIcon = styled(VisibilityOutlinedIcon)`
+  color: var(--color-primary);
 `;

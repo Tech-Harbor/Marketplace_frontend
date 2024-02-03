@@ -7,7 +7,6 @@ import { device } from '../../utils';
  */
 const StyledFlexDiv = styled.div`
   display: flex;
-  // position: ${props => props.$position || 'static'};
   flex-direction: ${props => props.$direction || 'column'};
   align-items: ${props => props.$align || 'center'};
   justify-content: ${props => props.$justify || 'center'};

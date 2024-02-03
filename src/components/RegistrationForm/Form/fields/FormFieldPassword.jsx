@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 
-import {StyledFlexDiv} from '../RegistrationForm.styled.js';
-import {StyledInput, StyledLabel} from './FormField.styled.js';
-import {StyledIcon, StyledWrapperButton} from "./FormFieldPassword.styled.js";
+import {StyledFlexDiv} from '../../RegistrationForm.styled.js';
+import {StyledInput, StyledLabel, StyledIcon, StyledWrapperButton} from './fields.styled.js';
 
 export const FormFieldPassword = ({name, id, text, clsField}) => {
     return (
