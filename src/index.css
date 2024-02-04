@@ -30,6 +30,14 @@
   --color-bg-nav-catalog: #032282;
   --color-bg-nav-route1: #052a9ced;
   --color-bg-nav-route2: #0535c9e5;
+
+  /* Ruskevych */
+  --color-primary: #000;
+
+  --color-bg-form: #fff;
+  --color-bg-form_input: #dadada;
+  --color-bg-form_btn-disable: #9e9eb2;
+  --color-bg-form_btn-enable: #17317b;
 }
 
 body {
@@ -42,6 +50,8 @@ button {
   cursor: pointer;
   margin: 0;
   padding: 0;
+
+  border: 0;
 }
 
 h1,
