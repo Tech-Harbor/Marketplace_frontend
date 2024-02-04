@@ -33,11 +33,11 @@ const Auth = () => {
         <SecondButtonOfChoice>Зареєструватися</SecondButtonOfChoice>
       </BlockOfButtons>
       <BlockOfInputs>
-        <InputOfForm name="Електронна пошта чи телефон" type="text"></InputOfForm>
+        <InputOfForm name="Електронна пошта" type="text"></InputOfForm>
         <InputOfForm name="Пароль" type="password"></InputOfForm>
       </BlockOfInputs>
       <Forgot>Забули пароль?</Forgot>
-      <ButtonOfForm>Увійти</ButtonOfForm>
+      <ButtonOfForm color="#9E9EB2">Увійти</ButtonOfForm>
     </BlockOfForm>
   );
 };

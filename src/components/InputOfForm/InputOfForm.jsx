@@ -10,7 +10,7 @@ const InputOfForm = ({ name, type }) => {
 };
 
 InputOfForm.propTypes = {
-  name: PropTypes.string,
-  type: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
 };
 export default InputOfForm;
