@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '../../utils/index.js';
 
 const text = `
   font-family: 'Inter', sans-serif;
@@ -13,12 +14,12 @@ export const BlockOfForm = styled.div`
   background-color: #ffffff;
   margin: 0 auto;
   padding: 16px;
-  @media (min-width: 1024px) {
+  @media ${device.laptop} {
     & {
       width: 658px;
     }
   }
-  @media (min-width: 1440px) {
+  @media ${device.laptopL} {
     & {
       width: 708px;
     }
@@ -35,7 +36,7 @@ export const ButtonOfLogIn = styled.button`
   align-items: center;
   margin-top: 36px;
   padding: 8px 13.5px;
-  @media (min-width: 1024px) {
+  @media ${device.laptop} {
     & {
       margin-top: 26px;
       padding: 1px 5px;
@@ -45,7 +46,7 @@ export const ButtonOfLogIn = styled.button`
 
 export const SecondButtonOfLogIn = styled(ButtonOfLogIn)`
   margin-top: 43px;
-  @media (min-width: 1024px) {
+  @media ${device.laptop} {
     & {
       margin-top: 27px;
     }
@@ -56,7 +57,7 @@ export const Image = styled.img`
   width: 30px;
   aspect-ratio: 1;
   margin-right: 10px;
-  @media (min-width: 1024px) {
+  @media ${device.laptop} {
     & {
       width: 50px;
       margin-right: 37px;
@@ -69,7 +70,7 @@ export const Text = styled.span`
   ${text};
   line-height: 38px;
   color: ${black};
-  @media (min-width: 1024px) {
+  @media ${device.laptop} {
     & {
       font-size: 32px;
       line-height: 38px;
@@ -95,7 +96,7 @@ export const Change = styled.div`
     background-color: #ffffff;
     padding-inline: 25px;
   }
-  @media (min-width: 1024px) {
+  @media ${device.laptop} {
     &::after {
       font-size: 24px;
       padding-inline: 51px;
@@ -103,7 +104,7 @@ export const Change = styled.div`
       top: -50px;
     }
   }
-  @media (min-width: 1440px) {
+  @media ${device.laptopL} {
     &::after {
       padding-inline: 85px;
       margin-top: 79px;
@@ -116,13 +117,13 @@ export const BlockOfButtons = styled.div`
   display: flex;
   gap: 15px;
   margin: 10px 0 40px 0;
-  @media (min-width: 1024px) {
+  @media ${device.laptop} {
     & {
       gap: 25px;
       margin: 18px 0 28px 0;
     }
   }
-  @media (min-width: 1440px) {
+  @media ${device.laptopL} {
     & {
       margin: 45px 0 45px 0;
     }
@@ -138,7 +139,7 @@ export const ButtonOfChoice = styled.button`
   ${text};
   font-size: 18px;
   line-height: 21px;
-  @media (min-width: 1440px) {
+  @media ${device.laptopL} {
     & {
       font-size: 24px;
       line-height: 29px;
@@ -160,12 +161,12 @@ export const BlockOfInputs = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  @media (min-width: 1024px) {
+  @media ${device.laptop} {
     & {
       height: 178px;
     }
   }
-  @media (min-width: 1440px) {
+  @media ${device.laptopL} {
     & {
       height: 218px;
     }
@@ -179,12 +180,12 @@ export const Forgot = styled.a`
   cursor: pointer;
   display: block;
   margin: 33px 0 40px 0;
-  @media (min-width: 1024px) {
+  @media ${device.laptop} {
     & {
       margin: 18px 0 15px 0;
     }
   }
-  @media (min-width: 1440px) {
+  @media ${device.laptopL} {
     & {
       font-size: 20px;
       line-height: 24px;

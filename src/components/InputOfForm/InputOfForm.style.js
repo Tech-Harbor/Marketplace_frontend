@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '../../utils/index.js';
 
 const text = `
   font-family: 'Inter', sans-serif;
@@ -7,13 +8,14 @@ const text = `
 
 export const Container = styled.div`
   width: 100%;
+  position: relative;
 `;
 
 export const Label = styled.label`
   ${text};
   font-size: 14px;
   line-height: 16px;
-  @media (min-width: 1024px) {
+  @media ${device.laptop} {
     & {
       font-size: 16px;
       line-height: 19px;
@@ -33,18 +35,41 @@ export const Input = styled.input`
   font-size: 16px;
   line-height: 19px;
   margin-top: 7px;
-  @media (min-width: 1024px) {
+  @media ${device.laptop} {
     & {
       height: 51px;
       font-size: 20px;
       line-height: 24px;
     }
   }
-  @media (min-width: 1440px) {
+  @media ${device.laptopL} {
     & {
       height: 66px;
       font-size: 24px;
       line-height: 29px;
+    }
+  }
+`;
+
+export const Icon = styled.div`
+  cursor: pointer;
+  position: absolute;
+  top: 47px;
+  right: 24px;
+  z-index: 1;
+  @media ${device.mobileS} {
+    & {
+      top: 33px;
+    }
+  }
+  @media ${device.laptop} {
+    & {
+      top: 40px;
+    }
+  }
+  @media ${device.laptopL} {
+    & {
+      top: 48px;
     }
   }
 `;

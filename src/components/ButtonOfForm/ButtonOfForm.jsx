@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Button } from './ButtonOfForm.style.js';
 const ButtonOfForm = ({ color, children }) => {
-  return <Button backgroundColor={color}>{children}</Button>;
+  return <Button $backgroundcolor={color}>{children}</Button>;
 };
 
 ButtonOfForm.propTypes = {

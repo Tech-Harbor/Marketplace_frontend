@@ -1,5 +1,7 @@
 import Fasebook from '../../../public/Facebook Circled.png';
 import Google from '../../../public/Google.png';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import InputOfForm from '../../components/InputOfForm/InputOfForm.jsx';
 import ButtonOfForm from '../../components/ButtonOfForm/ButtonOfForm.jsx';
 import {
@@ -15,8 +17,15 @@ import {
   ButtonOfChoice,
   SecondButtonOfChoice,
 } from './Auth.style.js';
+import { useState } from 'react';
 
 const Auth = () => {
+  const [toggle, setToggle] = useState(true);
+
+  const setIcon = () => {
+    setToggle(!toggle);
+  };
+
   return (
     <BlockOfForm>
       <ButtonOfLogIn>
@@ -34,7 +43,18 @@ const Auth = () => {
       </BlockOfButtons>
       <BlockOfInputs>
         <InputOfForm name="Електронна пошта" type="text"></InputOfForm>
-        <InputOfForm name="Пароль" type="password"></InputOfForm>
+        <InputOfForm
+          name="Пароль"
+          type={toggle ? 'password' : 'text'}
+          icon={
+            toggle ? (
+              <VisibilityOffIcon sx={{ fontSize: 24 }} />
+            ) : (
+              <VisibilityIcon sx={{ fontSize: 24 }} />
+            )
+          }
+          click={setIcon}
+        ></InputOfForm>
       </BlockOfInputs>
       <Forgot>Забули пароль?</Forgot>
       <ButtonOfForm color="#9E9EB2">Увійти</ButtonOfForm>
