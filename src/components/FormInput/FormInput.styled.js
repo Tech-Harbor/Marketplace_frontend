@@ -18,7 +18,6 @@ export const Label = styled.label`
 
   @media ${device.laptop} {
     font-size: 16px;
-    line-height: 19px;
   }
 `;
 
@@ -32,19 +31,17 @@ export const Input = styled.input`
   color: #000;
   ${fontStyles};
   font-size: 16px;
-  line-height: 19px;
+  line-height: 24px;
   margin-top: 7px;
 
   @media ${device.laptop} {
     height: 51px;
     font-size: 20px;
-    line-height: 24px;
   }
 
   @media ${device.laptopL} {
     height: 66px;
     font-size: 24px;
-    line-height: 29px;
   }
 `;
 
@@ -56,14 +53,14 @@ export const Icon = styled.div`
   z-index: 1;
 
   @media ${device.mobileS} {
-    top: 33px;
+    top: 32px;
   }
 
   @media ${device.laptop} {
-    top: 40px;
+    top: 36px;
   }
 
   @media ${device.laptopL} {
-    top: 48px;
+    top: 44px;
   }
 `;
