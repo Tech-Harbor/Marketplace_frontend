@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { device } from '../../utils/index.js';
 
-const text = `
+const fontStyles = `
   font-family: 'Inter', sans-serif;
   font-weight: 400;
 `;
@@ -12,14 +12,13 @@ export const Container = styled.div`
 `;
 
 export const Label = styled.label`
-  ${text};
+  ${fontStyles};
   font-size: 14px;
   line-height: 16px;
+
   @media ${device.laptop} {
-    & {
-      font-size: 16px;
-      line-height: 19px;
-    }
+    font-size: 16px;
+    line-height: 19px;
   }
 `;
 
@@ -31,23 +30,21 @@ export const Input = styled.input`
   border: none;
   border-radius: 10px;
   color: #000;
-  ${text};
+  ${fontStyles};
   font-size: 16px;
   line-height: 19px;
   margin-top: 7px;
+
   @media ${device.laptop} {
-    & {
-      height: 51px;
-      font-size: 20px;
-      line-height: 24px;
-    }
+    height: 51px;
+    font-size: 20px;
+    line-height: 24px;
   }
+
   @media ${device.laptopL} {
-    & {
-      height: 66px;
-      font-size: 24px;
-      line-height: 29px;
-    }
+    height: 66px;
+    font-size: 24px;
+    line-height: 29px;
   }
 `;
 
@@ -57,19 +54,16 @@ export const Icon = styled.div`
   top: 47px;
   right: 24px;
   z-index: 1;
+
   @media ${device.mobileS} {
-    & {
-      top: 33px;
-    }
+    top: 33px;
   }
+
   @media ${device.laptop} {
-    & {
-      top: 40px;
-    }
+    top: 40px;
   }
+
   @media ${device.laptopL} {
-    & {
-      top: 48px;
-    }
+    top: 48px;
   }
 `;

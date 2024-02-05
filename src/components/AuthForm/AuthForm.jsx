@@ -1,9 +1,8 @@
-import Fasebook from '../../../public/Facebook Circled.png';
+import FormInput from '../FormInput/FormInput.jsx';
+import Facebook from '../../../public/Facebook Circled.png';
 import Google from '../../../public/Google.png';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import InputOfForm from '../../components/InputOfForm/InputOfForm.jsx';
-import ButtonOfForm from '../../components/ButtonOfForm/ButtonOfForm.jsx';
 import {
   BlockOfForm,
   BlockOfInputs,
@@ -11,15 +10,17 @@ import {
   SecondButtonOfLogIn,
   Image,
   Text,
-  Change,
+  HorizontalLine,
+  TextLine,
   Forgot,
   BlockOfButtons,
   ButtonOfChoice,
   SecondButtonOfChoice,
-} from './Auth.style.js';
+} from './AuthForm.styled.js';
 import { useState } from 'react';
+import { Button } from '../FormButton/FormButton.styled.js';
 
-const Auth = () => {
+const AuthForm = () => {
   const [toggle, setToggle] = useState(true);
 
   const setIcon = () => {
@@ -29,21 +30,27 @@ const Auth = () => {
   return (
     <BlockOfForm>
       <ButtonOfLogIn>
-        <Image src={Fasebook} alt="Fasebook" />
-        <Text>Продовжити через Fasebook</Text>
+        <Image src={Facebook} alt="Fasebook" />
+        <Text>Продовжити через Facebook</Text>
       </ButtonOfLogIn>
+
       <SecondButtonOfLogIn>
         <Image src={Google} alt="Google" />
         <Text>Продовжити через Google</Text>
       </SecondButtonOfLogIn>
-      <Change></Change>
+
+      <HorizontalLine>
+        <TextLine>чи</TextLine>
+      </HorizontalLine>
+
       <BlockOfButtons>
         <ButtonOfChoice>Увійти</ButtonOfChoice>
         <SecondButtonOfChoice>Зареєструватися</SecondButtonOfChoice>
       </BlockOfButtons>
+
       <BlockOfInputs>
-        <InputOfForm name="Електронна пошта" type="text"></InputOfForm>
-        <InputOfForm
+        <FormInput name="Електронна пошта" type="text" />
+        <FormInput
           name="Пароль"
           type={toggle ? 'password' : 'text'}
           icon={
@@ -54,12 +61,14 @@ const Auth = () => {
             )
           }
           click={setIcon}
-        ></InputOfForm>
+        />
       </BlockOfInputs>
+
       <Forgot>Забули пароль?</Forgot>
-      <ButtonOfForm color="#9E9EB2">Увійти</ButtonOfForm>
+
+      <Button $backgroundcolor="#9E9EB2">Увійти</Button>
     </BlockOfForm>
   );
 };
 
-export default Auth;
+export default AuthForm;
