@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import FormInput from '../FormInput/FormInput.jsx';
+
 import Facebook from '../../../public/Facebook Circled.png';
 import Google from '../../../public/Google.png';
 import VisibilityIcon from '@mui/icons-material/Visibility';
@@ -17,7 +19,6 @@ import {
   ButtonOfChoice,
   SecondButtonOfChoice,
 } from './AuthForm.styled.js';
-import { useState } from 'react';
 import { Button } from '../FormButton/FormButton.styled.js';
 
 const AuthForm = () => {
