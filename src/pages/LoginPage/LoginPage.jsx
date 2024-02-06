@@ -1,7 +1,11 @@
-import s from './LoginPage.module.scss';
+import AuthForm from '../../components/AuthForm/AuthForm.jsx';
 
 const LoginPage = () => {
-  return <p className={s.login}>Login</p>;
+  return (
+    <>
+      <AuthForm />
+    </>
+  );
 };
 
 export default LoginPage;

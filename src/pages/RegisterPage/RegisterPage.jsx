@@ -1,13 +1,11 @@
-import {RegistrationForm} from '../../components/RegistrationForm';
-
-import {PageContainer} from "./RegisterPage.styled.js";
+import { RegistrationForm } from '../../components/RegistrationForm';
 
 const RegisterPage = () => {
-    return (
-        <PageContainer>
-            <RegistrationForm/>
-        </PageContainer>
-    );
+  return (
+    <>
+      <RegistrationForm />
+    </>
+  );
 };
 
 export default RegisterPage;

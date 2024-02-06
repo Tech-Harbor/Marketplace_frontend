@@ -14,7 +14,7 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  --height-full-scrin: 100%;
+  --height-full-screen: 100%;
 
   /* color */
   --color-bg-header: rgba(37, 68, 153, 1);
