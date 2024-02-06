@@ -39,7 +39,7 @@ export const Input = styled.input`
     font-size: 20px;
   }
 
-  @media ${device.laptopL} {
+  @media ${device.desktop} {
     height: 66px;
     font-size: 24px;
   }
@@ -52,7 +52,7 @@ export const Icon = styled.div`
   right: 24px;
   z-index: 1;
 
-  @media ${device.mobileS} {
+  @media ${device.mobile} {
     top: 32px;
   }
 
@@ -60,7 +60,7 @@ export const Icon = styled.div`
     top: 36px;
   }
 
-  @media ${device.laptopL} {
+  @media ${device.desktop} {
     top: 44px;
   }
 `;

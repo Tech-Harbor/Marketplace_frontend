@@ -16,7 +16,7 @@ const StyledFlexDiv = styled.div`
 
   // for Header component
   &.search-input {
-    @media ${device.onlyMobileS} {
+    @media ${device.beforeLaptop} {
       display: none;
     }
   }
@@ -34,7 +34,7 @@ export const FormWrapper = styled(StyledFlexDiv)`
     border-radius: 10px;
   }
 
-  @media ${device.laptopL} {
+  @media ${device.desktop} {
     width: 708px;
     border-radius: 10px;
   }
@@ -71,7 +71,7 @@ export const StyledTitle = styled.h1`
     line-height: 24px;
   }
 
-  @media ${device.laptopL} {
+  @media ${device.desktop} {
     margin-top: 26px;
     margin-bottom: 36px;
     padding: 14px 92px;

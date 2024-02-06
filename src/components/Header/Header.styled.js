@@ -23,7 +23,7 @@ export const StyledHeader = styled.header`
     height: 72px;
   }
 
-  @media ${device.laptopL} {
+  @media ${device.desktop} {
     padding: 0 50px 0 110px;
     height: 80px;
   }
@@ -80,7 +80,7 @@ export const StyledSearchInput = styled.input.attrs({
     outline-style: none;
   }
 
-  @media ${device.laptopL} {
+  @media ${device.desktop} {
     width: 522px;
   }
 `;
@@ -124,7 +124,7 @@ export const StyledIconShipping = styled.img.attrs({
   src: iconShipping,
   alt: 'Icon Shipping',
 })`
-  @media ${device.onlyMobileS} {
+  @media ${device.beforeLaptop} {
     display: none;
   }
 
@@ -139,7 +139,7 @@ export const StyledIconProfile = styled.img.attrs({
   src: iconProfile,
   alt: 'Icon Profile',
 })`
-  @media ${device.onlyMobileS} {
+  @media ${device.beforeLaptop} {
     display: none;
   }
   @media ${device.laptop} {
