@@ -1,6 +1,6 @@
 .footer {
   width: 100%;
-  height: var(--height-full-scrin);
+  height: var(--height-full-screen);
   background-color: #254499;
   text-align: center;
   color: #fff;
@@ -21,7 +21,7 @@
 
 .social_networks {
   width: 174px;
-  height: var(--height-full-scrin);
+  height: var(--height-full-screen);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -37,7 +37,7 @@
 
 .call_center {
   width: 253px;
-  height: var(--height-full-scrin);
+  height: var(--height-full-screen);
   display: flex;
   justify-content: space-between;
   text-align: left;
