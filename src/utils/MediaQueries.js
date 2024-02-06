@@ -5,7 +5,7 @@ const size = {
 };
 
 const device = {
-  onlyMobileS: `(max-width: calc(${size.laptop}px - 0.02px))`,
+  onlyMobileS: `(max-width: ${size.laptop - 0.02}px)`,
   mobileS: `(min-width: ${size.mobileS}px)`,
   laptop: `(min-width: ${size.laptop}px)`,
   laptopL: `(min-width: ${size.laptopL}px)`,
