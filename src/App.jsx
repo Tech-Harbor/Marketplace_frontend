@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import {Routes, Route} from 'react-router-dom';
 
 import MainLayout from './components/MainLayout/MainLayout.jsx';
 import HomePage from './pages/HomePage/HomePage.jsx';
@@ -9,22 +9,22 @@ import FormForTestWithImage from './components/FormForTestWithImage/FormForTestW
 import ProductsPage from './pages/ProductsPage/ProductsPage.jsx';
 
 const App = () => {
-  return (
-    <>
-      <Routes>
-        <Route path="" element={<MainLayout />}>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/category/:name" element={<ProductsPage />} />
-        </Route>
+    return (
+        <>
+            <Routes>
+                <Route path="" element={<MainLayout/>}>
+                    <Route path="/" element={<HomePage/>}/>
+                    <Route path="/category/:name" element={<ProductsPage/>}/>
+                </Route>
 
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
+                <Route path="/login" element={<LoginPage/>}/>
+                <Route path="/register" element={<RegisterPage/>}/>
 
-        <Route path="/form" element={<FormTest />} />
-        <Route path="/formImage" element={<FormForTestWithImage />} />
-      </Routes>
-    </>
-  );
+                <Route path="/form" element={<FormTest/>}/>
+                <Route path="/formImage" element={<FormForTestWithImage/>}/>
+            </Routes>
+        </>
+    );
 };
 
 export default App;

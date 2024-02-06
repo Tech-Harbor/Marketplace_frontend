@@ -9,8 +9,16 @@ const StyledFlexDiv = styled.div`
   align-items: ${props => props.$align || 'center'};
   justify-content: ${props => props.$justify || 'center'};
 
+  // for icons in inputs
   &.icon-position {
     position: relative;
+  }
+
+  // for Header component
+  &.search-input {
+    @media ${device.onlyMobileS} {
+      display: none;
+    }
   }
 `;
 
