@@ -9,8 +9,16 @@ const StyledFlexDiv = styled.div`
   align-items: ${props => props.$align || 'center'};
   justify-content: ${props => props.$justify || 'center'};
 
+  // for icons in inputs
   &.icon-position {
     position: relative;
+  }
+
+  // for Header component
+  &.search-input {
+    @media ${device.beforeLaptop} {
+      display: none;
+    }
   }
 `;
 
@@ -26,7 +34,7 @@ export const FormWrapper = styled(StyledFlexDiv)`
     border-radius: 10px;
   }
 
-  @media ${device.laptopL} {
+  @media ${device.desktop} {
     width: 708px;
     border-radius: 10px;
   }
@@ -63,7 +71,7 @@ export const StyledTitle = styled.h1`
     line-height: 24px;
   }
 
-  @media ${device.laptopL} {
+  @media ${device.desktop} {
     margin-top: 26px;
     margin-bottom: 36px;
     padding: 14px 92px;

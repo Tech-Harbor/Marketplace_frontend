@@ -26,7 +26,7 @@ export const StyledInput = styled.input.attrs({
     padding-right: 50px; // reserved place for icon
   }
 
-  @media ${device.laptopL} {
+  @media ${device.desktop} {
     padding: 18px 36px;
     height: 66px;
   }
@@ -51,7 +51,7 @@ export const StyledLabel = styled.label`
       margin-top: 25px;
     }
 
-    @media ${device.laptopL} {
+    @media ${device.desktop} {
       margin-top: 52px;
     }
   }
@@ -63,7 +63,7 @@ export const StyledLabel = styled.label`
       margin-top: 12px;
     }
 
-    @media ${device.laptopL} {
+    @media ${device.desktop} {
       margin-top: 17px;
     }
   }
@@ -72,7 +72,7 @@ export const StyledLabel = styled.label`
     margin-top: 12px;
   }
 
-  @media ${device.laptopL} {
+  @media ${device.desktop} {
     margin-top: 43px;
     font-size: 16px;
     line-height: 19.36px;

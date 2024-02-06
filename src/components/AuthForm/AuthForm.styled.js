@@ -19,7 +19,7 @@ export const BlockOfForm = styled.div`
     height: 610px;
   }
 
-  @media ${device.laptopL} {
+  @media ${device.desktop} {
     width: 708px;
     height: 890px;
   }
@@ -41,7 +41,7 @@ export const ButtonOfLogIn = styled.button`
     padding: 1px 5px;
   }
 
-  @media ${device.laptopL} {
+  @media ${device.desktop} {
     height: 66px;
   }
 `;
@@ -53,7 +53,7 @@ export const SecondButtonOfLogIn = styled(ButtonOfLogIn)`
     margin-top: 27px;
   }
 
-  @media ${device.laptopL} {
+  @media ${device.desktop} {
     margin-top: 60px;
   }
 `;
@@ -91,7 +91,7 @@ export const HorizontalLine = styled.div`
     margin: 38px 0 18px 0;
   }
 
-  @media ${device.laptopL} {
+  @media ${device.desktop} {
     margin: 79px 0 45px 0;
   }
 `;
@@ -110,7 +110,7 @@ export const TextLine = styled.span`
     padding-inline: 51px;
   }
 
-  @media ${device.laptopL} {
+  @media ${device.desktop} {
     padding-inline: 85px;
   }
 `;
@@ -125,7 +125,7 @@ export const BlockOfButtons = styled.div`
     margin: 18px 0 28px 0;
   }
 
-  @media ${device.laptopL} {
+  @media ${device.desktop} {
     margin: 45px 0 45px 0;
   }
 `;
@@ -140,7 +140,7 @@ export const ButtonOfChoice = styled.button`
   font-size: 18px;
   line-height: 21px;
 
-  @media ${device.laptopL} {
+  @media ${device.desktop} {
     font-size: 24px;
   }
 `;
@@ -165,7 +165,7 @@ export const BlockOfInputs = styled.div`
     height: 178px;
   }
 
-  @media ${device.laptopL} {
+  @media ${device.desktop} {
     height: 218px;
   }
 `;
@@ -182,7 +182,7 @@ export const Forgot = styled.a`
     margin: 18px 0 15px 0;
   }
 
-  @media ${device.laptopL} {
+  @media ${device.desktop} {
     font-size: 20px;
     margin: 60px 0 61px 0;
   }

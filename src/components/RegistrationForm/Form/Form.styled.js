@@ -29,7 +29,7 @@ export const StyledButton = styled.button`
     margin: 28px 0 9px 0;
   }
 
-  @media ${device.laptopL} {
+  @media ${device.desktop} {
     margin: 58px 0 20px 0;
   }
 `;
