@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const AuthPageContainer = styled.div`
+export const MainContainer = styled.main`
   width: 100%;
   height: 100vh;
   display: flex;
