@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import FormInput from '../FormInput/FormInput.jsx';
 
 import Facebook from '../../../public/Facebook Circled.png';
@@ -23,10 +23,23 @@ import { Button } from '../FormButton/FormButton.styled.js';
 
 const AuthForm = () => {
   const [toggle, setToggle] = useState(true);
+  const [data, setData] = useState({
+    password: '',
+    email: '',
+  });
+  const [color, setColor] = useState('#9E9EB2');
 
   const setIcon = () => {
     setToggle(!toggle);
   };
+
+  useEffect(() => {
+    if (data.email.includes('@') && data.email.length >= 7 && data.password.length >= 10) {
+      setColor('#17317B');
+      return;
+    }
+    setColor('#9E9EB2');
+  }, [data]);
 
   return (
     <BlockOfForm>
@@ -50,7 +63,11 @@ const AuthForm = () => {
       </BlockOfButtons>
 
       <BlockOfInputs>
-        <FormInput name="Електронна пошта" type="text" />
+        <FormInput
+          name="Електронна пошта"
+          type="text"
+          inputValue={email => setData(prevData => ({ ...prevData, email: email }))}
+        />
         <FormInput
           name="Пароль"
           type={toggle ? 'password' : 'text'}
@@ -62,12 +79,13 @@ const AuthForm = () => {
             )
           }
           click={setIcon}
+          inputValue={pas => setData(prevData => ({ ...prevData, password: pas }))}
         />
       </BlockOfInputs>
 
       <Forgot>Забули пароль?</Forgot>
 
-      <Button $backgroundcolor="#9E9EB2">Увійти</Button>
+      <Button $backgroundcolor={color}>Увійти</Button>
     </BlockOfForm>
   );
 };
