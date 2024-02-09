@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import FormInput from '../FormInput/FormInput.jsx';
 
 import Facebook from '../../../public/Facebook Circled.png';
@@ -46,7 +47,9 @@ const AuthForm = () => {
 
       <BlockOfButtons>
         <ButtonOfChoice>Увійти</ButtonOfChoice>
-        <SecondButtonOfChoice>Зареєструватися</SecondButtonOfChoice>
+        <SecondButtonOfChoice>
+          <Link to="/register">Зареєструватися</Link>
+        </SecondButtonOfChoice>
       </BlockOfButtons>
 
       <BlockOfInputs>
