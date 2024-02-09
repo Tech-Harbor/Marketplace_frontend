@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { StyledFlexDiv } from '../RegistrationForm/RegistrationForm.styled.js';
 import {
   StyledHeader,
@@ -37,7 +37,9 @@ export const Header = () => {
         </div>
         {/* ICONS */}
         <StyledIconShipping />
-        <StyledIconProfile />
+        <Link to="/login">
+          <StyledIconProfile />
+        </Link>
         {/* MOBILE MENU */}
         <StyledMenuButton>
           <StyledIconMenu />

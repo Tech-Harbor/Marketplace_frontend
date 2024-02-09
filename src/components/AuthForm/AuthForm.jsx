@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import FormInput from '../FormInput/FormInput.jsx';
 
 import Facebook from '../../../public/Facebook Circled.png';
@@ -20,6 +20,7 @@ import {
   SecondButtonOfChoice,
 } from './AuthForm.styled.js';
 import { Button } from '../FormButton/FormButton.styled.js';
+import { Link } from 'react-router-dom';
 
 const AuthForm = () => {
   const [toggle, setToggle] = useState(true);
@@ -59,13 +60,17 @@ const AuthForm = () => {
 
       <BlockOfButtons>
         <ButtonOfChoice>Увійти</ButtonOfChoice>
-        <SecondButtonOfChoice>Зареєструватися</SecondButtonOfChoice>
+        <SecondButtonOfChoice>
+          <Link to="/register">Зареєструватися</Link>
+        </SecondButtonOfChoice>
       </BlockOfButtons>
 
       <BlockOfInputs>
         <FormInput
           name="Електронна пошта"
           type="text"
+          min="7"
+          max="35"
           inputValue={email => setData(prevData => ({ ...prevData, email: email }))}
         />
         <FormInput
@@ -78,6 +83,8 @@ const AuthForm = () => {
               <VisibilityIcon sx={{ fontSize: 24 }} />
             )
           }
+          min="10"
+          max="20"
           click={setIcon}
           inputValue={pas => setData(prevData => ({ ...prevData, password: pas }))}
         />
