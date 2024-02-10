@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
 import { Container, Input, Label, Icon } from './FormInput.styled.js';
 
-const FormInput = ({ name, type, icon, click, inputValue, min, max }) => {
+const FormInput = ({ title, name, type = 'text', icon, click, inputValue, min = 0, max = 100 }) => {
   return (
     <Container>
-      <Label>{name}</Label>
+      <Label>{title}</Label>
       <Input
         type={type}
+        name={name}
         onChange={e => inputValue(e.target.value)}
         minLength={min}
         maxLength={max}
@@ -17,12 +18,13 @@ const FormInput = ({ name, type, icon, click, inputValue, min, max }) => {
 };
 
 FormInput.propTypes = {
+  title: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   icon: PropTypes.any,
   click: PropTypes.func,
   inputValue: PropTypes.func,
-  min: PropTypes.string,
-  max: PropTypes.string,
+  min: PropTypes.number.isRequired,
+  max: PropTypes.string.isRequired,
 };
 export default FormInput;

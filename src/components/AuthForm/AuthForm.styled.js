@@ -10,18 +10,15 @@ const black = `#000`;
 
 export const BlockOfForm = styled.div`
   width: 360px;
-  height: 664px;
   background-color: #ffffff;
   padding: 16px;
 
   @media ${device.laptop} {
     width: 658px;
-    height: 610px;
   }
 
   @media ${device.desktop} {
     width: 708px;
-    height: 890px;
   }
 `;
 

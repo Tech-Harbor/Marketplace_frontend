@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import usePostData from '../../hooks/usePostData.js';
 import FormInput from '../FormInput/FormInput.jsx';
-
 import Facebook from '../../../public/Facebook Circled.png';
 import Google from '../../../public/Google.png';
 import VisibilityIcon from '@mui/icons-material/Visibility';
@@ -20,27 +22,40 @@ import {
   SecondButtonOfChoice,
 } from './AuthForm.styled.js';
 import { Button } from '../FormButton/FormButton.styled.js';
-import { Link } from 'react-router-dom';
 
 const AuthForm = () => {
+  const [response, putData] = usePostData();
+  const navigate = useNavigate();
   const [toggle, setToggle] = useState(true);
   const [data, setData] = useState({
     password: '',
     email: '',
   });
-  const [color, setColor] = useState('#9E9EB2');
+  const [checkButton, setCheckButton] = useState(true);
 
-  const setIcon = () => {
-    setToggle(!toggle);
-  };
+  const minEmail = 7;
+  const minPassword = 10;
 
   useEffect(() => {
-    if (data.email.includes('@') && data.email.length >= 7 && data.password.length >= 10) {
-      setColor('#17317B');
+    if (data.email.length >= minEmail && data.password.length >= minPassword) {
+      setCheckButton(false);
       return;
     }
-    setColor('#9E9EB2');
+    setCheckButton(true);
   }, [data]);
+
+  useEffect(() => {
+    if (response.token) {
+      navigate('/');
+    }
+  });
+
+  const logIn = () => {
+    putData('auth/login', {
+      email: data.email,
+      password: data.password,
+    });
+  };
 
   return (
     <BlockOfForm>
@@ -67,14 +82,16 @@ const AuthForm = () => {
 
       <BlockOfInputs>
         <FormInput
-          name="Електронна пошта"
+          title="Електронна пошта"
+          name="email"
           type="text"
-          min="7"
+          min={minEmail}
           max="35"
           inputValue={email => setData(prevData => ({ ...prevData, email: email }))}
         />
         <FormInput
-          name="Пароль"
+          title="Пароль"
+          name="password"
           type={toggle ? 'password' : 'text'}
           icon={
             toggle ? (
@@ -83,16 +100,20 @@ const AuthForm = () => {
               <VisibilityIcon sx={{ fontSize: 24 }} />
             )
           }
-          min="10"
+          min={minPassword}
           max="20"
-          click={setIcon}
+          click={() => {
+            setToggle(!toggle);
+          }}
           inputValue={pas => setData(prevData => ({ ...prevData, password: pas }))}
         />
       </BlockOfInputs>
 
       <Forgot>Забули пароль?</Forgot>
 
-      <Button $backgroundcolor={color}>Увійти</Button>
+      <Button $disabledStyles="#9E9EB2" onClick={logIn} disabled={checkButton}>
+        Увійти
+      </Button>
     </BlockOfForm>
   );
 };
