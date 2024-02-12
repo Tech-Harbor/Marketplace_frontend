@@ -90,5 +90,5 @@ export const StyledWrapperButton = styled.button({
 });
 
 export const StyledIcon = styled(VisibilityOutlinedIcon)`
-  color: var(--color-primary);
+  color: var(--color-icon);
 `;
