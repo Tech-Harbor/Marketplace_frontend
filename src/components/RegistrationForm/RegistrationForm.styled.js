@@ -44,7 +44,7 @@ export const FormWrapper = styled(StyledFlexDiv)`
 
 // Styles for Title component (h1)
 export const StyledTitle = styled.h1`
-  font-family: Gilroy, sans-serif;
+  font-family: Gilroy-Medium, sans-serif;
   font-size: 24px;
   font-weight: 500;
   line-height: 24px;

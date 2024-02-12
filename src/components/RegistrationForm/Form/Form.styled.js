@@ -17,9 +17,9 @@ export const StyledButton = styled.button`
   border-radius: 8px;
   background-color: var(--color-bg-form_btn-enable);
 
-  font-family: Gilroy, sans-serif;
+  font-family: Gilroy-Medium, sans-serif;
   font-size: 20px;
-  font-weight: 500;
+  //font-weight: 500;
   line-height: 24px;
   letter-spacing: 0;
   text-align: center;

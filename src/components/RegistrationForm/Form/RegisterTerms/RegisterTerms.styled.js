@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledText = styled.p`
   margin-top: 10px;
-  font-family: Gilroy, sans-serif;
+  font-family: Gilroy-Medium, sans-serif;
   font-size: 12px;
   font-weight: 500;
   line-height: 15px;

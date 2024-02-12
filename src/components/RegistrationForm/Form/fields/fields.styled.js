@@ -7,7 +7,7 @@ import { device } from '../../../../utils/index.js';
 // Styles for input component
 export const StyledInput = styled.input.attrs({
   type: 'text',
-  required: true,
+  // required: true,
   autoComplete: 'true',
 })`
   margin-top: 10px;
@@ -17,6 +17,13 @@ export const StyledInput = styled.input.attrs({
   border: 1px solid #00000080;
   border-radius: 4px;
   color: var(--color-primary); // ??
+
+  font-family: Gilroy-Regular, sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: -0.5px;
+  text-align: left;
 
   &:focus-visible {
     outline: none;
@@ -37,7 +44,7 @@ export const StyledInput = styled.input.attrs({
 export const StyledLabel = styled.label`
   display: block;
   margin-top: 20px;
-  font-family: Gilroy, sans-serif;
+  font-family: Gilroy-Regular, sans-serif;
   font-size: 17px;
   font-weight: 400;
   line-height: 22px;

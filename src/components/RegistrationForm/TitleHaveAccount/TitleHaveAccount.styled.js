@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const StyledText = styled.p`
   margin-top: 17px;
 
-  font-family: Gilroy, sans-serif;
+  font-family: Gilroy-Medium, sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;

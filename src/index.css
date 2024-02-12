@@ -87,3 +87,18 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+/* Gilroy fonts*/
+@font-face {
+  font-family: 'Gilroy-Medium';
+  src:
+    local('Gilroy-Medium'),
+    url(./assets/fonts/Gilroy-Medium.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Gilroy-Regular';
+  src:
+    local('Gilroy-Regular'),
+    url(./assets/fonts/Gilroy-Regular.ttf) format('truetype');
+}
