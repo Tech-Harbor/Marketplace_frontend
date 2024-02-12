@@ -33,12 +33,13 @@
 
   /* Ruskevych */
   --color-primary: #000;
+  --color-primary-active: #ff8a00;
   --color-secondary: #fff;
 
   --color-bg-form: #fff;
   --color-bg-form_input: #dadada;
   --color-bg-form_btn-disable: #9e9eb2;
-  --color-bg-form_btn-enable: #17317b;
+  --color-bg-form_btn-enable: #ff8a00;
 }
 
 body {

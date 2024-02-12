@@ -1,30 +1,17 @@
-import {FormField, FormFieldPassword} from './fields/index.js';
-import {StyledForm, StyledButton} from './Form.styled';
-
+import { FormField, FormFieldPassword } from './fields/index.js';
+import { StyledForm, StyledButton } from './Form.styled';
+import RegisterTerms from './RegisterTerms/RegisterTerms.jsx';
 
 export const Form = () => {
-    return (
-        <StyledForm>
-            <FormField name="name" id="name" text="Ваше ім’я"/>
-            <FormField name="surname" id="surname" text="Ваше прізвище"/>
-            <FormField name="login" id="login" text="Введіть електронну пошту"/>
-
-            <FormFieldPassword
-                name="password"
-                id="password"
-                text="Пароль"
-                clsField="password"
-            />
-            <FormFieldPassword
-                name="repeat-password"
-                id="repeat-password"
-                text="Повторіть пароль"
-                clsField="repeat-password"
-            />
-
-            <StyledButton>
-                Зареєструватися
-            </StyledButton>
-        </StyledForm>
-    );
+  return (
+    <StyledForm>
+      <FormField name="name" id="name" text="Ім’я" />
+      <FormField name="surname" id="surname" text="Прізвище" />
+      <FormField name="phone" id="phone" text="Номер телефону" />
+      <FormField name="email" id="email" text="Ел. пошта" />
+      <FormFieldPassword name="password" id="password" text="Пароль" clsField="password" />
+      <RegisterTerms />
+      <StyledButton>Зареєструватися</StyledButton>
+    </StyledForm>
+  );
 };

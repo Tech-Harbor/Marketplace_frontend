@@ -1,5 +1,5 @@
 const size = {
-  mobile: 360,
+  mobile: 375,
   laptop: 1024,
   desktop: 1440,
 };
