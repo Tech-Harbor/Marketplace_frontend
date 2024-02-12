@@ -29,14 +29,12 @@ export const FormWrapper = styled(StyledFlexDiv)`
   background-color: var(--color-bg-form);
 
   @media ${device.laptop} {
-    margin: 12px 0;
     padding: 0 25px;
     width: 658px;
     border-radius: 10px;
   }
 
   @media ${device.desktop} {
-    margin: 27px 0;
     width: 708px;
     border-radius: 10px;
   }
