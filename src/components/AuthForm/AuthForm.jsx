@@ -84,9 +84,9 @@ const AuthForm = () => {
           type={toggle ? 'password' : 'text'}
           icon={
             toggle ? (
-              <VisibilityOffIcon sx={{ fontSize: 24 }} />
+              <VisibilityOffIcon sx={{ fontSize: 24, color: '#4A5568' }} />
             ) : (
-              <VisibilityIcon sx={{ fontSize: 24 }} />
+              <VisibilityIcon sx={{ fontSize: 24, color: '#4A5568' }} />
             )
           }
           min={10}
