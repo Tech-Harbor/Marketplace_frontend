@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import usePostData from '../../hooks/usePostData.js';
 import FormInput from '../FormInput/FormInput.jsx';
@@ -7,6 +8,7 @@ import Facebook from '../../../public/Facebook Circled.png';
 import Google from '../../../public/Google.png';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import { Button } from '../FormButton/FormButton.styled.js';
 import {
   BlockOfForm,
   BlockOfInputs,
@@ -21,28 +23,16 @@ import {
   ButtonOfChoice,
   SecondButtonOfChoice,
 } from './AuthForm.styled.js';
-import { Button } from '../FormButton/FormButton.styled.js';
 
 const AuthForm = () => {
   const [response, putData] = usePostData();
   const navigate = useNavigate();
   const [toggle, setToggle] = useState(true);
-  const [data, setData] = useState({
-    password: '',
-    email: '',
-  });
-  const [checkButton, setCheckButton] = useState(true);
-
-  const minEmail = 7;
-  const minPassword = 10;
-
-  useEffect(() => {
-    if (data.email.length >= minEmail && data.password.length >= minPassword) {
-      setCheckButton(false);
-      return;
-    }
-    setCheckButton(true);
-  }, [data]);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   useEffect(() => {
     if (response.token) {
@@ -50,7 +40,7 @@ const AuthForm = () => {
     }
   });
 
-  const logIn = () => {
+  const logIn = data => {
     putData('auth/login', {
       email: data.email,
       password: data.password,
@@ -58,7 +48,7 @@ const AuthForm = () => {
   };
 
   return (
-    <BlockOfForm>
+    <BlockOfForm onSubmit={handleSubmit(logIn)} id="form">
       <ButtonOfLogIn>
         <Image src={Facebook} alt="Fasebook" />
         <Text>Продовжити через Facebook</Text>
@@ -85,9 +75,9 @@ const AuthForm = () => {
           title="Електронна пошта"
           name="email"
           type="text"
-          min={minEmail}
+          min={7}
           max="35"
-          inputValue={email => setData(prevData => ({ ...prevData, email: email }))}
+          register={register}
         />
         <FormInput
           title="Пароль"
@@ -100,20 +90,22 @@ const AuthForm = () => {
               <VisibilityIcon sx={{ fontSize: 24 }} />
             )
           }
-          min={minPassword}
+          min={10}
           max="20"
           click={() => {
             setToggle(!toggle);
           }}
-          inputValue={pas => setData(prevData => ({ ...prevData, password: pas }))}
+          register={register}
         />
       </BlockOfInputs>
 
       <Forgot>Забули пароль?</Forgot>
 
-      <Button $disabledStyles="#9E9EB2" onClick={logIn} disabled={checkButton}>
-        Увійти
-      </Button>
+      <Button
+        $backgroundColor={Object.keys(errors).length > 0 ? '#9E9EB2' : '#17317b'}
+        value="Увійти"
+        type="submit"
+      />
     </BlockOfForm>
   );
 };

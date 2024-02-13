@@ -8,7 +8,7 @@ const fontStyles = `
 
 const black = `#000`;
 
-export const BlockOfForm = styled.div`
+export const BlockOfForm = styled.form`
   width: 360px;
   background-color: #ffffff;
   padding: 16px;
