@@ -30,7 +30,7 @@ const AuthForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { isValid },
   } = useForm();
 
   useEffect(() => {
@@ -73,15 +73,15 @@ const AuthForm = () => {
         <FormInput
           title="Електронна пошта"
           name="email"
-          type="text"
+          type="email"
           min={7}
-          max="35"
+          max={'35'}
           register={register}
         />
         <FormInput
           title="Пароль"
           name="password"
-          type={toggle ? 'password' : 'text'}
+          type={toggle ? 'password' : 'email'}
           icon={
             toggle ? (
               <VisibilityOffIcon sx={{ fontSize: 24 }} />
@@ -89,22 +89,16 @@ const AuthForm = () => {
               <VisibilityIcon sx={{ fontSize: 24 }} />
             )
           }
-          min={10}
-          max="20"
-          click={() => {
-            setToggle(!toggle);
-          }}
+          min={7}
+          max={'20'}
+          click={() => setToggle(!toggle)}
           register={register}
         />
       </BlockOfInputs>
 
       <Forgot>Забули пароль?</Forgot>
 
-      <Button
-        $backgroundColor={Object.keys(errors).length > 0 ? '#9E9EB2' : '#17317b'}
-        value="Увійти"
-        type="submit"
-      />
+      <Button $isValid={isValid} disabled={!isValid} value="Увійти" type="submit" />
     </BlockOfForm>
   );
 };
