@@ -11,14 +11,16 @@ const black = `#000`;
 export const BlockOfForm = styled.form`
   width: 360px;
   background-color: #ffffff;
-  padding: 16px;
+  padding: 36px 16px 17px 16px;
 
   @media ${device.laptop} {
     width: 658px;
+    padding: 26px 24px 26px 24px;
   }
 
   @media ${device.desktop} {
     width: 708px;
+    padding: 69px 25px 20px 25px;
   }
 `;
 
@@ -30,21 +32,20 @@ export const ButtonOfLogIn = styled.button`
   border-radius: 10px;
   display: flex;
   align-items: center;
-  margin-top: 36px;
   padding: 8px 13px;
 
   @media ${device.laptop} {
-    margin-top: 26px;
     padding: 1px 5px;
   }
 
   @media ${device.desktop} {
+    padding: 8px 30px;
     height: 66px;
   }
 `;
 
 export const SecondButtonOfLogIn = styled(ButtonOfLogIn)`
-  margin-top: 43px;
+  margin-top: 42px;
 
   @media ${device.laptop} {
     margin-top: 27px;
@@ -81,15 +82,15 @@ export const HorizontalLine = styled.div`
   width: 100%;
   height: 1px;
   background-color: ${black};
-  margin: 56px 0 10px 0;
+  margin-block: 56px 10px;
   text-align: center;
 
   @media ${device.laptop} {
-    margin: 38px 0 18px 0;
+    margin-block: 38px 18px;
   }
 
   @media ${device.desktop} {
-    margin: 79px 0 45px 0;
+    margin-block: 79px 45px;
   }
 `;
 
@@ -115,15 +116,15 @@ export const TextLine = styled.span`
 export const BlockOfButtons = styled.div`
   display: flex;
   gap: 15px;
-  margin: 10px 0 40px 0;
+  margin-block: 10px 40px;
 
   @media ${device.laptop} {
     gap: 25px;
-    margin: 18px 0 28px 0;
+    margin-block: 18px 28px;
   }
 
   @media ${device.desktop} {
-    margin: 45px 0 45px 0;
+    margin-block: 45px 45px;
   }
 `;
 
@@ -136,9 +137,11 @@ export const ButtonOfChoice = styled.button`
   ${fontStyles};
   font-size: 18px;
   line-height: 21px;
+  padding-block: 11px;
 
   @media ${device.desktop} {
     font-size: 24px;
+    padding-block: 14px;
   }
 `;
 
@@ -156,7 +159,7 @@ export const BlockOfInputs = styled.div`
   height: 166px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
 
   @media ${device.laptop} {
     height: 178px;
@@ -173,14 +176,14 @@ export const Forgot = styled.a`
   line-height: 21px;
   cursor: pointer;
   display: block;
-  margin: 33px 0 40px 0;
+  margin-block: 33px 40px;
 
   @media ${device.laptop} {
-    margin: 18px 0 15px 0;
+    margin-block: 18px 15px;
   }
 
   @media ${device.desktop} {
     font-size: 20px;
-    margin: 60px 0 61px 0;
+    margin-block: 60px 61px;
   }
 `;
