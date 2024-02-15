@@ -8,24 +8,23 @@ const fontStyles = `
 
 const black = `#000`;
 
-export const BlockOfForm = styled.div`
+export const FormBlock = styled.form`
   width: 360px;
-  height: 664px;
   background-color: #ffffff;
-  padding: 16px;
+  padding: 36px 16px 17px 16px;
 
   @media ${device.laptop} {
     width: 658px;
-    height: 610px;
+    padding: 26px 24px 26px 24px;
   }
 
   @media ${device.desktop} {
     width: 708px;
-    height: 890px;
+    padding: 69px 25px 20px 25px;
   }
 `;
 
-export const ButtonOfLogIn = styled.button`
+export const LogInButton = styled.button`
   width: 100%;
   height: 52px;
   background: none;
@@ -33,21 +32,20 @@ export const ButtonOfLogIn = styled.button`
   border-radius: 10px;
   display: flex;
   align-items: center;
-  margin-top: 36px;
   padding: 8px 13px;
 
   @media ${device.laptop} {
-    margin-top: 26px;
     padding: 1px 5px;
   }
 
   @media ${device.desktop} {
+    padding: 8px 30px;
     height: 66px;
   }
 `;
 
-export const SecondButtonOfLogIn = styled(ButtonOfLogIn)`
-  margin-top: 43px;
+export const LogInSecondButton = styled(LogInButton)`
+  margin-top: 42px;
 
   @media ${device.laptop} {
     margin-top: 27px;
@@ -99,7 +97,7 @@ export const HorizontalLine = styled.div`
 export const TextLine = styled.span`
   ${fontStyles};
   font-size: 16px;
-  padding-inline: 25px;
+  padding: 0 25px;
   background-color: #ffffff;
   position: relative;
   top: -7px;
@@ -107,15 +105,15 @@ export const TextLine = styled.span`
 
   @media ${device.laptop} {
     font-size: 24px;
-    padding-inline: 51px;
+    padding: 0 51px;
   }
 
   @media ${device.desktop} {
-    padding-inline: 85px;
+    padding: 0 85px;
   }
 `;
 
-export const BlockOfButtons = styled.div`
+export const ButtonsBlock = styled.div`
   display: flex;
   gap: 15px;
   margin: 10px 0 40px 0;
@@ -130,7 +128,7 @@ export const BlockOfButtons = styled.div`
   }
 `;
 
-export const ButtonOfChoice = styled.button`
+export const ChoiceButton = styled.button`
   width: 100%;
   background: none;
   border: none;
@@ -139,13 +137,15 @@ export const ButtonOfChoice = styled.button`
   ${fontStyles};
   font-size: 18px;
   line-height: 21px;
+  padding: 11px 0;
 
   @media ${device.desktop} {
     font-size: 24px;
+    padding: 14px 0;
   }
 `;
 
-export const SecondButtonOfChoice = styled(ButtonOfChoice)`
+export const ChoiceSecondButton = styled(ChoiceButton)`
   border-bottom: 2px solid #b7b7b9;
   color: #b7b7b9;
 
@@ -155,11 +155,11 @@ export const SecondButtonOfChoice = styled(ButtonOfChoice)`
   }
 `;
 
-export const BlockOfInputs = styled.div`
+export const InputsBlock = styled.div`
   height: 166px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
 
   @media ${device.laptop} {
     height: 178px;
