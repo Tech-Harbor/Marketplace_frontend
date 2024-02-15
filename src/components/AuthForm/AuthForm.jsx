@@ -9,18 +9,18 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { Button } from '../FormButton/FormButton.styled.js';
 import {
-  BlockOfForm,
-  BlockOfInputs,
-  ButtonOfLogIn,
-  SecondButtonOfLogIn,
+  FormBlock,
+  InputsBlock,
+  LogInButton,
+  LogInSecondButton,
   Image,
   Text,
   HorizontalLine,
   TextLine,
   Forgot,
-  BlockOfButtons,
-  ButtonOfChoice,
-  SecondButtonOfChoice,
+  ButtonsBlock,
+  ChoiceButton,
+  ChoiceSecondButton,
 } from './AuthForm.styled.js';
 
 const AuthForm = () => {
@@ -47,29 +47,29 @@ const AuthForm = () => {
   };
 
   return (
-    <BlockOfForm onSubmit={handleSubmit(logIn)} id="form">
-      <ButtonOfLogIn>
+    <FormBlock onSubmit={handleSubmit(logIn)}>
+      <LogInButton>
         <Image src={Facebook} alt="Fasebook" />
         <Text>Продовжити через Facebook</Text>
-      </ButtonOfLogIn>
+      </LogInButton>
 
-      <SecondButtonOfLogIn>
+      <LogInSecondButton>
         <Image src={Google} alt="Google" />
         <Text>Продовжити через Google</Text>
-      </SecondButtonOfLogIn>
+      </LogInSecondButton>
 
       <HorizontalLine>
         <TextLine>чи</TextLine>
       </HorizontalLine>
 
-      <BlockOfButtons>
-        <ButtonOfChoice>Увійти</ButtonOfChoice>
-        <SecondButtonOfChoice>
+      <ButtonsBlock>
+        <ChoiceButton>Увійти</ChoiceButton>
+        <ChoiceSecondButton>
           <Link to="/register">Зареєструватися</Link>
-        </SecondButtonOfChoice>
-      </BlockOfButtons>
+        </ChoiceSecondButton>
+      </ButtonsBlock>
 
-      <BlockOfInputs>
+      <InputsBlock>
         <FormInput
           title="Електронна пошта"
           name="email"
@@ -81,7 +81,7 @@ const AuthForm = () => {
         <FormInput
           title="Пароль"
           name="password"
-          type={toggle ? 'password' : 'email'}
+          type={toggle ? 'password' : 'text'}
           icon={
             toggle ? (
               <VisibilityOffIcon sx={{ fontSize: 24, color: '#4A5568' }} />
@@ -94,12 +94,14 @@ const AuthForm = () => {
           click={() => setToggle(!toggle)}
           register={register}
         />
-      </BlockOfInputs>
+      </InputsBlock>
 
       <Forgot>Забули пароль?</Forgot>
 
-      <Button $isValid={isValid} disabled={!isValid} value="Увійти" type="submit" />
-    </BlockOfForm>
+      <Button $isValid={isValid} disabled={!isValid} type="submit">
+        Увійти
+      </Button>
+    </FormBlock>
   );
 };
 

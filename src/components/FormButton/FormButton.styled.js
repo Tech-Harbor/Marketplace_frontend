@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
-export const Button = styled.input`
+export const Button = styled.button`
   width: 100%;
   height: 60px;
+  color: #ffffff;
   background-color: ${props => (props.$isValid ? '#17317b' : '#9E9EB2')};
   border: none;
   border-radius: 10px;

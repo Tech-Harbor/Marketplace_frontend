@@ -8,7 +8,7 @@ const fontStyles = `
 
 const black = `#000`;
 
-export const BlockOfForm = styled.form`
+export const FormBlock = styled.form`
   width: 360px;
   background-color: #ffffff;
   padding: 36px 16px 17px 16px;
@@ -24,7 +24,7 @@ export const BlockOfForm = styled.form`
   }
 `;
 
-export const ButtonOfLogIn = styled.button`
+export const LogInButton = styled.button`
   width: 100%;
   height: 52px;
   background: none;
@@ -44,7 +44,7 @@ export const ButtonOfLogIn = styled.button`
   }
 `;
 
-export const SecondButtonOfLogIn = styled(ButtonOfLogIn)`
+export const LogInSecondButton = styled(LogInButton)`
   margin-top: 42px;
 
   @media ${device.laptop} {
@@ -82,22 +82,22 @@ export const HorizontalLine = styled.div`
   width: 100%;
   height: 1px;
   background-color: ${black};
-  margin-block: 56px 10px;
+  margin: 56px 0 10px 0;
   text-align: center;
 
   @media ${device.laptop} {
-    margin-block: 38px 18px;
+    margin: 38px 0 18px 0;
   }
 
   @media ${device.desktop} {
-    margin-block: 79px 45px;
+    margin: 79px 0 45px 0;
   }
 `;
 
 export const TextLine = styled.span`
   ${fontStyles};
   font-size: 16px;
-  padding-inline: 25px;
+  padding: 0 25px;
   background-color: #ffffff;
   position: relative;
   top: -7px;
@@ -105,30 +105,30 @@ export const TextLine = styled.span`
 
   @media ${device.laptop} {
     font-size: 24px;
-    padding-inline: 51px;
+    padding: 0 51px;
   }
 
   @media ${device.desktop} {
-    padding-inline: 85px;
+    padding: 0 85px;
   }
 `;
 
-export const BlockOfButtons = styled.div`
+export const ButtonsBlock = styled.div`
   display: flex;
   gap: 15px;
-  margin-block: 10px 40px;
+  margin: 10px 0 40px 0;
 
   @media ${device.laptop} {
     gap: 25px;
-    margin-block: 18px 28px;
+    margin: 18px 0 28px 0;
   }
 
   @media ${device.desktop} {
-    margin-block: 45px 45px;
+    margin: 45px 0 45px 0;
   }
 `;
 
-export const ButtonOfChoice = styled.button`
+export const ChoiceButton = styled.button`
   width: 100%;
   background: none;
   border: none;
@@ -137,15 +137,15 @@ export const ButtonOfChoice = styled.button`
   ${fontStyles};
   font-size: 18px;
   line-height: 21px;
-  padding-block: 11px;
+  padding: 11px 0;
 
   @media ${device.desktop} {
     font-size: 24px;
-    padding-block: 14px;
+    padding: 14px 0;
   }
 `;
 
-export const SecondButtonOfChoice = styled(ButtonOfChoice)`
+export const ChoiceSecondButton = styled(ChoiceButton)`
   border-bottom: 2px solid #b7b7b9;
   color: #b7b7b9;
 
@@ -155,7 +155,7 @@ export const SecondButtonOfChoice = styled(ButtonOfChoice)`
   }
 `;
 
-export const BlockOfInputs = styled.div`
+export const InputsBlock = styled.div`
   height: 166px;
   display: flex;
   flex-direction: column;
@@ -176,14 +176,14 @@ export const Forgot = styled.a`
   line-height: 21px;
   cursor: pointer;
   display: block;
-  margin-block: 33px 40px;
+  margin: 33px 0 40px 0;
 
   @media ${device.laptop} {
-    margin-block: 18px 15px;
+    margin: 18px 0 15px 0;
   }
 
   @media ${device.desktop} {
     font-size: 20px;
-    margin-block: 60px 61px;
+    margin: 60px 0 61px 0;
   }
 `;

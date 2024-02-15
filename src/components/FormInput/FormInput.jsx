@@ -19,6 +19,6 @@ FormInput.propTypes = {
   click: PropTypes.func,
   min: PropTypes.number.isRequired,
   max: PropTypes.string.isRequired,
-  register: PropTypes.any.isRequired,
+  register: PropTypes.func.isRequired,
 };
 export default FormInput;
