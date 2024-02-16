@@ -1,30 +1,21 @@
 import PropTypes from 'prop-types';
 
-import {StyledInput, StyledLabel} from './fields.styled.js';
+import { StyledInput, StyledLabel } from './fields.styled.js';
 
-export const FormField = ({name, id, text}) => {
-    return (
-        <>
-            <StyledLabel label={name} id={id}>
-                {text}
-            </StyledLabel>
+export const FormField = ({ name, type, text, validation, fieldError }) => {
+  return (
+    <div>
+      <StyledLabel label={name}>{text}</StyledLabel>
 
-            <StyledInput
-                name={name}
-                id={name}
-                // value={name}
-                // onChange={e => setName(e.target.value)}
-            />
-        </>
-    );
+      <StyledInput type={type} {...validation} $errors={fieldError} />
+    </div>
+  );
 };
-
 
 FormField.propTypes = {
-    name: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
-    clsField: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  type: PropTypes.string,
+  fieldError: PropTypes.object.isRequired,
+  validation: PropTypes.object.isRequired,
 };
-
-

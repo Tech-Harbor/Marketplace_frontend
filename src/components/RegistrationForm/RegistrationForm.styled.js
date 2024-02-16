@@ -24,8 +24,8 @@ const StyledFlexDiv = styled.div`
 
 // Styles for RegistrationForm
 export const FormWrapper = styled(StyledFlexDiv)`
-  padding: 24px 16px 52px;
-  width: 375px;
+  padding: 24px 16px;
+  width: 360px;
   background-color: var(--color-bg-form);
 
   // @media ${device.laptop} {
@@ -44,6 +44,7 @@ export const FormWrapper = styled(StyledFlexDiv)`
 
 // Styles for Title component (h1)
 export const StyledTitle = styled.h1`
+  margin-bottom: 20px; // відступ від форми
   font-family: Gilroy-Medium, sans-serif;
   font-size: 24px;
   font-weight: 500;
@@ -52,7 +53,6 @@ export const StyledTitle = styled.h1`
   align-self: flex-start;
 
   // @media ${device.laptop} {
-  //   margin-top: 17px;
   //   margin-bottom: 8px; // 20px-12px from Title margin-bottom
   //   padding: 6px 90px;
   //   font-size: 20px;
@@ -60,7 +60,6 @@ export const StyledTitle = styled.h1`
   // }
   //
   // @media ${device.desktop} {
-  //   margin-top: 26px;
   //   margin-bottom: 36px;
   //   padding: 14px 92px;
   //   font-size: 24px;

@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 
 export const StyledText = styled.p`
-  margin-top: 17px;
+  //margin-top: 17px;
 
   font-family: Gilroy-Medium, sans-serif;
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 500;
   line-height: 24px;
   letter-spacing: 0.5px;
-  text-align: center;
 
   color: var(--color-primary);
 

@@ -1,90 +1,123 @@
-// import { FormField, FormFieldPassword } from './fields/index.js';
-import { StyledForm, StyledButton } from './Form.styled';
-import RegisterTerms from './RegisterTerms/RegisterTerms.jsx';
 import { useForm } from 'react-hook-form';
-import { StyledInput, StyledLabel } from './fields/fields.styled.js';
-import { StyledText } from './RegisterTerms/RegisterTerms.styled.js';
+
+import { useAxiosPost } from '../../../hooks/useAxiosPost.js';
+
+import RegisterTerms from './RegisterTerms/RegisterTerms.jsx';
+import { FormField, FormFieldPassword } from './fields/index.js';
+import { FieldValidation } from './FieldValidation/FieldValidation.jsx';
+import { StyledForm, StyledButton } from './Form.styled';
+
+const BASE_API_URL = 'https://marketplace-p93k.onrender.com/api';
+const signupPath = '/auth/signup';
+const Regex = {
+  firstname: '',
+  lastname: '',
+  phone: /^\d{9}$/i,
+  email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+  password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{7,}$/i,
+};
 
 export const Form = () => {
   const {
     register,
     handleSubmit,
-    // watch,
-    formState: { errors },
+    reset,
+    formState: { errors, isValid },
   } = useForm({
     mode: 'onChange',
-    defaultValues: {
-      name: '',
-    },
   });
 
-  const onSubmit = () => {
-    console.log('handleSubmit(onSubmit)');
+  const { sendData } = useAxiosPost(`${BASE_API_URL}${signupPath}`);
+
+  const handleSubmitForm = async data => {
+    await sendData(data);
+    reset();
   };
+  // console.log('send data', errors);
+  // console.log('isValid', isValid);
 
   return (
-    <StyledForm onSubmit={handleSubmit(onSubmit)}>
-      {/*<FormField name="name" id="name" text="Ім’я" />*/}
-      {/*<FormField name="surname" id="surname" text="Прізвище" />*/}
-      {/*<FormField name="phone" id="phone" text="Номер телефону" />*/}
-      {/*<FormField name="email" id="email" text="Ел. пошта" />*/}
-      {/*<FormFieldPassword name="password" id="password" text="Пароль" clsField="password" />*/}
-      <StyledLabel label="name">Ім’я</StyledLabel>
-      <StyledInput
-        {...register('name', {
-          // required: 'Заповніть поле',
-          pattern: /^[A-ZА-ЩЬЮЯҐЄІЇ][a-zа-щьюяґєії]*$/i,
+    <StyledForm onSubmit={handleSubmit(handleSubmitForm)}>
+      <FormField
+        name="firstname"
+        text="Ім’я"
+        validation={register('firstname', {
+          required: 'Заповніть поле',
           minLength: {
             value: 2,
-            message: 'Ім’я має починатися з великої літери та містити від 2 до 35 символів',
-          },
-          maxLength: { value: 35, message: 'Поле має містити від 2 до 35 символів' },
-        })}
-      />
-      {errors.name && <StyledText role="alert">{errors.name.message}</StyledText>}
-      <StyledLabel label="surname">Прізвище</StyledLabel>
-      <StyledInput
-        {...register('surname', {
-          // required: 'Заповніть поле',
-          pattern: /^[A-ZА-ЩЬЮЯҐЄІЇ][a-zа-щьюяґєії]*$/i,
-          minLength: {
-            value: 2,
-            message: 'Поле має починатися з великої літери та містити від 2 до 35 символів',
+            message: 'Має бути від 2 до 28 символів',
           },
           maxLength: {
-            value: 35,
-            message: 'Поле має починатися з великої літери та містити від 2 до 35 символів',
+            value: 28,
+            message: 'Має бути від 2 до 28 символів',
           },
         })}
+        fieldError={errors.firstname}
       />
-      {errors.surname && <StyledText role="alert">{errors.surname.message}</StyledText>}
+      <FieldValidation $fieldError={errors} $fieldName="firstname" />
 
-      <StyledLabel label="phone">Номер телефону</StyledLabel>
-      <StyledInput
-        {...register('phone', {
-          // required: 'Заповніть поле',
-          // pattern: {
-          //   value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i,
-          //   message: 'Невірний формат номеру телефона',
-          // },
+      <FormField
+        name="lastname"
+        text="Прізвище"
+        validation={register('lastname', {
+          required: 'Заповніть поле',
+          minLength: {
+            value: 2,
+            message: 'Має бути від 2 до 28 символів',
+          },
+          maxLength: {
+            value: 28,
+            message: 'Має бути від 2 до 28 символів',
+          },
         })}
+        fieldError={errors.lastname}
       />
-      {errors.phone && <StyledText role="alert">{errors.phone.message}</StyledText>}
+      <FieldValidation $fieldError={errors} $fieldName="lastname" />
 
-      <StyledLabel label="email">Ел. пошта</StyledLabel>
-      <StyledInput
-        {...register('email', {
-          // required: 'Заповніть поле',
-          // pattern: {
-          //   value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i,
-          //   message: 'Невірний формат ел. пошти',
-          // },
+      <FormField
+        name="phone"
+        text="Номер телефону"
+        validation={register('phone', {
+          required: 'Заповніть поле',
+          pattern: {
+            value: Regex.phone,
+            message: 'Не відповідає формату 0501234567',
+          },
         })}
+        fieldError={errors.phone}
       />
-      {errors.email && <StyledText role="alert">{errors.email.message}</StyledText>}
+      <FieldValidation $fieldError={errors} $fieldName="phone" />
+
+      <FormField
+        name="email"
+        text="Ел. пошта"
+        validation={register('email', {
+          required: 'Заповніть поле',
+          pattern: {
+            value: Regex.email,
+            message: 'Не відповідає формату name@email.com',
+          },
+        })}
+        fieldError={errors.email}
+      />
+      <FieldValidation $fieldError={errors} $fieldName="email" />
+
+      <FormFieldPassword
+        name="password"
+        text="Пароль"
+        validation={register('password', {
+          required: 'Заповніть поле',
+          pattern: {
+            value: Regex.password,
+            message: 'Не відповідає формату Password123',
+          },
+        })}
+        fieldError={errors.password}
+      />
+      <FieldValidation $fieldError={errors} $fieldName="password" />
 
       <RegisterTerms />
-      <StyledButton>Зареєструватися</StyledButton>
+      <StyledButton $isValid={isValid}>Зареєструватися</StyledButton>
     </StyledForm>
   );
 };

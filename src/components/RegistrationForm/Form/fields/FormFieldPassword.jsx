@@ -1,37 +1,46 @@
 import PropTypes from 'prop-types';
 
-import {StyledFlexDiv} from '../../RegistrationForm.styled.js';
-import {StyledInput, StyledLabel, StyledIcon, StyledWrapperButton} from './fields.styled.js';
+import {
+  StyledInput,
+  StyledLabel,
+  StyledIconOn,
+  StyledWrapperButton,
+  StyledWrapperFieldPassword,
+  StyledIconOff,
+} from './fields.styled.js';
+import { useState } from 'react';
 
-export const FormFieldPassword = ({name, id, text, clsField}) => {
-    return (
-        <>
-            <StyledLabel label={name} id={id} className={`icon-place ${clsField}`}>
-                {text}
-            </StyledLabel>
+export const FormFieldPassword = ({ name, text, validation, fieldError }) => {
+  const [toggle, setToggle] = useState(false);
 
-            <StyledFlexDiv className="icon-position">
-                <StyledInput
-                    type="password"
-                    name={name}
-                    id={id}
-                    className={`icon-place ${clsField}`}
-                    // value={repeat-password}
-                    // onChange={e => setPassword(e.target.value)}
-                />
+  const onClick = e => {
+    e?.preventDefault(); // prevent form submission from bubbling up
+    setToggle(!toggle);
+  };
 
-                <StyledWrapperButton>
-                    <StyledIcon/>
-                </StyledWrapperButton>
-            </StyledFlexDiv>
-        </>
-    );
+  return (
+    <>
+      <StyledLabel label={name}>{text}</StyledLabel>
+
+      <StyledWrapperFieldPassword>
+        <StyledInput
+          type={toggle ? 'text' : 'password'}
+          className="password-field"
+          {...validation}
+          $errors={fieldError}
+        />
+        <StyledWrapperButton onClick={onClick}>
+          {toggle && <StyledIconOn />}
+          {!toggle && <StyledIconOff />}
+        </StyledWrapperButton>
+      </StyledWrapperFieldPassword>
+    </>
+  );
 };
 
-
 FormFieldPassword.propTypes = {
-    name: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
-    clsField: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  fieldError: PropTypes.object.isRequired,
+  validation: PropTypes.object.isRequired,
 };

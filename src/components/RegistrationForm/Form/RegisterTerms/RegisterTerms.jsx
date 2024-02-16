@@ -9,9 +9,8 @@ const RegisterTerms = () => {
         <span className="text"> положення про обробку і захист персональних даних </span>
       </NavLink>
       та
-      <br />
       <NavLink to={'/'}>
-        <span className="text">угодою користувача</span>
+        <span className="text"> угодою користувача</span>
       </NavLink>
     </StyledText>
   );

@@ -36,10 +36,15 @@
   --color-primary-active: #ff8a00;
   --color-secondary: #fff;
 
+  --color-icon: #000000db;
+
+  --color-label: #1b1e24;
+  --color-border-input: #00000080;
+  --color-error-input: #f74a4f;
+
   --color-bg-form: #fff;
   --color-bg-form_input: #dadada;
   --color-bg-form_btn-disable: #9e9eb2;
-  --color-bg-form_btn-enable: #ff8a00;
 }
 
 body {
