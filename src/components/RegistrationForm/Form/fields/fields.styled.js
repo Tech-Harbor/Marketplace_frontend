@@ -35,7 +35,8 @@ export const StyledInput = styled.input.attrs({
   padding: 10px 17px;
   width: 100%;
   height: 36px;
-  border: 1px solid var(--color-border-input);
+  //border: 1px solid var(--color-border-input);
+  border: 1px solid ${({ $fieldError }) => ($fieldError ? 'red' : 'var(--color-border-input)')};
   border-radius: 4px;
   color: var(--color-primary); // ??
 

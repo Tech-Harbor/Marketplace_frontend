@@ -7,12 +7,7 @@ export const FormField = ({ name, type, text, validation, fieldError }) => {
     <div>
       <StyledLabel label={name}>{text}</StyledLabel>
 
-      <StyledInput
-        type={type}
-        {...validation}
-        // $fieldError={fieldError}
-        style={{ borderColor: fieldError ? 'red' : 'var(--color-border-input)' }}
-      />
+      <StyledInput type={type} {...validation} $fieldError={fieldError} />
     </div>
   );
 };
