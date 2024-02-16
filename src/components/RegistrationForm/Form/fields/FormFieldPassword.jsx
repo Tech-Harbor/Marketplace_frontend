@@ -41,6 +41,6 @@ export const FormFieldPassword = ({ name, text, validation, fieldError }) => {
 FormFieldPassword.propTypes = {
   name: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
-  fieldError: PropTypes.object.isRequired,
+  fieldError: PropTypes.object,
   validation: PropTypes.object.isRequired,
 };

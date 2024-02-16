@@ -7,15 +7,20 @@ export const FormField = ({ name, type, text, validation, fieldError }) => {
     <div>
       <StyledLabel label={name}>{text}</StyledLabel>
 
-      <StyledInput type={type} {...validation} $errors={fieldError} />
+      <StyledInput
+        type={type}
+        {...validation}
+        // $fieldError={fieldError}
+        style={{ borderColor: fieldError ? 'red' : 'var(--color-border-input)' }}
+      />
     </div>
   );
 };
 
 FormField.propTypes = {
   name: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
   type: PropTypes.string,
-  fieldError: PropTypes.object.isRequired,
+  text: PropTypes.string.isRequired,
   validation: PropTypes.object.isRequired,
+  fieldError: PropTypes.object,
 };

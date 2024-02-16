@@ -3,7 +3,13 @@ import PropTypes from 'prop-types';
 
 export const FieldValidation = ({ $fieldError, $fieldName }) => {
   return (
-    <div style={{ height: '20px', display: 'flex', alignItems: 'center' }}>
+    <div
+      style={{
+        height: '20px',
+        display: 'flex',
+        alignItems: 'center',
+      }}
+    >
       {$fieldError[$fieldName] && (
         <TextValidation role="alert">{$fieldError[$fieldName].message}</TextValidation>
       )}

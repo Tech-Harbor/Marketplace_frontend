@@ -33,8 +33,6 @@ export const Form = () => {
     await sendData(data);
     reset();
   };
-  // console.log('send data', errors);
-  // console.log('isValid', isValid);
 
   return (
     <StyledForm onSubmit={handleSubmit(handleSubmitForm)}>
@@ -113,6 +111,7 @@ export const Form = () => {
           },
         })}
         fieldError={errors.password}
+        isvalid={isValid}
       />
       <FieldValidation $fieldError={errors} $fieldName="password" />
 
