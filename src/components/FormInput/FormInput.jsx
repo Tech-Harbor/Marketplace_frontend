@@ -1,12 +1,18 @@
 import PropTypes from 'prop-types';
-import { Container, Input, Label, Icon } from './FormInput.styled.js';
+import { Container, InputBlock, Input, Label, Icon } from './FormInput.styled.js';
 
 const FormInput = ({ title, name, type = 'text', icon, click, min = 0, max = 100, register }) => {
   return (
     <Container>
       <Label>{title}</Label>
-      <Input type={type} maxLength={max} {...register(name, { required: true, minLength: min })} />
-      <Icon onClick={click}>{icon}</Icon>
+      <InputBlock>
+        <Input
+          type={type}
+          maxLength={max}
+          {...register(name, { required: true, minLength: min })}
+        />
+        <Icon onClick={click}>{icon}</Icon>
+      </InputBlock>
     </Container>
   );
 };

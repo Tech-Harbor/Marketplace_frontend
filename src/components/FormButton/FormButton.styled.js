@@ -2,13 +2,13 @@ import styled from 'styled-components';
 
 export const Button = styled.button`
   width: 100%;
-  height: 60px;
   color: #ffffff;
-  background-color: ${props => (props.$isValid ? '#17317b' : '#9E9EB2')};
+  background-color: ${props => (props.$isValid ? '#FF8A00' : '#FF8A00')};
   border: none;
-  border-radius: 10px;
-  font-family: 'Inter', sans-serif;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 29px;
+  border-radius: 8px;
+  font-family: 'Gilroy-Regular', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  padding: 10px;
 `;
