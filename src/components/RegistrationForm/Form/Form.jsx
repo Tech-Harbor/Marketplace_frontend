@@ -93,7 +93,7 @@ export const Form = () => {
           required: 'Заповніть поле',
           pattern: {
             value: Regex.email,
-            message: 'Не відповідає формату name@email.com',
+            message: 'Не відповідає формату *@*.*',
           },
         })}
         fieldError={errors.email}

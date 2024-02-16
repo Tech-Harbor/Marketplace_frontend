@@ -32,7 +32,7 @@ export const StyledInput = styled.input.attrs({
   autoComplete: 'true',
 })`
   //margin-bottom: 20px;
-  padding: 10px 17px;
+  padding: 0 17px;
   width: 100%;
   height: 36px;
   //border: 1px solid var(--color-border-input);
