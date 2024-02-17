@@ -28,7 +28,7 @@ export const Input = styled.input`
   width: 100%;
   height: 36px;
   background: none;
-  border: 1px solid ${props => (props.$error ? '#F74A4F' : 'rgba(0, 0, 0, 0.5)')};
+  border: 1px solid ${props => (props.$error ? '#F74A4F' : '#0000007F')};
   border-radius: 4px;
   color: #000;
   ${fontStyles};

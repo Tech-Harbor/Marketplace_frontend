@@ -58,7 +58,10 @@ FormInput.propTypes = {
   min: PropTypes.number.isRequired,
   max: PropTypes.string.isRequired,
   register: PropTypes.func.isRequired,
-  errors: PropTypes.object,
-  errorText: PropTypes.string,
+  errors: PropTypes.exact({
+    type: PropTypes.string,
+    message: PropTypes.string,
+    ref: PropTypes.object,
+  }),
 };
 export default FormInput;

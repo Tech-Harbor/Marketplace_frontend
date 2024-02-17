@@ -21,7 +21,7 @@ const MainLayout = () => {
   return (
     <div>
       <Header />
-      <main className={`${s.shell} ${s.mainContainer}`}>
+      <main className={s.mainContainer}>
         {isHomePage && <SideBar />}
 
         <Suspense>
