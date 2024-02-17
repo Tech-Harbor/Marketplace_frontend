@@ -57,8 +57,6 @@ const AuthForm = () => {
     });
   };
 
-  console.log(errors);
-
   return (
     <FormBlock onSubmit={handleSubmit(logIn)}>
       <TitleBlock>
