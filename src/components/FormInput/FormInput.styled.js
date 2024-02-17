@@ -1,8 +1,7 @@
 import styled from 'styled-components';
-import { device } from '../../utils/index.js';
 
 const fontStyles = `
-  font-family: 'Inter', sans-serif;
+  font-family: 'Gilroy-Regular', sans-serif;
   font-weight: 400;
 `;
 
@@ -13,54 +12,51 @@ export const Container = styled.div`
 
 export const Label = styled.label`
   ${fontStyles};
-  font-size: 14px;
-  line-height: 16px;
+  font-size: 15px;
+  line-height: 22px;
+`;
 
-  @media ${device.laptop} {
-    font-size: 16px;
-  }
+export const InputBlock = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
 `;
 
 export const Input = styled.input`
   display: block;
   width: 100%;
-  height: 43px;
-  background-color: #dadada;
-  border: none;
-  border-radius: 10px;
+  height: 36px;
+  background: none;
+  border: 1px solid ${props => (props.$error ? '#F74A4F' : '#0000007F')};
+  border-radius: 4px;
   color: #000;
   ${fontStyles};
   font-size: 16px;
   line-height: 24px;
-  margin-top: 7px;
+  padding: 0 50px 0 17px;
 
-  @media ${device.laptop} {
-    height: 51px;
-    font-size: 20px;
-  }
-
-  @media ${device.desktop} {
-    height: 66px;
-    font-size: 24px;
+  &:focus {
+    outline: none;
   }
 `;
 
-export const Icon = styled.div`
-  cursor: pointer;
+export const IconBlock = styled.div`
+  display: flex;
   position: absolute;
-  top: 47px;
-  right: 24px;
+  right: 10px;
   z-index: 1;
+`;
 
-  @media ${device.mobile} {
-    top: 32px;
-  }
+export const IconUse = styled.div`
+  cursor: pointer;
+  margin-left: 5px;
+`;
 
-  @media ${device.laptop} {
-    top: 36px;
-  }
-
-  @media ${device.desktop} {
-    top: 44px;
-  }
+export const ErrorText = styled.div`
+  font-family: 'Gilroy-Medium', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 24px;
+  color: #f74a4f;
 `;
