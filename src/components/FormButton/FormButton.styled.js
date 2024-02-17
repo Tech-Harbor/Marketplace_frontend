@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Button = styled.button`
   width: 100%;
   color: #ffffff;
-  background-color: ${props => (props.$isValid ? '#FF8A00' : '#FF8A00')};
+  background-color: ${props => (props.$isValid ? '#ff8a00' : 'gray')};
   border: none;
   border-radius: 8px;
   font-family: 'Gilroy-Regular', sans-serif;

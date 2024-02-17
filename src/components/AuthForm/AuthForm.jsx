@@ -36,11 +36,16 @@ const AuthForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { isValid },
-  } = useForm();
+    formState: { isValid, errors },
+  } = useForm({ mode: 'onChange' });
 
   useEffect(() => {
     if (response.token) {
+      if (check) {
+        localStorage.setItem('token', response.token);
+      } else {
+        sessionStorage.setItem('token', response.token);
+      }
       navigate('/');
     }
   });
@@ -70,6 +75,7 @@ const AuthForm = () => {
           min={7}
           max={'35'}
           register={register}
+          errors={errors?.email}
         />
         <FormInput
           title="Пароль"
@@ -86,6 +92,7 @@ const AuthForm = () => {
           max={'20'}
           click={() => setToggle(!toggle)}
           register={register}
+          errors={errors?.password}
         />
       </InputsBlock>
 
@@ -104,7 +111,7 @@ const AuthForm = () => {
         <Forgot>Забули пароль?</Forgot>
       </ChoiceBlock>
 
-      <Button $isValid={isValid} disabled={!isValid} type="submit">
+      <Button $isValid={isValid} disabled={isValid} type="submit">
         Увійти
       </Button>
 

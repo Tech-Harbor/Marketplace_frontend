@@ -28,17 +28,35 @@ export const Input = styled.input`
   width: 100%;
   height: 36px;
   background: none;
-  border: 1px solid rgba(0, 0, 0, 0.5);
+  border: 1px solid ${props => (props.$error ? '#F74A4F' : 'rgba(0, 0, 0, 0.5)')};
   border-radius: 4px;
   color: #000;
   ${fontStyles};
   font-size: 16px;
   line-height: 24px;
+  padding: 0 50px 0 17px;
+
+  &:focus {
+    outline: none;
+  }
 `;
 
-export const Icon = styled.div`
-  cursor: pointer;
+export const IconBlock = styled.div`
+  display: flex;
   position: absolute;
   right: 10px;
   z-index: 1;
+`;
+
+export const IconUse = styled.div`
+  cursor: pointer;
+  margin-left: 5px;
+`;
+
+export const ErrorText = styled.div`
+  font-family: 'Gilroy-Medium', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 24px;
+  color: #f74a4f;
 `;

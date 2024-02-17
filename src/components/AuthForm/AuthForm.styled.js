@@ -37,10 +37,8 @@ export const Title = styled.span`
 `;
 
 export const InputsBlock = styled.div`
-  height: 148px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: grid;
+  gap: 16px;
 `;
 
 export const ChoiceBlock = styled.div`
