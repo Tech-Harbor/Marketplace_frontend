@@ -8,7 +8,7 @@ import { StyledForm, StyledButton } from './Form.styled';
 
 const BASE_API_URL = 'https://marketplace-p93k.onrender.com/api';
 const signupPath = '/auth/signup';
-const Regex = {
+const fieldsPattern = {
   firstname: '',
   lastname: '',
   phone: /^\d{9}$/i,
@@ -76,7 +76,7 @@ export const Form = () => {
         validation={register('phone', {
           required: 'Заповніть поле',
           pattern: {
-            value: Regex.phone,
+            value: fieldsPattern.phone,
             message: 'Не відповідає формату 0501234567',
           },
         })}
@@ -89,7 +89,7 @@ export const Form = () => {
         validation={register('email', {
           required: 'Заповніть поле',
           pattern: {
-            value: Regex.email,
+            value: fieldsPattern.email,
             message: 'Не відповідає формату *@*.*',
           },
         })}

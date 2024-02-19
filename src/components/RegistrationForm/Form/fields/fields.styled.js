@@ -44,6 +44,7 @@ export const StyledInput = styled.input.attrs({
   &:focus-visible {
     outline: none;
   }
+
   &.password-field {
     margin-bottom: 0;
     padding-right: 36px; // reserved place for icon
@@ -87,4 +88,8 @@ export const StyledTextValidation = styled.p`
   line-height: 24px;
   letter-spacing: 0.5px;
   color: var(--color-error-input);
+`;
+
+export const StyledIcon = styled(VisibilityOutlinedIcon)`
+  color: var(--color-icon);
 `;

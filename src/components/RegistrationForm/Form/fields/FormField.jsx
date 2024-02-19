@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 
 import { StyledInput, StyledLabel, StyledTextValidation } from './fields.styled.js';
-// import { TextValidation } from '../FieldValidation/FieldValidation.styled.js';
 
 export const FormField = ({ name, type, text, validation, fieldError }) => {
   return (
