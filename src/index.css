@@ -35,7 +35,6 @@
   --color-primary: #000;
   --color-primary-active: #ff8a00;
   --color-secondary: #fff;
-  --color-icon: #4a5568;
 
   --color-icon: #000000db;
 
@@ -94,10 +93,7 @@ img {
   height: auto;
 }
 
-<<<<<<< HEAD
 /* Gilroy fonts*/
-=======
->>>>>>> dev
 @font-face {
   font-family: 'Gilroy-Medium';
   src:
