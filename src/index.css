@@ -35,13 +35,10 @@
   --color-primary: #000;
   --color-primary-active: #ff8a00;
   --color-secondary: #fff;
-
   --color-icon: #000000db;
-
   --color-label: #1b1e24;
   --color-border-input: #00000080;
   --color-error-input: #f74a4f;
-
   --color-bg-form: #fff;
   --color-bg-form_input: #dadada;
   --color-bg-form_btn-disable: #9e9eb2;
@@ -57,7 +54,6 @@ button {
   cursor: pointer;
   margin: 0;
   padding: 0;
-
   border: 0;
 }
 

@@ -78,6 +78,7 @@ export const StyledWrapperFieldPassword = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+<<<<<<< HEAD
 `;
 
 export const StyledTextValidation = styled.p`
@@ -92,4 +93,5 @@ export const StyledTextValidation = styled.p`
 
 export const StyledIcon = styled(VisibilityOutlinedIcon)`
   color: var(--color-icon);
+  //margin-bottom: 24px;
 `;
