@@ -4,7 +4,6 @@ import { useAxiosPost } from '../../../hooks/useAxiosPost.js';
 
 import RegisterTerms from './RegisterTerms/RegisterTerms.jsx';
 import { FormField, FormFieldPassword } from './fields/index.js';
-import { FieldValidation } from './FieldValidation/FieldValidation.jsx';
 import { StyledForm, StyledButton } from './Form.styled';
 
 const BASE_API_URL = 'https://marketplace-p93k.onrender.com/api';
@@ -22,6 +21,7 @@ export const Form = () => {
     register,
     handleSubmit,
     reset,
+    watch,
     formState: { errors, isValid },
   } = useForm({
     mode: 'onChange',
@@ -52,7 +52,6 @@ export const Form = () => {
         })}
         fieldError={errors.firstname}
       />
-      <FieldValidation $fieldError={errors} $fieldName="firstname" />
 
       <FormField
         name="lastname"
@@ -70,7 +69,6 @@ export const Form = () => {
         })}
         fieldError={errors.lastname}
       />
-      <FieldValidation $fieldError={errors} $fieldName="lastname" />
 
       <FormField
         name="phone"
@@ -84,7 +82,6 @@ export const Form = () => {
         })}
         fieldError={errors.phone}
       />
-      <FieldValidation $fieldError={errors} $fieldName="phone" />
 
       <FormField
         name="email"
@@ -98,22 +95,17 @@ export const Form = () => {
         })}
         fieldError={errors.email}
       />
-      <FieldValidation $fieldError={errors} $fieldName="email" />
 
       <FormFieldPassword
         name="password"
         text="Пароль"
         validation={register('password', {
           required: 'Заповніть поле',
-          pattern: {
-            value: Regex.password,
-            message: 'Не відповідає формату Password123',
-          },
         })}
         fieldError={errors.password}
         isvalid={isValid}
+        watch={watch}
       />
-      <FieldValidation $fieldError={errors} $fieldName="password" />
 
       <RegisterTerms />
       <StyledButton $isValid={isValid}>Зареєструватися</StyledButton>

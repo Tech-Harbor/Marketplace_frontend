@@ -29,22 +29,14 @@ export const FormWrapper = styled(StyledFlexDiv)`
   background-color: var(--color-bg-form);
 
   // @media ${device.laptop} {
-  //   margin: 12px 0;
-  //   padding: 0 25px;
-  //   width: 658px;
-  //   border-radius: 10px;
   // }
-  //
   // @media ${device.desktop} {
-  //   margin: 27px 0;
-  //   width: 708px;
-  //   border-radius: 10px;
   // }
 `;
 
 // Styles for Title component (h1)
 export const StyledTitle = styled.h1`
-  margin-bottom: 20px; // відступ від форми
+  //margin-bottom: 20px; // відступ від форми
   font-family: Gilroy-Medium, sans-serif;
   font-size: 24px;
   font-weight: 500;
@@ -53,17 +45,8 @@ export const StyledTitle = styled.h1`
   align-self: flex-start;
 
   // @media ${device.laptop} {
-  //   margin-bottom: 8px; // 20px-12px from Title margin-bottom
-  //   padding: 6px 90px;
-  //   font-size: 20px;
-  //   line-height: 24px;
   // }
-  //
   // @media ${device.desktop} {
-  //   margin-bottom: 36px;
-  //   padding: 14px 92px;
-  //   font-size: 24px;
-  //   line-height: 29px;
   // }
 `;
 

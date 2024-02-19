@@ -5,12 +5,12 @@ const RegisterTerms = () => {
   return (
     <StyledText>
       Реєструючись, ви погоджуєтесь з умовами <br />
-      <NavLink to={'/'}>
-        <span className="text"> положення про обробку і захист персональних даних </span>
+      <NavLink to={'/'} className="text">
+        положення про обробку і захист персональних даних
       </NavLink>
-      та
-      <NavLink to={'/'}>
-        <span className="text"> угодою користувача</span>
+      <span> та </span>
+      <NavLink to={'/'} className="text">
+        угодою користувача
       </NavLink>
     </StyledText>
   );
