@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import mainInstance from '../api/axiosAPI.js';
 
-export const useAxiosPost = () => {
+export const useRegisterSubmit = () => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);

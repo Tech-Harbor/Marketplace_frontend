@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 
-import { useAxiosPost } from '../../../hooks/apiRequests.js';
+import { useRegisterSubmit } from '../../../hooks/apiRequests.js';
 
 import RegisterTerms from './RegisterTerms/RegisterTerms.jsx';
 import { FormField, FormFieldPassword } from './fields/index.js';
@@ -15,6 +15,11 @@ const fieldsPattern = {
   password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{7,}$/i,
 };
 
+const makeFirstLetterUpperCase = string => {
+  const letterArray = string.split('');
+  return letterArray[0].toUpperCase() + letterArray.splice(1).join('');
+};
+
 export const Form = () => {
   const {
     register,
@@ -26,12 +31,16 @@ export const Form = () => {
     mode: 'onChange',
   });
 
-  const { sendData } = useAxiosPost();
+  const { sendData } = useRegisterSubmit();
   const passwordValue = watch('password');
   const isPswValid = isPasswordValid(passwordValue, isValid);
 
   const handleSubmitForm = async data => {
-    await sendData(data);
+    await sendData({
+      ...data,
+      firstname: makeFirstLetterUpperCase(data.firstname),
+      lastname: makeFirstLetterUpperCase(data.lastname),
+    });
     reset();
   };
 
