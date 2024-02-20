@@ -1,37 +1,59 @@
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import {StyledFlexDiv} from '../../RegistrationForm.styled.js';
-import {StyledInput, StyledLabel, StyledIcon, StyledWrapperButton} from './fields.styled.js';
+import ValidationErrors from './ValidateErrors/ValidationErrors.jsx';
 
-export const FormFieldPassword = ({name, id, text, clsField}) => {
-    return (
-        <>
-            <StyledLabel label={name} id={id} className={`icon-place ${clsField}`}>
-                {text}
-            </StyledLabel>
+import {
+  StyledInput,
+  StyledLabel,
+  StyledIconOn,
+  StyledWrapperButton,
+  StyledWrapperFieldPassword,
+  StyledIconOff,
+  StyledTextValidation,
+} from './fields.styled.js';
+import { validatePasswordPatterns } from '../../../../utils/validatePasswordPatterns.js';
 
-            <StyledFlexDiv className="icon-position">
-                <StyledInput
-                    type="password"
-                    name={name}
-                    id={id}
-                    className={`icon-place ${clsField}`}
-                    // value={repeat-password}
-                    // onChange={e => setPassword(e.target.value)}
-                />
+export const FormFieldPassword = ({ name, text, validation, fieldError, passwordValue }) => {
+  const [toggle, setToggle] = useState(false);
+  const [validationPasswordResults, setValidationPasswordResults] = useState({});
+  const onClick = e => {
+    e?.preventDefault();
+    setToggle(!toggle);
+  };
 
-                <StyledWrapperButton>
-                    <StyledIcon/>
-                </StyledWrapperButton>
-            </StyledFlexDiv>
-        </>
-    );
+  useEffect(() => {
+    setValidationPasswordResults(prevStat => validatePasswordPatterns(passwordValue) || prevStat);
+  }, [passwordValue]);
+
+  return (
+    <>
+      <StyledLabel label={name}>{text}</StyledLabel>
+      <StyledWrapperFieldPassword>
+        <StyledInput
+          type={toggle ? 'text' : 'password'}
+          className="password-field"
+          {...validation}
+          $fieldError={fieldError}
+        />
+        <StyledWrapperButton onClick={onClick}>
+          {toggle && <StyledIconOn />}
+          {!toggle && <StyledIconOff />}
+        </StyledWrapperButton>
+      </StyledWrapperFieldPassword>
+
+      {fieldError && <StyledTextValidation role="alert">{fieldError.message}</StyledTextValidation>}
+      {passwordValue && <ValidationErrors validationPasswordResults={validationPasswordResults} />}
+    </>
+  );
 };
 
-
 FormFieldPassword.propTypes = {
-    name: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
-    clsField: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  fieldError: PropTypes.object,
+  validation: PropTypes.shape({
+    required: PropTypes.string,
+  }).isRequired,
+  passwordValue: PropTypes.string,
 };
