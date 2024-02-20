@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 
-export const StyledValidatePasswordBox = styled.ul`
+export const StyledValidateErrors = styled.ul`
   margin-top: 6px;
 `;
 

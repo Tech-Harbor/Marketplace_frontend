@@ -1,13 +1,12 @@
 import { useForm } from 'react-hook-form';
 
-import { useAxiosPost } from '../../../hooks/useAxiosPost.js';
+import { useAxiosPost } from '../../../hooks/apiRequests.js';
 
 import RegisterTerms from './RegisterTerms/RegisterTerms.jsx';
 import { FormField, FormFieldPassword } from './fields/index.js';
 import { StyledForm, StyledButton } from './Form.styled';
+import { validPassword } from '../../../utils/validatePassword.js';
 
-const BASE_API_URL = 'https://marketplace-p93k.onrender.com/api';
-const signupPath = '/auth/signup';
 const fieldsPattern = {
   firstname: '',
   lastname: '',
@@ -27,7 +26,9 @@ export const Form = () => {
     mode: 'onChange',
   });
 
-  const { sendData } = useAxiosPost(`${BASE_API_URL}${signupPath}`);
+  const { sendData } = useAxiosPost();
+  const passwordValue = watch('password');
+  const isPasswordValid = validPassword(passwordValue, isValid);
 
   const handleSubmitForm = async data => {
     await sendData(data);
@@ -60,11 +61,11 @@ export const Form = () => {
           required: 'Заповніть поле',
           minLength: {
             value: 2,
-            message: 'Має бути від 2 до 28 символів',
+            message: 'Має бути від 2 до 35 символів',
           },
           maxLength: {
-            value: 28,
-            message: 'Має бути від 2 до 28 символів',
+            value: 35,
+            message: 'Має бути від 2 до 35 символів',
           },
         })}
         fieldError={errors.lastname}
@@ -104,11 +105,11 @@ export const Form = () => {
         })}
         fieldError={errors.password}
         isvalid={isValid}
-        watch={watch}
+        passwordValue={passwordValue}
       />
 
       <RegisterTerms />
-      <StyledButton $isValid={isValid}>Зареєструватися</StyledButton>
+      <StyledButton $isPasswordValid={isPasswordValid}>Зареєструватися</StyledButton>
     </StyledForm>
   );
 };

@@ -34,6 +34,7 @@
   /* Ruskevych */
   --color-primary: #000;
   --color-primary-active: #ff8a00;
+  --color-btn-disabled: #808080bf;
   --color-secondary: #fff;
   --color-icon: #000000db;
   --color-label: #1b1e24;
@@ -46,8 +47,6 @@
 
 body {
   margin: 0;
-  /*min-width: 320px;*/
-  /*min-height: 100vh;*/
 }
 
 button {

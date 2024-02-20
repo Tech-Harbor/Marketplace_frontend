@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import mainInstance from '../api/axiosAPI.js';
 
-export const useAxiosPost = url => {
+export const useAxiosPost = () => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -10,7 +10,7 @@ export const useAxiosPost = url => {
     setIsLoading(true);
 
     try {
-      const { data: result } = await axios.post(url, data);
+      const { data: result } = await mainInstance.post('/auth/signup', data);
       setData(result);
     } catch (e) {
       setError(e);
@@ -21,7 +21,6 @@ export const useAxiosPost = url => {
 
   useEffect(() => {
     if (data) {
-      // console.log('sendData', data);
       sendData();
     }
   }, [data]);

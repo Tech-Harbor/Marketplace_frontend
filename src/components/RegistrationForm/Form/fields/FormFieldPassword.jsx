@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import ValidatePasswordBox from './ValidatePasswordBox/ValidatePasswordBox.jsx';
+import ValidateErrors from './ValidateErrors/ValidateErrors.jsx';
 
 import {
   StyledInput,
@@ -12,22 +12,14 @@ import {
   StyledIconOff,
   StyledTextValidation,
 } from './fields.styled.js';
+import { validatePassword } from '../../../../utils/validatePassword.js';
 
-export const FormFieldPassword = ({ name, text, validation, fieldError, watch }) => {
-  const passwordValue = watch('password');
+export const FormFieldPassword = ({ name, text, validation, fieldError, passwordValue }) => {
   const [toggle, setToggle] = useState(false);
   const [validationPasswordResults, setValidationPasswordResults] = useState({});
   const onClick = e => {
     e?.preventDefault();
     setToggle(!toggle);
-  };
-  const validatePassword = (password = '') => {
-    const validationResult = {};
-    validationResult['Тільки латинські літери'] = /^[a-zA-Z0-9]+$/.test(password);
-    validationResult['Містити великі та малі літери'] = /^(?=.*[a-z])(?=.*[A-Z])/.test(password);
-    validationResult['Містити цифри'] = /\d/.test(password);
-    validationResult['Не менше 8 символів'] = password.length >= 8;
-    return validationResult;
   };
 
   useEffect(() => {
@@ -51,9 +43,7 @@ export const FormFieldPassword = ({ name, text, validation, fieldError, watch })
       </StyledWrapperFieldPassword>
 
       {fieldError && <StyledTextValidation role="alert">{fieldError.message}</StyledTextValidation>}
-      {passwordValue && (
-        <ValidatePasswordBox validationPasswordResults={validationPasswordResults} />
-      )}
+      {passwordValue && <ValidateErrors validationPasswordResults={validationPasswordResults} />}
     </>
   );
 };
@@ -65,5 +55,5 @@ FormFieldPassword.propTypes = {
   validation: PropTypes.shape({
     required: PropTypes.string,
   }).isRequired,
-  watch: PropTypes.func.isRequired,
+  passwordValue: PropTypes.string,
 };

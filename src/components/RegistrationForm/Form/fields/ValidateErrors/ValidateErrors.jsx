@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
-import { StyledIcon, StyledItem, StyledValidatePasswordBox } from './ValidatePasswordBox.styled.js';
+import { StyledIcon, StyledItem, StyledValidateErrors } from './ValidateErrors.styled.js';
 
-const ValidatePasswordBox = ({ validationPasswordResults }) => {
+const ValidateErrors = ({ validationPasswordResults }) => {
   return (
-    <StyledValidatePasswordBox>
+    <StyledValidateErrors>
       {Object.entries(validationPasswordResults).map(
         ([requirement, isValid]) =>
           !isValid && (
@@ -13,12 +13,12 @@ const ValidatePasswordBox = ({ validationPasswordResults }) => {
             </StyledItem>
           )
       )}
-    </StyledValidatePasswordBox>
+    </StyledValidateErrors>
   );
 };
 
-ValidatePasswordBox.propTypes = {
+ValidateErrors.propTypes = {
   validationPasswordResults: PropTypes.object.isRequired,
 };
 
-export default ValidatePasswordBox;
+export default ValidateErrors;

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { device } from '../../../utils';
 
 export const StyledForm = styled.form`
-  margin-bottom: 17px; // відступ між формою та текстом нижче
+  margin-bottom: 17px; // margin between the form and text below.
   width: 100%;
   min-height: 100%;
 `;
@@ -21,7 +21,8 @@ export const StyledButton = styled.button`
   color: var(--color-btn-text);
 
   //  styles for disable button
-  background-color: ${({ $isValid }) => ($isValid ? 'var(--color-primary-active)' : 'grey')};
+  background-color: ${({ $isPasswordValid }) =>
+    $isPasswordValid ? 'var(--color-primary-active)' : 'var(--color-btn-disabled)'};
 
   // @media ${device.laptop} {
   // }
