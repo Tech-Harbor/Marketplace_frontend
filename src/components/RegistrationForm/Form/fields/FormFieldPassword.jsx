@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import ValidateErrors from './ValidateErrors/ValidateErrors.jsx';
+import ValidationErrors from './ValidateErrors/ValidationErrors.jsx';
 
 import {
   StyledInput,
@@ -12,7 +12,7 @@ import {
   StyledIconOff,
   StyledTextValidation,
 } from './fields.styled.js';
-import { validatePassword } from '../../../../utils/validatePassword.js';
+import { validatePasswordPatterns } from '../../../../utils/validatePasswordPatterns.js';
 
 export const FormFieldPassword = ({ name, text, validation, fieldError, passwordValue }) => {
   const [toggle, setToggle] = useState(false);
@@ -23,7 +23,7 @@ export const FormFieldPassword = ({ name, text, validation, fieldError, password
   };
 
   useEffect(() => {
-    setValidationPasswordResults(prevStat => validatePassword(passwordValue) || prevStat);
+    setValidationPasswordResults(prevStat => validatePasswordPatterns(passwordValue) || prevStat);
   }, [passwordValue]);
 
   return (
@@ -43,7 +43,7 @@ export const FormFieldPassword = ({ name, text, validation, fieldError, password
       </StyledWrapperFieldPassword>
 
       {fieldError && <StyledTextValidation role="alert">{fieldError.message}</StyledTextValidation>}
-      {passwordValue && <ValidateErrors validationPasswordResults={validationPasswordResults} />}
+      {passwordValue && <ValidationErrors validationPasswordResults={validationPasswordResults} />}
     </>
   );
 };

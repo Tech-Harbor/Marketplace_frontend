@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import { StyledIcon, StyledItem, StyledValidateErrors } from './ValidateErrors.styled.js';
+import { StyledIcon, StyledItem, StyledValidateErrors } from './ValidationErrors.styled.js';
 
-const ValidateErrors = ({ validationPasswordResults }) => {
+const ValidationErrors = ({ validationPasswordResults }) => {
   return (
     <StyledValidateErrors>
       {Object.entries(validationPasswordResults).map(
@@ -17,8 +17,8 @@ const ValidateErrors = ({ validationPasswordResults }) => {
   );
 };
 
-ValidateErrors.propTypes = {
+ValidationErrors.propTypes = {
   validationPasswordResults: PropTypes.object.isRequired,
 };
 
-export default ValidateErrors;
+export default ValidationErrors;

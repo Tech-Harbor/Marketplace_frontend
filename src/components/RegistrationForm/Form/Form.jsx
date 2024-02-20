@@ -5,7 +5,7 @@ import { useAxiosPost } from '../../../hooks/apiRequests.js';
 import RegisterTerms from './RegisterTerms/RegisterTerms.jsx';
 import { FormField, FormFieldPassword } from './fields/index.js';
 import { StyledForm, StyledButton } from './Form.styled';
-import { validPassword } from '../../../utils/validatePassword.js';
+import { isPasswordValid } from '../../../utils/validatePasswordPatterns.js';
 
 const fieldsPattern = {
   firstname: '',
@@ -28,7 +28,7 @@ export const Form = () => {
 
   const { sendData } = useAxiosPost();
   const passwordValue = watch('password');
-  const isPasswordValid = validPassword(passwordValue, isValid);
+  const isPswValid = isPasswordValid(passwordValue, isValid);
 
   const handleSubmitForm = async data => {
     await sendData(data);
@@ -109,7 +109,7 @@ export const Form = () => {
       />
 
       <RegisterTerms />
-      <StyledButton $isPasswordValid={isPasswordValid}>Зареєструватися</StyledButton>
+      <StyledButton $isPswValid={isPswValid}>Зареєструватися</StyledButton>
     </StyledForm>
   );
 };

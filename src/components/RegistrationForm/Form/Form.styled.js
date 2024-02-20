@@ -21,8 +21,8 @@ export const StyledButton = styled.button`
   color: var(--color-btn-text);
 
   //  styles for disable button
-  background-color: ${({ $isPasswordValid }) =>
-    $isPasswordValid ? 'var(--color-primary-active)' : 'var(--color-btn-disabled)'};
+  background-color: ${({ $isPswValid }) =>
+    $isPswValid ? 'var(--color-primary-active)' : 'var(--color-btn-disabled)'};
 
   // @media ${device.laptop} {
   // }

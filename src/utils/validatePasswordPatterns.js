@@ -1,4 +1,4 @@
-export const validatePassword = (password = '') => {
+export const validatePasswordPatterns = (password = '') => {
   const validationResult = {};
   validationResult['Тільки латинські літери'] = /^[a-zA-Z0-9]+$/.test(password);
   validationResult['Містити великі та малі літери'] = /^(?=.*[a-z])(?=.*[A-Z])/.test(password);
@@ -7,7 +7,7 @@ export const validatePassword = (password = '') => {
   return validationResult;
 };
 
-export const validPassword = (password, isValid) => {
-  const validationResult = validatePassword(password);
+export const isPasswordValid = (password, isValid) => {
+  const validationResult = validatePasswordPatterns(password);
   return Object.values(validationResult).every(value => value === true) && isValid;
 };
