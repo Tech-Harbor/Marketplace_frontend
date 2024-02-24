@@ -6,8 +6,7 @@ import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined
 import { device } from '../../../../utils/index.js';
 
 // Styles for label component
-export const StyledLabel = styled.label`
-  display: block;
+export const StyledFieldName = styled.p`
   margin-top: 20px;
   margin-bottom: 8px;
   font-family: Gilroy-Regular, sans-serif;
@@ -28,6 +27,7 @@ export const StyledLabel = styled.label`
 export const StyledInput = styled.input.attrs({
   autoComplete: 'true',
 })`
+  position: relative;
   padding: 0 17px;
   width: 100%;
   height: 36px;
@@ -56,10 +56,11 @@ export const StyledInput = styled.input.attrs({
 
 // Styles for wrapper button of icon
 export const StyledWrapperButton = styled.button({
-  type: 'button',
+  // type: 'button',
   position: 'absolute',
   right: '10px',
   top: 'calc(50% - 12px)',
+
   // reset styles
   backgroundColor: 'transparent',
 });

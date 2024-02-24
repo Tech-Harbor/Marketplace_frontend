@@ -10,7 +10,7 @@ import { isPasswordValid } from '../../../utils/validatePasswordPatterns.js';
 const fieldsPattern = {
   firstname: '',
   lastname: '',
-  phone: /^\d{9}$/i,
+  phone: /^\+?\d{12}$/i,
   email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
   password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{7,}$/i,
 };
@@ -29,6 +29,7 @@ export const Form = () => {
     formState: { errors, isValid },
   } = useForm({
     mode: 'onChange',
+    defaultValues: { phone: '+380' },
   });
 
   const { sendData } = useRegisterSubmit();
@@ -53,11 +54,11 @@ export const Form = () => {
           required: 'Заповніть поле',
           minLength: {
             value: 2,
-            message: 'Має бути від 2 до 28 символів',
+            message: 'Має бути від 2 до 35 символів',
           },
           maxLength: {
             value: 28,
-            message: 'Має бути від 2 до 28 символів',
+            message: 'Має бути від 2 до 35 символів',
           },
         })}
         fieldError={errors.firstname}
@@ -87,9 +88,10 @@ export const Form = () => {
           required: 'Заповніть поле',
           pattern: {
             value: fieldsPattern.phone,
-            message: 'Не відповідає формату 0501234567',
+            message: 'Має відповідати формату +380501234567',
           },
         })}
+        defaultValue={'+123'}
         fieldError={errors.phone}
       />
 
@@ -113,7 +115,6 @@ export const Form = () => {
           required: 'Заповніть поле',
         })}
         fieldError={errors.password}
-        isvalid={isValid}
         passwordValue={passwordValue}
       />
 

@@ -5,7 +5,7 @@ import ValidationErrors from './ValidateErrors/ValidationErrors.jsx';
 
 import {
   StyledInput,
-  StyledLabel,
+  StyledFieldName,
   StyledIconOn,
   StyledWrapperButton,
   StyledWrapperFieldPassword,
@@ -14,7 +14,7 @@ import {
 } from './fields.styled.js';
 import { validatePasswordPatterns } from '../../../../utils/validatePasswordPatterns.js';
 
-export const FormFieldPassword = ({ name, text, validation, fieldError, passwordValue }) => {
+export const FormFieldPassword = ({ text, validation, fieldError, passwordValue }) => {
   const [toggle, setToggle] = useState(false);
   const [validationPasswordResults, setValidationPasswordResults] = useState({});
   const onClick = e => {
@@ -28,7 +28,7 @@ export const FormFieldPassword = ({ name, text, validation, fieldError, password
 
   return (
     <>
-      <StyledLabel label={name}>{text}</StyledLabel>
+      <StyledFieldName>{text}</StyledFieldName>
       <StyledWrapperFieldPassword>
         <StyledInput
           type={toggle ? 'text' : 'password'}

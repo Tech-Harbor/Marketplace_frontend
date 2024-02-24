@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types';
 
-import { StyledInput, StyledLabel, StyledTextValidation } from './fields.styled.js';
+import { StyledInput, StyledFieldName, StyledTextValidation } from './fields.styled.js';
 
-export const FormField = ({ name, type, text, validation, fieldError }) => {
+export const FormField = ({ type, text, validation, fieldError }) => {
   return (
-    <div style={{ position: 'relative' }}>
-      <StyledLabel label={name}>{text}</StyledLabel>
+    <>
+      <StyledFieldName>{text}</StyledFieldName>
       <StyledInput type={type} {...validation} $fieldError={fieldError} />
       {fieldError && <StyledTextValidation role="alert">{fieldError.message}</StyledTextValidation>}
-    </div>
+    </>
   );
 };
 
