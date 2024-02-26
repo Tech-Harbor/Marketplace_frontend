@@ -56,7 +56,6 @@ export const StyledInput = styled.input.attrs({
 
 // Styles for wrapper button of icon
 export const StyledWrapperButton = styled.button({
-  // type: 'button',
   position: 'absolute',
   right: '10px',
   top: 'calc(50% - 12px)',
