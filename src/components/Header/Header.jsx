@@ -37,7 +37,7 @@ export const Header = () => {
         </div>
         {/* ICONS */}
         <StyledIconShipping />
-        <Link to="/login">
+        <Link to="/auth">
           <StyledIconProfile />
         </Link>
         {/* MOBILE MENU */}

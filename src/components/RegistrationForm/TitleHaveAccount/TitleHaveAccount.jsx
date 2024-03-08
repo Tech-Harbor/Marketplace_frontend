@@ -5,7 +5,7 @@ const TitleHaveAccount = () => {
   return (
     <StyledText className="text">
       Вже маєте акаунт?
-      <NavLink to={'/login'} className="text">
+      <NavLink to={'/auth'} className="text">
         Увійти
       </NavLink>
     </StyledText>
