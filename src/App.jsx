@@ -8,27 +8,19 @@ import AuthLayout from './components/AuthLayout/AuthLayout.jsx';
 import RegisterPage from './pages/RegisterPage/RegisterPage.jsx';
 import LoginPage from './pages/LoginPage/LoginPage.jsx';
 
-import FormTest from './components/FormForTest/FormTest.jsx';
-import FormForTestWithImage from './components/FormForTestWithImage/FormForTestWithImage.jsx';
-
 const App = () => {
   return (
-    <>
-      <Routes>
-        <Route path="" element={<MainLayout />}>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/category/:name" element={<ProductsPage />} />
-        </Route>
+    <Routes>
+      <Route path="/" element={<MainLayout />}>
+        <Route index element={<HomePage />} />
+        <Route path="category/:name" element={<ProductsPage />} />
+      </Route>
 
-        <Route path="" element={<AuthLayout />}>
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/login" element={<LoginPage />} />
-        </Route>
-
-        <Route path="/form" element={<FormTest />} />
-        <Route path="/formImage" element={<FormForTestWithImage />} />
-      </Routes>
-    </>
+      <Route path="/auth" element={<AuthLayout />}>
+        <Route index element={<LoginPage />} />
+        <Route path="register" element={<RegisterPage />} />
+      </Route>
+    </Routes>
   );
 };
 

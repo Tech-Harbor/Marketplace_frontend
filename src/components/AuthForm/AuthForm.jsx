@@ -46,7 +46,7 @@ const AuthForm = () => {
       } else {
         sessionStorage.setItem('token', response.token);
       }
-      navigate('/');
+      navigate('/', { replace: true });
     }
   });
 
@@ -56,8 +56,6 @@ const AuthForm = () => {
       password: data.password,
     });
   };
-
-  console.log(errors);
 
   return (
     <FormBlock onSubmit={handleSubmit(logIn)}>
@@ -120,7 +118,7 @@ const AuthForm = () => {
       <Account>
         Немає акаунту?{' '}
         <CreateAccount>
-          <Link to="/register">Створити акаунт</Link>
+          <Link to="register">Створити акаунт</Link>
         </CreateAccount>
       </Account>
 
