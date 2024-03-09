@@ -6,11 +6,12 @@ import RegisterTerms from './RegisterTerms/RegisterTerms.jsx';
 import { FormField, FormFieldPassword } from './fields/index.js';
 import { StyledForm, StyledButton } from './Form.styled';
 import { isPasswordValid } from '../../../utils/validatePasswordPatterns.js';
+import { FormFieldPhone } from './fields/FormFieldPhone.jsx';
 
 const fieldsPattern = {
   firstname: '',
   lastname: '',
-  phone: /^\d{9}$/i,
+  phone: /^\+?\d{12}$/i,
   email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
   password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{7,}$/i,
 };
@@ -53,11 +54,11 @@ export const Form = () => {
           required: 'Заповніть поле',
           minLength: {
             value: 2,
-            message: 'Має бути від 2 до 28 символів',
+            message: 'Має бути від 2 до 35 символів',
           },
           maxLength: {
-            value: 28,
-            message: 'Має бути від 2 до 28 символів',
+            value: 35,
+            message: 'Має бути від 2 до 35 символів',
           },
         })}
         fieldError={errors.firstname}
@@ -80,14 +81,14 @@ export const Form = () => {
         fieldError={errors.lastname}
       />
 
-      <FormField
+      <FormFieldPhone
         name="phone"
         text="Номер телефону"
         validation={register('phone', {
           required: 'Заповніть поле',
           pattern: {
             value: fieldsPattern.phone,
-            message: 'Не відповідає формату 0501234567',
+            message: 'Має відповідати формату +380501234567',
           },
         })}
         fieldError={errors.phone}
@@ -113,7 +114,6 @@ export const Form = () => {
           required: 'Заповніть поле',
         })}
         fieldError={errors.password}
-        isvalid={isValid}
         passwordValue={passwordValue}
       />
 

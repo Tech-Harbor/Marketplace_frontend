@@ -37,7 +37,8 @@
   --color-primary-active: #ff8a00;
   --color-btn-disabled: #808080bf;
   --color-secondary: #fff;
-  --color-icon: #000000db;
+  --color-icon-primary: #000000db;
+  --color-icon-secondary: #8b8b8b;
   --color-label: #1b1e24;
   --color-border-input: #00000080;
   --color-error-input: #f74a4f;

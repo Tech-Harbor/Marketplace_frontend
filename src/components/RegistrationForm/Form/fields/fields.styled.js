@@ -2,12 +2,12 @@ import styled from 'styled-components';
 
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
+import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 
 import { device } from '../../../../utils/index.js';
 
 // Styles for label component
-export const StyledLabel = styled.label`
-  display: block;
+export const StyledFieldName = styled.p`
   margin-top: 20px;
   margin-bottom: 8px;
   font-family: Gilroy-Regular, sans-serif;
@@ -50,36 +50,52 @@ export const StyledInput = styled.input.attrs({
     padding-right: 36px; // reserved place for icon
   }
 
+  &.phone-field {
+    padding-left: 18px; // reserved place for icon
+  }
+
   // @media ${device.desktop} {
   // }
 `;
 
-// Styles for wrapper button of icon
-export const StyledWrapperButton = styled.button({
-  type: 'button',
-  position: 'absolute',
-  right: '10px',
-  top: 'calc(50% - 12px)',
-  // reset styles
-  backgroundColor: 'transparent',
-});
-
-export const StyledIconOn = styled(VisibilityOutlinedIcon)`
-  color: var(--color-icon);
-`;
-
-export const StyledIconOff = styled(VisibilityOffOutlinedIcon)`
-  color: var(--color-icon);
-`;
-
-// Styles for wrapper of field password;
+// Styles for password field wrapper
 export const StyledWrapperFieldPassword = styled.div`
   position: relative;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
 `;
 
+// Styles for wrapper button of icon
+export const StyledWrapperButton = styled.button`
+  position: absolute;
+  right: 10px;
+  background-color: transparent;
+  height: 24px;
+`;
+
+export const StyledIconOn = styled(VisibilityOutlinedIcon)`
+  color: var(--color-icon-primary);
+`;
+
+export const StyledIconOff = styled(VisibilityOffOutlinedIcon)`
+  color: var(--color-icon-primary);
+`;
+
+// Styles for phone field wrapper
+export const StyledWrapperFieldPhone = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+`;
+
+export const StyledIconPlus = styled(AddOutlinedIcon)`
+  position: absolute;
+  left: 4px;
+  width: 15px !important;
+  color: var(--color-icon-secondary);
+`;
+
+// Styles for text validation
 export const StyledTextValidation = styled.p`
   position: absolute;
   font-family: Gilroy-Regular, sans-serif;
@@ -88,8 +104,4 @@ export const StyledTextValidation = styled.p`
   line-height: 24px;
   letter-spacing: 0.5px;
   color: var(--color-error-input);
-`;
-
-export const StyledIcon = styled(VisibilityOutlinedIcon)`
-  color: var(--color-icon);
 `;
