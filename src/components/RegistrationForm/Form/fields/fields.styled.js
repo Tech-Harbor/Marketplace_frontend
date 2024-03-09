@@ -28,7 +28,6 @@ export const StyledFieldName = styled.p`
 export const StyledInput = styled.input.attrs({
   autoComplete: 'true',
 })`
-  position: relative;
   padding: 0 17px;
   width: 100%;
   height: 36px;
