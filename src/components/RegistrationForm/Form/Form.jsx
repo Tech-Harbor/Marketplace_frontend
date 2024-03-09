@@ -6,6 +6,7 @@ import RegisterTerms from './RegisterTerms/RegisterTerms.jsx';
 import { FormField, FormFieldPassword } from './fields/index.js';
 import { StyledForm, StyledButton } from './Form.styled';
 import { isPasswordValid } from '../../../utils/validatePasswordPatterns.js';
+import { FormFieldPhone } from './fields/FormFieldPhone.jsx';
 
 const fieldsPattern = {
   firstname: '',
@@ -29,7 +30,6 @@ export const Form = () => {
     formState: { errors, isValid },
   } = useForm({
     mode: 'onChange',
-    defaultValues: { phone: '+380' },
   });
 
   const { sendData } = useRegisterSubmit();
@@ -57,7 +57,7 @@ export const Form = () => {
             message: 'Має бути від 2 до 35 символів',
           },
           maxLength: {
-            value: 28,
+            value: 35,
             message: 'Має бути від 2 до 35 символів',
           },
         })}
@@ -81,7 +81,7 @@ export const Form = () => {
         fieldError={errors.lastname}
       />
 
-      <FormField
+      <FormFieldPhone
         name="phone"
         text="Номер телефону"
         validation={register('phone', {
@@ -91,7 +91,6 @@ export const Form = () => {
             message: 'Має відповідати формату +380501234567',
           },
         })}
-        defaultValue={'+123'}
         fieldError={errors.phone}
       />
 
