@@ -90,7 +90,8 @@ export const StyledWrapperFieldPhone = styled.div`
 
 export const StyledIconPlus = styled(AddOutlinedIcon)`
   position: absolute;
-  transform: scale(65%);
+  left: 4px;
+  width: 15px !important;
   color: var(--color-icon-secondary);
 `;
 
