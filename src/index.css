@@ -18,7 +18,8 @@
 
   /* color */
   --color-bg-header: rgba(37, 68, 153, 1);
-  --color-bg-sideBar: rgba(40, 97, 200, 1);
+  /* I have temporary changed color of the sidebar to --color-bg-header */
+  /*--color-bg-sideBar: rgba(40, 97, 200, 1);*/
   --color-text-sideBar: rgba(255, 255, 255, 1);
   --color-hover-link: black;
   --color-active-link: rgba(182, 247, 251, 1);
@@ -33,26 +34,27 @@
 
   /* Ruskevych */
   --color-primary: #000;
+  --color-primary-active: #ff8a00;
+  --color-btn-disabled: #808080bf;
   --color-secondary: #fff;
-  --color-icon: #4a5568;
-
+  --color-icon-primary: #000000db;
+  --color-icon-secondary: #8b8b8b;
+  --color-label: #1b1e24;
+  --color-border-input: #00000080;
+  --color-error-input: #f74a4f;
   --color-bg-form: #fff;
   --color-bg-form_input: #dadada;
   --color-bg-form_btn-disable: #9e9eb2;
-  --color-bg-form_btn-enable: #17317b;
 }
 
 body {
   margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
 button {
   cursor: pointer;
   margin: 0;
   padding: 0;
-
   border: 0;
 }
 
@@ -88,6 +90,7 @@ img {
   height: auto;
 }
 
+/* Gilroy fonts*/
 @font-face {
   font-family: 'Gilroy-Medium';
   src:

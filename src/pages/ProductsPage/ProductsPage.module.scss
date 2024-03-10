@@ -8,7 +8,6 @@
 .productListPage_contentContainer {
   display: flex;
   flex-direction: row;
-  max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -16,13 +15,13 @@
 .productListPage_filter {
   width: 340px;
   height: 1427px;
-  margin-top: 108px;
   background-color: white;
 }
 
 .productListPage_productCard {
-  margin-left: 92px;
-  margin-top: 108px;
-  width: 910px;
-  height: 1427px;
+  // It will be changed when we have any content for this page.
+  //margin-left: 92px;
+  //margin-top: 108px;
+  //width: 910px;
+  //height: 1427px;
 }
