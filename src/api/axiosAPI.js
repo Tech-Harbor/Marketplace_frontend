@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const mainInstance = axios.create({
-  baseURL: 'https://marketplace-p93k.onrender.com/api/',
+  baseURL: 'https://api.oranger.store/api/',
 });
 
 export default mainInstance;
