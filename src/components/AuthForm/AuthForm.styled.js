@@ -43,7 +43,7 @@ export const InputsBlock = styled.div`
 
 export const ChoiceBlock = styled.div`
   width: 100%;
-  display: flex;
+  display: ${props => (props.show ? 'flex' : 'none')};
   justify-content: space-between;
   margin: 37px 0 24px 0;
 `;

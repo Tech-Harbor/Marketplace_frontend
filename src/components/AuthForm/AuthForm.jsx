@@ -33,6 +33,7 @@ const AuthForm = () => {
   const navigate = useNavigate();
   const [toggle, setToggle] = useState(true);
   const [check, setCheck] = useState(false);
+  const [passRecovery, setPassRecovery] = useState(true);
   const {
     register,
     handleSubmit,
@@ -60,13 +61,12 @@ const AuthForm = () => {
   return (
     <FormBlock onSubmit={handleSubmit(logIn)}>
       <TitleBlock>
-        <Title>Вхід</Title>
+        <Title>{passRecovery ? 'Вхід' : 'Відновлення паролю'}</Title>
         <CloseRoundedIcon
           sx={{ fontSize: 24, color: '#33363F', cursor: 'pointer', marginRight: '8px' }}
           onClick={() => navigate('/')}
         />
       </TitleBlock>
-
       <InputsBlock>
         <FormInput
           title="Електронна пошта"
@@ -93,10 +93,10 @@ const AuthForm = () => {
           click={() => setToggle(!toggle)}
           register={register}
           errors={errors?.password}
+          showItem={passRecovery}
         />
       </InputsBlock>
-
-      <ChoiceBlock>
+      <ChoiceBlock show={passRecovery}>
         <RememberBlock>
           <Check type="checkbox" onChange={() => setCheck(!check)} />
           {check ? (
@@ -108,20 +108,24 @@ const AuthForm = () => {
           )}
           <RememberText>Запам’ятати мене</RememberText>
         </RememberBlock>
-        <Forgot>Забули пароль?</Forgot>
+        <Forgot onClick={() => setPassRecovery(false)}>Забули пароль?</Forgot>
       </ChoiceBlock>
-
-      <Button $isValid={isValid} disabled={isValid} type="submit">
-        Увійти
+      <Button
+        $isValid={isValid}
+        disabled={isValid}
+        type="submit"
+        style={{ marginTop: `${passRecovery ? '' : '24px'}` }}
+      >
+        {passRecovery ? 'Увійти' : 'Надіслати код'}
       </Button>
-
-      <Account>
-        Немає акаунту?{' '}
+      <Account style={{ fontSize: `${passRecovery ? '' : '13px'}` }}>
+        {passRecovery ? 'Немає акаунту? ' : 'Згадали пароль? '}
         <CreateAccount>
-          <Link to="register">Створити акаунт</Link>
+          <Link to={passRecovery ? 'register' : '/auth'} onClick={() => setPassRecovery(true)}>
+            {passRecovery ? 'Створити акаунт' : 'Увійти'}
+          </Link>
         </CreateAccount>
       </Account>
-
       <LogInButton>
         <Image src={Google} alt="Google" />
         <Text>Продовжити через Google</Text>

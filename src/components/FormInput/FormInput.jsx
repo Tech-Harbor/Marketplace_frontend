@@ -20,9 +20,10 @@ const FormInput = ({
   max = 100,
   register,
   errors = false,
+  showItem = true,
 }) => {
   return (
-    <Container>
+    <Container $show={showItem}>
       <Label>{title}</Label>
       <InputBlock>
         <Input
@@ -63,5 +64,6 @@ FormInput.propTypes = {
     message: PropTypes.string,
     ref: PropTypes.object,
   }),
+  showItem: PropTypes.bool,
 };
 export default FormInput;
