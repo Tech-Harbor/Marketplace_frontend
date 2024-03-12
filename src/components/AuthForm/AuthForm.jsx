@@ -121,8 +121,9 @@ const AuthForm = () => {
           <Link to="register">Створити акаунт</Link>
         </CreateAccount>
       </Account>
-
-      <LogInButton>
+      <LogInButton
+        onClick={() => (window.location.href = 'https://oranger.store/login/oauth2/code/google')}
+      >
         <Image src={Google} alt="Google" />
         <Text>Продовжити через Google</Text>
       </LogInButton>
