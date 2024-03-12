@@ -31,9 +31,11 @@ import {
 const AuthForm = () => {
   const [response, putData] = usePostData();
   const navigate = useNavigate();
-  const [toggle, setToggle] = useState(true);
-  const [check, setCheck] = useState(false);
-  const [passRecovery, setPassRecovery] = useState(true);
+  const [toggle, setToggle] = useState({
+    toggleType: true,
+    toggleCheckbox: false,
+    toggleRecovery: true,
+  });
   const {
     register,
     handleSubmit,
@@ -42,7 +44,7 @@ const AuthForm = () => {
 
   useEffect(() => {
     if (response.token) {
-      if (check) {
+      if (toggle.toggleCheckbox) {
         localStorage.setItem('token', response.token);
       } else {
         sessionStorage.setItem('token', response.token);
@@ -51,17 +53,23 @@ const AuthForm = () => {
     }
   });
 
-  const logIn = data => {
-    putData('auth/login', {
-      email: data.email,
-      password: data.password,
-    });
+  const submit = data => {
+    if (toggle.toggleRecovery) {
+      putData('auth/login', {
+        email: data.email,
+        password: data.password,
+      });
+    } else {
+      putData('auth/request/email', {
+        email: data.email,
+      });
+    }
   };
 
   return (
-    <FormBlock onSubmit={handleSubmit(logIn)}>
+    <FormBlock onSubmit={handleSubmit(submit)}>
       <TitleBlock>
-        <Title>{passRecovery ? 'Вхід' : 'Відновлення паролю'}</Title>
+        <Title>{toggle.toggleRecovery ? 'Вхід' : 'Відновлення паролю'}</Title>
         <CloseRoundedIcon
           sx={{ fontSize: 24, color: '#33363F', cursor: 'pointer', marginRight: '8px' }}
           onClick={() => navigate('/')}
@@ -80,9 +88,9 @@ const AuthForm = () => {
         <FormInput
           title="Пароль"
           name="password"
-          type={toggle ? 'password' : 'text'}
+          type={toggle.toggleType ? 'password' : 'text'}
           icon={
-            toggle ? (
+            toggle.toggleType ? (
               <VisibilityOffIcon sx={{ fontSize: 24, color: '#4A5568' }} />
             ) : (
               <VisibilityIcon sx={{ fontSize: 24, color: '#4A5568' }} />
@@ -90,16 +98,21 @@ const AuthForm = () => {
           }
           min={7}
           max={'20'}
-          click={() => setToggle(!toggle)}
+          click={() => setToggle(prevData => ({ ...prevData, toggleType: !toggle.toggleType }))}
           register={register}
           errors={errors?.password}
-          showItem={passRecovery}
+          showItem={toggle.toggleRecovery}
         />
       </InputsBlock>
-      <ChoiceBlock show={passRecovery}>
+      <ChoiceBlock $show={toggle.toggleRecovery}>
         <RememberBlock>
-          <Check type="checkbox" onChange={() => setCheck(!check)} />
-          {check ? (
+          <Check
+            type="checkbox"
+            onChange={() =>
+              setToggle(prevData => ({ ...prevData, toggleCheckbox: !toggle.toggleCheckbox }))
+            }
+          />
+          {toggle.toggleCheckbox ? (
             <SwitchOn>
               <DoneRoundedIcon sx={{ fontSize: 16, color: '#fff' }} />
             </SwitchOn>
@@ -108,25 +121,30 @@ const AuthForm = () => {
           )}
           <RememberText>Запам’ятати мене</RememberText>
         </RememberBlock>
-        <Forgot onClick={() => setPassRecovery(false)}>Забули пароль?</Forgot>
+        <Forgot onClick={() => setToggle(prevData => ({ ...prevData, toggleRecovery: false }))}>
+          Забули пароль?
+        </Forgot>
       </ChoiceBlock>
       <Button
         $isValid={isValid}
         disabled={isValid}
         type="submit"
-        style={{ marginTop: `${passRecovery ? '' : '24px'}` }}
+        style={{ marginTop: `${toggle.toggleRecovery ? '' : '24px'}` }}
       >
-        {passRecovery ? 'Увійти' : 'Надіслати код'}
+        {toggle.toggleRecovery ? 'Увійти' : 'Відправити лист'}
       </Button>
-      <Account style={{ fontSize: `${passRecovery ? '' : '13px'}` }}>
-        {passRecovery ? 'Немає акаунту? ' : 'Згадали пароль? '}
+      <Account $size={toggle.toggleRecovery}>
+        {toggle.toggleRecovery ? 'Немає акаунту? ' : 'Згадали пароль? '}
         <CreateAccount>
-          <Link to={passRecovery ? 'register' : '/auth'} onClick={() => setPassRecovery(true)}>
-            {passRecovery ? 'Створити акаунт' : 'Увійти'}
+          <Link
+            to={toggle.toggleRecovery ? 'register' : '/auth'}
+            onClick={() => setToggle(prevData => ({ ...prevData, toggleRecovery: true }))}
+          >
+            {toggle.toggleRecovery ? 'Створити акаунт' : 'Увійти'}
           </Link>
         </CreateAccount>
       </Account>
-      <LogInButton>
+      <LogInButton $show={toggle.toggleRecovery}>
         <Image src={Google} alt="Google" />
         <Text>Продовжити через Google</Text>
       </LogInButton>

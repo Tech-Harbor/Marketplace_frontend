@@ -30,7 +30,7 @@ const FormInput = ({
           type={type}
           maxLength={max}
           {...register(name, {
-            required: { value: true, message: 'Це поле мусить бути заповнене' },
+            required: showItem ? { value: true, message: 'Це поле мусить бути заповнене' } : false,
             minLength: {
               value: min,
               message: `Це поле має обмеження по мінімальній довжені в ${min}`,

@@ -43,7 +43,7 @@ export const InputsBlock = styled.div`
 
 export const ChoiceBlock = styled.div`
   width: 100%;
-  display: ${props => (props.show ? 'flex' : 'none')};
+  display: ${props => (props.$show ? 'flex' : 'none')};
   justify-content: space-between;
   margin: 37px 0 24px 0;
 `;
@@ -100,7 +100,7 @@ export const Forgot = styled.a`
 
 export const Account = styled.div`
   ${fontStyles};
-  font-size: 16px;
+  font-size: ${props => (props.$size ? '16px' : '13px')};
   line-height: 24px;
   text-align: center;
   margin: 20px 0 15px 0;
@@ -116,7 +116,7 @@ export const LogInButton = styled.button`
   background: none;
   border: 1px solid #515567;
   border-radius: 10px;
-  display: flex;
+  display: ${props => (props.$show ? 'flex' : 'none')};
   align-items: center;
   justify-content: center;
   padding: 8px 13px;
