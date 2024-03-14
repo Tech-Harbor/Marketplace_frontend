@@ -34,8 +34,8 @@ const AuthForm = () => {
     toggleType: true,
     toggleRecovery: true,
     toggleCheckbox: false,
-    registerMode: false,
   });
+  const [registerMode, setRegisterMode] = useState(false);
 
   const {
     register,
@@ -69,9 +69,9 @@ const AuthForm = () => {
   return (
     <>
       {/* It will be shows instead Login form when "registerMode" is true */}
-      {toggle.registerMode && <RegistrationForm setRegisterMode={setToggle} />}
+      {registerMode && <RegistrationForm setRegisterMode={setRegisterMode} />}
 
-      {!toggle.registerMode && (
+      {!registerMode && (
         <FormBlock onSubmit={handleSubmit(submit)}>
           <TitleBlock>
             <Title>{toggle.toggleRecovery ? 'Вхід' : 'Відновлення паролю'}</Title>
@@ -100,7 +100,9 @@ const AuthForm = () => {
               }
               min={7}
               max={'20'}
-              click={() => setToggle(prevData => ({ ...prevData, toggleType: !toggle.toggleType }))}
+              click={() =>
+                setToggle(prevState => ({ ...prevState, toggleType: !toggle.toggleType }))
+              }
               register={register}
               errors={errors?.password}
               showItem={toggle.toggleRecovery}
@@ -109,7 +111,12 @@ const AuthForm = () => {
 
           <ChoiceBlock $show={toggle.toggleRecovery}>
             <RememberBlock>
-              <Check type="checkbox" onChange={() => setToggle(prevData => ({ ...prevData, toggleCheckbox: !toggle.toggleCheckbox }))} />
+              <Check
+                type="checkbox"
+                onChange={() =>
+                  setToggle(prevState => ({ ...prevState, toggleCheckbox: !toggle.toggleCheckbox }))
+                }
+              />
               {toggle.toggleCheckbox ? (
                 <SwitchOn>
                   <DoneRoundedIcon sx={{ fontSize: 16, color: '#fff' }} />
@@ -119,10 +126,19 @@ const AuthForm = () => {
               )}
               <RememberText>Запам’ятати мене</RememberText>
             </RememberBlock>
-            <Forgot onClick={() => setToggle(prevData => ({ ...prevData, toggleRecovery: false }))}>Забули пароль?</Forgot>
+            <Forgot
+              onClick={() => setToggle(prevState => ({ ...prevState, toggleRecovery: false }))}
+            >
+              Забули пароль?
+            </Forgot>
           </ChoiceBlock>
 
-          <Button $isValid={isValid} disabled={!isValid} type="submit" style={{ marginTop: `${toggle.toggleRecovery ? '' : '24px'}` }}>
+          <Button
+            $isValid={isValid}
+            disabled={!isValid}
+            type="submit"
+            style={{ marginTop: `${toggle.toggleRecovery ? '' : '24px'}` }}
+          >
             {toggle.toggleRecovery ? 'Увійти' : 'Відправити лист'}
           </Button>
 
@@ -131,7 +147,13 @@ const AuthForm = () => {
             <CreateAccount>
               {/*<Link to="register">Створити акаунт</Link>*/}
               {/* It is a button which changes from a login mode to a register mode instead the link */}
-              <button onClick={() => setToggle(prevData => ({ ...prevData, registerMode: false }))}>{toggle.toggleRecovery ? 'Створити акаунт' : 'Увійти'}</button>
+              {toggle.toggleRecovery ? (
+                <button onClick={() => setRegisterMode(true)}>Створити акаунт</button>
+              ) : (
+                <a onClick={() => setToggle(prevState => ({ ...prevState, toggleRecovery: true }))}>
+                  Увійти
+                </a>
+              )}
             </CreateAccount>
           </Account>
 
