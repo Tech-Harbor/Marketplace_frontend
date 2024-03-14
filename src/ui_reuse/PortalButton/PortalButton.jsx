@@ -72,6 +72,6 @@ export const PortalButton = ({ children, modalContent }) => {
 };
 
 PortalButton.propTypes = {
-  children: PropTypes.elementType.isRequired,
+  children: PropTypes.element.isRequired,
   modalContent: PropTypes.element.isRequired,
 };
