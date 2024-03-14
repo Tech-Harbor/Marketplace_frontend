@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import usePostData from '../../hooks/usePostData.js';
 import FormInput from '../FormInput/FormInput.jsx';
 import Google from '../../../public/Google.png';
-import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import DoneRoundedIcon from '@mui/icons-material/DoneRounded';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { Button } from '../FormButton/FormButton.styled.js';
+import { RegistrationForm } from '../RegistrationForm/index.js';
 import {
   FormBlock,
   TitleBlock,
@@ -30,9 +29,10 @@ import {
 
 const AuthForm = () => {
   const [response, putData] = usePostData();
-  const navigate = useNavigate();
   const [toggle, setToggle] = useState(true);
   const [check, setCheck] = useState(false);
+  const [registerMode, setRegisterMode] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -46,7 +46,7 @@ const AuthForm = () => {
       } else {
         sessionStorage.setItem('token', response.token);
       }
-      navigate('/', { replace: true });
+      // navigate('/', { replace: true });
     }
   });
 
@@ -58,76 +58,80 @@ const AuthForm = () => {
   };
 
   return (
-    <FormBlock onSubmit={handleSubmit(logIn)}>
-      <TitleBlock>
-        <Title>Вхід</Title>
-        <CloseRoundedIcon
-          sx={{ fontSize: 24, color: '#33363F', cursor: 'pointer', marginRight: '8px' }}
-          onClick={() => navigate('/')}
-        />
-      </TitleBlock>
+    <>
+      {/* It will be shows instead Login form when "registerMode" is true */}
+      {registerMode && <RegistrationForm setRegisterMode={setRegisterMode} />}
 
-      <InputsBlock>
-        <FormInput
-          title="Електронна пошта"
-          name="email"
-          type="email"
-          min={7}
-          max={'35'}
-          register={register}
-          errors={errors?.email}
-        />
-        <FormInput
-          title="Пароль"
-          name="password"
-          type={toggle ? 'password' : 'text'}
-          icon={
-            toggle ? (
-              <VisibilityOffIcon sx={{ fontSize: 24, color: '#4A5568' }} />
-            ) : (
-              <VisibilityIcon sx={{ fontSize: 24, color: '#4A5568' }} />
-            )
-          }
-          min={7}
-          max={'20'}
-          click={() => setToggle(!toggle)}
-          register={register}
-          errors={errors?.password}
-        />
-      </InputsBlock>
+      {!registerMode && (
+        <FormBlock onSubmit={handleSubmit(logIn)}>
+          <TitleBlock>
+            <Title>Вхід</Title>
+          </TitleBlock>
 
-      <ChoiceBlock>
-        <RememberBlock>
-          <Check type="checkbox" onChange={() => setCheck(!check)} />
-          {check ? (
-            <SwitchOn>
-              <DoneRoundedIcon sx={{ fontSize: 16, color: '#fff' }} />
-            </SwitchOn>
-          ) : (
-            <SwitchOff />
-          )}
-          <RememberText>Запам’ятати мене</RememberText>
-        </RememberBlock>
-        <Forgot>Забули пароль?</Forgot>
-      </ChoiceBlock>
+          <InputsBlock>
+            <FormInput
+              title="Електронна пошта"
+              name="email"
+              type="email"
+              min={7}
+              max={'35'}
+              register={register}
+              errors={errors?.email}
+            />
+            <FormInput
+              title="Пароль"
+              name="password"
+              type={toggle ? 'password' : 'text'}
+              icon={
+                toggle ? (
+                  <VisibilityOffIcon sx={{ fontSize: 24, color: '#4A5568' }} />
+                ) : (
+                  <VisibilityIcon sx={{ fontSize: 24, color: '#4A5568' }} />
+                )
+              }
+              min={7}
+              max={'20'}
+              click={() => setToggle(!toggle)}
+              register={register}
+              errors={errors?.password}
+            />
+          </InputsBlock>
 
-      <Button $isValid={isValid} disabled={isValid} type="submit">
-        Увійти
-      </Button>
+          <ChoiceBlock>
+            <RememberBlock>
+              <Check type="checkbox" onChange={() => setCheck(!check)} />
+              {check ? (
+                <SwitchOn>
+                  <DoneRoundedIcon sx={{ fontSize: 16, color: '#fff' }} />
+                </SwitchOn>
+              ) : (
+                <SwitchOff />
+              )}
+              <RememberText>Запам’ятати мене</RememberText>
+            </RememberBlock>
+            <Forgot>Забули пароль?</Forgot>
+          </ChoiceBlock>
 
-      <Account>
-        Немає акаунту?{' '}
-        <CreateAccount>
-          <Link to="register">Створити акаунт</Link>
-        </CreateAccount>
-      </Account>
-      <LogInButton
-        onClick={() => (window.location.href = 'https://oranger.store/login/oauth2/code/google')}
-      >
-        <Image src={Google} alt="Google" />
-        <Text>Продовжити через Google</Text>
-      </LogInButton>
-    </FormBlock>
+          <Button $isValid={isValid} disabled={isValid} type="submit">
+            Увійти
+          </Button>
+
+          <Account>
+            Немає акаунту?{' '}
+            <CreateAccount>
+              {/*<Link to="register">Створити акаунт</Link>*/}
+              {/* It is a button which changes from a login mode to a register mode instead the link */}
+              <button onClick={() => setRegisterMode(true)}>Створити акаунт</button>
+            </CreateAccount>
+          </Account>
+
+          <LogInButton>
+            <Image src={Google} alt="Google" />
+            <Text>Продовжити через Google</Text>
+          </LogInButton>
+        </FormBlock>
+      )}
+    </>
   );
 };
 
