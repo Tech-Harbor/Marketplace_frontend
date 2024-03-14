@@ -127,7 +127,7 @@ const AuthForm = () => {
 
           <LogInButton
             onClick={() =>
-              (window.location.href = 'https://oranger.store/login/oauth2/code/google')
+              (window.location.href = 'https://api.oranger.store/login/oauth2/code/google')
             }
           >
             <Image src={Google} alt="Google" />
