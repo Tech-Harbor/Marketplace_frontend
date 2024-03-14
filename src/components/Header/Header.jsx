@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { StyledFlexDiv } from '../RegistrationForm/RegistrationForm.styled.js';
 import {
   StyledHeader,
@@ -11,6 +11,8 @@ import {
   StyledSearchInput,
 } from './Header.styled.js';
 import { StyledIcon, StyledWrapperButton } from './Header.styled.js';
+import { PortalButton } from '../../ui_reuse/PortalButton/PortalButton.jsx';
+import AuthForm from '../AuthForm/AuthForm.jsx';
 // import SelectLang from "../SelectLang/SelectLang.jsx";
 
 export const Header = () => {
@@ -37,9 +39,19 @@ export const Header = () => {
         </div>
         {/* ICONS */}
         <StyledIconShipping />
-        <Link to="auth">
+        {/*<Link to="auth">*/}
+        {/*  <StyledIconProfile />*/}
+        {/*</Link>*/}
+
+        {/* !!! */}
+        {/* Use PortalButton component with children (anything element inside PortalButton) to */}
+        {/* open a Modal Component when we click it. PortalButton needs either a one prop modalContent that will be as
+        a modal content that we see after open */}
+        <PortalButton modalContent={<AuthForm />}>
           <StyledIconProfile />
-        </Link>
+        </PortalButton>
+        {/* !!! */}
+
         {/* MOBILE MENU */}
         <StyledMenuButton>
           <StyledIconMenu />
