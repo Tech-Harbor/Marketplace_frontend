@@ -127,7 +127,7 @@ const AuthForm = () => {
       </ChoiceBlock>
       <Button
         $isValid={isValid}
-        disabled={isValid}
+        disabled={!isValid}
         type="submit"
         style={{ marginTop: `${toggle.toggleRecovery ? '' : '24px'}` }}
       >
