@@ -58,6 +58,7 @@ export const Check = styled.input`
   width: 20px;
   aspect-ratio: 1;
   border-radius: 4px;
+  cursor: pointer;
   opacity: 0;
   position: relative;
   z-index: 5;

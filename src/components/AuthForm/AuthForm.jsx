@@ -150,7 +150,10 @@ const AuthForm = () => {
               {toggle.toggleRecovery ? (
                 <button onClick={() => setRegisterMode(true)}>Створити акаунт</button>
               ) : (
-                <a onClick={() => setToggle(prevState => ({ ...prevState, toggleRecovery: true }))}>
+                <a
+                  onClick={() => setToggle(prevState => ({ ...prevState, toggleRecovery: true }))}
+                  style={{ cursor: 'pointer' }}
+                >
                   Увійти
                 </a>
               )}
