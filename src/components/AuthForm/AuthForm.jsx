@@ -13,6 +13,7 @@ import {
   TitleBlock,
   Title,
   InputsBlock,
+  Errors,
   ChoiceBlock,
   RememberBlock,
   Check,
@@ -22,6 +23,8 @@ import {
   Forgot,
   Account,
   CreateAccount,
+  DividingLine,
+  LineText,
   LogInButton,
   Image,
   Text,
@@ -34,6 +37,7 @@ const AuthForm = () => {
     toggleType: true,
     toggleRecovery: true,
     toggleCheckbox: false,
+    toggleRegistration: false,
   });
   const [registerMode, setRegisterMode] = useState(false);
 
@@ -44,14 +48,22 @@ const AuthForm = () => {
   } = useForm({ mode: 'onChange' });
 
   useEffect(() => {
-    if (response.token) {
+    const saveToken = () => {
       if (toggle.toggleCheckbox) {
-        localStorage.setItem('token', response.token);
+        localStorage.setItem('tokens', JSON.stringify(response.answer.data));
       } else {
-        sessionStorage.setItem('token', response.token);
+        localStorage.setItem('refreshToken', response.answer.data?.refreshToken);
+      }
+    };
+
+    if (response.errors?.message) {
+      setToggle(prevState => ({ ...prevState, toggleRegistration: true }));
+    } else {
+      if (toggle.toggleRecovery) {
+        saveToken();
       }
     }
-  });
+  }, [response, toggle.toggleCheckbox, toggle.toggleRecovery]);
 
   const submit = data => {
     if (toggle.toggleRecovery) {
@@ -83,9 +95,11 @@ const AuthForm = () => {
               name="email"
               type="email"
               min={7}
-              max={'35'}
               register={register}
               errors={errors?.email}
+              changeInput={() =>
+                setToggle(prevState => ({ ...prevState, toggleRegistration: false }))
+              }
             />
             <FormInput
               title="Пароль"
@@ -99,15 +113,19 @@ const AuthForm = () => {
                 )
               }
               min={7}
-              max={'20'}
-              click={() =>
+              clickIcon={() =>
                 setToggle(prevState => ({ ...prevState, toggleType: !toggle.toggleType }))
               }
               register={register}
               errors={errors?.password}
               showItem={toggle.toggleRecovery}
+              changeInput={() =>
+                setToggle(prevState => ({ ...prevState, toggleRegistration: false }))
+              }
             />
           </InputsBlock>
+
+          {toggle.toggleRegistration && <Errors>Даний користувач не зареєстрований!</Errors>}
 
           <ChoiceBlock $show={toggle.toggleRecovery}>
             <RememberBlock>
@@ -159,6 +177,10 @@ const AuthForm = () => {
               )}
             </CreateAccount>
           </Account>
+
+          <DividingLine $show={toggle.toggleRecovery}>
+            <LineText>або</LineText>
+          </DividingLine>
 
           <LogInButton $show={toggle.toggleRecovery}>
             <Image src={Google} alt="Google" />

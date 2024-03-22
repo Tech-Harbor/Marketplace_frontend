@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { device } from '../../utils/index.js';
 
 const fontStyles = `
   font-family: 'Gilroy-Medium', sans-serif;
@@ -8,18 +7,8 @@ const fontStyles = `
 
 export const FormBlock = styled.form`
   width: 360px;
-  background-color: #ffffff;
+  background-color: var(--color-btn-text);
   padding: 25px 16px;
-
-  @media ${device.laptop} {
-    width: 658px;
-    padding: 26px 24px 26px 24px;
-  }
-
-  @media ${device.desktop} {
-    width: 708px;
-    padding: 69px 25px 20px 25px;
-  }
 `;
 
 export const TitleBlock = styled.div`
@@ -39,6 +28,15 @@ export const Title = styled.span`
 export const InputsBlock = styled.div`
   display: grid;
   gap: 16px;
+`;
+
+export const Errors = styled.div`
+  font-family: 'Gilroy-Medium', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 24px;
+  color: var(--color-error-input);
+  margin-top: 20px;
 `;
 
 export const ChoiceBlock = styled.div`
@@ -68,7 +66,7 @@ export const SwitchOff = styled.div`
   width: 20px;
   aspect-ratio: 1;
   border-radius: 4px;
-  border: 1px solid rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--color-border-input);
   position: absolute;
 `;
 
@@ -76,7 +74,7 @@ export const SwitchOn = styled.div`
   width: 20px;
   aspect-ratio: 1;
   border-radius: 4px;
-  background-color: #189633;
+  background-color: var(--color-bg-checkbox-active);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -96,7 +94,7 @@ export const Forgot = styled.a`
   line-height: 24px;
   cursor: pointer;
   display: block;
-  color: #ff8a00;
+  color: var(--color-primary-active);
 `;
 
 export const Account = styled.div`
@@ -108,14 +106,33 @@ export const Account = styled.div`
 `;
 
 export const CreateAccount = styled.span`
-  color: #ff8a00;
+  color: var(--color-primary-active);
+`;
+
+export const DividingLine = styled.div`
+  max-width: 100%;
+  height: 1px;
+  background-color: var(--color-bg-form_auth-dividing_line);
+  display: ${props => (props.$show ? 'flex' : 'none')};
+  align-items: center;
+  justify-content: center;
+  margin: 35px 23px;
+`;
+
+export const LineText = styled.span`
+  ${fontStyles};
+  font-size: 10px;
+  line-height: 24px;
+  color: var(--color-form_auth-line_text);
+  padding: 0 31px;
+  background-color: var(--color-btn-text);
 `;
 
 export const LogInButton = styled.button`
   width: 100%;
   height: 36px;
   background: none;
-  border: 1px solid #515567;
+  border: 1px solid var(--color-border-button-google);
   border-radius: 10px;
   display: ${props => (props.$show ? 'flex' : 'none')};
   align-items: center;
@@ -133,5 +150,5 @@ export const Text = styled.span`
   ${fontStyles};
   font-size: 15px;
   line-height: 24px;
-  color: #000;
+  color: var(--color-primary);
 `;

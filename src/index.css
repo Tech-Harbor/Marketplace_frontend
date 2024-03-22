@@ -31,6 +31,7 @@
   --color-bg-nav-catalog: #032282;
   --color-bg-nav-route1: #052a9ced;
   --color-bg-nav-route2: #0535c9e5;
+  --color-bg-checkbox-active: #189633;
 
   /* Ruskevych */
   --color-primary: #000;
@@ -45,6 +46,9 @@
   --color-bg-form: #fff;
   --color-bg-form_input: #dadada;
   --color-bg-form_btn-disable: #9e9eb2;
+  --color-bg-form_auth-dividing_line: #8b8b8b4d;
+  --color-form_auth-line_text: #000000a6;
+  --color-border-button-google: #515567;
 }
 
 body {

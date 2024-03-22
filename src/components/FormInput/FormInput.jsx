@@ -15,9 +15,10 @@ const FormInput = ({
   name,
   type = 'text',
   icon,
-  click,
+  clickIcon,
+  changeInput,
   min = 0,
-  max = 100,
+  max = 1000,
   register,
   errors = false,
   showItem = true,
@@ -30,6 +31,7 @@ const FormInput = ({
           type={type}
           maxLength={max}
           {...register(name, {
+            onChange: () => changeInput(),
             required: showItem ? { value: true, message: 'Це поле мусить бути заповнене' } : false,
             minLength: {
               value: min,
@@ -42,7 +44,7 @@ const FormInput = ({
           {errors && (
             <ErrorOutlineRoundedIcon sx={{ fontSize: 24, color: '#F74A4F', rotate: '180deg' }} />
           )}
-          <IconUse onClick={click}>{icon}</IconUse>
+          <IconUse onClick={clickIcon}>{icon}</IconUse>
         </IconBlock>
       </InputBlock>
       <ErrorText>{errors && errors.message}</ErrorText>
@@ -55,9 +57,10 @@ FormInput.propTypes = {
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   icon: PropTypes.element,
-  click: PropTypes.func,
+  clickIcon: PropTypes.func,
+  changeInput: PropTypes.func,
   min: PropTypes.number.isRequired,
-  max: PropTypes.string.isRequired,
+  max: PropTypes.string,
   register: PropTypes.func.isRequired,
   errors: PropTypes.exact({
     type: PropTypes.string,
