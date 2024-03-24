@@ -49,7 +49,6 @@ const AuthForm = () => {
       } else {
         sessionStorage.setItem('token', response.token);
       }
-      // navigate('/', { replace: true });
     }
   });
 
