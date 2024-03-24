@@ -12,7 +12,7 @@ const App = () => {
         <Route index element={<HomePage />} />
         <Route path="category/:name" element={<ProductsPage />} />
       </Route>
-      <Route path="/change-password/:id" element={<ChangePassword />} />
+      <Route path="/change-password/:code/:jwt" element={<ChangePassword />} />
     </Routes>
   );
 };

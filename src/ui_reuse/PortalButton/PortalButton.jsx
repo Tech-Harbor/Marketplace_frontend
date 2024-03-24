@@ -1,6 +1,7 @@
 import { createPortal } from 'react-dom';
-import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+import { closeWindow } from '../../store/slices/closeModalWindowSlice.js';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import styled from 'styled-components';
 
@@ -34,19 +35,21 @@ const CloseButton = styled(CloseRoundedIcon)`
 `;
 
 export const PortalButton = ({ children, modalContent }) => {
-  const [showModal, setShowModal] = useState(false);
+  const close = useSelector(state => state.close.check);
+
+  const dispatch = useDispatch();
 
   const bodyLink = document.getElementById('root').parentElement;
   const modalLink = document.getElementById('modal-root');
 
   const openModal = () => {
     bodyLink.style.overflow = 'hidden';
-    setShowModal(true);
+    dispatch(closeWindow(true));
   };
 
   const closeModal = () => {
     bodyLink.removeAttribute('style');
-    setShowModal(false);
+    dispatch(closeWindow(false));
   };
 
   return (
@@ -55,7 +58,7 @@ export const PortalButton = ({ children, modalContent }) => {
         {children}
       </div>
 
-      {showModal
+      {close
         ? createPortal(
             <Modal className={'modal'}>
               <ContentWrapper>

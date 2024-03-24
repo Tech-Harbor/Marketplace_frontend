@@ -1,7 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 import usePostData from '../../hooks/usePostData.js';
 import FormInput from '../FormInput/FormInput.jsx';
+import { takeToken } from '../../store/slices/tokenSlice.js';
+import { closeWindow } from '../../store/slices/closeModalWindowSlice.js';
 import Google from '../../../public/Google.png';
 import DoneRoundedIcon from '@mui/icons-material/DoneRounded';
 import VisibilityIcon from '@mui/icons-material/Visibility';
@@ -39,7 +42,9 @@ const AuthForm = () => {
     toggleCheckbox: false,
     toggleRegistration: false,
   });
+
   const [registerMode, setRegisterMode] = useState(false);
+  const isMountingRef = useRef(false);
 
   const {
     register,
@@ -47,23 +52,35 @@ const AuthForm = () => {
     formState: { isValid, errors },
   } = useForm({ mode: 'onChange' });
 
-  useEffect(() => {
-    const saveToken = () => {
+  const dispatch = useDispatch();
+
+  const saveToken = () => {
+    if (response.errors?.message) {
+      setToggle(prevState => ({ ...prevState, toggleRegistration: true }));
+      return;
+    }
+    if (toggle.toggleRecovery) {
+      dispatch(takeToken(response.answer.data?.accessToken));
       if (toggle.toggleCheckbox) {
         localStorage.setItem('tokens', JSON.stringify(response.answer.data));
       } else {
         localStorage.setItem('refreshToken', response.answer.data?.refreshToken);
       }
-    };
-
-    if (response.errors?.message) {
-      setToggle(prevState => ({ ...prevState, toggleRegistration: true }));
-    } else {
-      if (toggle.toggleRecovery) {
-        saveToken();
-      }
     }
-  }, [response, toggle.toggleCheckbox, toggle.toggleRecovery]);
+    dispatch(closeWindow(false));
+  };
+
+  useEffect(() => {
+    isMountingRef.current = true;
+  }, []);
+
+  useEffect(() => {
+    if (!isMountingRef.current) {
+      return saveToken();
+    } else {
+      isMountingRef.current = false;
+    }
+  }, [response]);
 
   const submit = data => {
     if (toggle.toggleRecovery) {

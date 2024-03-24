@@ -31,7 +31,7 @@ const FormInput = ({
           type={type}
           maxLength={max}
           {...register(name, {
-            onChange: () => changeInput(),
+            onChange: changeInput,
             required: showItem ? { value: true, message: 'Це поле мусить бути заповнене' } : false,
             minLength: {
               value: min,
