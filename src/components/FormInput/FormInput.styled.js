@@ -8,6 +8,7 @@ const fontStyles = `
 export const Container = styled.div`
   width: 100%;
   position: relative;
+  display: ${props => (props.$show ? 'block' : 'none')};
 `;
 
 export const Label = styled.label`

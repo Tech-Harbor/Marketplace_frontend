@@ -1,8 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import usePostData from '../../hooks/usePostData.js';
 import FormInput from '../FormInput/FormInput.jsx';
+import { takeToken } from '../../redux/auth/tokenSlice.js';
+import { changeShowMode } from '../../redux/auth/modalSlice.js';
 import Google from '../../../public/Google.png';
 import DoneRoundedIcon from '@mui/icons-material/DoneRounded';
 import VisibilityIcon from '@mui/icons-material/Visibility';
@@ -14,6 +17,7 @@ import {
   TitleBlock,
   Title,
   InputsBlock,
+  Errors,
   ChoiceBlock,
   RememberBlock,
   Check,
@@ -24,6 +28,8 @@ import {
   Account,
   CreateAccount,
   SwitchButton,
+  DividingLine,
+  LineText,
   LogInButton,
   Image,
   Text,
@@ -31,9 +37,16 @@ import {
 
 const AuthForm = () => {
   const [response, putData] = usePostData();
-  const [toggle, setToggle] = useState(true);
-  const [check, setCheck] = useState(false);
+
+  const [toggle, setToggle] = useState({
+    toggleType: true,
+    toggleRecovery: true,
+    toggleCheckbox: false,
+    toggleRegistration: false,
+  });
+
   const [registerMode, setRegisterMode] = useState(false);
+  const isMountingRef = useRef(false);
 
   const {
     register,
@@ -42,22 +55,47 @@ const AuthForm = () => {
   } = useForm({ mode: 'onChange' });
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (response.token) {
-      if (check) {
-        localStorage.setItem('token', response.token);
+  const saveToken = () => {
+    if (response.errors?.message) {
+      setToggle(prevState => ({ ...prevState, toggleRegistration: true }));
+      return;
+    }
+    if (toggle.toggleRecovery) {
+      dispatch(takeToken(response.answer.data?.accessToken));
+      if (toggle.toggleCheckbox) {
+        localStorage.setItem('tokens', JSON.stringify(response.answer.data));
       } else {
-        sessionStorage.setItem('token', response.token);
+        localStorage.setItem('refreshToken', response.answer.data?.refreshToken);
       }
     }
-  });
+    dispatch(changeShowMode(false));
+  };
 
-  const logIn = data => {
-    putData('auth/login', {
-      email: data.email,
-      password: data.password,
-    });
+  useEffect(() => {
+    isMountingRef.current = true;
+  }, []);
+
+  useEffect(() => {
+    if (!isMountingRef.current) {
+      return saveToken();
+    } else {
+      isMountingRef.current = false;
+    }
+  }, [response, saveToken]);
+
+  const submit = data => {
+    if (toggle.toggleRecovery) {
+      putData('auth/login', {
+        email: data.email,
+        password: data.password,
+      });
+    } else {
+      putData('auth/request/email', {
+        email: data.email,
+      });
+    }
   };
 
   return (
@@ -66,9 +104,9 @@ const AuthForm = () => {
       {registerMode && <RegistrationForm setRegisterMode={setRegisterMode} />}
 
       {!registerMode && (
-        <FormBlock onSubmit={handleSubmit(logIn)}>
+        <FormBlock onSubmit={handleSubmit(submit)}>
           <TitleBlock>
-            <Title>Вхід</Title>
+            <Title>{toggle.toggleRecovery ? 'Вхід' : 'Відновлення паролю'}</Title>
           </TitleBlock>
 
           <InputsBlock>
@@ -77,33 +115,47 @@ const AuthForm = () => {
               name="email"
               type="email"
               min={7}
-              max={'35'}
               register={register}
               errors={errors?.email}
+              changeInput={() =>
+                setToggle(prevState => ({ ...prevState, toggleRegistration: false }))
+              }
             />
             <FormInput
               title="Пароль"
               name="password"
-              type={toggle ? 'password' : 'text'}
+              type={toggle.toggleType ? 'password' : 'text'}
               icon={
-                toggle ? (
+                toggle.toggleType ? (
                   <VisibilityOffIcon sx={{ fontSize: 24, color: '#4A5568' }} />
                 ) : (
                   <VisibilityIcon sx={{ fontSize: 24, color: '#4A5568' }} />
                 )
               }
               min={7}
-              max={'20'}
-              click={() => setToggle(!toggle)}
+              clickIcon={() =>
+                setToggle(prevState => ({ ...prevState, toggleType: !toggle.toggleType }))
+              }
               register={register}
               errors={errors?.password}
+              showItem={toggle.toggleRecovery}
+              changeInput={() =>
+                setToggle(prevState => ({ ...prevState, toggleRegistration: false }))
+              }
             />
           </InputsBlock>
 
-          <ChoiceBlock>
+          {toggle.toggleRegistration && <Errors>Даний користувач не зареєстрований!</Errors>}
+
+          <ChoiceBlock $show={toggle.toggleRecovery}>
             <RememberBlock>
-              <Check type="checkbox" onChange={() => setCheck(!check)} />
-              {check ? (
+              <Check
+                type="checkbox"
+                onChange={() =>
+                  setToggle(prevState => ({ ...prevState, toggleCheckbox: !toggle.toggleCheckbox }))
+                }
+              />
+              {toggle.toggleCheckbox ? (
                 <SwitchOn>
                   <DoneRoundedIcon sx={{ fontSize: 16, color: '#fff' }} />
                 </SwitchOn>
@@ -112,23 +164,46 @@ const AuthForm = () => {
               )}
               <RememberText>Запам’ятати мене</RememberText>
             </RememberBlock>
-            <Forgot>Забули пароль?</Forgot>
+            <Forgot
+              onClick={() => setToggle(prevState => ({ ...prevState, toggleRecovery: false }))}
+            >
+              Забули пароль?
+            </Forgot>
           </ChoiceBlock>
 
-          <Button $isValid={isValid} disabled={isValid} type="submit">
-            Увійти
+          <Button
+            $isValid={isValid}
+            disabled={!isValid}
+            type="submit"
+            style={{ marginTop: `${toggle.toggleRecovery ? '' : '24px'}` }}
+          >
+            {toggle.toggleRecovery ? 'Увійти' : 'Відправити лист'}
           </Button>
 
-          <Account>
-            Немає акаунту?{' '}
+          <Account $size={toggle.toggleRecovery}>
+            {toggle.toggleRecovery ? 'Немає акаунту? ' : 'Згадали пароль? '}
             <CreateAccount>
               {/*<Link to="register">Створити акаунт</Link>*/}
               {/* It is a button which changes from a login mode to a register mode instead the link */}
-              <SwitchButton onClick={() => setRegisterMode(true)}>Створити акаунт</SwitchButton>
+              {toggle.toggleRecovery ? (
+                <SwitchButton onClick={() => setRegisterMode(true)}>Створити акаунт</SwitchButton>
+              ) : (
+                <SwitchButton
+                  onClick={() => setToggle(prevState => ({ ...prevState, toggleRecovery: true }))}
+                  style={{ cursor: 'pointer' }}
+                >
+                  Увійти
+                </SwitchButton>
+              )}
             </CreateAccount>
           </Account>
 
+          <DividingLine $show={toggle.toggleRecovery}>
+            <LineText>або</LineText>
+          </DividingLine>
+
           <LogInButton
+            $show={toggle.toggleRecovery}
             onClick={() => navigate('https://api.oranger.store/login/oauth2/code/google')}
           >
             <Image src={Google} alt="Google" />
