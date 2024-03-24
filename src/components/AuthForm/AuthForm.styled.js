@@ -110,6 +110,11 @@ export const CreateAccount = styled.span`
   color: #ff8a00;
 `;
 
+export const SwitchButton = styled.button`
+  background-color: var(--color-btn-text);
+  color: var(--color-primary-active);
+`;
+
 export const LogInButton = styled.button`
   width: 100%;
   height: 36px;

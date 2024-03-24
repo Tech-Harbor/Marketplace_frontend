@@ -27,8 +27,8 @@ const ContentWrapper = styled.div`
 
 const CloseButton = styled(CloseRoundedIcon)`
   position: absolute;
-  top: 64px;
-  right: 20px;
+  top: 25px;
+  right: 16px;
   color: #33363f;
   cursor: pointer;
 `;

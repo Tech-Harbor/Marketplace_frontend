@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import usePostData from '../../hooks/usePostData.js';
 import FormInput from '../FormInput/FormInput.jsx';
 import Google from '../../../public/Google.png';
@@ -22,6 +23,7 @@ import {
   Forgot,
   Account,
   CreateAccount,
+  SwitchButton,
   LogInButton,
   Image,
   Text,
@@ -39,6 +41,8 @@ const AuthForm = () => {
     formState: { isValid, errors },
   } = useForm({ mode: 'onChange' });
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     if (response.token) {
       if (check) {
@@ -46,7 +50,6 @@ const AuthForm = () => {
       } else {
         sessionStorage.setItem('token', response.token);
       }
-      // navigate('/', { replace: true });
     }
   });
 
@@ -121,11 +124,13 @@ const AuthForm = () => {
             <CreateAccount>
               {/*<Link to="register">Створити акаунт</Link>*/}
               {/* It is a button which changes from a login mode to a register mode instead the link */}
-              <button onClick={() => setRegisterMode(true)}>Створити акаунт</button>
+              <SwitchButton onClick={() => setRegisterMode(true)}>Створити акаунт</SwitchButton>
             </CreateAccount>
           </Account>
 
-          <LogInButton>
+          <LogInButton
+            onClick={() => navigate('https://api.oranger.store/login/oauth2/code/google')}
+          >
             <Image src={Google} alt="Google" />
             <Text>Продовжити через Google</Text>
           </LogInButton>
