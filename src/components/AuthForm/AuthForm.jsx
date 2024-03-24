@@ -83,7 +83,7 @@ const AuthForm = () => {
     } else {
       isMountingRef.current = false;
     }
-  }, [response, saveToken]);
+  }, [response]);
 
   const submit = data => {
     if (toggle.toggleRecovery) {
