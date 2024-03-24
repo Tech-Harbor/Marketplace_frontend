@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '../../utils/index.js';
 
 const fontStyles = `
   font-family: 'Gilroy-Medium', sans-serif;
@@ -9,6 +10,16 @@ export const FormBlock = styled.form`
   width: 360px;
   background-color: #ffffff;
   padding: 25px 16px;
+
+  @media ${device.laptop} {
+    width: 658px;
+    padding: 26px 24px 26px 24px;
+  }
+
+  @media ${device.desktop} {
+    width: 708px;
+    padding: 69px 25px 20px 25px;
+  }
 `;
 
 export const TitleBlock = styled.div`
@@ -97,6 +108,10 @@ export const Account = styled.div`
 
 export const CreateAccount = styled.span`
   color: #ff8a00;
+`;
+
+export const Link = styled.a`
+  cursor: pointer;
 `;
 
 export const LogInButton = styled.button`
