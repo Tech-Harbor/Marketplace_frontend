@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import usePostData from '../../hooks/usePostData.js';
 import FormInput from '../FormInput/FormInput.jsx';
 import Google from '../../../public/Google.png';
@@ -38,6 +39,8 @@ const AuthForm = () => {
     handleSubmit,
     formState: { isValid, errors },
   } = useForm({ mode: 'onChange' });
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (response.token) {
@@ -126,9 +129,7 @@ const AuthForm = () => {
           </Account>
 
           <LogInButton
-            onClick={() =>
-              (window.location.href = 'https://api.oranger.store/login/oauth2/code/google')
-            }
+            onClick={() => navigate('https://api.oranger.store/login/oauth2/code/google')}
           >
             <Image src={Google} alt="Google" />
             <Text>Продовжити через Google</Text>
