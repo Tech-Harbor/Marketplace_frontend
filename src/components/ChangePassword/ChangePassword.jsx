@@ -1,9 +1,12 @@
+import { useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import usePutData from '../../hooks/usePutData.js';
 import { isPasswordValid } from '../../utils/validatePasswordPatterns.js';
 import { FormFieldPassword } from '../RegistrationForm/Form/fields/index.js';
+import { closeWindow } from '../../store/slices/closeModalWindowSlice.js';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import { Button } from '../FormButton/FormButton.styled.js';
 import { Errors } from '../AuthForm/AuthForm.styled.js';
@@ -13,7 +16,7 @@ import { Container } from './ChangePassword.styled.js';
 const ChangePassword = () => {
   const [response, updateData] = usePutData();
 
-  const { code, jwt } = useParams();
+  const { jwt } = useParams();
 
   const {
     register,
@@ -32,9 +35,33 @@ const ChangePassword = () => {
 
   const navigate = useNavigate();
 
+  const dispatch = useDispatch();
+
+  const isMountingRef = useRef(false);
+
+  const relocation = () => {
+    if (response.errors?.message) {
+      return;
+    }
+    dispatch(closeWindow(true));
+    navigate('/');
+  };
+
+  useEffect(() => {
+    isMountingRef.current = true;
+  }, []);
+
+  useEffect(() => {
+    if (!isMountingRef.current) {
+      return relocation();
+    } else {
+      isMountingRef.current = false;
+    }
+  }, [response]);
+
   const submit = data => {
-    updateData(`auth/change-password/${code}/${jwt}`, {
-      password: data.password,
+    updateData('auth/change-password/' + jwt, {
+      password: data.newPassword,
     });
   };
 
