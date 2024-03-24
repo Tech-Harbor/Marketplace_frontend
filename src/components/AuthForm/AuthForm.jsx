@@ -204,7 +204,7 @@ const AuthForm = () => {
 
           <LogInButton
             $show={toggle.toggleRecovery}
-            onClick={() => navigate('https://api.oranger.store/login/oauth2/code/google')}
+            onClick={() => navigate('login/oauth2/code/google')}
           >
             <Image src={Google} alt="Google" />
             <Text>Продовжити через Google</Text>
