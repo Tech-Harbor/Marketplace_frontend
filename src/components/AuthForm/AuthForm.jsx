@@ -23,7 +23,7 @@ import {
   Forgot,
   Account,
   CreateAccount,
-  Link,
+  SwitchButton,
   LogInButton,
   Image,
   Text,
@@ -124,7 +124,7 @@ const AuthForm = () => {
             <CreateAccount>
               {/*<Link to="register">Створити акаунт</Link>*/}
               {/* It is a button which changes from a login mode to a register mode instead the link */}
-              <Link onClick={() => setRegisterMode(true)}>Створити акаунт</Link>
+              <SwitchButton onClick={() => setRegisterMode(true)}>Створити акаунт</SwitchButton>
             </CreateAccount>
           </Account>
 
