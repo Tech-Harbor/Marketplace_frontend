@@ -3,8 +3,8 @@ import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import usePostData from '../../hooks/usePostData.js';
 import FormInput from '../FormInput/FormInput.jsx';
-import { takeToken } from '../../store/slices/tokenSlice.js';
-import { closeWindow } from '../../store/slices/closeModalWindowSlice.js';
+import { takeToken } from '../../redux/auth/tokenSlice.js';
+import { changeShowMode } from '../../redux/auth/modalSlice.js';
 import Google from '../../../public/Google.png';
 import DoneRoundedIcon from '@mui/icons-material/DoneRounded';
 import VisibilityIcon from '@mui/icons-material/Visibility';
@@ -68,7 +68,7 @@ const AuthForm = () => {
         localStorage.setItem('refreshToken', response.answer.data?.refreshToken);
       }
     }
-    dispatch(closeWindow(false));
+    dispatch(changeShowMode(false));
   };
 
   useEffect(() => {

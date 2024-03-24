@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import usePutData from '../../hooks/usePutData.js';
 import { isPasswordValid } from '../../utils/validatePasswordPatterns.js';
 import { FormFieldPassword } from '../RegistrationForm/Form/fields/index.js';
-import { closeWindow } from '../../store/slices/closeModalWindowSlice.js';
+import { changeShowMode } from '../../redux/auth/modalSlice.js';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import { Button } from '../FormButton/FormButton.styled.js';
 import { Errors } from '../AuthForm/AuthForm.styled.js';
@@ -43,7 +43,7 @@ const ChangePassword = () => {
     if (response.errors?.message) {
       return;
     }
-    dispatch(closeWindow(true));
+    dispatch(changeShowMode(true));
     navigate('/');
   };
 
