@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import usePostData from '../../hooks/usePostData.js';
 import FormInput from '../FormInput/FormInput.jsx';
 import { takeToken } from '../../redux/auth/tokenSlice.js';
@@ -53,6 +54,7 @@ const AuthForm = () => {
     formState: { isValid, errors },
   } = useForm({ mode: 'onChange' });
 
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const saveToken = () => {
@@ -81,7 +83,7 @@ const AuthForm = () => {
     } else {
       isMountingRef.current = false;
     }
-  }, [response]);
+  }, [response, saveToken]);
 
   const submit = data => {
     if (toggle.toggleRecovery) {
@@ -200,7 +202,10 @@ const AuthForm = () => {
             <LineText>або</LineText>
           </DividingLine>
 
-          <LogInButton $show={toggle.toggleRecovery}>
+          <LogInButton
+            $show={toggle.toggleRecovery}
+            onClick={() => navigate('https://api.oranger.store/login/oauth2/code/google')}
+          >
             <Image src={Google} alt="Google" />
             <Text>Продовжити через Google</Text>
           </LogInButton>
