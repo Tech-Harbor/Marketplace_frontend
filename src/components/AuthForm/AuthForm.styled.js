@@ -109,6 +109,11 @@ export const CreateAccount = styled.span`
   color: var(--color-primary-active);
 `;
 
+export const SwitchButton = styled.button`
+  background-color: var(--color-btn-text);
+  color: var(--color-primary-active);
+`;
+
 export const DividingLine = styled.div`
   max-width: 100%;
   height: 1px;

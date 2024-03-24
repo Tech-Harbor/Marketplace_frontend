@@ -26,6 +26,7 @@ import {
   Forgot,
   Account,
   CreateAccount,
+  SwitchButton,
   DividingLine,
   LineText,
   LogInButton,
@@ -183,14 +184,14 @@ const AuthForm = () => {
               {/*<Link to="register">Створити акаунт</Link>*/}
               {/* It is a button which changes from a login mode to a register mode instead the link */}
               {toggle.toggleRecovery ? (
-                <button onClick={() => setRegisterMode(true)}>Створити акаунт</button>
+                <SwitchButton onClick={() => setRegisterMode(true)}>Створити акаунт</SwitchButton>
               ) : (
-                <a
+                <SwitchButton
                   onClick={() => setToggle(prevState => ({ ...prevState, toggleRecovery: true }))}
                   style={{ cursor: 'pointer' }}
                 >
                   Увійти
-                </a>
+                </SwitchButton>
               )}
             </CreateAccount>
           </Account>
