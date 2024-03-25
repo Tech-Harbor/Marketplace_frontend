@@ -74,6 +74,10 @@ const AuthForm = () => {
   };
 
   useEffect(() => {
+    setToggle(prevState => ({ ...prevState, toggleRegistration: false }));
+  }, [toggle.toggleRecovery]);
+
+  useEffect(() => {
     isMountingRef.current = true;
   }, []);
 
