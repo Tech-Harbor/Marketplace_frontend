@@ -13,7 +13,7 @@ const App = () => {
         <Route path="category/:name" element={<ProductsPage />} />
       </Route>
 
-      <Route path="/auth/change-password/:jwt" element={<ChangePassword />} />
+      <Route path="api/auth/change-password" element={<ChangePassword />} />
     </Routes>
   );
 };

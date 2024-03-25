@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import usePutData from '../../hooks/usePutData.js';
 import { isPasswordValid } from '../../utils/validatePasswordPatterns.js';
@@ -15,8 +14,7 @@ import { Container } from './ChangePassword.styled.js';
 
 const ChangePassword = () => {
   const [response, updateData] = usePutData();
-
-  const { jwt } = useParams();
+  const [queryParameters] = useSearchParams();
 
   const {
     register,
@@ -34,10 +32,9 @@ const ChangePassword = () => {
     newPasswordValue === similarPasswordValue;
 
   const navigate = useNavigate();
-
   const dispatch = useDispatch();
-
   const isMountingRef = useRef(false);
+  const jwt = queryParameters.get('jwt');
 
   const relocation = () => {
     if (response.errors?.message) {
