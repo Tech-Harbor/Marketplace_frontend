@@ -12,7 +12,8 @@ const App = () => {
         <Route index element={<HomePage />} />
         <Route path="category/:name" element={<ProductsPage />} />
       </Route>
-      <Route path="api/auth/change-password/:jwt" element={<ChangePassword />} />
+
+      <Route path="/auth/change-password/:jwt" element={<ChangePassword />} />
     </Routes>
   );
 };
