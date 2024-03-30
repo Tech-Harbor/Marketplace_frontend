@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useGoogleLogin } from '@react-oauth/google';
 import usePostData from '../../hooks/usePostData.js';
 import FormInput from '../FormInput/FormInput.jsx';
 import { takeToken } from '../../redux/auth/tokenSlice.js';
@@ -38,7 +38,7 @@ import {
 } from './AuthForm.styled.js';
 
 const AuthForm = () => {
-  const [response, putData] = usePostData();
+  const [response, postData] = usePostData();
 
   const [toggle, setToggle] = useState({
     toggleType: true,
@@ -49,6 +49,7 @@ const AuthForm = () => {
 
   const [registerMode, setRegisterMode] = useState(false);
   const [message, setMessage] = useState(false);
+  const [accessErrors, setAccessErrors] = useState('');
 
   const isMountingRef = useRef(false);
 
@@ -61,12 +62,11 @@ const AuthForm = () => {
 
   const Email = watch('email');
 
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const saveToken = () => {
     if (response.errors?.message) {
-      setToggle(prevState => ({ ...prevState, toggleRegistration: true }));
+      setAccessErrors(response.errors?.message);
       return;
     }
     if (toggle.toggleRecovery) {
@@ -85,7 +85,7 @@ const AuthForm = () => {
   };
 
   useEffect(() => {
-    setToggle(prevState => ({ ...prevState, toggleRegistration: false }));
+    setAccessErrors('');
   }, [toggle.toggleRecovery]);
 
   useEffect(() => {
@@ -100,14 +100,20 @@ const AuthForm = () => {
     }
   }, [response]);
 
+  const login = useGoogleLogin({
+    onSuccess: codeResponse =>
+      postData('https://orangergoogle.onrender.com/oauth/login', codeResponse),
+    onError: errorResponse => setAccessErrors(errorResponse.error_description),
+  });
+
   const submit = data => {
     if (toggle.toggleRecovery) {
-      putData('auth/login', {
+      postData('auth/login', {
         email: data.email,
         password: data.password,
       });
     } else {
-      putData('auth/request/email', {
+      postData('auth/request/email', {
         email: data.email,
       });
     }
@@ -168,7 +174,7 @@ const AuthForm = () => {
                 />
               </InputsBlock>
 
-              {toggle.toggleRegistration && <Errors>Даний користувач не зареєстрований!</Errors>}
+              {accessErrors && <Errors>{accessErrors}</Errors>}
 
               <ChoiceBlock $show={toggle.toggleRecovery}>
                 <RememberBlock>
@@ -232,10 +238,7 @@ const AuthForm = () => {
                 <LineText>або</LineText>
               </DividingLine>
 
-              <LogInButton
-                $show={toggle.toggleRecovery}
-                onClick={() => navigate('login/oauth2/code/google')}
-              >
+              <LogInButton $show={toggle.toggleRecovery} onClick={login}>
                 <Image src={Google} alt="Google" />
                 <Text>Продовжити через Google</Text>
               </LogInButton>

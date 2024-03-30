@@ -13,7 +13,7 @@ import { FormBlock, TitleBlock, Title } from '../AuthForm/AuthForm.styled.js';
 import { Container } from './ChangePassword.styled.js';
 
 const ChangePassword = () => {
-  const [response, updateData] = usePutData();
+  const [response, putData] = usePutData();
   const [queryParameters] = useSearchParams();
 
   const {
@@ -57,7 +57,7 @@ const ChangePassword = () => {
   }, [response]);
 
   const submit = data => {
-    updateData('auth/change-password/' + jwt, {
+    putData('auth/change-password/' + jwt, {
       password: data.newPassword,
     });
   };
