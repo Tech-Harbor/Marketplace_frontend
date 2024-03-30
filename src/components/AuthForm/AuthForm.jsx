@@ -101,8 +101,10 @@ const AuthForm = () => {
   }, [response]);
 
   const login = useGoogleLogin({
-    onSuccess: codeResponse =>
-      postData('https://orangergoogle.onrender.com/oauth/login', codeResponse),
+    onSuccess: codeResponse => {
+      console.log(codeResponse);
+      postData('https://orangergoogle.onrender.com/oauth/login', codeResponse);
+    },
     onError: errorResponse => setAccessErrors(errorResponse.error_description),
   });
 
