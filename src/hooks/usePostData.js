@@ -7,7 +7,7 @@ export default function usePostData() {
     errors: {},
   });
 
-  const putData = async (url, objectData) => {
+  const postData = async (url, objectData) => {
     try {
       const data = await axios.post(url, objectData);
       setResponse(prevData => ({ ...prevData, answer: data }));
@@ -16,5 +16,5 @@ export default function usePostData() {
     }
   };
 
-  return [response, putData];
+  return [response, postData];
 }

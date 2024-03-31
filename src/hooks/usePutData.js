@@ -7,7 +7,7 @@ export default function usePutData() {
     errors: {},
   });
 
-  const updateData = async (url, objectData) => {
+  const putData = async (url, objectData) => {
     try {
       const data = await axios.put(url, objectData);
       setResponse(prevData => ({ ...prevData, answer: data }));
@@ -16,5 +16,5 @@ export default function usePutData() {
     }
   };
 
-  return [response, updateData];
+  return [response, putData];
 }
