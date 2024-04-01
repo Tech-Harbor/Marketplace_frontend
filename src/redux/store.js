@@ -1,10 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import token from './auth/tokenSlice.js';
-import showModal from './auth/modalSlice.js';
+import { authModalReducer, tokenReducer } from './auth/slices.js';
 
 export default configureStore({
   reducer: {
-    token,
-    showModal,
+    showModal: authModalReducer,
+    token: tokenReducer,
   },
 });

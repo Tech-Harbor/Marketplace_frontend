@@ -4,7 +4,7 @@ import { useRegisterSubmit } from '../../../hooks/apiRequests.js';
 
 import RegisterTerms from './RegisterTerms/RegisterTerms.jsx';
 import { FormField, FormFieldPassword } from './fields/index.js';
-import { StyledForm, StyledButton } from './Form.styled';
+import { StyledForm, StyledButton } from './forms.styled.js';
 import { isPasswordValid } from '../../../utils/validatePasswordPatterns.js';
 import { FormFieldPhone } from './fields/FormFieldPhone.jsx';
 
@@ -21,7 +21,7 @@ const makeFirstLetterUpperCase = string => {
   return letterArray[0].toUpperCase() + letterArray.splice(1).join('');
 };
 
-export const Form = () => {
+export const RegistrationForm = () => {
   const {
     register,
     handleSubmit,

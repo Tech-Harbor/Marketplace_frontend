@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { StyledFlexDiv } from '../RegistrationForm/RegistrationForm.styled.js';
+import { StyledFlexDiv } from '../AuthUser/common.styled.js';
 import {
   StyledHeader,
   StyledIconMenu,
