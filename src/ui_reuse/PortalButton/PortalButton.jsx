@@ -1,9 +1,10 @@
 import { createPortal } from 'react-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import { showAuthModal } from '../../redux/auth/slices.js';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import styled from 'styled-components';
+import { showAuthModal, showAuthPage } from '../../redux/auth/slices.js';
+import { PAGE } from '../../constants/constants.js';
 
 const bodyLink = document.getElementById('root').parentElement;
 const modalLink = document.getElementById('modal-root');
@@ -38,18 +39,19 @@ const CloseButton = styled(CloseRoundedIcon)`
 `;
 
 export const PortalButton = ({ children, modalContent }) => {
-  const isShowModal = useSelector(state => state.showModal.status);
-
   const dispatch = useDispatch();
+  const isShowModal = useSelector(state => state.auth.isShowModal);
 
   const openModal = () => {
     bodyLink.style.overflow = 'hidden';
     dispatch(showAuthModal(true));
+    dispatch(showAuthPage(PAGE.REGISTER));
   };
 
   const closeModal = () => {
     bodyLink.removeAttribute('style');
     dispatch(showAuthModal(false));
+    dispatch(showAuthPage(null));
   };
 
   return (

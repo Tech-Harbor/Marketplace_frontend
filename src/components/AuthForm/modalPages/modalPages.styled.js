@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { device } from '../../utils';
+import { device } from '../../../utils/index.js';
 
 // Helper for using display: flex;
 const StyledFlexDiv = styled.div`
@@ -22,7 +22,7 @@ const StyledFlexDiv = styled.div`
   }
 `;
 
-// Styles for AuthUser
+// Styles for AuthForm
 export const FormWrapper = styled(StyledFlexDiv)`
   padding: 24px 16px;
   width: 360px;

@@ -1,33 +1,24 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const authModalSlices = createSlice({
-  name: 'authModal',
+const authSlice = createSlice({
+  name: 'auth',
   initialState: {
-    status: false,
-  },
-
-  reducers: {
-    showAuthModal(state, action) {
-      state.status = action.payload;
-    },
-  },
-});
-
-const tokenSlice = createSlice({
-  name: 'token',
-  initialState: {
+    isShowModal: false,
+    showPage: null,
     token: '',
   },
-
   reducers: {
+    showAuthModal(state, action) {
+      state.isShowModal = action.payload;
+    },
+    showAuthPage(state, action) {
+      state.showPage = action.payload;
+    },
     takeToken(state, action) {
       state.token = action.payload;
     },
   },
 });
 
-export const { showAuthModal } = authModalSlices.actions;
-export const authModalReducer = authModalSlices.reducer;
-
-export const { takeToken } = tokenSlice.actions;
-export const tokenReducer = tokenSlice.reducer;
+export const { showAuthModal, showAuthPage, takeToken } = authSlice.actions;
+export const authReducer = authSlice.reducer;
