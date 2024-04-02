@@ -27,6 +27,7 @@ export const FormWrapper = styled(StyledFlexDiv)`
   padding: 24px 16px;
   width: 360px;
   background-color: var(--color-bg-form);
+  border-radius: 8px;
 
   // @media ${device.laptop} {
   // }

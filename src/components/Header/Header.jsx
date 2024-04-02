@@ -2,16 +2,15 @@ import { NavLink } from 'react-router-dom';
 import { StyledFlexDiv } from '../AuthForm/modalPages/modalPages.styled.js';
 import {
   StyledHeader,
-  StyledIconMenu,
+  StyledIcon,
   StyledIconLogo,
-  StyledMenuButton,
-  StyledTitle,
+  StyledIconMenu,
   StyledIconShipping,
-  StyledIconProfile,
+  StyledMenuButton,
   StyledSearchInput,
+  StyledTitle,
+  StyledWrapperButton,
 } from './Header.styled.js';
-import { StyledIcon, StyledWrapperButton } from './Header.styled.js';
-import { PortalButton } from '../../ui_reuse/PortalButton/PortalButton.jsx';
 import AuthForm from '../AuthForm/AuthForm.jsx';
 // import SelectLang from "../SelectLang/SelectLang.jsx";
 
@@ -47,9 +46,11 @@ export const Header = () => {
         {/* Use PortalButton component with children (anything element inside PortalButton) to */}
         {/* open a Modal Component when we click it. PortalButton needs either a one prop modalContent that will be as
         a modal content that we see after open */}
-        <PortalButton modalContent={<AuthForm />}>
-          <StyledIconProfile />
-        </PortalButton>
+
+        {/*<PortalButton modalContent={<AuthForm />}>*/}
+        {/*  <StyledIconProfile />*/}
+        {/*</PortalButton>*/}
+        <AuthForm />
         {/* !!! */}
 
         {/* MOBILE MENU */}
