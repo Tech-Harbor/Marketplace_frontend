@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 export const StyledText = styled.p`
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
   font-family: Gilroy-Medium, sans-serif;
   font-size: 13px;
   font-weight: 500;

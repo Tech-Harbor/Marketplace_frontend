@@ -1,7 +1,8 @@
 import { RegistrationForm } from '../forms/RegistrationForm.jsx';
-import TitleHaveAccount from '../TitleHaveAccount/TitleHaveAccount.jsx';
+import { AuthLink } from '../TitleHaveAccount/AuthLink.jsx';
 
 import { StyledTitle } from './modalPages.styled.js';
+import { PAGE } from '../../../constants/constants.js';
 
 export const Registration = () => {
   return (
@@ -9,7 +10,7 @@ export const Registration = () => {
       {/*<FormWrapper>*/}
       <StyledTitle>Реєстрація</StyledTitle>
       <RegistrationForm />
-      <TitleHaveAccount />
+      <AuthLink text={'Вже маєте акаунт?'} linkText={'Увійти'} linkTo={PAGE.LOGIN} />
       {/*</FormWrapper>*/}
     </>
   );
