@@ -1,11 +1,11 @@
 import { useDispatch } from 'react-redux';
 import { StyledText } from './TitleHaveAccount.styled.js';
-import { showAuthPage } from '../../../redux/auth/slices.js';
+import { showTypeForm } from '../../../redux/auth/slices.js';
 import { PAGE } from '../../../constants/constants.js';
 
 const TitleHaveAccount = () => {
   const dispatch = useDispatch();
-  const handleClick = () => dispatch(showAuthPage(PAGE.LOGIN));
+  const handleClick = () => dispatch(showTypeForm(PAGE.RESET_PSW));
 
   return (
     <StyledText className="text">

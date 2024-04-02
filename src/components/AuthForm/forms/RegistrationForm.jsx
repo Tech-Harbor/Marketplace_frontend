@@ -1,12 +1,13 @@
 import { useForm } from 'react-hook-form';
 
-import { useRegisterSubmit } from '../../../hooks/apiRequests.js';
+import { useApi } from '../../../hooks/apiRequests.js';
 
 import RegisterTerms from './RegisterTerms/RegisterTerms.jsx';
 import { FormField, FormFieldPassword } from './fields/index.js';
 import { StyledForm, StyledButton } from './forms.styled.js';
 import { isPasswordValid } from '../../../utils/validatePasswordPatterns.js';
 import { FormFieldPhone } from './fields/FormFieldPhone.jsx';
+import { makeFirstLetterUpperCase } from '../../../utils/makeFirstLetterUpperCase.js';
 
 const fieldsPattern = {
   firstname: '',
@@ -16,10 +17,10 @@ const fieldsPattern = {
   password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{7,}$/i,
 };
 
-const makeFirstLetterUpperCase = string => {
-  const letterArray = string.split('');
-  return letterArray[0].toUpperCase() + letterArray.splice(1).join('');
-};
+// const makeFirstLetterUpperCase = string => {
+//   const letterArray = string.split('');
+//   return letterArray[0].toUpperCase() + letterArray.splice(1).join('');
+// };
 
 export const RegistrationForm = () => {
   const {
@@ -32,12 +33,12 @@ export const RegistrationForm = () => {
     mode: 'onChange',
   });
 
-  const { sendData } = useRegisterSubmit();
+  const { sendData } = useApi();
   const passwordValue = watch('password');
-  const isPswValid = isPasswordValid(passwordValue, isValid);
+  const isFormValid = isPasswordValid(passwordValue) && isValid;
 
   const handleSubmitForm = async data => {
-    await sendData({
+    await sendData('/auth/signup', {
       ...data,
       firstname: makeFirstLetterUpperCase(data.firstname),
       lastname: makeFirstLetterUpperCase(data.lastname),
@@ -118,7 +119,7 @@ export const RegistrationForm = () => {
       />
 
       <RegisterTerms />
-      <StyledButton $isPswValid={isPswValid}>Зареєструватися</StyledButton>
+      <StyledButton $isFormValid={isFormValid}>Зареєструватися</StyledButton>
     </StyledForm>
   );
 };

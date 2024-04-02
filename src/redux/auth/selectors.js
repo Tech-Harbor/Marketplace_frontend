@@ -1,1 +1,1 @@
-export const showPageSelector = state => state.auth.showPage;
+export const typeFormSelector = state => state.auth.typeForm;

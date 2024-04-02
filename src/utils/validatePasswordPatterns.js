@@ -7,7 +7,7 @@ export const validatePasswordPatterns = (password = '') => {
   return validationResult;
 };
 
-export const isPasswordValid = (password, isValid) => {
+export const isPasswordValid = password => {
   const validationResult = validatePasswordPatterns(password);
-  return Object.values(validationResult).every(value => value === true) && isValid;
+  return Object.values(validationResult).every(value => value === true);
 };

@@ -20,9 +20,12 @@ export const StyledButton = styled.button`
   text-align: center;
   color: var(--color-btn-text);
 
+  &.reset-psw {
+    margin-top: 24px;
+  }
   //  styles for disable button
-  background-color: ${({ $isPswValid }) =>
-    $isPswValid ? 'var(--color-primary-active)' : 'var(--color-btn-disabled)'};
+  background-color: ${({ $isFormValid }) =>
+    $isFormValid ? 'var(--color-primary-active)' : 'var(--color-btn-disabled)'};
 
   // @media ${device.laptop} {
   // }

@@ -54,6 +54,10 @@ export const StyledInput = styled.input.attrs({
     padding-left: 18px; // reserved place for icon
   }
 
+  &.email-field_reset-psw {
+    margin-bottom: 24px;
+  }
+
   // @media ${device.desktop} {
   // }
 `;
