@@ -30,15 +30,6 @@ export const InputsBlock = styled.div`
   gap: 16px;
 `;
 
-export const Errors = styled.div`
-  font-family: 'Gilroy-Medium', sans-serif;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 24px;
-  color: var(--color-error-input);
-  margin-top: 20px;
-`;
-
 export const ChoiceBlock = styled.div`
   width: 100%;
   display: ${props => (props.$show ? 'flex' : 'none')};
