@@ -1,4 +1,8 @@
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
+
+import { changeShowMode } from '../../../redux/auth/modalSlice.js';
 
 import { useRegisterSubmit } from '../../../hooks/apiRequests.js';
 
@@ -7,6 +11,17 @@ import { FormField, FormFieldPassword } from './fields/index.js';
 import { StyledForm, StyledButton } from './Form.styled';
 import { isPasswordValid } from '../../../utils/validatePasswordPatterns.js';
 import { FormFieldPhone } from './fields/FormFieldPhone.jsx';
+
+const styles = {
+  position: 'top-right',
+  autoClose: 5000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  theme: 'light',
+};
 
 const fieldsPattern = {
   firstname: '',
@@ -32,6 +47,8 @@ export const Form = () => {
     mode: 'onChange',
   });
 
+  const dispatch = useDispatch();
+
   const { sendData } = useRegisterSubmit();
   const passwordValue = watch('password');
   const isPswValid = isPasswordValid(passwordValue, isValid);
@@ -42,6 +59,8 @@ export const Form = () => {
       firstname: makeFirstLetterUpperCase(data.firstname),
       lastname: makeFirstLetterUpperCase(data.lastname),
     });
+    toast.success('Перевірте пошту! Ми надіслали вам лист!', styles);
+    dispatch(changeShowMode(false));
     reset();
   };
 

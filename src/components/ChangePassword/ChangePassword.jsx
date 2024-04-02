@@ -2,15 +2,26 @@ import { useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 import usePutData from '../../hooks/usePutData.js';
 import { isPasswordValid } from '../../utils/validatePasswordPatterns.js';
 import { FormFieldPassword } from '../RegistrationForm/Form/fields/index.js';
 import { changeShowMode } from '../../redux/auth/modalSlice.js';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import { Button } from '../FormButton/FormButton.styled.js';
-import { Errors } from '../AuthForm/AuthForm.styled.js';
 import { FormBlock, TitleBlock, Title } from '../AuthForm/AuthForm.styled.js';
 import { Container } from './ChangePassword.styled.js';
+
+const styles = {
+  position: 'top-right',
+  autoClose: 5000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  theme: 'light',
+};
 
 const ChangePassword = () => {
   const [response, putData] = usePutData();
@@ -38,10 +49,12 @@ const ChangePassword = () => {
 
   const relocation = () => {
     if (response.errors?.message) {
+      toast.error(response.errors?.message, styles);
       return;
     }
     dispatch(changeShowMode(true));
     navigate('/');
+    toast.success('Ви успішно змінили пароль!', styles);
   };
 
   useEffect(() => {
@@ -91,8 +104,6 @@ const ChangePassword = () => {
           fieldError={errors.similarPassword}
           passwordValue={similarPasswordValue}
         />
-
-        {response.errors?.message && <Errors>{response.errors?.message}</Errors>}
 
         <Button $isValid={isPswValid} disabled={!isPswValid} style={{ marginTop: '24px' }}>
           Продовжити
