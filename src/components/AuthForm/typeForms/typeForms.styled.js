@@ -51,3 +51,19 @@ export const StyledTitle = styled.h1`
 `;
 
 export { StyledFlexDiv };
+
+export const StyledButtonGoogle = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 36px;
+  border: 1px solid var(--color-button-border-google);
+  border-radius: 8px;
+
+  font-family: Gilroy-Medium, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+`;

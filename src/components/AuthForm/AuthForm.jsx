@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Login } from './typeForms/Login.jsx';
 import { ResetPassword } from './typeForms/ResetPassword.jsx';
 import { Registration } from './typeForms/Registration.jsx';
-import { PAGE } from '../../constants/constants.js';
+import { PAGE } from '../../constants/index.js';
 import { showAuthModal, showTypeForm } from '../../redux/auth/slices.js';
 import {
   StyledCloseButton,
@@ -24,7 +24,7 @@ const AuthForm = () => {
   const openModal = () => {
     bodyLink.style.overflow = 'hidden';
     dispatch(showAuthModal(true));
-    dispatch(showTypeForm(PAGE.REGISTER));
+    dispatch(showTypeForm(PAGE.LOGIN));
   };
 
   const closeModal = () => {

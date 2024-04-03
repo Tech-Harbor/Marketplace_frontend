@@ -20,7 +20,7 @@ export const StyledButton = styled.button`
   text-align: center;
   color: var(--color-btn-text);
 
-  &.reset-psw {
+  &.submit-button {
     margin-top: 24px;
   }
   //  styles for disable button

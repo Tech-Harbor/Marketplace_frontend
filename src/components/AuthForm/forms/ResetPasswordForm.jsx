@@ -2,9 +2,8 @@ import { useForm } from 'react-hook-form';
 
 import { useApi } from '../../../hooks/apiRequests.js';
 import { FormField } from './fields/index.js';
-import { FIELDS_PATTERN } from '../../../constants/patterns.js';
 import { StyledButton, StyledForm } from './forms.styled.js';
-import { INITIAL_STATES } from '../../../constants/initialStates.js';
+import { FIELDS_PATTERN, INITIAL_STATES } from '../../../constants/index.js';
 
 export const ResetPasswordForm = () => {
   const {
@@ -38,7 +37,7 @@ export const ResetPasswordForm = () => {
         fieldError={errors.email}
       />
 
-      <StyledButton $isFormValid={isValid} className={'reset-psw'}>
+      <StyledButton $isFormValid={isValid} className={'submit-button'}>
         Відправити лист
       </StyledButton>
     </StyledForm>

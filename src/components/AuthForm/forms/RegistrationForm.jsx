@@ -1,26 +1,14 @@
 import { useForm } from 'react-hook-form';
 
 import { useApi } from '../../../hooks/apiRequests.js';
-
 import RegisterTerms from './RegisterTerms/RegisterTerms.jsx';
 import { FormField, FormFieldPassword } from './fields/index.js';
 import { StyledForm, StyledButton } from './forms.styled.js';
 import { isPasswordValid } from '../../../utils/validatePasswordPatterns.js';
 import { FormFieldPhone } from './fields/FormFieldPhone.jsx';
 import { makeFirstLetterUpperCase } from '../../../utils/makeFirstLetterUpperCase.js';
-
-const fieldsPattern = {
-  firstname: '',
-  lastname: '',
-  phone: /^\+?\d{12}$/i,
-  email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-  password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{7,}$/i,
-};
-
-// const makeFirstLetterUpperCase = string => {
-//   const letterArray = string.split('');
-//   return letterArray[0].toUpperCase() + letterArray.splice(1).join('');
-// };
+import { FormFieldCities } from './fields/FormFieldCities.jsx';
+import { FIELDS_PATTERN } from '../../../constants/index.js';
 
 export const RegistrationForm = () => {
   const {
@@ -88,7 +76,7 @@ export const RegistrationForm = () => {
         validation={register('phone', {
           required: 'Заповніть поле',
           pattern: {
-            value: fieldsPattern.phone,
+            value: FIELDS_PATTERN.PHONE,
             message: 'Має відповідати формату +380501234567',
           },
         })}
@@ -101,7 +89,7 @@ export const RegistrationForm = () => {
         validation={register('email', {
           required: 'Заповніть поле',
           pattern: {
-            value: fieldsPattern.email,
+            value: FIELDS_PATTERN.EMAIL,
             message: 'Не відповідає формату *@*.*',
           },
         })}
@@ -116,6 +104,15 @@ export const RegistrationForm = () => {
         })}
         fieldError={errors.password}
         passwordValue={passwordValue}
+      />
+
+      <FormFieldCities
+        name={'city'}
+        text={'Місто'}
+        validation={register('city', {
+          required: 'Оберіть місто',
+        })}
+        fieldError={errors.city}
       />
 
       <RegisterTerms />

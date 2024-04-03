@@ -120,7 +120,7 @@ export const SwitchButton = styled.button`
 export const DividingLine = styled.div`
   max-width: 100%;
   height: 1px;
-  background-color: var(--color-bg-form_auth-dividing_line);
+  background-color: var(--color-auth-separator);
   display: ${props => (props.$show ? 'flex' : 'none')};
   align-items: center;
   justify-content: center;
@@ -131,7 +131,7 @@ export const LineText = styled.span`
   ${fontStyles};
   font-size: 10px;
   line-height: 24px;
-  color: var(--color-form_auth-line_text);
+  color: var(--color-auth-separator_text);
   padding: 0 31px;
   background-color: var(--color-btn-text);
 `;
@@ -140,7 +140,7 @@ export const LogInButton = styled.button`
   width: 100%;
   height: 36px;
   background: none;
-  border: 1px solid var(--color-border-button-google);
+  border: 1px solid var(--color-button-border-google);
   border-radius: 10px;
   display: ${props => (props.$show ? 'flex' : 'none')};
   align-items: center;
@@ -164,7 +164,7 @@ export const Text = styled.span`
 // Profile icon styles
 export const StyledIconProfile = styled.img.attrs({
   src: iconProfile,
-  alt: 'Icon Profile',
+  alt: 'StyledIcon Profile',
 })`
   cursor: pointer;
   @media ${device.beforeLaptop} {

@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { StyledFlexDiv } from '../AuthForm/typeForms/modalPages.styled.js';
+import { StyledFlexDiv } from '../AuthForm/typeForms/typeForms.styled.js';
 import {
   StyledHeader,
   StyledIcon,

@@ -62,6 +62,30 @@ export const StyledInput = styled.input.attrs({
   // }
 `;
 
+export const StyledSelect = styled.select.attrs({
+  defaultValue: ' ',
+})`
+  padding: 0 17px;
+  width: 100%;
+  height: 36px;
+  border: 1px solid
+    ${({ $fieldError }) => ($fieldError ? 'var(--color-error-input)' : 'var(--color-border-input)')};
+  border-radius: 4px;
+  color: var(--color-primary); // ??
+  font-family: Gilroy-Regular, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0;
+
+  &:focus-visible {
+    outline: none;
+  }
+
+  // @media ${device.desktop} {
+  // }
+`;
+
 // Styles for password field wrapper
 export const StyledWrapperFieldPassword = styled.div`
   position: relative;

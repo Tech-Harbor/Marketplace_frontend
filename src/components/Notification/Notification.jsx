@@ -6,7 +6,7 @@ const Notification = ({ title, text, icon }) => {
     <Container>
       <Title>{title}</Title>
       <Text>{text}</Text>
-      <Icon src={icon} alt="Icon" />
+      <Icon src={icon} alt="StyledIcon" />
     </Container>
   );
 };
