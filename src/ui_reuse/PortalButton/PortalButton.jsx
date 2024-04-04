@@ -16,6 +16,10 @@ const Modal = styled.div`
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1000;
+
+  @media (max-width: 768px) {
+    background-color: #e1f3fb;
+  }
 `;
 
 const ContentWrapper = styled.div`
@@ -24,6 +28,10 @@ const ContentWrapper = styled.div`
   background-color: #d5c071;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+  @media (max-width: 768px) {
+    padding: 0;
+  }
 `;
 
 const CloseButton = styled(CloseRoundedIcon)`
