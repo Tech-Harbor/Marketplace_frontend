@@ -4,7 +4,7 @@ import { Login } from './typeForms/Login.jsx';
 import { ResetPassword } from './typeForms/ResetPassword.jsx';
 import { Registration } from './typeForms/Registration.jsx';
 import { PAGE } from '../../constants/index.js';
-import { showAuthModal, showTypeForm } from '../../redux/auth/slices.js';
+import { showAuthModal, showTypeForm } from '../../redux/auth/authSlice.js';
 import {
   StyledCloseButton,
   StyledContentWrapper,

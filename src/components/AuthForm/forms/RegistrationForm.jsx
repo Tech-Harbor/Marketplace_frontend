@@ -7,7 +7,7 @@ import { StyledForm, StyledButton } from './forms.styled.js';
 import { isPasswordValid } from '../../../utils/validatePasswordPatterns.js';
 import { FormFieldPhone } from './fields/FormFieldPhone.jsx';
 import { makeFirstLetterUpperCase } from '../../../utils/makeFirstLetterUpperCase.js';
-import { FormFieldCities } from './fields/FormFieldCities.jsx';
+// import { FormFieldCities } from './fields/FormFieldCities.jsx';
 import { FIELDS_PATTERN } from '../../../constants/index.js';
 
 export const RegistrationForm = () => {
@@ -106,14 +106,15 @@ export const RegistrationForm = () => {
         passwordValue={passwordValue}
       />
 
-      <FormFieldCities
-        name={'city'}
-        text={'Місто'}
-        validation={register('city', {
-          required: 'Оберіть місто',
-        })}
-        fieldError={errors.city}
-      />
+      {/*  Переговорити з ПМ - в макеті є, але бекенд без цього поля */}
+      {/*<FormFieldCities*/}
+      {/*  name={'city'}*/}
+      {/*  text={'Місто'}*/}
+      {/*  validation={register('city', {*/}
+      {/*    required: 'Оберіть місто',*/}
+      {/*  })}*/}
+      {/*  fieldError={errors.city}*/}
+      {/*/>*/}
 
       <RegisterTerms />
       <StyledButton $isFormValid={isFormValid}>Зареєструватися</StyledButton>

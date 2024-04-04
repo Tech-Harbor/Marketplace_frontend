@@ -5,7 +5,7 @@
 // import usePutData from '../../hooks/usePutData.js';
 // import { isPasswordValid } from '../../utils/validatePasswordPatterns.js';
 // import { FormFieldPassword } from '../AuthForm/forms/fields/index.js';
-// import { showAuthModal } from '../../redux/auth/slices.js';
+// import { showAuthModal } from '../../redux/auth/authSlice.js';
 // import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 // import { Button } from '../FormButton/FormButton.styled.js';
 // import { Errors } from '../AuthForm/AuthForm.styled.js';
