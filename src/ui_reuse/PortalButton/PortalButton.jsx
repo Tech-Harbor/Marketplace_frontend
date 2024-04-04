@@ -52,6 +52,12 @@ export const PortalButton = ({ children, modalContent }) => {
     dispatch(changeShowMode(false));
   };
 
+  const handleModalClick = event => {
+    if (event.target.classList[2] === 'modal') {
+      dispatch(changeShowMode(false));
+    }
+  };
+
   return (
     <>
       <div style={{ cursor: 'pointer' }} onClick={openModal}>
@@ -60,7 +66,7 @@ export const PortalButton = ({ children, modalContent }) => {
 
       {showModal
         ? createPortal(
-            <Modal className={'modal'}>
+            <Modal className={'modal'} onClick={handleModalClick}>
               <ContentWrapper>
                 <CloseButton sx={{}} onClick={closeModal} />
 
