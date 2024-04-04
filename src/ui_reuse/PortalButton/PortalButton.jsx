@@ -18,7 +18,7 @@ const Modal = styled.div`
   z-index: 1000;
 
   @media (max-width: 768px) {
-    background-color: #e1f3fb;
+    display: block;
   }
 `;
 
