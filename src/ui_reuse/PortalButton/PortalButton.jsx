@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { changeShowMode } from '../../redux/auth/modalSlice.js';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+import { device } from '../../utils/index.js';
 import styled from 'styled-components';
 
 const Modal = styled.div`
@@ -25,7 +26,7 @@ const ContentWrapper = styled.div`
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 
-  @media (max-width: 767px) {
+  @media ${device.beforeTablet} {
     width: 100%;
     height: 100%;
     background-color: #ffffff;

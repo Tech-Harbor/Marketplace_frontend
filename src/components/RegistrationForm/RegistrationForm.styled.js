@@ -33,7 +33,7 @@ export const FormWrapper = styled(StyledFlexDiv)`
   // @media ${device.desktop} {
   // }
 
-  @media (max-width: 767px) {
+  @media ${device.beforeTablet} {
     width: 100%;
   }
 `;

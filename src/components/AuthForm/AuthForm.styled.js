@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '../../utils/index.js';
 
 const fontStyles = `
   font-family: 'Gilroy-Medium', sans-serif;
@@ -10,7 +11,7 @@ export const FormBlock = styled.form`
   background-color: var(--color-btn-text);
   padding: 25px 16px;
 
-  @media (max-width: 767px) {
+  @media ${device.beforeTablet} {
     width: 100%;
     height: 100vh;
   }
