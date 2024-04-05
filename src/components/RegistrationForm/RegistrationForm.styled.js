@@ -35,7 +35,6 @@ export const FormWrapper = styled(StyledFlexDiv)`
 
   @media (max-width: 767px) {
     width: 100%;
-    height: 100vh;
   }
 `;
 
