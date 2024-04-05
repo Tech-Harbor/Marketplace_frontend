@@ -16,7 +16,7 @@ const StyledFlexDiv = styled.div`
 
   // for Header component
   &.search-input {
-    @media ${device.beforeLaptop} {
+    @media ${device.untilLaptop} {
       display: none;
     }
   }
