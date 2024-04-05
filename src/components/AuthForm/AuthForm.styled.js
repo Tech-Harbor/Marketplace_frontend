@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '../../utils/index.js';
 
 const fontStyles = `
   font-family: 'Gilroy-Medium', sans-serif;
@@ -9,6 +10,11 @@ export const FormBlock = styled.form`
   width: 360px;
   background-color: var(--color-btn-text);
   padding: 25px 16px;
+
+  @media ${device.untilTablet} {
+    width: 100%;
+    height: 100vh;
+  }
 `;
 
 export const TitleBlock = styled.div`

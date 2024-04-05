@@ -1,8 +1,9 @@
+import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useLocation, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { changeShowMode } from '../../redux/auth/modalSlice.js';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+import { device } from '../../utils/index.js';
 import styled from 'styled-components';
 
 const Modal = styled.div`
@@ -24,6 +25,12 @@ const ContentWrapper = styled.div`
   background-color: #d5c071;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+  @media ${device.untilTablet} {
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+  }
 `;
 
 const CloseButton = styled(CloseRoundedIcon)`
@@ -35,38 +42,42 @@ const CloseButton = styled(CloseRoundedIcon)`
 `;
 
 export const PortalButton = ({ children, modalContent }) => {
-  const showModal = useSelector(state => state.showModal.check);
-
-  const dispatch = useDispatch();
-
   const bodyLink = document.getElementById('root').parentElement;
   const modalLink = document.getElementById('modal-root');
 
+  const navigate = useNavigate();
+  const location = useLocation();
+  const isAuthModalParam = new URLSearchParams(location.search).get('auth_modal');
+
+  /* P.S. we don't use any redux properties for open modal anymore */
   const openModal = () => {
     bodyLink.style.overflow = 'hidden';
-    dispatch(changeShowMode(true));
   };
 
   const closeModal = () => {
     bodyLink.removeAttribute('style');
-    dispatch(changeShowMode(false));
+
+    navigate(location.pathname); // url params will be removed when we click on the close button or on the browser < (prev) button
   };
 
-  const handleModalClick = event => {
-    if (event.target.classList[2] === 'modal') {
-      dispatch(changeShowMode(false));
+  /* modal will be open if url param has the "auth_modal=true" property */
+  useEffect(() => {
+    if (isAuthModalParam) {
+      openModal();
     }
-  };
+  }, [location]);
 
   return (
     <>
-      <div style={{ cursor: 'pointer' }} onClick={openModal}>
+      {/* "navigate" adds a url param for open modal */}
+      <div style={{ cursor: 'pointer' }} onClick={() => navigate('?auth_modal=true')}>
         {children}
       </div>
 
-      {showModal
+      {/* modal shows if only url params has "auth_modal=true" property */}
+      {isAuthModalParam
         ? createPortal(
-            <Modal className={'modal'} onClick={handleModalClick}>
+            <Modal className={'modal'}>
               <ContentWrapper>
                 <CloseButton sx={{}} onClick={closeModal} />
 

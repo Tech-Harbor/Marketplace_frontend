@@ -1,9 +1,6 @@
 import { useForm } from 'react-hook-form';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { useDispatch } from 'react-redux';
-
-import { changeShowMode } from '../../../redux/auth/modalSlice.js';
-
 import { useRegisterSubmit } from '../../../hooks/apiRequests.js';
 
 import RegisterTerms from './RegisterTerms/RegisterTerms.jsx';
@@ -47,7 +44,8 @@ export const Form = () => {
     mode: 'onChange',
   });
 
-  const dispatch = useDispatch();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const { sendData } = useRegisterSubmit();
   const passwordValue = watch('password');
@@ -60,7 +58,8 @@ export const Form = () => {
       lastname: makeFirstLetterUpperCase(data.lastname),
     });
     toast.success('Перевірте пошту! Ми надіслали вам лист!', styles);
-    dispatch(changeShowMode(false));
+    navigate(location.pathname); // it returns an old path address which was before open modal instead changing any properties in redux state
+
     reset();
   };
 

@@ -16,7 +16,7 @@ const StyledFlexDiv = styled.div`
 
   // for Header component
   &.search-input {
-    @media ${device.beforeLaptop} {
+    @media ${device.untilLaptop} {
       display: none;
     }
   }
@@ -32,6 +32,10 @@ export const FormWrapper = styled(StyledFlexDiv)`
   // }
   // @media ${device.desktop} {
   // }
+
+  @media ${device.untilTablet} {
+    width: 100%;
+  }
 `;
 
 // Styles for Title component (h1)

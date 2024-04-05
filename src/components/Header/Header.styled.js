@@ -27,13 +27,6 @@ export const StyledHeader = styled.header`
     padding: 0 50px 0 110px;
     height: 80px;
   }
-
-  // Styles for NavLink
-  .link-logo {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-  }
 `;
 
 /* LEFT SIDE */
@@ -124,7 +117,7 @@ export const StyledIconShipping = styled.img.attrs({
   src: iconShipping,
   alt: 'Icon Shipping',
 })`
-  @media ${device.beforeLaptop} {
+  @media ${device.untilLaptop} {
     display: none;
   }
 
@@ -139,7 +132,7 @@ export const StyledIconProfile = styled.img.attrs({
   src: iconProfile,
   alt: 'Icon Profile',
 })`
-  @media ${device.beforeLaptop} {
+  @media ${device.untilLaptop} {
     display: none;
   }
   @media ${device.laptop} {

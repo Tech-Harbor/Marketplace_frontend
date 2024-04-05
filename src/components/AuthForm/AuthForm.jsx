@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { useGoogleLogin } from '@react-oauth/google';
@@ -6,7 +7,6 @@ import { toast } from 'react-toastify';
 import usePostData from '../../hooks/usePostData.js';
 import FormInput from '../FormInput/FormInput.jsx';
 import { takeToken } from '../../redux/auth/tokenSlice.js';
-import { changeShowMode } from '../../redux/auth/modalSlice.js';
 import Google from '../../../public/Google.png';
 import DoneRoundedIcon from '@mui/icons-material/DoneRounded';
 import VisibilityIcon from '@mui/icons-material/Visibility';
@@ -47,17 +47,17 @@ const styles = {
 };
 
 const AuthForm = () => {
-  const [response, postData] = usePostData();
-
   const [toggle, setToggle] = useState({
     toggleType: true,
     toggleRecovery: true,
     toggleCheckbox: false,
     toggleRegistration: false,
   });
-
   const [registerMode, setRegisterMode] = useState(false);
 
+  const [response, postData] = usePostData();
+  const location = useLocation();
+  const navigate = useNavigate();
   const isMountingRef = useRef(false);
 
   const {
@@ -82,7 +82,7 @@ const AuthForm = () => {
       }
     }
     toast.success('Ти успішно залогінився)', styles);
-    dispatch(changeShowMode(false));
+    navigate(location.pathname); // it returns an old path address which was before open modal instead changing any properties in redux state
   };
 
   useEffect(() => {
