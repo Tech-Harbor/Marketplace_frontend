@@ -124,7 +124,7 @@ export const StyledIconShipping = styled.img.attrs({
   src: iconShipping,
   alt: 'StyledIcon Shipping',
 })`
-  @media ${device.beforeLaptop} {
+  @media ${device.untilLaptop} {
     display: none;
   }
 
@@ -139,7 +139,7 @@ export const StyledIconProfile = styled.img.attrs({
   src: iconProfile,
   alt: 'StyledIcon Profile',
 })`
-  @media ${device.beforeLaptop} {
+  @media ${device.untilLaptop} {
     display: none;
   }
   @media ${device.laptop} {

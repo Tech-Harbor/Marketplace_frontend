@@ -167,7 +167,7 @@ export const StyledIconProfile = styled.img.attrs({
   alt: 'StyledIcon Profile',
 })`
   cursor: pointer;
-  @media ${device.beforeLaptop} {
+  @media ${device.untilLaptop} {
     display: none;
   }
   @media ${device.laptop} {
