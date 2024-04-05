@@ -1,12 +1,10 @@
 import { useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import usePutData from '../../hooks/usePutData.js';
 import { isPasswordValid } from '../../utils/validatePasswordPatterns.js';
 import { FormFieldPassword } from '../RegistrationForm/Form/fields/index.js';
-import { changeShowMode } from '../../redux/auth/modalSlice.js';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import { Button } from '../FormButton/FormButton.styled.js';
 import { FormBlock, TitleBlock, Title } from '../AuthForm/AuthForm.styled.js';
@@ -43,7 +41,6 @@ const ChangePassword = () => {
     newPasswordValue === similarPasswordValue;
 
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const isMountingRef = useRef(false);
   const jwt = queryParameters.get('jwt');
 
@@ -52,8 +49,7 @@ const ChangePassword = () => {
       toast.error(response.errors?.message, styles);
       return;
     }
-    dispatch(changeShowMode(true));
-    navigate('/');
+    navigate('?auth_modal=true'); // it adds a url param for open modal instead changing any properties in redux state
     toast.success('Ви успішно змінили пароль!', styles);
   };
 
