@@ -10,7 +10,7 @@ export const FormBlock = styled.form`
   background-color: var(--color-btn-text);
   padding: 25px 16px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     width: 100%;
     height: 100vh;
   }

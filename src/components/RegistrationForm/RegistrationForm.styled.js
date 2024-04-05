@@ -32,6 +32,11 @@ export const FormWrapper = styled(StyledFlexDiv)`
   // }
   // @media ${device.desktop} {
   // }
+
+  @media (max-width: 767px) {
+    width: 100%;
+    height: 100vh;
+  }
 `;
 
 // Styles for Title component (h1)
