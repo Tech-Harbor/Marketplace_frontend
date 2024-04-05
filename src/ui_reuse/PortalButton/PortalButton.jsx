@@ -16,10 +16,6 @@ const Modal = styled.div`
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1000;
-
-  @media (max-width: 768px) {
-    display: block;
-  }
 `;
 
 const ContentWrapper = styled.div`
@@ -30,7 +26,9 @@ const ContentWrapper = styled.div`
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 
   @media (max-width: 768px) {
-    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
   }
 `;
 
