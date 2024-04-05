@@ -1,7 +1,7 @@
 import { createPortal } from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Login } from './typeForms/Login.jsx';
-import { RequestEmail } from './typeForms/RequestEmail.jsx';
+// import { RequestEmail } from './typeForms/RequestEmail.jsx';
 import { Registration } from './typeForms/Registration.jsx';
 import { PAGE } from '../../constants/index.js';
 import { showTypeForm } from '../../redux/auth/authSlice.js';
@@ -45,10 +45,10 @@ const AuthForm = () => {
                 {typeForm === PAGE.REGISTER && <Registration />}
                 {typeForm === PAGE.LOGIN && <Login />}
                 {typeForm === PAGE.RESET_PSW && <ResetPassword />}
-                {typeForm === PAGE.REQUEST_EMAIL && <RequestEmail />}
+                {/*{typeForm === PAGE.REQUEST_EMAIL && <RequestEmail />}*/}
 
                 {/*ВИДАЛИТИ*/}
-                {/*{typeForm === PAGE.REQUEST_EMAIL && <ResetPassword />}*/}
+                {typeForm === PAGE.REQUEST_EMAIL && <ResetPassword />}
               </StyledContentWrapper>
             </StyledModal>,
             modalLink

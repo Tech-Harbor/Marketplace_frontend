@@ -1,9 +1,12 @@
 export const INITIAL_STATES = {
-  RESET_PSW: {
-    email: '',
-  },
   LOGIN: {
     email: '',
+    password: '',
+  },
+  REQUEST_EMAIL: {
+    email: '',
+  },
+  RESET_PSW: {
     password: '',
   },
 };

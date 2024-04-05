@@ -19,7 +19,8 @@ export const RequestEmailForm = () => {
 
   const handleSubmitForm = async data => {
     await sendData(API_URL.REQUEST_EMAIL, { ...data });
-    reset(INITIAL_STATES.RESET_PSW);
+
+    reset(INITIAL_STATES.REQUEST_EMAIL);
   };
 
   return (
