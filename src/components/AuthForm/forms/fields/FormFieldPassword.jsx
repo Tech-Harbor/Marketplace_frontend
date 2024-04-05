@@ -62,6 +62,6 @@ FormFieldPassword.propTypes = {
   validation: PropTypes.shape({
     required: PropTypes.string,
   }).isRequired,
-  passwordValue: PropTypes.string.isRequired,
+  passwordValue: PropTypes.string,
   repeatPasswordValue: PropTypes.string,
 };

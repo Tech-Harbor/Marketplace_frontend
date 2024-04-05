@@ -23,7 +23,8 @@ export const ResetPasswordForm = () => {
   const isFormValid = isPasswordValid(passwordValue, repeatPasswordValue) && isValid;
 
   const handleSubmitForm = async data => {
-    await sendData(API_URL.SIGNUP, { ...data });
+    console.log('data', data);
+    await sendData(API_URL.RESET_PASSWORD, { password: data.password });
     reset();
   };
 
