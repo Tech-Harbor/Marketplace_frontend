@@ -6,8 +6,8 @@ const size = {
 };
 
 const device = {
-  beforeLaptop: `(max-width: ${size.laptop - 0.02}px)`,
-  beforeTablet: `(max-width: ${size.tablet - 0.02}px)`,
+  untilLaptop: `(max-width: ${size.laptop - 0.02}px)`,
+  untilTablet: `(max-width: ${size.tablet - 0.02}px)`,
   mobile: `(min-width: ${size.mobile}px)`,
   tablet: `(min-width: ${size.tablet}px)`,
   laptop: `(min-width: ${size.laptop}px)`,

@@ -11,7 +11,7 @@ export const FormBlock = styled.form`
   background-color: var(--color-btn-text);
   padding: 25px 16px;
 
-  @media ${device.beforeTablet} {
+  @media ${device.untilTablet} {
     width: 100%;
     height: 100vh;
   }
