@@ -1,14 +1,17 @@
 import { useForm } from 'react-hook-form';
 
-import { useApi } from '../../../hooks/apiRequests.js';
+// import { useApi } from '../../../hooks/apiRequests.js';
 import { isPasswordValid } from '../../../utils/validatePasswordPatterns.js';
 import { FormField, FormFieldPassword } from './fields/index.js';
-import { StyledButton, StyledForm } from './forms.styled.js';
-import { API_URL, FIELDS_PATTERN, INITIAL_STATES, PAGE } from '../../../constants/index.js';
+import { StyledButton, StyledForm, StyledWrapperRememberMe } from './forms.styled.js';
+import { FIELDS_PATTERN, INITIAL_STATES, PAGE } from '../../../constants/index.js';
 import { AuthTextLink } from '../AuthTextLink/AuthTextLink.jsx';
 import { CheckBoxRememberMe } from './CheckBoxRememberMe/CheckBoxRememberMe.jsx';
+import { loginUserThunk } from '../../../redux/auth/operations.js';
+import { useDispatch } from 'react-redux';
 
 export const LoginForm = () => {
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -19,12 +22,11 @@ export const LoginForm = () => {
     mode: 'onChange',
   });
 
-  const { sendData } = useApi();
   const passwordValue = watch('password');
   const isFormValid = isPasswordValid(passwordValue) && isValid;
 
   const handleSubmitForm = async data => {
-    await sendData(API_URL.LOGIN, data);
+    await dispatch(loginUserThunk(data));
     reset(INITIAL_STATES.LOGIN);
   };
 
@@ -52,25 +54,17 @@ export const LoginForm = () => {
         fieldError={errors.password}
         passwordValue={passwordValue}
       />
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          marginTop: '20px',
-        }}
-      >
-        {/*<div>Запамятати мене</div>*/}
+      <StyledWrapperRememberMe>
         <CheckBoxRememberMe />
         <AuthTextLink
-          linkTo={PAGE.RESET_PSW}
+          linkTo={PAGE.REQUEST_EMAIL}
           linkText={'Забули пароль?'}
           text={''}
           className={'linkText'}
         />
-      </div>
+      </StyledWrapperRememberMe>
       <StyledButton $isFormValid={isFormValid} className={'submit-button'}>
-        Зареєструватися
+        Увійти
       </StyledButton>
     </StyledForm>
   );

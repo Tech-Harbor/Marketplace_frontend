@@ -14,7 +14,13 @@ import {
 } from './fields.styled.js';
 import { validatePasswordPatterns } from '../../../../utils/validatePasswordPatterns.js';
 
-export const FormFieldPassword = ({ text, validation, fieldError, passwordValue }) => {
+export const FormFieldPassword = ({
+  text,
+  validation,
+  fieldError,
+  passwordValue,
+  repeatPasswordValue,
+}) => {
   const [toggle, setToggle] = useState(false);
   const [validationPasswordResults, setValidationPasswordResults] = useState({});
   const onClick = e => {
@@ -23,8 +29,10 @@ export const FormFieldPassword = ({ text, validation, fieldError, passwordValue 
   };
 
   useEffect(() => {
-    setValidationPasswordResults(prevStat => validatePasswordPatterns(passwordValue) || prevStat);
-  }, [passwordValue]);
+    setValidationPasswordResults(
+      prevStat => validatePasswordPatterns(passwordValue, repeatPasswordValue) || prevStat
+    );
+  }, [passwordValue, repeatPasswordValue]);
 
   return (
     <>
@@ -54,5 +62,6 @@ FormFieldPassword.propTypes = {
   validation: PropTypes.shape({
     required: PropTypes.string,
   }).isRequired,
-  passwordValue: PropTypes.string,
+  passwordValue: PropTypes.string.isRequired,
+  repeatPasswordValue: PropTypes.string,
 };

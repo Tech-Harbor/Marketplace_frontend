@@ -32,3 +32,10 @@ export const StyledButton = styled.button`
   // @media ${device.desktop} {
   // }
 `;
+
+export const StyledWrapperRememberMe = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+`;

@@ -1,45 +1,57 @@
 import { useForm } from 'react-hook-form';
-
 import { useApi } from '../../../hooks/apiRequests.js';
-import { FormField } from './fields/index.js';
+import { isPasswordValid } from '../../../utils/validatePasswordPatterns.js';
+import { RegisterTerms } from './RegisterTerms/RegisterTerms.jsx';
+import { FormFieldPassword } from './fields/index.js';
 import { StyledButton, StyledForm } from './forms.styled.js';
-import { FIELDS_PATTERN, INITIAL_STATES } from '../../../constants/index.js';
+import { API_URL } from '../../../constants/index.js';
 
 export const ResetPasswordForm = () => {
   const {
     register,
     handleSubmit,
     reset,
+    watch,
     formState: { errors, isValid },
   } = useForm({
     mode: 'onChange',
   });
 
   const { sendData } = useApi();
+  const passwordValue = watch('password');
+  const repeatPasswordValue = watch('repeat_password');
+  const isFormValid = isPasswordValid(passwordValue, repeatPasswordValue) && isValid;
 
   const handleSubmitForm = async data => {
-    await sendData('/auth/request/email', { ...data });
-    reset(INITIAL_STATES.RESET_PSW);
+    await sendData(API_URL.SIGNUP, { ...data });
+    reset();
   };
 
   return (
     <StyledForm onSubmit={handleSubmit(handleSubmitForm)}>
-      <FormField
-        name="email"
-        text="Ел. пошта"
-        validation={register('email', {
+      <FormFieldPassword
+        name="password"
+        text="Новий пароль"
+        validation={register('password', {
           required: 'Заповніть поле',
-          pattern: {
-            value: FIELDS_PATTERN.EMAIL,
-            message: 'Не відповідає формату *@*.*',
-          },
         })}
-        fieldError={errors.email}
+        fieldError={errors.password}
+        passwordValue={passwordValue}
       />
 
-      <StyledButton $isFormValid={isValid} className={'submit-button'}>
-        Відправити лист
-      </StyledButton>
+      <FormFieldPassword
+        name="repeat_password"
+        text="Повторити пароль"
+        validation={register('repeat_password', {
+          required: 'Заповніть поле',
+        })}
+        fieldError={errors.repeat_password}
+        passwordValue={passwordValue}
+        repeatPasswordValue={repeatPasswordValue}
+      />
+
+      <RegisterTerms />
+      <StyledButton $isFormValid={isFormValid}>Продовжити</StyledButton>
     </StyledForm>
   );
 };

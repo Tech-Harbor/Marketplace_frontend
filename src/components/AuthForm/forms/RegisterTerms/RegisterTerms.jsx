@@ -1,7 +1,7 @@
 import { StyledText } from './RegisterTerms.styled.js';
 import { NavLink } from 'react-router-dom';
 
-const RegisterTerms = () => {
+export const RegisterTerms = () => {
   return (
     <StyledText>
       Реєструючись, ви погоджуєтесь з умовами <br />
@@ -15,5 +15,3 @@ const RegisterTerms = () => {
     </StyledText>
   );
 };
-
-export default RegisterTerms;
