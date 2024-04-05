@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { useLocation, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+import { device } from '../../utils/index.js';
 import styled from 'styled-components';
 
 const Modal = styled.div`
@@ -24,6 +25,12 @@ const ContentWrapper = styled.div`
   background-color: #d5c071;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+  @media ${device.untilTablet} {
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+  }
 `;
 
 const CloseButton = styled(CloseRoundedIcon)`

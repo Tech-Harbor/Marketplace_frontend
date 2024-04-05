@@ -32,6 +32,10 @@ export const FormWrapper = styled(StyledFlexDiv)`
   // }
   // @media ${device.desktop} {
   // }
+
+  @media ${device.untilTablet} {
+    width: 100%;
+  }
 `;
 
 // Styles for Title component (h1)
