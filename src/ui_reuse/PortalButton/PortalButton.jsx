@@ -52,10 +52,12 @@ export const PortalButton = ({ children, modalContent }) => {
   /* P.S. we don't use any redux properties for open modal anymore */
   const openModal = () => {
     bodyLink.style.overflow = 'hidden';
+    document.addEventListener('keydown', handleKeyDown);
   };
 
   const closeModal = () => {
     bodyLink.removeAttribute('style');
+    document.removeEventListener('keydown', handleKeyDown);
 
     navigate(location.pathname); // url params will be removed when we click on the close button or on the browser < (prev) button
   };
@@ -65,14 +67,6 @@ export const PortalButton = ({ children, modalContent }) => {
       closeModal();
     }
   };
-
-  useEffect(() => {
-    document.addEventListener('keydown', handleKeyDown, false);
-
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown, false);
-    };
-  }, [handleKeyDown]);
 
   /* modal will be open if url param has the "auth_modal=true" property */
   useEffect(() => {
