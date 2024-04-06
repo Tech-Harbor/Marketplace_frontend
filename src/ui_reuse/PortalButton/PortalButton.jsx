@@ -85,7 +85,7 @@ export const PortalButton = ({ children, modalContent }) => {
       {/* modal shows if only url params has "auth_modal=true" property */}
       {isAuthModalParam
         ? createPortal(
-            <Modal className={'modal'}>
+            <Modal>
               <ContentWrapper>
                 <CloseButton sx={{}} onClick={closeModal} />
 
