@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useLocation, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { useHotkeys } from 'react-hotkeys-hook';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import { device } from '../../utils/index.js';
 import styled from 'styled-components';
@@ -59,6 +60,8 @@ export const PortalButton = ({ children, modalContent }) => {
 
     navigate(location.pathname); // url params will be removed when we click on the close button or on the browser < (prev) button
   };
+
+  useHotkeys('Esc', () => closeModal());
 
   /* modal will be open if url param has the "auth_modal=true" property */
   useEffect(() => {
