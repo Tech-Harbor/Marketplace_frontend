@@ -52,12 +52,20 @@ export const PortalButton = ({ children, modalContent }) => {
   /* P.S. we don't use any redux properties for open modal anymore */
   const openModal = () => {
     bodyLink.style.overflow = 'hidden';
+    document.addEventListener('keydown', handleKeyDown);
   };
 
   const closeModal = () => {
     bodyLink.removeAttribute('style');
+    document.removeEventListener('keydown', handleKeyDown);
 
     navigate(location.pathname); // url params will be removed when we click on the close button or on the browser < (prev) button
+  };
+
+  const handleKeyDown = event => {
+    if (event.key === 'Escape') {
+      closeModal();
+    }
   };
 
   /* modal will be open if url param has the "auth_modal=true" property */
@@ -77,7 +85,7 @@ export const PortalButton = ({ children, modalContent }) => {
       {/* modal shows if only url params has "auth_modal=true" property */}
       {isAuthModalParam
         ? createPortal(
-            <Modal className={'modal'}>
+            <Modal>
               <ContentWrapper>
                 <CloseButton sx={{}} onClick={closeModal} />
 
