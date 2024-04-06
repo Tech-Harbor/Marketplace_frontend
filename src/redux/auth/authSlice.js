@@ -1,46 +1,49 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { loginUserThunk } from './operations.js';
+import { loginUserThunk, requestEmailThunk, resetPasswordThunk } from './operations.js';
+import { TYPE_FORM } from '../../constants/index.js';
 
 const handlePending = state => {
   state.isLoading = true;
   state.error = '';
 };
-
 const handleRejected = (state, { error, payload }) => {
   state.isLoading = false;
   console.log('loginUserThunk.rejected error :>> ', error);
   console.log('loginUserThunk.rejected payload :>> ', payload);
   state.error = error.message;
 };
-
 const handleFulfilledLoginUser = (state, { payload }) => {
   state.tokens = payload;
+  state.typeForm = null;
+  state.isLoading = false;
+};
+const handleFulfilledRequestEmail = (state, { payload }) => {
+  state.resetPasswordToken = payload;
+  state.isLoading = false;
+};
+const handleFulfilledResetPassword = state => {
+  state.resetPasswordToken = null;
+  state.typeForm = TYPE_FORM.LOGIN;
   state.isLoading = false;
 };
 
 const authSlice = createSlice({
   name: 'auth',
   initialState: {
-    // isShowModal: false,
     typeForm: null,
-
     tokens: null,
+    resetPasswordToken: null,
     isLoading: false,
     error: '',
   },
   reducers: {
-    // showAuthModal(state, action) {
-    //   state.isShowModal = action.payload;
-    // },
     showTypeForm(state, action) {
       state.typeForm = action.payload;
     },
-    setTokens(state, { payload }) {
-      state.tokens = payload;
-      // =>  payload = {
-      //   "accessToken": "string",
-      //   "refreshToken": "string"
-      // } <=
+
+    setTokenFromEmailLink(state, { payload }) {
+      state.resetPasswordToken = payload;
+      state.typeForm = TYPE_FORM.RESET_PSW;
     },
   },
 
@@ -48,10 +51,18 @@ const authSlice = createSlice({
     builder
       .addCase(loginUserThunk.pending, handlePending)
       .addCase(loginUserThunk.rejected, handleRejected)
-      .addCase(loginUserThunk.fulfilled, handleFulfilledLoginUser);
+      .addCase(loginUserThunk.fulfilled, handleFulfilledLoginUser)
+
+      .addCase(requestEmailThunk.pending, handlePending)
+      .addCase(requestEmailThunk.rejected, handleRejected)
+      .addCase(requestEmailThunk.fulfilled, handleFulfilledRequestEmail)
+
+      .addCase(resetPasswordThunk.pending, handlePending)
+      .addCase(resetPasswordThunk.rejected, handleRejected)
+      .addCase(resetPasswordThunk.fulfilled, handleFulfilledResetPassword);
   },
 });
 
 export const authReducer = authSlice.reducer;
 
-export const { showAuthModal, showTypeForm, setTokens } = authSlice.actions;
+export const { showTypeForm, setTokenFromEmailLink } = authSlice.actions;

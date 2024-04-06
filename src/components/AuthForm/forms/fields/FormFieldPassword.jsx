@@ -12,7 +12,7 @@ import {
   StyledIconOff,
   StyledTextValidation,
 } from './fields.styled.js';
-import { validatePasswordPatterns } from '../../../../utils/validatePasswordPatterns.js';
+import { validatePasswordPatterns } from '../../../../utils';
 
 export const FormFieldPassword = ({
   text,

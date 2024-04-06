@@ -1,4 +1,4 @@
-export const PAGE = {
+export const TYPE_FORM = {
   REGISTER: 'register',
   LOGIN: 'login',
   RESET_PSW: 'reset_password',

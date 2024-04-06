@@ -1,11 +1,12 @@
 import { useForm } from 'react-hook-form';
-
-import { useApi } from '../../../hooks/apiRequests.js';
 import { FormField } from './fields/index.js';
 import { StyledButton, StyledForm } from './forms.styled.js';
-import { API_URL, FIELDS_PATTERN, INITIAL_STATES } from '../../../constants/index.js';
+import { FIELDS_PATTERN, INITIAL_STATES } from '../../../constants/index.js';
+import { requestEmailThunk } from '../../../redux/auth';
+import { useDispatch } from 'react-redux';
 
 export const RequestEmailForm = () => {
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -15,11 +16,8 @@ export const RequestEmailForm = () => {
     mode: 'onChange',
   });
 
-  const { sendData } = useApi();
-
   const handleSubmitForm = async data => {
-    await sendData(API_URL.REQUEST_EMAIL, { ...data });
-
+    await dispatch(requestEmailThunk(data));
     reset(INITIAL_STATES.REQUEST_EMAIL);
   };
 

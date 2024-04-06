@@ -1,13 +1,12 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Login } from './typeForms/Login.jsx';
-import { RequestEmail } from './typeForms/RequestEmail.jsx';
 import { Registration } from './typeForms/Registration.jsx';
 import { ResetPassword } from './typeForms/ResetPassword.jsx';
 import { typeFormSelector } from '../../redux/auth/selectors.js';
 import { showTypeForm } from '../../redux/auth/authSlice.js';
-import { PAGE } from '../../constants/index.js';
+import { TYPE_FORM } from '../../constants/index.js';
 import {
   StyledCloseButton,
   StyledContentWrapper,
@@ -21,10 +20,11 @@ const modalLink = document.getElementById('modal-root');
 const AuthForm = () => {
   const dispatch = useDispatch();
   const typeForm = useSelector(typeFormSelector);
+  const modalRef = useRef();
 
   const openModal = () => {
     bodyLink.style.overflow = 'hidden';
-    dispatch(showTypeForm(PAGE.LOGIN));
+    dispatch(showTypeForm(TYPE_FORM.LOGIN));
   };
 
   const closeModal = () => {
@@ -38,13 +38,23 @@ const AuthForm = () => {
     }
   };
 
+  const handleCloseOutsideModal = event => {
+    // modalRef.current?.contains(event.target) -> модалка буде закриватися при кліку навіть по ній
+    // щоб запобігти закриттю при кліку по модалці я використав onClick={e => e.stopPropagation()} на <StyledContentWrapper>
+    if (modalRef.current?.contains(event.target)) {
+      closeModal();
+    }
+  };
+
   useEffect(() => {
     window.addEventListener('keydown', handleCloseEsc);
+    document.addEventListener('click', handleCloseOutsideModal);
 
     return () => {
       window.removeEventListener('keydown', handleCloseEsc);
+      document.removeEventListener('click', handleCloseOutsideModal);
     };
-  }, [closeModal]);
+  }, [closeModal, handleCloseEsc, handleCloseOutsideModal]);
 
   return (
     <>
@@ -52,16 +62,16 @@ const AuthForm = () => {
 
       {typeForm
         ? createPortal(
-            <StyledModal>
-              <StyledContentWrapper>
+            <StyledModal ref={modalRef}>
+              <StyledContentWrapper onClick={e => e.stopPropagation()}>
                 <StyledCloseButton onClick={closeModal} />
-                {typeForm === PAGE.REGISTER && <Registration />}
-                {typeForm === PAGE.LOGIN && <Login />}
-                {typeForm === PAGE.RESET_PSW && <ResetPassword />}
-                {typeForm === PAGE.REQUEST_EMAIL && <RequestEmail />}
+                {typeForm === TYPE_FORM.REGISTER && <Registration />}
+                {typeForm === TYPE_FORM.LOGIN && <Login />}
+                {/*{typeForm === TYPE_FORM.REQUEST_EMAIL && <RequestEmail />}*/}
+                {typeForm === TYPE_FORM.RESET_PSW && <ResetPassword />}
 
                 {/*ВИДАЛИТИ*/}
-                {/*{typeForm === PAGE.REQUEST_EMAIL && <ResetPassword />}*/}
+                {typeForm === TYPE_FORM.REQUEST_EMAIL && <ResetPassword />}
               </StyledContentWrapper>
             </StyledModal>,
             modalLink

@@ -1,14 +1,13 @@
+import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 
-// import { useApi } from '../../../hooks/apiRequests.js';
-import { isPasswordValid } from '../../../utils/validatePasswordPatterns.js';
+import { isPasswordValid } from '../../../utils';
+import { loginUserThunk } from '../../../redux/auth';
 import { FormField, FormFieldPassword } from './fields/index.js';
-import { StyledButton, StyledForm, StyledWrapperRememberMe } from './forms.styled.js';
-import { FIELDS_PATTERN, INITIAL_STATES, PAGE } from '../../../constants/index.js';
 import { AuthTextLink } from '../AuthTextLink/AuthTextLink.jsx';
 import { CheckBoxRememberMe } from './CheckBoxRememberMe/CheckBoxRememberMe.jsx';
-import { loginUserThunk } from '../../../redux/auth/operations.js';
-import { useDispatch } from 'react-redux';
+import { FIELDS_PATTERN, INITIAL_STATES, TYPE_FORM } from '../../../constants/index.js';
+import { StyledButton, StyledForm, StyledWrapperRememberMe } from './forms.styled.js';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -57,7 +56,7 @@ export const LoginForm = () => {
       <StyledWrapperRememberMe>
         <CheckBoxRememberMe />
         <AuthTextLink
-          linkTo={PAGE.REQUEST_EMAIL}
+          linkTo={TYPE_FORM.REQUEST_EMAIL}
           linkText={'Забули пароль?'}
           text={''}
           className={'linkText'}
