@@ -57,13 +57,19 @@ export const PortalButton = ({ children, modalContent }) => {
 
   const closeModal = () => {
     bodyLink.removeAttribute('style');
-    document.removeEventListener('keydown', handleKeyDown);
 
     navigate(location.pathname); // url params will be removed when we click on the close button or on the browser < (prev) button
+    document.removeEventListener('keydown', handleKeyDown);
   };
 
   const handleKeyDown = event => {
     if (event.key === 'Escape') {
+      closeModal();
+    }
+  };
+
+  const handleModalClick = event => {
+    if (event.target.id === 'modal') {
       closeModal();
     }
   };
@@ -85,7 +91,7 @@ export const PortalButton = ({ children, modalContent }) => {
       {/* modal shows if only url params has "auth_modal=true" property */}
       {isAuthModalParam
         ? createPortal(
-            <Modal>
+            <Modal id="modal" onClick={handleModalClick}>
               <ContentWrapper>
                 <CloseButton sx={{}} onClick={closeModal} />
 
