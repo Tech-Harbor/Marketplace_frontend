@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Registration } from './typeForms/Registration.jsx';
@@ -26,11 +26,15 @@ const AuthForm = () => {
   const openModal = () => {
     bodyLink.style.overflow = 'hidden';
     dispatch(showTypeForm(TYPE_FORM.LOGIN));
+    window.addEventListener('keydown', handleCloseEsc);
+    document.addEventListener('click', handleCloseOutsideModal);
   };
 
   const closeModal = () => {
     bodyLink.removeAttribute('style');
     dispatch(showTypeForm(null));
+    window.removeEventListener('keydown', handleCloseEsc);
+    document.removeEventListener('click', handleCloseOutsideModal);
   };
 
   const handleCloseEsc = event => {
@@ -40,22 +44,12 @@ const AuthForm = () => {
   };
 
   const handleCloseOutsideModal = event => {
-    // modalRef.current?.contains(event.target) -> модалка буде закриватися при кліку навіть по ній
-    // щоб запобігти закриттю при кліку по модалці я використав onClick={e => e.stopPropagation()} на <StyledContentWrapper>
-    if (modalRef.current?.contains(event.target)) {
+    // isClickedInsideModal used together with onClick={e => e.stopPropagation()}
+    const isClickedInsideModal = modalRef.current?.contains(event.target);
+    if (isClickedInsideModal) {
       closeModal();
     }
   };
-
-  useEffect(() => {
-    window.addEventListener('keydown', handleCloseEsc);
-    document.addEventListener('click', handleCloseOutsideModal);
-
-    return () => {
-      window.removeEventListener('keydown', handleCloseEsc);
-      document.removeEventListener('click', handleCloseOutsideModal);
-    };
-  }, [closeModal, handleCloseEsc, handleCloseOutsideModal]);
 
   return (
     <>

@@ -106,16 +106,6 @@ export const RegistrationForm = () => {
         passwordValue={passwordValue}
       />
 
-      {/*  Переговорити з ПМ - в макеті є, але бекенд без цього поля */}
-      {/*<FormFieldCities*/}
-      {/*  name={'city'}*/}
-      {/*  text={'Місто'}*/}
-      {/*  validation={register('city', {*/}
-      {/*    required: 'Оберіть місто',*/}
-      {/*  })}*/}
-      {/*  fieldError={errors.city}*/}
-      {/*/>*/}
-
       <RegisterTerms />
       <StyledButton $isFormValid={isFormValid}>Зареєструватися</StyledButton>
     </StyledForm>

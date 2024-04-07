@@ -27,13 +27,6 @@ export const StyledHeader = styled.header`
     padding: 0 50px 0 110px;
     height: 80px;
   }
-
-  // Styles for NavLink
-  .link-logo {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-  }
 `;
 
 /* LEFT SIDE */
