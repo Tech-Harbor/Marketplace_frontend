@@ -1,8 +1,9 @@
 import { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Login } from './typeForms/Login.jsx';
 import { Registration } from './typeForms/Registration.jsx';
+import { Login } from './typeForms/Login.jsx';
+import { RequestEmail } from './typeForms/RequestEmail.jsx';
 import { ResetPassword } from './typeForms/ResetPassword.jsx';
 import { typeFormSelector } from '../../redux/auth/selectors.js';
 import { showTypeForm } from '../../redux/auth/authSlice.js';
@@ -67,11 +68,11 @@ const AuthForm = () => {
                 <StyledCloseButton onClick={closeModal} />
                 {typeForm === TYPE_FORM.REGISTER && <Registration />}
                 {typeForm === TYPE_FORM.LOGIN && <Login />}
-                {/*{typeForm === TYPE_FORM.REQUEST_EMAIL && <RequestEmail />}*/}
+                {typeForm === TYPE_FORM.REQUEST_EMAIL && <RequestEmail />}
                 {typeForm === TYPE_FORM.RESET_PSW && <ResetPassword />}
 
                 {/*ВИДАЛИТИ*/}
-                {typeForm === TYPE_FORM.REQUEST_EMAIL && <ResetPassword />}
+                {/*{typeForm === TYPE_FORM.REQUEST_EMAIL && <ResetPassword />}*/}
               </StyledContentWrapper>
             </StyledModal>,
             modalLink
