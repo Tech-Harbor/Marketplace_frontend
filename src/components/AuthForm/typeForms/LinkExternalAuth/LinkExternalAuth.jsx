@@ -9,6 +9,7 @@ const LinkExternalAuth = ({ href, linkText, icon }) => {
   const handleGoogleLogin = useGoogleLogin({
     onSuccess: codeResponse => {
       sendData('https://orangergoogle.onrender.com/oauth/login', codeResponse);
+      //   if register success what next??
     },
     onError: errorResponse => toast.error(errorResponse.error_description),
   });
