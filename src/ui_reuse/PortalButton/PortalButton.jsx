@@ -48,6 +48,7 @@ export const PortalButton = ({ children, modalContent }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const isAuthModalParam = new URLSearchParams(location.search).get('auth_modal');
+  const isAuthJwtParam = new URLSearchParams(location.search).get('jwt');
 
   /* P.S. we don't use any redux properties for open modal anymore */
   const openModal = () => {
@@ -76,7 +77,7 @@ export const PortalButton = ({ children, modalContent }) => {
 
   /* modal will be open if url param has the "auth_modal=true" property */
   useEffect(() => {
-    if (isAuthModalParam) {
+    if (isAuthModalParam || isAuthJwtParam) {
       openModal();
     }
   }, [location]);
@@ -89,7 +90,7 @@ export const PortalButton = ({ children, modalContent }) => {
       </div>
 
       {/* modal shows if only url params has "auth_modal=true" property */}
-      {isAuthModalParam
+      {isAuthModalParam || isAuthJwtParam
         ? createPortal(
             <Modal id="modal" onClick={handleModalClick}>
               <ContentWrapper>
