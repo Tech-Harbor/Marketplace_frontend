@@ -25,6 +25,7 @@ export const LoginForm = () => {
   const isFormValid = isPasswordValid(passwordValue) && isValid;
 
   const handleSubmitForm = async data => {
+    console.log('LoginForm handleSubmitForm', data);
     await dispatch(loginUserThunk(data));
     reset(INITIAL_STATES.LOGIN);
   };

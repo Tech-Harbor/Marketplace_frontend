@@ -1,12 +1,9 @@
 export const validatePasswordPatterns = (password = '', repeatPassword = '') => {
   const validationResult = {};
   if (repeatPassword) {
-    console.log('repeatPassword', repeatPassword);
     validationResult['Введені паролі не співпадатють'] = password === repeatPassword;
     return validationResult;
   }
-
-  console.log('password', password);
 
   validationResult['Тільки латинські літери'] = /^[a-zA-Z0-9]+$/.test(password);
   validationResult['Містити великі та малі літери'] = /^(?=.*[a-z])(?=.*[A-Z])/.test(password);

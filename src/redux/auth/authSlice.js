@@ -43,7 +43,7 @@ const authSlice = createSlice({
 
     setTokenFromEmailLink(state, { payload }) {
       state.resetPasswordToken = payload;
-      state.typeForm = TYPE_FORM.RESET_PSW;
+      // state.typeForm = TYPE_FORM.RESET_PSW;
     },
   },
 

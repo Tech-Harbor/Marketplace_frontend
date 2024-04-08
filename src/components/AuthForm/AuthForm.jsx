@@ -1,12 +1,12 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Registration } from './typeForms/Registration.jsx';
 import { Login } from './typeForms/Login.jsx';
 import { RequestEmail } from './typeForms/RequestEmail.jsx';
 import { ResetPassword } from './typeForms/ResetPassword.jsx';
-import { typeFormSelector } from '../../redux/auth/selectors.js';
-import { showTypeForm } from '../../redux/auth/authSlice.js';
+import { resetPasswordTokenSelector, typeFormSelector } from '../../redux/auth/selectors.js';
+import { setTokenFromEmailLink, showTypeForm } from '../../redux/auth/authSlice.js';
 import { TYPE_FORM } from '../../constants/index.js';
 import {
   StyledCloseButton,
@@ -23,26 +23,26 @@ const modalLink = document.getElementById('modal-root');
 const AuthForm = () => {
   const dispatch = useDispatch();
   const typeForm = useSelector(typeFormSelector);
+  const resetPasswordToken = useSelector(resetPasswordTokenSelector);
 
   const navigate = useNavigate();
   const location = useLocation();
   const isAuthModalParam = new URLSearchParams(location.search).get('auth_modal');
 
-  const modalRef = useRef();
-
   const openModal = () => {
     bodyLink.style.overflow = 'hidden';
     dispatch(showTypeForm(TYPE_FORM.LOGIN));
     window.addEventListener('keydown', handleCloseEsc);
-    document.addEventListener('click', handleCloseOutsideModal);
+    document.addEventListener('click', handleClickOnOutsideModal);
   };
 
   const closeModal = () => {
     bodyLink.removeAttribute('style');
     navigate(location.pathname); // url params will be removed when we click on the close button or on the browser < (prev) button
-    // dispatch(showTypeForm(null));
+    dispatch(showTypeForm(null));
+    dispatch(setTokenFromEmailLink(null));
     window.removeEventListener('keydown', handleCloseEsc);
-    document.removeEventListener('click', handleCloseOutsideModal);
+    document.removeEventListener('click', handleClickOnOutsideModal);
   };
 
   const handleCloseEsc = event => {
@@ -51,15 +51,14 @@ const AuthForm = () => {
     }
   };
 
-  const handleCloseOutsideModal = event => {
-    // !!! isClickedInsideModal used together with onClick={e => e.stopPropagation()}
-    const isClickedInsideModal = modalRef.current?.contains(event.target);
-    if (isClickedInsideModal) {
+  const handleClickOnOutsideModal = event => {
+    if (event.target.id === 'modal') {
       closeModal();
     }
   };
   const handleAuthModalNavigation = () => {
     navigate('?auth_modal=true');
+    setTokenFromEmailLink(null);
   };
 
   /* modal will be open if url param has the "auth_modal=true" property */
@@ -75,13 +74,18 @@ const AuthForm = () => {
 
       {isAuthModalParam
         ? createPortal(
-            <StyledModal ref={modalRef}>
-              <StyledContentWrapper onClick={e => e.stopPropagation()}>
+            <StyledModal id={'modal'} onClick={handleClickOnOutsideModal}>
+              <StyledContentWrapper>
                 <StyledCloseButton onClick={closeModal} />
-                {typeForm === TYPE_FORM.REGISTER && <Registration />}
-                {typeForm === TYPE_FORM.LOGIN && <Login />}
-                {typeForm === TYPE_FORM.REQUEST_EMAIL && <RequestEmail />}
-                {typeForm === TYPE_FORM.RESET_PSW && <ResetPassword />}
+                {resetPasswordToken ? (
+                  <ResetPassword />
+                ) : (
+                  <>
+                    {typeForm === TYPE_FORM.REGISTER && <Registration />}
+                    {typeForm === TYPE_FORM.LOGIN && <Login />}
+                    {typeForm === TYPE_FORM.REQUEST_EMAIL && <RequestEmail />}
+                  </>
+                )}
               </StyledContentWrapper>
             </StyledModal>,
             modalLink
