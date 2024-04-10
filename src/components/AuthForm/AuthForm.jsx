@@ -1,235 +1,114 @@
-import { useEffect, useState, useRef } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
-import { useGoogleLogin } from '@react-oauth/google';
-import { toast } from 'react-toastify';
-import usePostData from '../../hooks/usePostData.js';
-import FormInput from '../FormInput/FormInput.jsx';
-import { takeToken } from '../../redux/auth/tokenSlice.js';
-import Google from '../../../public/Google.png';
-import DoneRoundedIcon from '@mui/icons-material/DoneRounded';
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import { Button } from '../FormButton/FormButton.styled.js';
-import { RegistrationForm } from '../RegistrationForm/index.js';
+import { useEffect } from 'react';
+import { createPortal } from 'react-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Registration } from './typeForms/Registration.jsx';
+import { Login } from './typeForms/Login.jsx';
+import { RequestEmail } from './typeForms/RequestEmail.jsx';
+import { ResetPassword } from './typeForms/ResetPassword.jsx';
+import { resetPasswordTokenSelector, typeFormSelector } from '../../redux/auth/selectors.js';
+import { setTokenFromEmailLink, showTypeForm } from '../../redux/auth/authSlice.js';
+import { TYPE_FORM } from '../../constants/index.js';
 import {
-  FormBlock,
-  TitleBlock,
-  Title,
-  InputsBlock,
-  ChoiceBlock,
-  RememberBlock,
-  Check,
-  SwitchOff,
-  SwitchOn,
-  RememberText,
-  Forgot,
-  Account,
-  CreateAccount,
-  SwitchButton,
-  DividingLine,
-  LineText,
-  LogInButton,
-  Image,
-  Text,
+  StyledCloseButton,
+  StyledContentWrapper,
+  StyledIconProfile,
+  StyledModal,
 } from './AuthForm.styled.js';
 
-const styles = {
-  position: 'top-right',
-  autoClose: 5000,
-  hideProgressBar: false,
-  closeOnClick: true,
-  pauseOnHover: true,
-  draggable: true,
-  progress: undefined,
-  theme: 'light',
-};
+const bodyLink = document.getElementById('root').parentElement;
+const modalLink = document.getElementById('modal-root');
 
 const AuthForm = () => {
-  const [toggle, setToggle] = useState({
-    toggleType: true,
-    toggleRecovery: true,
-    toggleCheckbox: false,
-    toggleRegistration: false,
-  });
-  const [registerMode, setRegisterMode] = useState(false);
-
-  const [response, postData] = usePostData();
-  const location = useLocation();
-  const navigate = useNavigate();
-  const isMountingRef = useRef(false);
-
-  const {
-    register,
-    handleSubmit,
-    formState: { isValid, errors },
-  } = useForm({ mode: 'onChange' });
-
   const dispatch = useDispatch();
+  const typeForm = useSelector(typeFormSelector);
+  const resetPasswordToken = useSelector(resetPasswordTokenSelector);
 
-  const saveToken = () => {
-    if (response.errors?.message) {
-      toast.error(response.errors?.message, styles);
-      return;
-    }
-    if (toggle.toggleRecovery) {
-      dispatch(takeToken(response.answer.data?.accessToken));
-      if (toggle.toggleCheckbox) {
-        localStorage.setItem('tokens', JSON.stringify(response.answer.data));
-      } else {
-        localStorage.setItem('refreshToken', response.answer.data?.refreshToken);
-      }
-    }
-    toast.success('Ти успішно залогінився)', styles);
-    navigate(location.pathname); // it returns an old path address which was before open modal instead changing any properties in redux state
+  const navigate = useNavigate();
+  const location = useLocation();
+  const isShowModal = new URLSearchParams(location.search).get('auth_modal');
+
+  const openModal = () => {
+    bodyLink.style.overflow = 'hidden';
+    dispatch(showTypeForm(TYPE_FORM.LOGIN));
+    window.addEventListener('keydown', handleCloseByKeyPress);
   };
 
-  useEffect(() => {
-    isMountingRef.current = true;
-  }, []);
+  const closeModal = () => {
+    bodyLink.removeAttribute('style');
+    navigate(location.pathname); // url params will be removed when we click on the close button or on the browser < (prev) button
+    dispatch(showTypeForm(null));
+    dispatch(setTokenFromEmailLink(null));
+    window.removeEventListener('keydown', handleCloseByKeyPress);
+  };
 
-  useEffect(() => {
-    if (!isMountingRef.current) {
-      return saveToken();
-    } else {
-      isMountingRef.current = false;
-    }
-  }, [response]);
+  const handleCloseByKeyPress = event => {
+    const { type: eventType = '', key: pressedKey = '' } = event;
+    const isPressKeyEscape = eventType === 'keydown' && pressedKey === 'Escape';
 
-  const login = useGoogleLogin({
-    onSuccess: codeResponse => {
-      console.log(codeResponse);
-      postData('https://orangergoogle.onrender.com/oauth/login', codeResponse);
-      toast.success('Ти успішно залогінився)', styles);
-    },
-    onError: errorResponse => toast.error(errorResponse.error_description, styles),
-  });
-
-  const submit = data => {
-    if (toggle.toggleRecovery) {
-      postData('auth/login', {
-        email: data.email,
-        password: data.password,
-      });
-    } else {
-      postData('auth/request/email', {
-        email: data.email,
-      });
+    if (isPressKeyEscape) {
+      closeModal();
     }
   };
+
+  /* Possible events: close by click on background or by close button. */
+  const handleCloseByOnClick = event => {
+    const {
+      target: {
+        id: targetID = '',
+        parentElement: { id: parentTargetID = '' },
+      },
+    } = event; /* Destructuring and getting needed values from 'event' object.
+     * If we click on the close button the 'targetID' can be children, so we check its parentElement.
+     */
+    const isClickOnBackground = targetID === 'background';
+    const isClickOnButton = (targetID || parentTargetID) === 'close-button';
+
+    if (isClickOnBackground || isClickOnButton) {
+      closeModal();
+    }
+  };
+
+  const openModalByAddQueryParam = () => {
+    navigate('?auth_modal=true'); // 'navigate' adds a url param to open modal
+    setTokenFromEmailLink(null);
+  };
+
+  /* modal will be open if url param has the "auth_modal=true" property */
+  useEffect(() => {
+    if (isShowModal) {
+      openModal();
+    }
+  }, [location, isShowModal, openModal]);
 
   return (
     <>
-      {/* It will be shows instead Login form when "registerMode" is true */}
-      {registerMode && <RegistrationForm setRegisterMode={setRegisterMode} />}
+      <StyledIconProfile onClick={openModalByAddQueryParam} />
 
-      {!registerMode && (
-        <FormBlock onSubmit={handleSubmit(submit)}>
-          <TitleBlock>
-            <Title>{toggle.toggleRecovery ? 'Вхід' : 'Відновлення паролю'}</Title>
-          </TitleBlock>
+      {isShowModal
+        ? createPortal(
+            /*
+            Important note: don't remove or change 'background' and 'close-button' id`s.
+            They are needed for correctly work of close modal handler!
+            */
+            <StyledModal id={'background'} onClick={handleCloseByOnClick}>
+              <StyledContentWrapper>
+                <StyledCloseButton id={'close-button'} />
 
-          <InputsBlock>
-            <FormInput
-              title="Електронна пошта"
-              name="email"
-              type="email"
-              min={7}
-              register={register}
-              errors={errors?.email}
-              changeInput={() =>
-                setToggle(prevState => ({ ...prevState, toggleRegistration: false }))
-              }
-            />
-            <FormInput
-              title="Пароль"
-              name="password"
-              type={toggle.toggleType ? 'password' : 'text'}
-              icon={
-                toggle.toggleType ? (
-                  <VisibilityOffIcon sx={{ fontSize: 24, color: '#4A5568' }} />
-                ) : (
-                  <VisibilityIcon sx={{ fontSize: 24, color: '#4A5568' }} />
-                )
-              }
-              min={7}
-              clickIcon={() =>
-                setToggle(prevState => ({ ...prevState, toggleType: !toggle.toggleType }))
-              }
-              register={register}
-              errors={errors?.password}
-              showItem={toggle.toggleRecovery}
-              changeInput={() =>
-                setToggle(prevState => ({ ...prevState, toggleRegistration: false }))
-              }
-            />
-          </InputsBlock>
+                {resetPasswordToken && <ResetPassword />}
 
-          <ChoiceBlock $show={toggle.toggleRecovery}>
-            <RememberBlock>
-              <Check
-                type="checkbox"
-                onChange={() =>
-                  setToggle(prevState => ({
-                    ...prevState,
-                    toggleCheckbox: !toggle.toggleCheckbox,
-                  }))
-                }
-              />
-              {toggle.toggleCheckbox ? (
-                <SwitchOn>
-                  <DoneRoundedIcon sx={{ fontSize: 16, color: '#fff' }} />
-                </SwitchOn>
-              ) : (
-                <SwitchOff />
-              )}
-              <RememberText>Запам’ятати мене</RememberText>
-            </RememberBlock>
-            <Forgot
-              onClick={() => setToggle(prevState => ({ ...prevState, toggleRecovery: false }))}
-            >
-              Забули пароль?
-            </Forgot>
-          </ChoiceBlock>
-
-          <Button
-            $isValid={isValid}
-            disabled={!isValid}
-            type="submit"
-            style={{ marginTop: `${toggle.toggleRecovery ? '' : '24px'}` }}
-          >
-            {toggle.toggleRecovery ? 'Увійти' : 'Відправити лист'}
-          </Button>
-
-          <Account $size={toggle.toggleRecovery}>
-            {toggle.toggleRecovery ? 'Немає акаунту? ' : 'Згадали пароль? '}
-            <CreateAccount>
-              {/*<Link to="register">Створити акаунт</Link>*/}
-              {/* It is a button which changes from a login mode to a register mode instead the link */}
-              {toggle.toggleRecovery ? (
-                <SwitchButton onClick={() => setRegisterMode(true)}>Створити акаунт</SwitchButton>
-              ) : (
-                <SwitchButton
-                  onClick={() => setToggle(prevState => ({ ...prevState, toggleRecovery: true }))}
-                  style={{ cursor: 'pointer' }}
-                >
-                  Увійти
-                </SwitchButton>
-              )}
-            </CreateAccount>
-          </Account>
-
-          <DividingLine $show={toggle.toggleRecovery}>
-            <LineText>або</LineText>
-          </DividingLine>
-
-          <LogInButton $show={toggle.toggleRecovery} onClick={login}>
-            <Image src={Google} alt="Google" />
-            <Text>Продовжити через Google</Text>
-          </LogInButton>
-        </FormBlock>
-      )}
+                {!resetPasswordToken && (
+                  <>
+                    {typeForm === TYPE_FORM.REGISTER && <Registration />}
+                    {typeForm === TYPE_FORM.LOGIN && <Login />}
+                    {typeForm === TYPE_FORM.REQUEST_EMAIL && <RequestEmail />}
+                  </>
+                )}
+              </StyledContentWrapper>
+            </StyledModal>,
+            modalLink
+          )
+        : null}
     </>
   );
 };

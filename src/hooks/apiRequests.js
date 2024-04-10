@@ -1,19 +1,19 @@
 import { useState, useEffect } from 'react';
 import mainInstance from '../api/axiosAPI.js';
 
-export const useRegisterSubmit = () => {
+export const useApi = () => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const sendData = async data => {
+  const sendData = async (url, data) => {
     setIsLoading(true);
 
     try {
-      const { data: result } = await mainInstance.post('/auth/signup', data);
+      const { data: result } = await mainInstance.post(url, data);
       setData(result);
-    } catch (e) {
-      setError(e);
+    } catch (error) {
+      setError(error);
     }
 
     setIsLoading(false);
