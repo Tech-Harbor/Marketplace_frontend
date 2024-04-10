@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import { StyledFieldName, StyledSelect, StyledTextValidation } from './fields.styled.js';
 
-// import { CITIES } from '../../../../constants/index.js';
 const options = [
   { value: '', label: '' },
   { value: 'Lviv', label: 'Львів' },

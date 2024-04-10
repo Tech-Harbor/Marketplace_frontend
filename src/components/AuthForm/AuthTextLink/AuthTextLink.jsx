@@ -1,25 +1,26 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { StyledButton, StyledText } from './AuthTextLink.styled.js';
 import { showTypeForm } from '../../../redux/auth/authSlice.js';
+import { StyledButton, StyledText } from './AuthTextLink.styled.js';
 
-export const AuthTextLink = ({ text, linkText, linkTo, className }) => {
+export const AuthTextLink = ({ description = '', textAsLink, linkTo, className }) => {
   const dispatch = useDispatch();
   const handleClick = () => dispatch(showTypeForm(linkTo));
 
   return (
     <StyledText>
-      {text}
+      {description}
+
       <StyledButton onClick={handleClick} className={className}>
-        {linkText}
+        {textAsLink}
       </StyledButton>
     </StyledText>
   );
 };
 
 AuthTextLink.propTypes = {
-  text: PropTypes.string.isRequired,
-  linkText: PropTypes.string.isRequired,
+  description: PropTypes.string,
+  textAsLink: PropTypes.string.isRequired,
   linkTo: PropTypes.string.isRequired,
   className: PropTypes.string,
 };

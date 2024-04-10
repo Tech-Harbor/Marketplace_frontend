@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import ValidationErrors from './ValidateErrors/ValidationErrors.jsx';
+import ErrorsList from './ValidateErrors/ErrorsList.jsx';
 
 import {
   StyledInput,
@@ -12,7 +12,7 @@ import {
   StyledIconOff,
   StyledTextValidation,
 } from './fields.styled.js';
-import { validatePasswordPatterns } from '../../../../utils';
+import { checkPasswordOverPatterns } from '../../../../utils';
 
 export const FormFieldPassword = ({
   text,
@@ -21,37 +21,32 @@ export const FormFieldPassword = ({
   passwordValue,
   repeatPasswordValue,
 }) => {
-  const [toggle, setToggle] = useState(false);
-  const [validationPasswordResults, setValidationPasswordResults] = useState({});
+  const [isToggleOn, setIsToggleOn] = useState(false);
   const onClick = e => {
-    e?.preventDefault();
-    setToggle(!toggle);
+    e.preventDefault();
+    setIsToggleOn(prevState => !prevState);
   };
 
-  useEffect(() => {
-    setValidationPasswordResults(
-      prevStat => validatePasswordPatterns(passwordValue, repeatPasswordValue) || prevStat
-    );
-  }, [passwordValue, repeatPasswordValue]);
+  const errorMessageList = checkPasswordOverPatterns(passwordValue, repeatPasswordValue);
 
   return (
     <>
       <StyledFieldName>{text}</StyledFieldName>
       <StyledWrapperFieldPassword>
         <StyledInput
-          type={toggle ? 'text' : 'password'}
+          type={isToggleOn ? 'text' : 'password'}
           className="password-field"
           {...validation}
           $fieldError={fieldError}
         />
         <StyledWrapperButton onClick={onClick}>
-          {toggle && <StyledIconOn />}
-          {!toggle && <StyledIconOff />}
+          {isToggleOn && <StyledIconOn />}
+          {!isToggleOn && <StyledIconOff />}
         </StyledWrapperButton>
       </StyledWrapperFieldPassword>
 
       {fieldError && <StyledTextValidation role="alert">{fieldError.message}</StyledTextValidation>}
-      {passwordValue && <ValidationErrors validationPasswordResults={validationPasswordResults} />}
+      {passwordValue && <ErrorsList errorMessageList={errorMessageList} />}
     </>
   );
 };

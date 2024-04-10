@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import iconProfile from '../../assets/svg/icon-profile.svg';
-import { device } from '../../utils/index.js';
+import { device } from '../../utils';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded.js';
 
 const fontStyles = `

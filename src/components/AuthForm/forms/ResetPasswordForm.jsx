@@ -1,12 +1,12 @@
 import { useForm } from 'react-hook-form';
-import { isPasswordValid } from '../../../utils';
+import { useDispatch, useSelector } from 'react-redux';
+import { checkPasswordOverPatterns } from '../../../utils';
 import { resetPasswordThunk } from '../../../redux/auth';
 import { FormFieldPassword } from './fields';
 import { RegisterTerms } from './RegisterTerms/RegisterTerms.jsx';
-import { StyledButton, StyledForm } from './forms.styled.js';
-import { useDispatch, useSelector } from 'react-redux';
 import { resetPasswordTokenSelector } from '../../../redux/auth/selectors.js';
-import { API_URL } from '../../../constants/index.js';
+import { API_URL } from '../../../constants';
+import { StyledButton, StyledForm } from './forms.styled.js';
 
 export const ResetPasswordForm = () => {
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ export const ResetPasswordForm = () => {
 
   const passwordValue = watch('password');
   const repeatPasswordValue = watch('repeat_password');
-  const isFormValid = isPasswordValid(passwordValue, repeatPasswordValue) && isValid;
+  const isFormValid = !checkPasswordOverPatterns(passwordValue, repeatPasswordValue) && isValid;
 
   const handleSubmitForm = async data => {
     await dispatch(

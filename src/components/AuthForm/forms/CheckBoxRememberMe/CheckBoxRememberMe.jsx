@@ -11,31 +11,20 @@ import {
 } from './CheckBoxRememberMe.styled.js';
 
 export const CheckBoxRememberMe = () => {
-  const [toggle, setToggle] = useState({
-    toggleType: true,
-    toggleRecovery: true,
-    toggleCheckbox: false,
-    toggleRegistration: false,
-  });
+  const [isToggleOn, setIsToggleOn] = useState(false);
 
   return (
     <RememberBlock>
-      <Check
-        type="checkbox"
-        onChange={() =>
-          setToggle(prevState => ({
-            ...prevState,
-            toggleCheckbox: !toggle.toggleCheckbox,
-          }))
-        }
-      />
-      {toggle.toggleCheckbox ? (
+      <Check type="checkbox" onChange={() => setIsToggleOn(prevState => !prevState)} />
+
+      {!isToggleOn && <SwitchOff />}
+
+      {isToggleOn && (
         <SwitchOn>
           <DoneRoundedIcon sx={{ fontSize: 16, color: '#fff' }} />
         </SwitchOn>
-      ) : (
-        <SwitchOff />
       )}
+
       <RememberText>Запам’ятати мене</RememberText>
     </RememberBlock>
   );

@@ -5,9 +5,6 @@ export const StyledSeparator = styled.div`
   display: flex;
   align-items: center;
   margin: 25px auto;
-  //margin-left: auto;
-  //margin-right: auto;
-  //margin-bottom: 23px;
   width: 278px;
 
   &::before,

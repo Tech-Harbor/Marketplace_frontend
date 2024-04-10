@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Registration } from './typeForms/Registration.jsx';
 import { Login } from './typeForms/Login.jsx';
@@ -14,8 +15,6 @@ import {
   StyledIconProfile,
   StyledModal,
 } from './AuthForm.styled.js';
-import { useNavigate } from 'react-router-dom';
-import { useLocation } from 'react-router';
 
 const bodyLink = document.getElementById('root').parentElement;
 const modalLink = document.getElementById('modal-root');
@@ -27,13 +26,12 @@ const AuthForm = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const isAuthModalParam = new URLSearchParams(location.search).get('auth_modal');
+  const isShowModal = new URLSearchParams(location.search).get('auth_modal');
 
   const openModal = () => {
     bodyLink.style.overflow = 'hidden';
     dispatch(showTypeForm(TYPE_FORM.LOGIN));
-    window.addEventListener('keydown', handleCloseEsc);
-    document.addEventListener('click', handleClickOnOutsideModal);
+    window.addEventListener('keydown', handleCloseByKeyPress);
   };
 
   const closeModal = () => {
@@ -41,45 +39,65 @@ const AuthForm = () => {
     navigate(location.pathname); // url params will be removed when we click on the close button or on the browser < (prev) button
     dispatch(showTypeForm(null));
     dispatch(setTokenFromEmailLink(null));
-    window.removeEventListener('keydown', handleCloseEsc);
-    document.removeEventListener('click', handleClickOnOutsideModal);
+    window.removeEventListener('keydown', handleCloseByKeyPress);
   };
 
-  const handleCloseEsc = event => {
-    if (event.key === 'Escape') {
+  const handleCloseByKeyPress = event => {
+    const { type: eventType = '', key: pressedKey = '' } = event;
+    const isPressKeyEscape = eventType === 'keydown' && pressedKey === 'Escape';
+
+    if (isPressKeyEscape) {
       closeModal();
     }
   };
 
-  const handleClickOnOutsideModal = event => {
-    if (event.target.id === 'modal') {
+  /* Possible events: close by click on background or by close button. */
+  const handleCloseByOnClick = event => {
+    const {
+      target: {
+        id: targetID = '',
+        parentElement: { id: parentTargetID = '' },
+      },
+    } = event; /* Destructuring and getting needed values from 'event' object.
+     * If we click on the close button the 'targetID' can be children, so we check its parentElement.
+     */
+    const isClickOnBackground = targetID === 'background';
+    const isClickOnButton = (targetID || parentTargetID) === 'close-button';
+
+    if (isClickOnBackground || isClickOnButton) {
       closeModal();
     }
   };
-  const handleAuthModalNavigation = () => {
-    navigate('?auth_modal=true');
+
+  const openModalByAddQueryParam = () => {
+    navigate('?auth_modal=true'); // 'navigate' adds a url param to open modal
     setTokenFromEmailLink(null);
   };
 
   /* modal will be open if url param has the "auth_modal=true" property */
   useEffect(() => {
-    if (isAuthModalParam) {
+    if (isShowModal) {
       openModal();
     }
-  }, [location]);
+  }, [location, isShowModal, openModal]);
 
   return (
     <>
-      <StyledIconProfile onClick={handleAuthModalNavigation} />
+      <StyledIconProfile onClick={openModalByAddQueryParam} />
 
-      {isAuthModalParam
+      {isShowModal
         ? createPortal(
-            <StyledModal id={'modal'} onClick={handleClickOnOutsideModal}>
+            /*
+            Important note: don't remove or change 'background' and 'close-button' id`s.
+            They are needed for correctly work of close modal handler!
+            */
+            <StyledModal id={'background'} onClick={handleCloseByOnClick}>
               <StyledContentWrapper>
-                <StyledCloseButton onClick={closeModal} />
-                {resetPasswordToken ? (
-                  <ResetPassword />
-                ) : (
+                <StyledCloseButton id={'close-button'} />
+
+                {resetPasswordToken && <ResetPassword />}
+
+                {!resetPasswordToken && (
                   <>
                     {typeForm === TYPE_FORM.REGISTER && <Registration />}
                     {typeForm === TYPE_FORM.LOGIN && <Login />}

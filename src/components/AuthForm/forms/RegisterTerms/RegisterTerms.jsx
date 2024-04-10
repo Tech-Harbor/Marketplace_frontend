@@ -1,5 +1,5 @@
-import { StyledText } from './RegisterTerms.styled.js';
 import { NavLink } from 'react-router-dom';
+import { StyledText } from './RegisterTerms.styled.js';
 
 export const RegisterTerms = () => {
   return (

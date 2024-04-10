@@ -2,13 +2,11 @@ import { useForm } from 'react-hook-form';
 
 import { useApi } from '../../../hooks/apiRequests.js';
 import { RegisterTerms } from './RegisterTerms/RegisterTerms.jsx';
-import { FormField, FormFieldPassword } from './fields/index.js';
+import { FormField, FormFieldPassword } from './fields';
 import { StyledForm, StyledButton } from './forms.styled.js';
-import { isPasswordValid } from '../../../utils/validatePasswordPatterns.js';
 import { FormFieldPhone } from './fields/FormFieldPhone.jsx';
-import { makeFirstLetterUpperCase } from '../../../utils/makeFirstLetterUpperCase.js';
-// import { FormFieldCities } from './fields/FormFieldCities.jsx';
-import { API_URL, FIELDS_PATTERN } from '../../../constants/index.js';
+import { makeFirstLetterUpperCase, checkPasswordOverPatterns } from '../../../utils';
+import { API_URL, FIELDS_PATTERN } from '../../../constants';
 
 export const RegistrationForm = () => {
   const {
@@ -23,7 +21,7 @@ export const RegistrationForm = () => {
 
   const { sendData } = useApi();
   const passwordValue = watch('password');
-  const isFormValid = isPasswordValid(passwordValue) && isValid;
+  const isFormValid = !checkPasswordOverPatterns(passwordValue).length && isValid;
 
   const handleSubmitForm = async data => {
     await sendData(API_URL.SIGNUP, {

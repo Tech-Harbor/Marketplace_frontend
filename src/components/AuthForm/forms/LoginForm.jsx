@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 
-import { isPasswordValid } from '../../../utils';
+import { checkPasswordOverPatterns } from '../../../utils';
 import { loginUserThunk } from '../../../redux/auth';
 import { FormField, FormFieldPassword } from './fields/index.js';
 import { AuthTextLink } from '../AuthTextLink/AuthTextLink.jsx';
@@ -22,10 +22,10 @@ export const LoginForm = () => {
   });
 
   const passwordValue = watch('password');
-  const isFormValid = isPasswordValid(passwordValue) && isValid;
+  const isFormValid = !checkPasswordOverPatterns(passwordValue).length && isValid;
 
   const handleSubmitForm = async data => {
-    console.log('LoginForm handleSubmitForm', data);
+    console.log('LoginForm handleSubmitForm', data); // !!TODO console.log must be deleted later
     await dispatch(loginUserThunk(data));
     reset(INITIAL_STATES.LOGIN);
   };
@@ -58,9 +58,8 @@ export const LoginForm = () => {
         <CheckBoxRememberMe />
         <AuthTextLink
           linkTo={TYPE_FORM.REQUEST_EMAIL}
-          linkText={'Забули пароль?'}
-          text={''}
-          className={'linkText'}
+          textAsLink={'Забули пароль?'}
+          className={'textAsLink'}
         />
       </StyledWrapperRememberMe>
       <StyledButton $isFormValid={isFormValid} className={'submit-button'}>

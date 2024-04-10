@@ -8,8 +8,8 @@ const handlePending = state => {
 };
 const handleRejected = (state, { error, payload }) => {
   state.isLoading = false;
-  console.log('loginUserThunk.rejected error :>> ', error);
-  console.log('loginUserThunk.rejected payload :>> ', payload);
+  console.error('loginUserThunk.rejected error :>> ', error);
+  console.error('loginUserThunk.rejected payload :>> ', payload);
   state.error = error.message;
 };
 const handleFulfilledLoginUser = (state, { payload }) => {
