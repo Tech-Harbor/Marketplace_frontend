@@ -13,7 +13,6 @@ export const FormField = ({ type, text, validation, fieldError }) => {
 };
 
 FormField.propTypes = {
-  name: PropTypes.string.isRequired,
   type: PropTypes.string,
   text: PropTypes.string.isRequired,
   fieldError: PropTypes.object,

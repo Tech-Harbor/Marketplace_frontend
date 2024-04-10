@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
-import { StyledIcon, StyledLink } from './LinkExternalAuth.styled.js';
-import { useGoogleLogin } from '@react-oauth/google';
 import { toast } from 'react-toastify';
-import { useApi } from '../../../../hooks/apiRequests.js';
+import { useGoogleLogin } from '@react-oauth/google';
+
+import { useApi } from '../../../../hooks';
+import { StyledIcon, StyledLink } from './LinkExternalAuth.styled.js';
 
 const LinkExternalAuth = ({ href, linkText, icon }) => {
   const { sendData } = useApi();

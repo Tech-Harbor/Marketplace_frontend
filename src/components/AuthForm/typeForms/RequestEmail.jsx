@@ -1,6 +1,6 @@
-import { AuthTextLink } from '../AuthTextLink/AuthTextLink.jsx';
-import { RequestEmailForm } from '../forms/RequestEmailForm.jsx';
 import { TYPE_FORM } from '../../../constants';
+import { RequestEmailForm } from '../forms';
+import { AuthTextLink } from '../AuthTextLink/AuthTextLink.jsx';
 import { StyledTitle } from './typeForms.styled.js';
 
 export const RequestEmail = () => {

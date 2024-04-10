@@ -1,12 +1,11 @@
 import { useForm } from 'react-hook-form';
 
-import { useApi } from '../../../hooks/apiRequests.js';
-import { RegisterTerms } from './RegisterTerms/RegisterTerms.jsx';
-import { FormField, FormFieldPassword } from './fields';
-import { StyledForm, StyledButton } from './forms.styled.js';
-import { FormFieldPhone } from './fields/FormFieldPhone.jsx';
+import { useApi } from '../../../hooks';
 import { makeFirstLetterUpperCase, checkPasswordOverPatterns } from '../../../utils';
 import { API_URL, FIELDS_PATTERN } from '../../../constants';
+import { RegisterTerms } from './RegisterTerms/RegisterTerms.jsx';
+import { FormField, FormFieldPassword, FormFieldPhone } from './fields';
+import { StyledForm, StyledButton } from './forms.styled.js';
 
 export const RegistrationForm = () => {
   const {

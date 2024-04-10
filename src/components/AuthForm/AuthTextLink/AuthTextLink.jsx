@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { showTypeForm } from '../../../redux/auth/authSlice.js';
+
+import { showTypeForm } from '../../../redux/auth';
 import { StyledButton, StyledText } from './AuthTextLink.styled.js';
 
 export const AuthTextLink = ({ description = '', textAsLink, linkTo, className }) => {

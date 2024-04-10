@@ -1,9 +1,9 @@
-import { LoginForm } from '../forms/LoginForm.jsx';
-import { TYPE_FORM } from '../../../constants/index.js';
+import { TYPE_FORM } from '../../../constants';
+import { LoginForm } from '../forms';
 import { AuthTextLink } from '../AuthTextLink/AuthTextLink.jsx';
+import LinkExternalAuth from './LinkExternalAuth/LinkExternalAuth.jsx';
 import Separator from './Separator/Separator.jsx';
 import iconGoogle from '../../../assets/svg/icon-google.svg';
-import LinkExternalAuth from './LinkExternalAuth/LinkExternalAuth.jsx';
 import { StyledTitle } from './typeForms.styled.js';
 
 export const Login = () => {

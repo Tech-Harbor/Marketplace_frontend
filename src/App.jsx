@@ -1,10 +1,9 @@
 import { useDispatch } from 'react-redux';
 import { Routes, Route, useSearchParams } from 'react-router-dom';
-
-import MainLayout from './components/MainLayout/MainLayout.jsx';
+import { setTokenFromEmailLink } from './redux/auth/authSlice.js';
 import HomePage from './pages/HomePage/HomePage.jsx';
 import ProductsPage from './pages/ProductsPage/ProductsPage.jsx';
-import { setTokenFromEmailLink } from './redux/auth/authSlice.js';
+import MainLayout from './components/MainLayout/MainLayout.jsx';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -22,8 +21,6 @@ const App = () => {
         <Route index element={<HomePage />} />
         <Route path="category/:name" element={<ProductsPage />} />
       </Route>
-
-      {/*<Route path="api/auth/change-password" element={<ChangePassword />} />*/}
     </Routes>
   );
 };

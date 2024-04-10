@@ -4,7 +4,7 @@ import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 
-import { device } from '../../../../utils/index.js';
+import { device } from '../../../../utils';
 
 // Styles for label component
 export const StyledFieldName = styled.p`

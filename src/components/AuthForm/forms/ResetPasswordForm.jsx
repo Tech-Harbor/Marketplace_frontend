@@ -1,11 +1,11 @@
-import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
+import { useForm } from 'react-hook-form';
+
+import { resetPasswordThunk, resetPasswordTokenSelector } from '../../../redux/auth';
 import { checkPasswordOverPatterns } from '../../../utils';
-import { resetPasswordThunk } from '../../../redux/auth';
-import { FormFieldPassword } from './fields';
-import { RegisterTerms } from './RegisterTerms/RegisterTerms.jsx';
-import { resetPasswordTokenSelector } from '../../../redux/auth/selectors.js';
 import { API_URL } from '../../../constants';
+import { RegisterTerms } from './RegisterTerms/RegisterTerms.jsx';
+import { FormFieldPassword } from './fields';
 import { StyledButton, StyledForm } from './forms.styled.js';
 
 export const ResetPasswordForm = () => {

@@ -1,7 +1,6 @@
-import { RegistrationForm } from '../forms/RegistrationForm.jsx';
-import { AuthTextLink } from '../AuthTextLink/AuthTextLink.jsx';
-
 import { TYPE_FORM } from '../../../constants';
+import { RegistrationForm } from '../forms';
+import { AuthTextLink } from '../AuthTextLink/AuthTextLink.jsx';
 import { StyledTitle } from './typeForms.styled.js';
 
 export const Registration = () => {

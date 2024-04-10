@@ -7,7 +7,6 @@ export const StyledForm = styled.form`
   min-height: 100%;
 `;
 
-// Styles for form button
 export const StyledButton = styled.button`
   width: 100%;
   height: 36px;

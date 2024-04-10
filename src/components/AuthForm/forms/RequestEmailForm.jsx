@@ -1,9 +1,10 @@
+import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
+
+import { requestEmailThunk } from '../../../redux/auth';
+import { FIELDS_PATTERN, INITIAL_STATES } from '../../../constants';
 import { FormField } from './fields';
 import { StyledButton, StyledForm } from './forms.styled.js';
-import { FIELDS_PATTERN, INITIAL_STATES } from '../../../constants';
-import { requestEmailThunk } from '../../../redux/auth';
-import { useDispatch } from 'react-redux';
 
 export const RequestEmailForm = () => {
   const dispatch = useDispatch();

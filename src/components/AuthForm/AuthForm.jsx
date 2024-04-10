@@ -2,13 +2,15 @@ import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Registration } from './typeForms/Registration.jsx';
-import { Login } from './typeForms/Login.jsx';
-import { RequestEmail } from './typeForms/RequestEmail.jsx';
-import { ResetPassword } from './typeForms/ResetPassword.jsx';
-import { resetPasswordTokenSelector, typeFormSelector } from '../../redux/auth/selectors.js';
-import { setTokenFromEmailLink, showTypeForm } from '../../redux/auth/authSlice.js';
-import { TYPE_FORM } from '../../constants/index.js';
+
+import {
+  resetPasswordTokenSelector,
+  typeFormSelector,
+  setTokenFromEmailLink,
+  showTypeForm,
+} from '../../redux/auth';
+import { TYPE_FORM } from '../../constants';
+import { Login, Registration, RequestEmail, ResetPassword } from './typeForms';
 import {
   StyledCloseButton,
   StyledContentWrapper,
@@ -96,7 +98,6 @@ const AuthForm = () => {
                 <StyledCloseButton id={'close-button'} />
 
                 {resetPasswordToken && <ResetPassword />}
-
                 {!resetPasswordToken && (
                   <>
                     {typeForm === TYPE_FORM.REGISTER && <Registration />}
