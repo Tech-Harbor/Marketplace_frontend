@@ -13,17 +13,6 @@ export const ContainerDropDownMenu = styled.div`
   margin-bottom: 33px;
 `;
 
-export const DropDownMenu = styled.div`
-  width: 100%;
-  padding: 20px 7px;
-  font-family: 'Gilroy-Medium', sans-serif;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 24px;
-  border-bottom: 1px solid #6c727533;
-  color: var(--color-btn-text);
-`;
-
 export const ContainerIconLink = styled.div`
   display: grid;
   grid-row-gap: 27px;

@@ -3,7 +3,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { Header } from '../Header/Header.jsx';
-import Footer from '../Footer/Footer';
+import { Footer } from '../Footer/Footer.jsx';
 // import Loader from '../Loader/Loader.jsx';
 // import Slider from '../../ui_reuse/slider/Slider.jsx';
 // import ProductCardListItem from '../ProductCardListItem/ProductCardListItem.jsx';

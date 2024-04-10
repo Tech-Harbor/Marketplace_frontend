@@ -1,37 +1,36 @@
+import { dataList } from '../../data/TextDropDownMenu.js';
+import TelegramIcon from '@mui/icons-material/Telegram';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import telegram from '../../assets/svg/telegram.svg';
-import facebook from '../../assets/svg/facebook.svg';
+import FacebookIcon from '@mui/icons-material/Facebook';
 import oranger from '../../assets/svg/oranger.svg';
+import { FooterDropDownMenu } from '../FooterDropDownMenu/FooterDropDownMenu.jsx';
 import {
   Container,
   Img,
   ContainerDropDownMenu,
-  DropDownMenu,
   ContainerIconLink,
   ContainerSocialNetworks,
   TextRights,
 } from './Footer.styled.js';
 
-function Footer() {
+const customStyles = { color: 'white', fontSize: 30, cursor: 'pointer' };
+
+export const Footer = () => {
   return (
     <Container>
       <ContainerDropDownMenu>
-        <DropDownMenu>Про нас</DropDownMenu>
-
-        <DropDownMenu>Покупцям</DropDownMenu>
-
-        <DropDownMenu>Продавцям</DropDownMenu>
-
-        <DropDownMenu>Служба підтримки</DropDownMenu>
+        {dataList.map((element, index) => (
+          <FooterDropDownMenu key={index} title={element.title} list={element.list} />
+        ))}
       </ContainerDropDownMenu>
 
       <ContainerIconLink>
         <ContainerSocialNetworks>
-          <Img src={telegram} alt="Telegram" />
+          <TelegramIcon sx={customStyles} />
 
-          <InstagramIcon sx={{ color: 'white', fontSize: 30 }} />
+          <InstagramIcon sx={customStyles} />
 
-          <Img src={facebook} alt="Facebook" />
+          <FacebookIcon sx={customStyles} />
         </ContainerSocialNetworks>
 
         <Img src={oranger} alt="Oranger" />
@@ -40,6 +39,4 @@ function Footer() {
       </ContainerIconLink>
     </Container>
   );
-}
-
-export default Footer;
+};
