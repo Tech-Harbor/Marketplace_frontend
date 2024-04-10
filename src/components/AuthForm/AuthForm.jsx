@@ -79,7 +79,7 @@ const AuthForm = () => {
     if (isShowModal) {
       openModal();
     }
-  }, [location, isShowModal, openModal]);
+  }, [location, isShowModal]);
 
   return (
     <>
