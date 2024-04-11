@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import {
   DropDownMenu,
@@ -12,7 +12,11 @@ import {
 export const FooterDropDownMenu = ({ title, list }) => {
   const [open, setOpen] = useState(false);
 
-  const calculation = `${19 * list.length + 15 * (list.length - 1) + 17 + 16}px`;
+  const blockRef = useRef();
+
+  let calculation = `${
+    blockRef?.current?.clientHeight * list.length + 15 * (list.length - 1) + 17 + 16
+  }px`;
 
   return (
     <DropDownMenu $show={open}>
@@ -24,7 +28,7 @@ export const FooterDropDownMenu = ({ title, list }) => {
 
       <BottomBlock $show={open} $height={calculation}>
         {list.map((element, index) => (
-          <InformativeLink key={index} href={element.link}>
+          <InformativeLink key={index} href={element.link} ref={blockRef}>
             {element.text}
           </InformativeLink>
         ))}
