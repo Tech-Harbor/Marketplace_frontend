@@ -12,6 +12,8 @@ import {
 export const FooterDropDownMenu = ({ title, list }) => {
   const [open, setOpen] = useState(false);
 
+  const calculation = `${19 * list.length + 15 * (list.length - 1) + 17 + 16}px`;
+
   return (
     <DropDownMenu $show={open}>
       <TopBlock>
@@ -20,10 +22,7 @@ export const FooterDropDownMenu = ({ title, list }) => {
         <OpenArrow $show={open} onClick={() => setOpen(!open)} />
       </TopBlock>
 
-      <BottomBlock
-        $show={open}
-        $height={`${19 * list.length + 15 * (list.length - 1) + 17 + 16}px`}
-      >
+      <BottomBlock $show={open} $height={calculation}>
         {list.map((element, index) => (
           <InformativeLink key={index} href={element.link}>
             {element.text}
