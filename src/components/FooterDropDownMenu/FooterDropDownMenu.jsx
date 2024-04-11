@@ -20,15 +20,16 @@ export const FooterDropDownMenu = ({ title, list }) => {
         <OpenArrow $show={open} onClick={() => setOpen(!open)} />
       </TopBlock>
 
-      {open ? (
-        <BottomBlock>
-          {list.map((element, index) => (
-            <InformativeLink key={index} href={element.link}>
-              {element.text}
-            </InformativeLink>
-          ))}
-        </BottomBlock>
-      ) : undefined}
+      <BottomBlock
+        $show={open}
+        $height={`${19 * list.length + 15 * (list.length - 1) + 17 + 16}px`}
+      >
+        {list.map((element, index) => (
+          <InformativeLink key={index} href={element.link}>
+            {element.text}
+          </InformativeLink>
+        ))}
+      </BottomBlock>
     </DropDownMenu>
   );
 };

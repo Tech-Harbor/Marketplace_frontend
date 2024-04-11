@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import arrow from '../../assets/svg/arrow.svg';
 
@@ -31,24 +31,39 @@ export const OpenArrow = styled.img.attrs({
   cursor: pointer;
 `;
 
+const open = keyframes`
+  0% {
+      opacity: 0;
+      height: 0;
+      padding: 0;
+  }
+
+  100% {
+      opacity: 1;
+      height: ${props => props.$height};
+      padding: 17px 0 16px 11px;
+  }
+`;
+
+const close = keyframes`
+  0% {
+      opacity: 1;
+      height: ${props => props.$height};
+      padding: 17px 0 16px 11px;
+  }
+
+  100% {
+      opacity: 0;
+      height: 0;
+      padding: 0;
+  }
+`;
+
 export const BottomBlock = styled.div`
   display: grid;
   gap: 15px;
-  padding: 17px 0 16px 11px;
-  position: relative;
-  z-index: 1;
-  animation: dropdown 1s ease-in-out;
-
-  @keyframes dropdown {
-    0% {
-      opacity: 0;
-      top: -100px;
-    }
-    100% {
-      opacity: 1;
-      top: 0;
-    }
-  }
+  animation: ${props => (props.$show ? open : close)} 1s linear;
+  animation-fill-mode: forwards;
 `;
 
 export const InformativeLink = styled.a`
