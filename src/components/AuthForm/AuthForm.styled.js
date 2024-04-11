@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-import { device } from '../../utils/index.js';
+import iconProfile from '../../assets/svg/icon-profile.svg';
+import { device } from '../../utils';
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded.js';
 
 const fontStyles = `
   font-family: 'Gilroy-Medium', sans-serif;
@@ -10,11 +12,6 @@ export const FormBlock = styled.form`
   width: 360px;
   background-color: var(--color-btn-text);
   padding: 25px 16px;
-
-  @media ${device.untilTablet} {
-    width: 100%;
-    height: 100vh;
-  }
 `;
 
 export const TitleBlock = styled.div`
@@ -34,6 +31,15 @@ export const Title = styled.span`
 export const InputsBlock = styled.div`
   display: grid;
   gap: 16px;
+`;
+
+export const Errors = styled.div`
+  font-family: 'Gilroy-Medium', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 24px;
+  color: var(--color-error-input);
+  margin-top: 20px;
 `;
 
 export const ChoiceBlock = styled.div`
@@ -114,7 +120,7 @@ export const SwitchButton = styled.button`
 export const DividingLine = styled.div`
   max-width: 100%;
   height: 1px;
-  background-color: var(--color-bg-form_auth-dividing_line);
+  background-color: var(--color-auth-separator);
   display: ${props => (props.$show ? 'flex' : 'none')};
   align-items: center;
   justify-content: center;
@@ -125,7 +131,7 @@ export const LineText = styled.span`
   ${fontStyles};
   font-size: 10px;
   line-height: 24px;
-  color: var(--color-form_auth-line_text);
+  color: var(--color-auth-separator_text);
   padding: 0 31px;
   background-color: var(--color-btn-text);
 `;
@@ -134,7 +140,7 @@ export const LogInButton = styled.button`
   width: 100%;
   height: 36px;
   background: none;
-  border: 1px solid var(--color-border-button-google);
+  border: 1px solid var(--color-button-border-google);
   border-radius: 10px;
   display: ${props => (props.$show ? 'flex' : 'none')};
   align-items: center;
@@ -153,4 +159,51 @@ export const Text = styled.span`
   font-size: 15px;
   line-height: 24px;
   color: var(--color-primary);
+`;
+
+// Profile icon styles
+export const StyledIconProfile = styled.img.attrs({
+  src: iconProfile,
+  alt: 'StyledIcon Profile',
+})`
+  cursor: pointer;
+  @media ${device.untilLaptop} {
+    display: none;
+  }
+  @media ${device.laptop} {
+    margin-left: 10px;
+    width: 50px;
+    height: 50px;
+    color: var(--color-secondary);
+  }
+`;
+
+// Modal styles
+export const StyledModal = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+`;
+
+export const StyledContentWrapper = styled.div`
+  position: relative;
+  padding: 24px 16px;
+  width: 360px;
+  background-color: var(--color-bg-form);
+  border-radius: 8px;
+`;
+
+export const StyledCloseButton = styled(CloseRoundedIcon)`
+  position: absolute;
+  top: 25px;
+  right: 16px;
+  color: #33363f;
+  cursor: pointer;
 `;

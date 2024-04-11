@@ -6,6 +6,7 @@
   /*color-scheme: light dark;*/
 
   color: rgba(0, 0, 0);
+  /*background-color: #e1f3fb;*/
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -45,9 +46,12 @@
   --color-bg-form: #fff;
   --color-bg-form_input: #dadada;
   --color-bg-form_btn-disable: #9e9eb2;
-  --color-bg-form_auth-dividing_line: #8b8b8b4d;
-  --color-form_auth-line_text: #000000a6;
-  --color-border-button-google: #515567;
+  --color-auth-separator: #8b8b8b4d;
+  --color-auth-separator_text: #000000a6;
+  --color-button-border-google: #515567;
+  --color-button-text-google: #515567;
+
+  /*border: 1px solid #8B8B8B4D*/
 }
 
 body {
@@ -59,6 +63,7 @@ button {
   margin: 0;
   padding: 0;
   border: 0;
+  background-color: transparent;
 }
 
 h1,
