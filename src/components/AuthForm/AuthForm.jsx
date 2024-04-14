@@ -40,7 +40,6 @@ const AuthForm = () => {
     bodyLink.removeAttribute('style');
     navigate(location.pathname); // url params will be removed when we click on the close button or on the browser < (prev) button
     dispatch(showTypeForm(null));
-    dispatch(setTokenFromEmailLink(null));
     window.removeEventListener('keydown', handleCloseByKeyPress);
   };
 

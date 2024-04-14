@@ -6,7 +6,6 @@ import { StyledTitle } from './typeForms.styled.js';
 export const Registration = () => {
   return (
     <>
-      {/*<FormWrapper>*/}
       <StyledTitle>Реєстрація</StyledTitle>
       <RegistrationForm />
       <AuthTextLink
@@ -14,7 +13,6 @@ export const Registration = () => {
         textAsLink={'Увійти'}
         linkTo={TYPE_FORM.LOGIN}
       />
-      {/*</FormWrapper>*/}
     </>
   );
 };
