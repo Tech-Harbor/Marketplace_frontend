@@ -1,13 +1,13 @@
-import { dataList } from '../../data/TextDropDownMenu.js';
+import { FOOTER_TEXT_LIST } from './TextDropDownMenu.js';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import oranger from '../../assets/svg/oranger.svg';
-import { FooterDropDownMenu } from '../FooterDropDownMenu/FooterDropDownMenu.jsx';
+import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
+import Oranger from '../../assets/svg/Oranger.svg?react';
 import {
   Container,
-  Img,
-  ContainerDropDownMenu,
+  DropDownMenuList,
+  DropDownMenuItem,
+  InformativeLink,
   ContainerIconLink,
   ContainerSocialNetworks,
   TextRights,
@@ -18,11 +18,13 @@ const customStyles = { color: 'white', fontSize: 30, cursor: 'pointer' };
 export const Footer = () => {
   return (
     <Container>
-      <ContainerDropDownMenu>
-        {dataList.map((element, index) => (
-          <FooterDropDownMenu key={index} title={element.title} list={element.list} />
+      <DropDownMenuList>
+        {FOOTER_TEXT_LIST.map(element => (
+          <DropDownMenuItem key={element.text}>
+            <InformativeLink href={element.link}>{element.text}</InformativeLink>
+          </DropDownMenuItem>
         ))}
-      </ContainerDropDownMenu>
+      </DropDownMenuList>
 
       <ContainerIconLink>
         <ContainerSocialNetworks>
@@ -30,10 +32,10 @@ export const Footer = () => {
 
           <InstagramIcon sx={customStyles} />
 
-          <FacebookIcon sx={customStyles} />
+          <FacebookOutlinedIcon sx={customStyles} />
         </ContainerSocialNetworks>
 
-        <Img src={oranger} alt="Oranger" />
+        <Oranger />
 
         <TextRights>© 2024 Всі права захищені</TextRights>
       </ContainerIconLink>
