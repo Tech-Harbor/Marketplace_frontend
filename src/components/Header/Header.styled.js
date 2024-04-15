@@ -115,7 +115,7 @@ export const StyledIconMenu = styled(MenuOutlinedIcon).attrs({
 // Styles for icons shipping and profile
 export const StyledIconShipping = styled.img.attrs({
   src: iconShipping,
-  alt: 'Icon Shipping',
+  alt: 'StyledIcon Shipping',
 })`
   @media ${device.untilLaptop} {
     display: none;
@@ -130,7 +130,7 @@ export const StyledIconShipping = styled.img.attrs({
 `;
 export const StyledIconProfile = styled.img.attrs({
   src: iconProfile,
-  alt: 'Icon Profile',
+  alt: 'StyledIcon Profile',
 })`
   @media ${device.untilLaptop} {
     display: none;

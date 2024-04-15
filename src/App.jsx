@@ -1,11 +1,21 @@
-import { Routes, Route } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Routes, Route, useSearchParams } from 'react-router-dom';
 
 import MainLayout from './components/MainLayout/MainLayout.jsx';
 import HomePage from './pages/HomePage/HomePage.jsx';
 import ProductsPage from './pages/ProductsPage/ProductsPage.jsx';
-import ChangePassword from './components/ChangePassword/ChangePassword.jsx';
+import { setTokenFromEmailLink } from './redux/auth/authSlice.js';
 
 const App = () => {
+  const dispatch = useDispatch();
+  const [searchParams] = useSearchParams();
+  const resetPasswordToken = searchParams.get('jwt');
+
+  // Set resetPasswordToken after open link from user email
+  if (resetPasswordToken) {
+    dispatch(setTokenFromEmailLink(resetPasswordToken));
+  }
+
   return (
     <Routes>
       <Route path="/" element={<MainLayout />}>
@@ -13,7 +23,7 @@ const App = () => {
         <Route path="category/:name" element={<ProductsPage />} />
       </Route>
 
-      <Route path="api/auth/change-password" element={<ChangePassword />} />
+      {/*<Route path="api/auth/change-password" element={<ChangePassword />} />*/}
     </Routes>
   );
 };

@@ -1,6 +1,4 @@
 import { Outlet } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 import { Header } from '../Header/Header.jsx';
 import Footer from '../Footer/Footer';
@@ -16,7 +14,6 @@ const MainLayout = () => {
   return (
     <>
       <Header />
-
       <main>
         <Outlet />
       </main>
@@ -34,8 +31,6 @@ const MainLayout = () => {
       {/*)}*/}
 
       <Footer />
-
-      <ToastContainer />
     </>
   );
 };
