@@ -26,7 +26,10 @@ const AuthForm = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const isShowModal = new URLSearchParams(location.search).get('auth_modal');
+  const getAuthModal = new URLSearchParams(location.search).get('auth_modal');
+  const getJwt = new URLSearchParams(location.search).get('jwt');
+
+  const isShowModal = getAuthModal || getJwt;
 
   const openModal = () => {
     bodyLink.style.overflow = 'hidden';
