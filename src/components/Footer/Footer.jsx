@@ -35,7 +35,7 @@ export const Footer = () => {
           <FacebookOutlinedIcon sx={customStyles} />
         </ContainerSocialNetworks>
 
-        <Oranger />
+        <Oranger alt="Oranger" />
 
         <TextRights>© 2024 Всі права захищені</TextRights>
       </ContainerIconLink>

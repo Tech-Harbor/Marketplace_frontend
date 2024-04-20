@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const Container = styled.footer`
   width: 100%;
   height: 100%;
-  background-color: var(--color-primary);
-  padding: 6px 16px 97px;
+  background-color: var(--color-label);
+  padding: 88px 16px 50px 16px;
 `;
 
 export const DropDownMenuList = styled.ul`
@@ -12,7 +12,7 @@ export const DropDownMenuList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 20px auto 72px auto;
+  margin: 0 auto;
 
   @media (max-width: 490px) {
     margin: 6px auto 33px auto;
@@ -21,10 +21,10 @@ export const DropDownMenuList = styled.ul`
 
 export const DropDownMenuItem = styled.li`
   width: 230px;
-  margin-top: 16px;
+  margin-bottom: 16px;
 
   @media (max-width: 490px) {
-    width: 360px;
+    width: 328px;
     border-bottom: 1px solid #6c727533;
     margin: 0;
   }
@@ -49,20 +49,24 @@ export const InformativeLink = styled.a`
 `;
 
 export const ContainerIconLink = styled.div`
-  display: grid;
-  grid-row-gap: 27px;
+  text-align: center;
+  margin-top: 72px;
 
-  & > * {
-    margin: 0 auto;
+  & > :not(:first-child) {
+    margin-top: 27px;
   }
 `;
 
 export const ContainerSocialNetworks = styled.div`
-  display: flex;
-  grid-column-gap: 25px;
+  column-gap: 25px;
+
+  :not(:first-child) {
+    margin-left: 25px;
+  }
 `;
 
 export const TextRights = styled.span`
+  display: block;
   font-family: 'Gilroy-Regular', sans-serif;
   font-weight: 600;
   font-size: 16px;
