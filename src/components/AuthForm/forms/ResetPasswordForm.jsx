@@ -25,7 +25,7 @@ export const ResetPasswordForm = () => {
 
   const passwordValue = watch('password');
   const repeatPasswordValue = watch('repeat_password');
-  const isFormValid = checkPasswordOverPatterns(passwordValue, repeatPasswordValue).length === 0;
+  const isFormValid = !checkPasswordOverPatterns(passwordValue, repeatPasswordValue).length;
 
   const handleSubmitForm = async data => {
     await sendNewPassword(resetPasswordToken, data);
