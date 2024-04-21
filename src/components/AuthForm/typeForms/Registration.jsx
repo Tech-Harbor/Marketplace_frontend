@@ -1,21 +1,42 @@
-import { RegistrationForm } from '../forms/RegistrationForm.jsx';
-import { AuthTextLink } from '../AuthTextLink/AuthTextLink.jsx';
-
 import { TYPE_FORM } from '../../../constants';
-import { StyledTitle } from './typeForms.styled.js';
+import iconGoogle from '../../../assets/svg/icon-google.svg';
+
+import { RegistrationForm } from '../forms';
+import { AuthTextLink } from '../AuthTextLink/AuthTextLink.jsx';
+import LinkExternalAuth from './LinkExternalAuth/LinkExternalAuth.jsx';
+import {
+  StyledText,
+  StyledTitle,
+  StyledWrapper,
+  StyledWrapperLeftPart,
+  StyledWrapperRightPart,
+} from './typeForms.styled.js';
+import { StyledSeparator } from './Separator/Separator.styled.js';
 
 export const Registration = () => {
   return (
     <>
-      {/*<FormWrapper>*/}
       <StyledTitle>Реєстрація</StyledTitle>
-      <RegistrationForm />
-      <AuthTextLink
-        description={'Вже маєте акаунт?'}
-        textAsLink={'Увійти'}
-        linkTo={TYPE_FORM.LOGIN}
-      />
-      {/*</FormWrapper>*/}
+      <StyledSeparator className={'hidden-untilTablet'} />
+      <StyledWrapper>
+        <StyledWrapperLeftPart>
+          <RegistrationForm />
+          <AuthTextLink
+            description={'Вже маєте акаунт?'}
+            textAsLink={'Увійти'}
+            linkTo={TYPE_FORM.LOGIN}
+          />
+        </StyledWrapperLeftPart>
+        <StyledWrapperRightPart>
+          <StyledText>Продовжити через</StyledText>
+          <LinkExternalAuth
+            href={'/'}
+            linkText={'Google'}
+            icon={iconGoogle}
+            className={'hidden-mobile'}
+          />
+        </StyledWrapperRightPart>
+      </StyledWrapper>
     </>
   );
 };

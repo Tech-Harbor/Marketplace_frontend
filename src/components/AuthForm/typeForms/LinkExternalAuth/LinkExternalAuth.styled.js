@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '../../../../utils/index.js';
 
 export const StyledLink = styled.a`
   display: flex;
@@ -14,6 +15,17 @@ export const StyledLink = styled.a`
   letter-spacing: 0;
   background-color: transparent;
   color: var(--color-button-text-google);
+
+  @media ${device.tablet} {
+    &.hidden-tablet {
+      display: none;
+    }
+  }
+  @media ${device.untilTablet} {
+    &.hidden-mobile {
+      display: none;
+    }
+  }
 `;
 export const StyledIcon = styled.img`
   margin-right: 11px;

@@ -4,10 +4,9 @@ import { device } from '../../../utils';
 export const StyledForm = styled.form`
   margin-bottom: 17px; // margin between the form and text below.
   width: 100%;
-  min-height: 100%;
+  //min-height: 100%; // TODO видалити
 `;
 
-// Styles for form button
 export const StyledButton = styled.button`
   width: 100%;
   height: 36px;

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import ErrorsList from './ValidateErrors/ErrorsList.jsx';
-
+import { checkPasswordOverPatterns } from '../../../../utils';
+import { ErrorsList } from './ErrorsList/ErrorsList.jsx';
 import {
   StyledInput,
   StyledFieldName,
@@ -12,7 +12,6 @@ import {
   StyledIconOff,
   StyledTextValidation,
 } from './fields.styled.js';
-import { checkPasswordOverPatterns } from '../../../../utils';
 
 export const FormFieldPassword = ({
   text,

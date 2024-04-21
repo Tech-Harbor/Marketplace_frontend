@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import { StyledIcon, StyledItem, StyledValidateErrors } from './ValidationErrors.styled.js';
+import { StyledIcon, StyledItem, StyledValidateErrors } from './ErrorsList.styled.js';
 
-const ErrorsList = ({ errorMessageList }) => {
+export const ErrorsList = ({ errorMessageList }) => {
   return (
     <StyledValidateErrors>
       {errorMessageList.map(message => (
@@ -17,5 +17,3 @@ const ErrorsList = ({ errorMessageList }) => {
 ErrorsList.propTypes = {
   errorMessageList: PropTypes.arrayOf(PropTypes.string),
 };
-
-export default ErrorsList;

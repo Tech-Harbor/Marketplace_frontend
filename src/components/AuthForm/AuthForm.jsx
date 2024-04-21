@@ -1,14 +1,16 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Registration } from './typeForms/Registration.jsx';
-import { Login } from './typeForms/Login.jsx';
-import { RequestEmail } from './typeForms/RequestEmail.jsx';
-import { ResetPassword } from './typeForms/ResetPassword.jsx';
-import { resetPasswordTokenSelector, typeFormSelector } from '../../redux/auth/selectors.js';
-import { setTokenFromEmailLink, showTypeForm } from '../../redux/auth/authSlice.js';
-import { TYPE_FORM } from '../../constants/index.js';
+import { useLocation, useNavigate } from 'react-router-dom';
+
+import {
+  resetPasswordTokenSelector,
+  setResetPasswordToken,
+  showTypeForm,
+  typeFormSelector,
+} from '../../redux/auth';
+import { TYPE_FORM } from '../../constants';
+import { Login, Registration, RequestEmail, ResetPassword } from './typeForms';
 import {
   StyledCloseButton,
   StyledContentWrapper,
@@ -33,7 +35,10 @@ const AuthForm = () => {
 
   const openModal = () => {
     bodyLink.style.overflow = 'hidden';
-    dispatch(showTypeForm(TYPE_FORM.LOGIN));
+
+    if (isShowModal && !resetPasswordToken) {
+      dispatch(showTypeForm(TYPE_FORM.LOGIN));
+    }
     window.addEventListener('keydown', handleCloseByKeyPress);
   };
 
@@ -41,7 +46,11 @@ const AuthForm = () => {
     bodyLink.removeAttribute('style');
     navigate(location.pathname); // url params will be removed when we click on the close button or on the browser < (prev) button
     dispatch(showTypeForm(null));
-    dispatch(setTokenFromEmailLink(null));
+
+    if (resetPasswordToken) {
+      dispatch(setResetPasswordToken(null));
+    }
+
     window.removeEventListener('keydown', handleCloseByKeyPress);
   };
 
@@ -74,7 +83,6 @@ const AuthForm = () => {
 
   const openModalByAddQueryParam = () => {
     navigate('?auth_modal=true'); // 'navigate' adds a url param to open modal
-    setTokenFromEmailLink(null);
   };
 
   /* modal will be open if url param has the "auth_modal=true" property */
@@ -91,22 +99,18 @@ const AuthForm = () => {
       {isShowModal
         ? createPortal(
             /*
-            Important note: don't remove or change 'background' and 'close-button' id`s.
-            They are needed for correctly work of close modal handler!
-            */
+          Important note: don't remove or change 'background' and 'close-button' id`s.
+          They are needed for correctly work of close modal handler!
+          */
             <StyledModal id={'background'} onClick={handleCloseByOnClick}>
               <StyledContentWrapper>
                 <StyledCloseButton id={'close-button'} />
-
-                {resetPasswordToken && <ResetPassword />}
-
-                {!resetPasswordToken && (
-                  <>
-                    {typeForm === TYPE_FORM.REGISTER && <Registration />}
-                    {typeForm === TYPE_FORM.LOGIN && <Login />}
-                    {typeForm === TYPE_FORM.REQUEST_EMAIL && <RequestEmail />}
-                  </>
-                )}
+                <>
+                  {typeForm === TYPE_FORM.REGISTER && <Registration />}
+                  {typeForm === TYPE_FORM.LOGIN && <Login />}
+                  {typeForm === TYPE_FORM.REQUEST_EMAIL && <RequestEmail />}
+                  {typeForm === TYPE_FORM.RESET_PSW && <ResetPassword />}
+                </>
               </StyledContentWrapper>
             </StyledModal>,
             modalLink
