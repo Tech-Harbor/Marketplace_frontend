@@ -10,20 +10,3 @@ export const loginUserThunk = createAsyncThunk('auth/login', async (body, thunkA
     return thunkAPI.rejectWithValue(e.message);
   }
 });
-
-export const requestEmailThunk = createAsyncThunk('auth/requestEmail', async (body, thunkAPI) => {
-  try {
-    const { data } = await mainInstance.post(API_URL.REQUEST_EMAIL, { ...body });
-    return data;
-  } catch (e) {
-    return thunkAPI.rejectWithValue(e.message);
-  }
-});
-
-export const resetPasswordThunk = createAsyncThunk('auth/resetPassword', async (body, thunkAPI) => {
-  try {
-    await mainInstance.put(body.url, { password: body.password });
-  } catch (e) {
-    return thunkAPI.rejectWithValue(e.message);
-  }
-});

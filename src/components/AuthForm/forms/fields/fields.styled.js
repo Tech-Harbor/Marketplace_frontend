@@ -4,7 +4,7 @@ import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 
-import { device } from '../../../../utils/index.js';
+import { device } from '../../../../utils';
 
 // Styles for label component
 export const StyledFieldName = styled.p`
@@ -18,8 +18,11 @@ export const StyledFieldName = styled.p`
   text-align: left;
   color: var(--color-label);
 
-  // @media ${device.laptop} {
-  // }
+  @media ${device.tablet} {
+    &.margin-tablet {
+      margin-top: 0;
+    }
+  }
   // @media ${device.desktop} {
   // }
 `;

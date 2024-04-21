@@ -1,12 +1,13 @@
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 
-import { checkPasswordOverPatterns } from '../../../utils';
 import { loginUserThunk } from '../../../redux/auth';
-import { FormField, FormFieldPassword } from './fields/index.js';
+import { checkPasswordOverPatterns } from '../../../utils';
+import { FIELDS_PATTERN, INITIAL_STATES, TYPE_FORM } from '../../../constants';
+
+import { FormField, FormFieldPassword } from './fields';
 import { AuthTextLink } from '../AuthTextLink/AuthTextLink.jsx';
 import { CheckBoxRememberMe } from './CheckBoxRememberMe/CheckBoxRememberMe.jsx';
-import { FIELDS_PATTERN, INITIAL_STATES, TYPE_FORM } from '../../../constants/index.js';
 import { StyledButton, StyledForm, StyledWrapperRememberMe } from './forms.styled.js';
 
 export const LoginForm = () => {
@@ -25,7 +26,6 @@ export const LoginForm = () => {
   const isFormValid = !checkPasswordOverPatterns(passwordValue).length && isValid;
 
   const handleSubmitForm = async data => {
-    console.log('LoginForm handleSubmitForm', data); // !!TODO console.log must be deleted later
     await dispatch(loginUserThunk(data));
     reset(INITIAL_STATES.LOGIN);
   };
@@ -43,6 +43,7 @@ export const LoginForm = () => {
           },
         })}
         fieldError={errors.email}
+        className={'margin-tablet'}
       />
 
       <FormFieldPassword
