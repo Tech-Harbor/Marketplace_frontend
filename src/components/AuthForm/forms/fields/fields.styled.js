@@ -18,8 +18,11 @@ export const StyledFieldName = styled.p`
   text-align: left;
   color: var(--color-label);
 
-  // @media ${device.laptop} {
-  // }
+  @media ${device.tablet} {
+    &.margin-tablet {
+      margin-top: 0;
+    }
+  }
   // @media ${device.desktop} {
   // }
 `;

@@ -4,9 +4,10 @@ import { useForm } from 'react-hook-form';
 import { loginUserThunk } from '../../../redux/auth';
 import { checkPasswordOverPatterns } from '../../../utils';
 import { FIELDS_PATTERN, INITIAL_STATES, TYPE_FORM } from '../../../constants';
+
+import { FormField, FormFieldPassword } from './fields';
 import { AuthTextLink } from '../AuthTextLink/AuthTextLink.jsx';
 import { CheckBoxRememberMe } from './CheckBoxRememberMe/CheckBoxRememberMe.jsx';
-import { FormField, FormFieldPassword } from './fields';
 import { StyledButton, StyledForm, StyledWrapperRememberMe } from './forms.styled.js';
 
 export const LoginForm = () => {
@@ -42,6 +43,7 @@ export const LoginForm = () => {
           },
         })}
         fieldError={errors.email}
+        className={'margin-tablet'}
       />
 
       <FormFieldPassword

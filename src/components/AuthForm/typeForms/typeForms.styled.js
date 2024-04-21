@@ -22,24 +22,6 @@ const StyledFlexDiv = styled.div`
   }
 `;
 
-// Styles for AuthForm
-/* !TODO check and remove if doesn't need */
-export const FormWrapper = styled(StyledFlexDiv)`
-  padding: 24px 16px;
-  width: 360px;
-  background-color: var(--color-bg-form);
-  border-radius: 8px;
-
-  // @media ${device.laptop} {
-  // }
-  // @media ${device.desktop} {
-  // }
-
-  @media ${device.untilTablet} {
-    width: 100%;
-  }
-`;
-
 // Styles for Title component (h1)
 export const StyledTitle = styled.h1`
   font-family: Gilroy-Medium, sans-serif;
@@ -53,6 +35,52 @@ export const StyledTitle = styled.h1`
   // }
   // @media ${device.desktop} {
   // }
+`;
+
+export const StyledWrapper = styled.div`
+  @media ${device.tablet} {
+    display: flex;
+  }
+`;
+
+export const StyledWrapperLeftPart = styled.div`
+  @media ${device.tablet} {
+    position: relative;
+    width: 60%;
+    padding-right: 20px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 20px;
+      bottom: 20px;
+      right: 0;
+      border-right: 1px solid #6c727533;
+    }
+  }
+`;
+
+export const StyledWrapperRightPart = styled.div`
+  @media ${device.tablet} {
+    width: 40%;
+    padding-left: 20px;
+  }
+`;
+
+export const StyledText = styled.p`
+  display: none;
+
+  @media ${device.tablet} {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    font-family: Gilroy-Regular, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: center;
+    color: #a6a7ab;
+  }
 `;
 
 export { StyledFlexDiv };

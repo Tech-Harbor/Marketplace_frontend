@@ -1,38 +1,34 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 
-import { resetPasswordThunk, resetPasswordTokenSelector } from '../../../redux/auth';
+import { resetPasswordTokenSelector } from '../../../redux/auth';
+import { useResetPassword } from '../../../hooks';
 import { checkPasswordOverPatterns } from '../../../utils';
-import { API_URL } from '../../../constants';
-import { RegisterTerms } from './RegisterTerms/RegisterTerms.jsx';
+
 import { FormFieldPassword } from './fields';
+import { RegisterTerms } from './RegisterTerms/RegisterTerms.jsx';
 import { StyledButton, StyledForm } from './forms.styled.js';
 
 export const ResetPasswordForm = () => {
-  const dispatch = useDispatch();
   const resetPasswordToken = useSelector(resetPasswordTokenSelector);
+  const { sendNewPassword } = useResetPassword();
 
   const {
     register,
     handleSubmit,
     reset,
     watch,
-    formState: { errors, isValid },
+    formState: { errors },
   } = useForm({
     mode: 'onChange',
   });
 
   const passwordValue = watch('password');
   const repeatPasswordValue = watch('repeat_password');
-  const isFormValid = !checkPasswordOverPatterns(passwordValue, repeatPasswordValue) && isValid;
+  const isFormValid = checkPasswordOverPatterns(passwordValue, repeatPasswordValue).length === 0;
 
   const handleSubmitForm = async data => {
-    await dispatch(
-      resetPasswordThunk({
-        url: `${API_URL.RESET_PASSWORD}?jwt=${resetPasswordToken}`,
-        password: data.password,
-      })
-    );
+    await sendNewPassword(resetPasswordToken, data);
     reset();
   };
 

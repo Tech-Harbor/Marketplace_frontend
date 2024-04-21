@@ -1,1 +1,1 @@
-export { useApi } from './apiRequests.js';
+export { useApi, useActivateUser, useResetPassword } from './apiRequests.js';

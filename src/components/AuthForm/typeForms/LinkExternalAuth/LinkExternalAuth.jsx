@@ -5,7 +5,7 @@ import { useGoogleLogin } from '@react-oauth/google';
 import { useApi } from '../../../../hooks';
 import { StyledIcon, StyledLink } from './LinkExternalAuth.styled.js';
 
-const LinkExternalAuth = ({ href, linkText, icon }) => {
+const LinkExternalAuth = ({ href, linkText, icon, className }) => {
   const { sendData } = useApi();
   const handleGoogleLogin = useGoogleLogin({
     onSuccess: codeResponse => {
@@ -18,7 +18,7 @@ const LinkExternalAuth = ({ href, linkText, icon }) => {
 
   return (
     <>
-      <StyledLink href={href} onClick={handleGoogleLogin}>
+      <StyledLink href={href} onClick={handleGoogleLogin} className={className}>
         <StyledIcon src={icon} alt={linkText} />
         {linkText}
       </StyledLink>
@@ -30,6 +30,7 @@ LinkExternalAuth.propTypes = {
   href: PropTypes.string.isRequired,
   linkText: PropTypes.string.isRequired,
   icon: PropTypes.string,
+  className: PropTypes.string,
 };
 
 export default LinkExternalAuth;

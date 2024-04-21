@@ -4,7 +4,7 @@ import { device } from '../../../utils';
 export const StyledForm = styled.form`
   margin-bottom: 17px; // margin between the form and text below.
   width: 100%;
-  min-height: 100%;
+  //min-height: 100%; // TODO видалити
 `;
 
 export const StyledButton = styled.button`

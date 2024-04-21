@@ -1,5 +1,6 @@
 import { TYPE_FORM } from '../../../constants';
 import { RequestEmailForm } from '../forms';
+
 import { AuthTextLink } from '../AuthTextLink/AuthTextLink.jsx';
 import { StyledTitle } from './typeForms.styled.js';
 
