@@ -1,4 +1,4 @@
-import { ResetPasswordForm } from '../forms/ResetPasswordForm.jsx';
+import { ResetPasswordForm } from '../forms';
 import { StyledTitle } from './typeForms.styled.js';
 
 export const ResetPassword = () => {

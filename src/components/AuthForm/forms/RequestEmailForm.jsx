@@ -1,12 +1,15 @@
 import { useForm } from 'react-hook-form';
+
+import { useApi } from '../../../hooks';
+import { FIELDS_PATTERN } from '../../../constants';
+
 import { FormField } from './fields';
 import { StyledButton, StyledForm } from './forms.styled.js';
-import { FIELDS_PATTERN, INITIAL_STATES } from '../../../constants';
-import { requestEmailThunk } from '../../../redux/auth';
+import { showTypeForm } from '../../../redux/auth/index.js';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 export const RequestEmailForm = () => {
-  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -16,9 +19,16 @@ export const RequestEmailForm = () => {
     mode: 'onChange',
   });
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { sendData } = useApi();
+
   const handleSubmitForm = async data => {
-    await dispatch(requestEmailThunk(data));
-    reset(INITIAL_STATES.REQUEST_EMAIL);
+    await sendData('/request/email', data);
+    navigate('');
+    dispatch(showTypeForm(null));
+    reset();
+    // TODO => Вивести повідомлення перевірити пошту та перейти за посиланням
   };
 
   return (

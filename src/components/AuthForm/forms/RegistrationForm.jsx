@@ -1,12 +1,15 @@
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
-import { useApi } from '../../../hooks/apiRequests.js';
-import { RegisterTerms } from './RegisterTerms/RegisterTerms.jsx';
-import { FormField, FormFieldPassword } from './fields';
-import { StyledForm, StyledButton } from './forms.styled.js';
-import { FormFieldPhone } from './fields/FormFieldPhone.jsx';
+import { showTypeForm } from '../../../redux/auth';
+import { useApi } from '../../../hooks';
 import { makeFirstLetterUpperCase, checkPasswordOverPatterns } from '../../../utils';
 import { API_URL, FIELDS_PATTERN } from '../../../constants';
+
+import { FormField, FormFieldPassword, FormFieldPhone } from './fields';
+import { RegisterTerms } from './RegisterTerms/RegisterTerms.jsx';
+import { StyledForm, StyledButton } from './forms.styled.js';
 
 export const RegistrationForm = () => {
   const {
@@ -18,6 +21,8 @@ export const RegistrationForm = () => {
   } = useForm({
     mode: 'onChange',
   });
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { sendData } = useApi();
   const passwordValue = watch('password');
@@ -29,7 +34,10 @@ export const RegistrationForm = () => {
       firstname: makeFirstLetterUpperCase(data.firstname),
       lastname: makeFirstLetterUpperCase(data.lastname),
     });
+    navigate('');
+    dispatch(showTypeForm(null));
     reset();
+    // TODO => Вивести повідомлення перевірити пошту та перейти за посиланням
   };
 
   return (
@@ -49,6 +57,7 @@ export const RegistrationForm = () => {
           },
         })}
         fieldError={errors.firstname}
+        className={'margin-tablet'}
       />
 
       <FormField
