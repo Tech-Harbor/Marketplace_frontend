@@ -2,7 +2,6 @@ import { FOOTER_TEXT_LIST } from './TextDropDownMenu.js';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
-import Oranger from '../../assets/svg/Oranger.svg?react';
 import {
   Container,
   DropDownMenuList,
@@ -10,6 +9,7 @@ import {
   InformativeLink,
   ContainerIconLink,
   ContainerSocialNetworks,
+  StyledOranger,
   TextRights,
 } from './Footer.styled.js';
 
@@ -19,12 +19,31 @@ export const Footer = () => {
   return (
     <Container>
       <DropDownMenuList>
-        {FOOTER_TEXT_LIST.map(element => (
-          <DropDownMenuItem key={element.text}>
-            <InformativeLink href={element.link}>{element.text}</InformativeLink>
+        {FOOTER_TEXT_LIST.map((element, index) => (
+          <DropDownMenuItem key={index}>
+            {element.map(itemElement => (
+              <InformativeLink key={itemElement.text} href={itemElement.link}>
+                {itemElement.text}
+              </InformativeLink>
+            ))}
           </DropDownMenuItem>
         ))}
       </DropDownMenuList>
+
+      {/*<DropDownMenuList>*/}
+      {/*  <DropDownMenuItem>*/}
+      {/*    <InformativeLink href="/">Про нас</InformativeLink>*/}
+      {/*    <InformativeLink href="/">Покупцям</InformativeLink>*/}
+      {/*  </DropDownMenuItem>*/}
+      {/*  <DropDownMenuItem>*/}
+      {/*    <InformativeLink href="/">Продавцям</InformativeLink>*/}
+      {/*    <InformativeLink href="/">Реклама на сайті</InformativeLink>*/}
+      {/*  </DropDownMenuItem>*/}
+      {/*  <DropDownMenuItem>*/}
+      {/*    <InformativeLink href="/">Служба підтримки</InformativeLink>*/}
+      {/*    <InformativeLink href="/">Політика конфіденціності</InformativeLink>*/}
+      {/*  </DropDownMenuItem>*/}
+      {/*</DropDownMenuList>*/}
 
       <ContainerIconLink>
         <ContainerSocialNetworks>
@@ -35,7 +54,7 @@ export const Footer = () => {
           <FacebookOutlinedIcon sx={customStyles} />
         </ContainerSocialNetworks>
 
-        <Oranger alt="Oranger" />
+        <StyledOranger alt="Oranger" />
 
         <TextRights>© 2024 Всі права захищені</TextRights>
       </ContainerIconLink>
