@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { FooterMenuItem, InformativeLink } from './FooterItem.styled.js';
 
-export const FooterItem = ({ listLinks = [] }) => {
+export const FooterItem = ({ listLinks }) => {
   return (
     <FooterMenuItem>
       {listLinks.map(element => (
