@@ -1,16 +1,15 @@
 import { FOOTER_TEXT_LIST } from './TextDropDownMenu.js';
+import { FooterItem } from './FooterMenuItem/FooterItem.jsx';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 import {
   Container,
-  DropDownMenuList,
-  DropDownMenuItem,
-  InformativeLink,
+  FooterMenu,
   ContainerIconLink,
   ContainerSocialNetworks,
   StyledOranger,
-  TextRights,
+  TextAboutRights,
 } from './Footer.styled.js';
 
 const customStyles = { color: 'white', fontSize: 30, cursor: 'pointer' };
@@ -18,32 +17,11 @@ const customStyles = { color: 'white', fontSize: 30, cursor: 'pointer' };
 export const Footer = () => {
   return (
     <Container>
-      <DropDownMenuList>
-        {FOOTER_TEXT_LIST.map((element, index) => (
-          <DropDownMenuItem key={index}>
-            {element.map(itemElement => (
-              <InformativeLink key={itemElement.text} href={itemElement.link}>
-                {itemElement.text}
-              </InformativeLink>
-            ))}
-          </DropDownMenuItem>
+      <FooterMenu>
+        {FOOTER_TEXT_LIST.map(element => (
+          <FooterItem key={element.id} listLinks={element.linkList} />
         ))}
-      </DropDownMenuList>
-
-      {/*<DropDownMenuList>*/}
-      {/*  <DropDownMenuItem>*/}
-      {/*    <InformativeLink href="/">Про нас</InformativeLink>*/}
-      {/*    <InformativeLink href="/">Покупцям</InformativeLink>*/}
-      {/*  </DropDownMenuItem>*/}
-      {/*  <DropDownMenuItem>*/}
-      {/*    <InformativeLink href="/">Продавцям</InformativeLink>*/}
-      {/*    <InformativeLink href="/">Реклама на сайті</InformativeLink>*/}
-      {/*  </DropDownMenuItem>*/}
-      {/*  <DropDownMenuItem>*/}
-      {/*    <InformativeLink href="/">Служба підтримки</InformativeLink>*/}
-      {/*    <InformativeLink href="/">Політика конфіденціності</InformativeLink>*/}
-      {/*  </DropDownMenuItem>*/}
-      {/*</DropDownMenuList>*/}
+      </FooterMenu>
 
       <ContainerIconLink>
         <ContainerSocialNetworks>
@@ -56,7 +34,7 @@ export const Footer = () => {
 
         <StyledOranger alt="Oranger" />
 
-        <TextRights>© 2024 Всі права захищені</TextRights>
+        <TextAboutRights>© 2024 Всі права захищені</TextAboutRights>
       </ContainerIconLink>
     </Container>
   );
