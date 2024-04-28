@@ -30,7 +30,7 @@ export const Registration = () => {
         <StyledWrapperRightPart>
           <StyledText>Продовжити через</StyledText>
           <LinkExternalAuth
-            href={'https://api.oranger.store/oauth2/authorization/google'}
+            href={'/'}
             linkText={'Google'}
             icon={iconGoogle}
             className={'hidden-mobile'}

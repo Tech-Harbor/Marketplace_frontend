@@ -36,7 +36,7 @@ export const Login = () => {
 
           {/* TODO ця кнопка Google - варіант для mobile, має клас 'hidden' зникає при 768px */}
           <LinkExternalAuth
-            href={'https://api.oranger.store/oauth2/authorization/google'}
+            href={'/'}
             linkText={'Продовжити через Google'}
             icon={iconGoogle}
             className={'hidden-tablet'}
