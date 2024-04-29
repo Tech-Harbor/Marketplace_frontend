@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const levelChangeSize = '(max-width: 580px)';
 
@@ -16,7 +17,9 @@ export const FooterMenuList = styled.ul`
   }
 `;
 
-export const FooterMenuItem = styled.li`
+export const FooterMenuItem = styled.li``;
+
+export const FooterMenuLink = styled(Link)`
   display: block;
   font-family: 'Gilroy-Regular', sans-serif;
   font-weight: 400;
