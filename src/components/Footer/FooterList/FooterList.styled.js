@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 const levelChangeSize = '(max-width: 580px)';
 
 export const FooterMenuList = styled.ul`
-  & > :first-child {
+  & > :not(:last-child) {
     margin-bottom: 16px;
   }
 
   @media ${levelChangeSize} {
     width: 100%;
 
-    & > :first-child {
+    & > :not(:last-child) {
       margin-bottom: 0;
     }
   }
