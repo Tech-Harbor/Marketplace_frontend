@@ -9,7 +9,7 @@ const LinkExternalAuth = ({ href, linkText, icon, className }) => {
   const { sendData } = useApi();
   const handleGoogleLogin = useGoogleLogin({
     onSuccess: codeResponse => {
-      sendData('https://orangergoogle.onrender.com/oauth/login', codeResponse);
+      sendData('https://api.oranger.store/oauth2/authorization/google', codeResponse);
       //   if register success what next??
       /* Success data should have an account data and token that will be used in our next requests */
     },
@@ -29,7 +29,7 @@ const LinkExternalAuth = ({ href, linkText, icon, className }) => {
 LinkExternalAuth.propTypes = {
   href: PropTypes.string.isRequired,
   linkText: PropTypes.string.isRequired,
-  icon: PropTypes.string,
+  icon: PropTypes.string /* !TODO: That's not the string ... */,
   className: PropTypes.string,
 };
 
