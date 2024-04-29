@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { FOOTER_TEXT_LIST } from './TextDropDownMenu.js';
 import { FooterItem } from './FooterMenuItem/FooterItem.jsx';
 import TelegramIcon from '@mui/icons-material/Telegram';
@@ -39,9 +38,4 @@ export const Footer = () => {
       </ContainerIconLink>
     </Container>
   );
-};
-
-FOOTER_TEXT_LIST.propTypes = {
-  id: PropTypes.number.isRequired,
-  linkList: PropTypes.array.isRequired,
 };
