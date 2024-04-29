@@ -4,9 +4,9 @@ import { FooterMenuItem, InformativeLink } from './FooterItem.styled.js';
 export const FooterItem = ({ listLinks }) => {
   return (
     <FooterMenuItem>
-      {listLinks.map(element => (
-        <InformativeLink key={element.text} href={element.link}>
-          {element.text}
+      {listLinks.map(({ text, link }) => (
+        <InformativeLink key={text} href={link}>
+          {text}
         </InformativeLink>
       ))}
     </FooterMenuItem>
@@ -14,5 +14,10 @@ export const FooterItem = ({ listLinks }) => {
 };
 
 FooterItem.propTypes = {
-  listLinks: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)),
+  listLinks: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string.isRequired,
+      link: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
