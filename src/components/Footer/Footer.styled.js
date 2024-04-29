@@ -3,14 +3,6 @@ import Oranger from '../../assets/svg/Oranger.svg?react';
 
 const levelChangeSize = '(max-width: 580px)';
 
-export const FooterMenu = styled.ul`
-  max-width: 840px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin: 0 auto;
-`;
-
 export const Container = styled.footer`
   width: 100%;
   height: 100%;
@@ -20,6 +12,14 @@ export const Container = styled.footer`
   @media ${levelChangeSize} {
     padding: 6px 16px 26px 16px;
   }
+`;
+
+export const FooterMenu = styled.div`
+  max-width: 840px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0 auto;
 `;
 
 export const ContainerIconLink = styled.div`

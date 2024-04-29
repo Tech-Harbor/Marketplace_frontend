@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const levelChangeSize = '(max-width: 580px)';
 
-export const FooterMenuItem = styled.li`
+export const FooterMenuList = styled.ul`
   :first-child {
     margin-bottom: 16px;
   }
@@ -16,7 +16,7 @@ export const FooterMenuItem = styled.li`
   }
 `;
 
-export const InformativeLink = styled.a`
+export const FooterMenuItem = styled.li`
   display: block;
   font-family: 'Gilroy-Regular', sans-serif;
   font-weight: 400;

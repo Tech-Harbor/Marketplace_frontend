@@ -1,5 +1,5 @@
 import { FOOTER_TEXT_LIST } from './TextDropDownMenu.js';
-import { FooterItem } from './FooterMenuItem/FooterItem.jsx';
+import { FooterList } from './FooterList/FooterList.jsx';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
@@ -19,7 +19,7 @@ export const Footer = () => {
     <Container>
       <FooterMenu>
         {FOOTER_TEXT_LIST.map(({ id, linkList }) => (
-          <FooterItem key={id} listLinks={linkList} />
+          <FooterList key={id} listLinks={linkList} />
         ))}
       </FooterMenu>
 
