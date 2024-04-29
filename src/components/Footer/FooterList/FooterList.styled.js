@@ -6,12 +6,8 @@ const levelChangeSize = '(max-width: 580px)';
 export const FooterMenuList = styled.ul`
   & > :not(:last-child) {
     margin-bottom: 16px;
-  }
 
-  @media ${levelChangeSize} {
-    width: 100%;
-
-    & > :not(:last-child) {
+    @media ${levelChangeSize} {
       margin-bottom: 0;
     }
   }
