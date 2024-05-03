@@ -4,16 +4,22 @@ import { Link } from 'react-router-dom';
 const levelChangeSize = '(max-width: 580px)';
 
 export const FooterMenuList = styled.ul`
-  & > :not(:last-child) {
-    margin-bottom: 16px;
-
-    @media ${levelChangeSize} {
-      margin-bottom: 0;
-    }
+  @media ${levelChangeSize} {
+    width: 100%;
   }
 `;
 
-export const FooterMenuItem = styled.li``;
+export const FooterMenuItem = styled.li`
+  &:not(:last-child) {
+    margin-bottom: 16px;
+
+    @media ${levelChangeSize} {
+      &:not(:last-child) {
+        margin-bottom: 0;
+      }
+    }
+  }
+`;
 
 export const FooterMenuLink = styled(Link)`
   display: block;
