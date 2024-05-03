@@ -8,25 +8,20 @@ import iconLogo from '../../assets/svg/icon-logo.svg';
 import iconMenu from '../../assets/svg/icon-mobile-menu.svg';
 import iconShipping from '../../assets/svg/icon-shoping.svg';
 import iconProfile from '../../assets/svg/icon-profile.svg';
-// import { iconLogo, iconMenu,iconShipping,iconProfile} from "../../assets/svg"
 
 export const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 16px;
+
+  padding: 0 18px;
   height: 56px;
-  background-color: #254499;
+  background-color: var(--color-bg-primary);
 
-  @media ${device.laptop} {
-    padding: 0 45px 0 50px; // різні паддінги на макеті
-    height: 72px;
-  }
-
-  @media ${device.desktop} {
-    padding: 0 50px 0 110px;
-    height: 80px;
-  }
+  // @media ${device.laptop} {
+  //   padding: 0 45px 0 50px; // різні паддінги на макеті
+  //   height: 72px;
+  // }
 `;
 
 /* LEFT SIDE */
