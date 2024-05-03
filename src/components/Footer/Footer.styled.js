@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import Oranger from '../../assets/svg/Oranger.svg?react';
+
+import { Link } from 'react-router-dom';
 
 const levelChangeSize = '(max-width: 580px)';
 
@@ -39,14 +40,12 @@ export const ContainerSocialNetworks = styled.div`
   width: fit-content;
   display: flex;
   column-gap: 25px;
+  margin-bottom: 27px;
 `;
 
-export const StyledOranger = styled(Oranger)`
-  margin: 30px 0 29px 0;
-
-  @media ${levelChangeSize} {
-    margin: 27px 0;
-  }
+export const OrangerLink = styled(Link)`
+  display: inline-block;
+  margin-bottom: 27px;
 `;
 
 export const TextAboutRights = styled.span`
