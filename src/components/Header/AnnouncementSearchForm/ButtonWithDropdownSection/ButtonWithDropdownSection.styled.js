@@ -27,9 +27,6 @@ export const StyledButtonSection = styled.button`
     }
   }
 
-  @media ${device.desktop} {
-  }
-
   &.location-styles {
     display: none;
     @media ${device.desktop} {
