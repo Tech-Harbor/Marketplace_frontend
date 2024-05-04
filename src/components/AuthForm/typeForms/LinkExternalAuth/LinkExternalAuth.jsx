@@ -29,7 +29,7 @@ const LinkExternalAuth = ({ href, linkText, icon, className }) => {
 LinkExternalAuth.propTypes = {
   href: PropTypes.string.isRequired,
   linkText: PropTypes.string.isRequired,
-  icon: PropTypes.string /* !TODO: That's not the string ... */,
+  icon: PropTypes.object /* !TODO: That's not the string ... */,
   className: PropTypes.string,
 };
 

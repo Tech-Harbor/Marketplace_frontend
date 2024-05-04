@@ -9,6 +9,7 @@ import { TYPE_FORM } from './constants';
 // import HomePage from './pages/HomePage/HomePage.jsx';
 import ProductsPage from './pages/ProductsPage/ProductsPage.jsx';
 import MainLayout from './components/MainLayout/MainLayout.jsx';
+import HomePage from './pages/HomePage/HomePage.jsx';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -41,7 +42,7 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<MainLayout />}>
-        {/*<Route index element={<HomePage />} />*/}
+        <Route index element={<HomePage />} />
         <Route path="category/:name" element={<ProductsPage />} />
       </Route>
     </Routes>
