@@ -4,17 +4,18 @@ import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import { device } from '../../../utils';
 
 export const StyledSearchForm = styled.form`
+  position: relative;
+  display: flex;
   width: 100%;
 
   @media ${device.laptop} {
     width: 415px;
     height: 42px;
   }
-`;
 
-export const StyledContainer = styled.div`
-  position: relative;
-  display: flex;
+  @media ${device.desktop} {
+    width: 515px;
+  }
 `;
 
 export const StyledSearchInput = styled.input.attrs({
@@ -25,10 +26,12 @@ export const StyledSearchInput = styled.input.attrs({
   padding-left: 17px;
   padding-right: 35px; // reserved place for icon
   width: 100%;
+
   height: 36px;
+
   border: 0;
   border-radius: 8px;
-  background-color: var(--color-bg-input-primary);
+  background-color: var(--color-bg-form);
   font-family: Gilroy-Medium, sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -37,9 +40,15 @@ export const StyledSearchInput = styled.input.attrs({
   @media ${device.laptop} {
     padding-left: 35px; // reserved place for icon
     padding-right: 17px;
+
     width: 205px;
     height: 42px;
-    border-radius: 4px 0 0 4px;
+
+    border-radius: ${({ $isOpenDropDown }) => ($isOpenDropDown ? '4px 0 0 0' : '4px 0 0 4px')};
+
+    @media ${device.desktop} {
+      width: 255px;
+    }
   }
 `;
 
@@ -68,5 +77,9 @@ export const StyledButtonSearch = styled.button`
     font-size: 18px;
     font-weight: 500;
     line-height: 22px;
+  }
+
+  @media ${device.desktop} {
+    width: 85px;
   }
 `;

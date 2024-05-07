@@ -1,30 +1,55 @@
-import ButtonWithDropdownSection from './ButtonWithDropdownSection/ButtonWithDropdownSection.jsx';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import ButtonWithIcons from './ButtonWithDropdownSection/ButtonWithIcons.jsx';
+
+import CategoriesDropDown from './CategoriesDropDown/CategoriesDropDown.jsx';
+import iconSectionsClose from '../../../assets/svg/icon-sections-close.svg';
+import iconSectionsOpen from '../../../assets/svg/icon-sections-open.svg';
+import iconSectionsDown from '../../../assets/svg/icon-sections-down.svg';
+
 import {
-  StyledContainer,
+  StyledButtonSearch,
   StyledIconSearch,
   StyledSearchForm,
   StyledSearchInput,
-  StyledButtonSearch,
 } from './AnnouncementSearchForm.styled.js';
 
-import iconSectionsClose from '../../../assets/svg/icon-sections-close.svg';
-import iconSectionsDown from '../../../assets/svg/icon-sections-down.svg';
-
 const AnnouncementSearchForm = () => {
-  const handleOnClick = () => {};
-  return (
-    <StyledSearchForm>
-      <StyledContainer>
-        <StyledIconSearch onClick={handleOnClick} />
-        <StyledSearchInput placeholder="Наприклад, Apple" />
+  const { register, handleSubmit, setValue, reset } = useForm();
+  const [isOpenDropDown, setIsOpenDropDown] = useState(false);
+  const handleFromSubmit = data => {
+    console.log('send data', data);
+    reset();
+  };
 
-        <ButtonWithDropdownSection
-          text={'Розділи'}
-          iconLeftSide={iconSectionsClose}
-          iconRightSide={iconSectionsDown}
-        />
-        <StyledButtonSearch>Пошук</StyledButtonSearch>
-      </StyledContainer>
+  const handleCategoryClick = value => {
+    setValue('category', value);
+    setIsOpenDropDown(false);
+  };
+
+  const handleOpenDropDown = e => {
+    e.preventDefault();
+    setIsOpenDropDown(!isOpenDropDown);
+  };
+
+  return (
+    <StyledSearchForm onSubmit={handleSubmit(handleFromSubmit)}>
+      <StyledIconSearch />
+      <StyledSearchInput
+        type={'text'}
+        {...register('search')}
+        placeholder="Наприклад, Apple"
+        $isOpenDropDown={isOpenDropDown}
+      />
+      <ButtonWithIcons
+        text={'Розділи'}
+        iconLeftSide={isOpenDropDown ? iconSectionsOpen : iconSectionsClose}
+        iconRightSide={iconSectionsDown}
+        onClick={handleOpenDropDown}
+        isOpenDropDown={isOpenDropDown}
+      />
+      {isOpenDropDown && <CategoriesDropDown handleCategoryClick={handleCategoryClick} />}
+      <StyledButtonSearch>Пошук</StyledButtonSearch>
     </StyledSearchForm>
   );
 };

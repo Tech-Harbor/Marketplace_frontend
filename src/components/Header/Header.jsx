@@ -1,5 +1,5 @@
 import AnnouncementSearchForm from './AnnouncementSearchForm/AnnouncementSearchForm.jsx';
-import ButtonWithDropdownSection from './AnnouncementSearchForm/ButtonWithDropdownSection/ButtonWithDropdownSection.jsx';
+import ButtonWithIcons from './AnnouncementSearchForm/ButtonWithDropdownSection/ButtonWithIcons.jsx';
 
 import iconProfile from '../../assets/svg/icon-profile.svg';
 import iconDown from '../../assets/svg/icon-profile-down.svg';
@@ -13,13 +13,13 @@ export const Header = () => {
       <StyledIconLogo />
       <AnnouncementSearchForm />
 
-      <ButtonWithDropdownSection
+      <ButtonWithIcons
         text={'Вибрати локацію'}
         iconLeftSide={iconLocation}
         className={'location-styles'}
       />
 
-      <ButtonWithDropdownSection
+      <ButtonWithIcons
         text={'Профіль'}
         iconLeftSide={iconProfile}
         iconRightSide={iconDown}

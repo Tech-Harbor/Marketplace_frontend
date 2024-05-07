@@ -11,7 +11,7 @@ export const StyledButtonSection = styled.button`
 
     width: 135px;
     height: 42px;
-    background-color: var(--color-bg-input-primary);
+    background-color: var(--color-bg-form);
 
     font-family: Gilroy-Medium, sans-serif;
     font-size: 15px;
@@ -27,6 +27,10 @@ export const StyledButtonSection = styled.button`
     }
   }
 
+  @media ${device.desktop} {
+    width: 175px;
+  }
+
   &.location-styles {
     display: none;
     @media ${device.desktop} {
@@ -40,10 +44,8 @@ export const StyledButtonSection = styled.button`
   }
 `;
 
-// export const StyledIconSectionsClosed = styled.img.attrs({
-//   // src: ,
-// })``;
-//
-// export const StyledIconSectionsUp = styled.img.attrs({
-//   // src: ,
-// })``;
+export const StyledIconWrapper = styled.div`
+  transition: all 0.3s ease-in-out;
+  transform: ${({ $isOpenDropDown }) => ($isOpenDropDown ? 'rotate(180deg)' : 'rotate(0deg)')};
+  display: inline-block;
+`;
