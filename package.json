@@ -12,6 +12,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@apollo/client": "^3.10.3",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@glidejs/glide": "^3.6.0",
@@ -19,6 +20,7 @@
     "@react-oauth/google": "^0.12.1",
     "@reduxjs/toolkit": "^1.9.7",
     "axios": "^1.6.3",
+    "graphql": "^16.8.1",
     "modern-normalize": "^2.0.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",

@@ -6,7 +6,7 @@ import { setResetPasswordToken, showTypeForm } from './redux/auth';
 import { useActivateUser } from './hooks';
 import { TYPE_FORM } from './constants';
 
-// import HomePage from './pages/HomePage/HomePage.jsx';
+import HomePage from './pages/HomePage/HomePage.jsx';
 import ProductsPage from './pages/ProductsPage/ProductsPage.jsx';
 import MainLayout from './components/MainLayout/MainLayout.jsx';
 
@@ -41,7 +41,7 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<MainLayout />}>
-        {/*<Route index element={<HomePage />} />*/}
+        <Route index element={<HomePage />} />
         <Route path="category/:name" element={<ProductsPage />} />
       </Route>
     </Routes>
