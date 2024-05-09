@@ -1,6 +1,11 @@
 import { useQuery, gql } from '@apollo/client';
-
+import styled from 'styled-components';
 import CardProduct from '../../components/CardProduct/CardProduct.jsx';
+
+const Container = styled.div`
+  max-width: 1240px;
+  padding: 58px 100px;
+`;
 
 const HomePage = () => {
   const {
@@ -23,7 +28,7 @@ const HomePage = () => {
   );
 
   return (
-    <div>
+    <Container>
       {loading && <p>Loading...</p>}
 
       {getAllAdvertisement.map(({ images, name, location, price }) => (
@@ -31,7 +36,7 @@ const HomePage = () => {
       ))}
 
       {error && <p>Виникла помилка: {error}</p>}
-    </div>
+    </Container>
   );
 };
 

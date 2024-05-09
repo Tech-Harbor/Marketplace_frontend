@@ -13,12 +13,14 @@ font-size: 12px;
 
 export const CardContainer = styled.div`
   width: 204px;
+  height: 256px;
   border-radius: 8px;
   box-shadow: 0 0 5px 0 var(--color-container-card-product);
   font-family: Gilroy-SemiBold, sans-serif;
 
   @media ${device.untilLaptop} {
     width: 155px;
+    height: 213px;
   }
 `;
 
@@ -30,14 +32,14 @@ export const Image = styled.img`
   margin-bottom: 15px;
 
   @media ${device.untilLaptop} {
-    height: 130px;
+    height: 131px;
     margin-bottom: 5px;
   }
 `;
 
 export const DataContainer = styled.div`
   width: 100%;
-  padding: 0 12px 26px 12px;
+  padding: 0 12px 16px 12px;
 
   @media ${device.untilLaptop} {
     padding: 0 9px 12px 9px;
