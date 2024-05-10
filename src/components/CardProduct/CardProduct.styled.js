@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+
+import { Link } from 'react-router-dom';
+
 import { device } from '../../utils/index.js';
 
 const fontStyles = `
@@ -11,7 +14,8 @@ font-size: 12px;
   }
 `;
 
-export const CardContainer = styled.div`
+export const CardContainer = styled(Link)`
+  display: block;
   width: 204px;
   height: 256px;
   border-radius: 8px;

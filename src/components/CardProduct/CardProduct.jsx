@@ -18,7 +18,7 @@ const CardProduct = ({ images, name, location, price }) => {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <CardContainer>
+    <CardContainer to="/">
       <Image src={images[0].imageUrl} />
 
       <DataContainer>
