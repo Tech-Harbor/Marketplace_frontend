@@ -4,7 +4,7 @@ import { Header } from '../Header/Header.jsx';
 import { Footer } from '../Footer/Footer.jsx';
 // import Loader from '../Loader/Loader.jsx';
 // import Slider from '../../ui_reuse/slider/Slider.jsx';
-// import ProductCardListItem from '../ProductCardListItem/ProductCardListItem.jsx';
+// import CardProduct from '../CardProduct/CardProduct.jsx';
 
 // import useGetData from '../../hooks/useGetData.js';
 
@@ -25,7 +25,7 @@ const MainLayout = () => {
       {/*    settings={{ type: 'carousel', startAt: 0, perView: 4, gap: 100 }}*/}
       {/*    title="Новинки"*/}
       {/*    slideArray={data.map(i => (*/}
-      {/*      <ProductCardListItem key={i.id} name={i.name} price={i.price} image={i.image[0]} />*/}
+      {/*      <CardProduct key={i.id} name={i.name} price={i.price} image={i.image[0]} />*/}
       {/*    ))}*/}
       {/*  />*/}
       {/*)}*/}
