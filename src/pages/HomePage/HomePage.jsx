@@ -1,10 +1,15 @@
 import { useQuery, gql } from '@apollo/client';
 import styled from 'styled-components';
+import { device } from '../../utils/index.js';
 import CardProduct from '../../components/CardProduct/CardProduct.jsx';
 
 const Container = styled.div`
   max-width: 1240px;
-  padding: 58px 100px;
+  margin: 58px 100px;
+
+  @media ${device.untilLaptop} {
+    margin: 30px 16px;
+  }
 `;
 
 const HomePage = () => {
