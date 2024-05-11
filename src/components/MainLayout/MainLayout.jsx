@@ -2,6 +2,8 @@ import { Outlet } from 'react-router-dom';
 
 import { Header } from '../Header/Header.jsx';
 import { Footer } from '../Footer/Footer.jsx';
+import NavigationBar from '../NavigationBar/NavigationBar.jsx';
+import { FakeBoxForNavBar } from './MainLayout.styled.js';
 // import Loader from '../Loader/Loader.jsx';
 // import Slider from '../../ui_reuse/slider/Slider.jsx';
 // import ProductCardListItem from '../ProductCardListItem/ProductCardListItem.jsx';
@@ -14,6 +16,8 @@ const MainLayout = () => {
   return (
     <>
       <Header />
+      <NavigationBar />
+
       <main>
         <Outlet />
       </main>
@@ -31,6 +35,7 @@ const MainLayout = () => {
       {/*)}*/}
 
       <Footer />
+      <FakeBoxForNavBar />
     </>
   );
 };

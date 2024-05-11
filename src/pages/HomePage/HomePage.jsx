@@ -17,7 +17,8 @@ const Container = styled.div`
 const HomePage = () => {
   return (
     <Container>
-      Home Page
+      <p>Home Page</p>
+
       {/*/!* Sidebar is based on the left side on the page *!/*/}
       {/*<SideBar />*/}
       {/*/!* Inside content block will be all other content on the right side of page *!/*/}

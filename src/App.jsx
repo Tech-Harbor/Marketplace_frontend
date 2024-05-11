@@ -44,6 +44,11 @@ const App = () => {
       <Route path="/" element={<MainLayout />}>
         <Route index element={<HomePage />} />
         <Route path="category/:name" element={<ProductsPage />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/favorite" element={<HomePage />} />
+        <Route path="/add" element={<HomePage />} />
+        <Route path="/chat" element={<HomePage />} />
+        <Route path="/profile" element={<HomePage />} />
       </Route>
     </Routes>
   );
