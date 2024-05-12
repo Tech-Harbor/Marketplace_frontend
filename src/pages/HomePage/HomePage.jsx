@@ -1,47 +1,20 @@
-import { useQuery, gql } from '@apollo/client';
-import styled from 'styled-components';
-import { device } from '../../utils/index.js';
-import CardProduct from '../../components/CardProduct/CardProduct.jsx';
-
-const Container = styled.div`
-  max-width: 1240px;
-  margin: 58px 100px;
-
-  @media ${device.untilLaptop} {
-    margin: 30px 16px;
-  }
-`;
+import { Categories } from '../../components/Categories/Categories.jsx';
+import { SectionProduct } from '../../components/SectionProduct/SectionProduct.jsx';
+import { Advertising } from '../../components/Advertising/Advertising.jsx';
+import { REQUESTS_FOR_PRODUCT_DATA } from '../../constants/requests.js';
 
 const HomePage = () => {
-  const {
-    loading,
-    error,
-    data: { getAllAdvertisement } = { getAllAdvertisement: [] },
-  } = useQuery(
-    gql(`
-    query {
-      getAllAdvertisement {
-        name
-        price
-        location
-        images {
-          imageUrl
-        }
-      }
-    }
-  `)
-  );
-
   return (
-    <Container>
-      {loading && <p>Loading...</p>}
-
-      {getAllAdvertisement.map(({ images, name, location, price }) => (
-        <CardProduct key={name} images={images} name={name} location={location} price={price} />
-      ))}
-
-      {error && <p>Виникла помилка: {error}</p>}
-    </Container>
+    <div>
+      <Categories />
+      {REQUESTS_FOR_PRODUCT_DATA.map(({ id, title, request }) => {
+        return title ? (
+          <SectionProduct key={id} request={request} title={title} />
+        ) : (
+          <Advertising key={id} />
+        );
+      })}
+    </div>
   );
 };
 
