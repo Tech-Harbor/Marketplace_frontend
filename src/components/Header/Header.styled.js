@@ -2,7 +2,10 @@ import styled from 'styled-components';
 import { device } from '../../utils';
 import iconLogo from '../../assets/svg/icon-logo.svg';
 
-export const StyledHeader = styled.header`
+export const StyledHeader = styled.header``;
+
+// TOP SECTION
+export const ContainerTopSide = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -42,4 +45,23 @@ export const StyledButtonAddAnnouncement = styled.button`
     background-color: var(--color-primary-active);
     color: var(--color-secondary);
   }
+`;
+
+// BOTTOM SECTION
+export const AuthorizationSection = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 46px;
+  background-color: #1b1e23f2;
+`;
+
+export const StyledText = styled.p`
+  padding: 0 24px;
+  font-family: Gilroy-Regular, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #fff;
 `;
