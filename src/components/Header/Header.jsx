@@ -15,8 +15,11 @@ import {
 } from './Header.styled.js';
 import ButtonAuth from './ButtonAuth/ButtonAuth.jsx';
 import AuthForm from '../AuthForm/AuthForm.jsx';
+import { useSelector } from 'react-redux';
+import { authTokensSelector } from '../../redux/auth';
 
 export const Header = () => {
+  const isAuthTokens = useSelector(authTokensSelector);
   return (
     <>
       <StyledHeader>
@@ -29,20 +32,25 @@ export const Header = () => {
             iconLeftSide={iconLocation}
             className={'location-styles'}
           />
+          {isAuthTokens && (
+            <ButtonWithIcons
+              text={'Профіль'}
+              iconLeftSide={iconProfile}
+              iconRightSide={iconDown}
+              className={'profile-styles'}
+            />
+          )}
 
-          <ButtonWithIcons
-            text={'Профіль'}
-            iconLeftSide={iconProfile}
-            iconRightSide={iconDown}
-            className={'profile-styles'}
-          />
           <StyledButtonAddAnnouncement>Додати оголошення</StyledButtonAddAnnouncement>
         </ContainerTopSide>
-        <AuthorizationSection>
-          <ButtonAuth text={'Увійти'} />
-          <StyledText>або</StyledText>
-          <ButtonAuth text={'Зареєструватися'} />
-        </AuthorizationSection>
+
+        {!isAuthTokens && (
+          <AuthorizationSection>
+            <ButtonAuth text={'Увійти'} />
+            <StyledText>або</StyledText>
+            <ButtonAuth text={'Зареєструватися'} />
+          </AuthorizationSection>
+        )}
       </StyledHeader>
 
       <AuthForm />
