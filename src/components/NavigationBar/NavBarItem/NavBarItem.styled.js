@@ -1,5 +1,27 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { NavLink } from 'react-router-dom';
+
+const changeColor = keyframes`
+    from {
+        fill: var(--color-primary);
+        color: var(--color-primary);
+    }
+    to {
+        fill: var(--color-primary-active);
+        color: var(--color-primary-active);
+    }
+`;
+
+const revertColor = keyframes`
+  from {
+      fill: var(--color-primary-active);
+      color: var(--color-primary-active);
+  }
+  to {
+    fill: var(--color-primary);
+    color: var(--color-primary);
+  }
+`;
 
 export const StyledNavLink = styled(NavLink)`
   display: flex;
@@ -9,13 +31,16 @@ export const StyledNavLink = styled(NavLink)`
   border-radius: 50%;
 
   &.active {
-    fill: var(--color-primary-active);
-    color: var(--color-primary-active);
+    fill: var(--color-primary-active) !important;
+    color: var(--color-primary-active) !important;
   }
 
-  &:hover .active {
-    fill: var(--color-primary-active);
-    color: var(--color-primary-active);
+  &:hover {
+    animation: ${changeColor} 300ms linear forwards;
+  }
+
+  &:not(:hover) {
+    animation: ${revertColor} 300ms linear forwards;
   }
 `;
 

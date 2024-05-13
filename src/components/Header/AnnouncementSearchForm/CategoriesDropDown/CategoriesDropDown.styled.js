@@ -2,9 +2,23 @@ import styled from 'styled-components';
 import { device } from '../../../../utils/index.js';
 
 export const StyledDropDownWrapper = styled.div`
-  display: none;
+  // Styles for CSSTransition
+  .dropdown-enter {
+    opacity: 0;
+  }
+  .dropdown-enter-active {
+    opacity: 1;
+    transition: opacity 300ms;
+  }
+  .dropdown-exit {
+    opacity: 1;
+  }
+  .dropdown-exit-active {
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+
   @media ${device.laptop} {
-    display: block;
     position: absolute;
     top: 42px;
     left: 0;

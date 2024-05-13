@@ -48,7 +48,11 @@ const AnnouncementSearchForm = () => {
         onClick={handleOpenDropDown}
         isOpenDropDown={isOpenDropDown}
       />
-      {isOpenDropDown && <CategoriesDropDown handleCategoryClick={handleCategoryClick} />}
+      {/*{isOpenDropDown && <CategoriesDropDown handleCategoryClick={handleCategoryClick} />}*/}
+      <CategoriesDropDown
+        handleCategoryClick={handleCategoryClick}
+        isOpenDropDown={isOpenDropDown}
+      />
       <StyledButtonSearch>Пошук</StyledButtonSearch>
     </StyledSearchForm>
   );

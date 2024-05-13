@@ -1,4 +1,7 @@
 import PropTypes from 'prop-types';
+import { CSSTransition } from 'react-transition-group';
+
+import { categories } from '../../../../constants';
 import {
   StyledCategories,
   StyledDropDown,
@@ -6,38 +9,37 @@ import {
   StyledListCategories,
   StyledTitleCategories,
 } from './CategoriesDropDown.styled.js';
+import { useRef } from 'react';
 
-const Categories = [
-  { categoryId: 'goods', categoryName: 'Одяг та аксесуари' },
-  { categoryId: 'gardening', categoryName: 'Садівництво' },
-  { categoryId: 'auto', categoryName: 'Авто та комплектуючі' },
-  { categoryId: 'households', categoryName: 'Побутова техніка' },
-  { categoryId: 'desktops', categoryName: 'Десктопи' },
-  { categoryId: 'sport', categoryName: 'Спорт та аксесуари' },
-  { categoryId: 'children', categoryName: 'Дитячі аксесуари' },
-  { categoryId: 'climate', categoryName: 'Кліматичне обладнання' },
-  { categoryId: 'estate', categoryName: 'Нерухомість' },
-  { categoryId: 'beauty', categoryName: 'Краса та здоров’я' },
-];
+const CategoriesDropDown = ({ handleCategoryClick, isOpenDropDown }) => {
+  const nodeRef = useRef(null);
 
-const CategoriesDropDown = ({ handleCategoryClick }) => {
   return (
     <StyledDropDownWrapper>
-      <StyledDropDown>
-        <StyledListCategories>
-          {Categories.map(({ categoryId, categoryName }) => (
-            <StyledCategories onClick={() => handleCategoryClick(categoryId)} key={categoryId}>
-              <StyledTitleCategories>{categoryName}</StyledTitleCategories>
-            </StyledCategories>
-          ))}
-        </StyledListCategories>
-      </StyledDropDown>
+      <CSSTransition
+        in={isOpenDropDown}
+        timeout={300}
+        classNames="dropdown"
+        unmountOnExit
+        nodeRef={nodeRef}
+      >
+        <StyledDropDown ref={nodeRef}>
+          <StyledListCategories>
+            {categories.map(({ categoryId, categoryName }) => (
+              <StyledCategories onClick={() => handleCategoryClick(categoryId)} key={categoryId}>
+                <StyledTitleCategories>{categoryName}</StyledTitleCategories>
+              </StyledCategories>
+            ))}
+          </StyledListCategories>
+        </StyledDropDown>
+      </CSSTransition>
     </StyledDropDownWrapper>
   );
 };
 
 CategoriesDropDown.propTypes = {
   handleCategoryClick: PropTypes.func.isRequired,
+  isOpenDropDown: PropTypes.bool.isRequired,
 };
 
 export default CategoriesDropDown;
