@@ -32,6 +32,8 @@
   --color-bg-nav-route1: #052a9ced;
   --color-bg-nav-route2: #0535c9e5;
   --color-bg-checkbox-active: #189633;
+  --color-text-card-product-price: #307052;
+  --color-container-card-product: #0000001a;
 
   /* Ruskevych */
   --color-primary: #000;
@@ -121,4 +123,11 @@ input {
   src:
     local('Gilroy-Regular'),
     url(./assets/fonts/Gilroy-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Gilroy-SemiBold';
+  src:
+    local('Gilroy-SemiBold'),
+    url(./assets/fonts/Gilroy-SemiBold.ttf) format('truetype');
 }

@@ -1,30 +1,44 @@
-// import HomeSlider from '../../components/Slide/Slide';
-// import SideBar from '../../components/SideBar/SideBar.jsx';
+import { useQuery, gql } from '@apollo/client';
 import styled from 'styled-components';
-
-// const ContentBlock = styled.div`
-//   width: 100%;
-//   // it's temporary height before we haven't any content on the page
-//   height: calc(100vh - 72px - 69px - 60px - 30px);
-// `;
+import { device } from '../../utils/index.js';
+import CardProduct from '../../components/CardProduct/CardProduct.jsx';
 
 const Container = styled.div`
-  display: flex;
-  height: 100px;
-  background-color: #8b8b8b;
+  max-width: 1240px;
+  margin: 58px 100px;
+
+  @media ${device.untilLaptop} {
+    margin: 30px 16px;
+  }
 `;
 
 const HomePage = () => {
+  const {
+    loading,
+    error,
+    data: { getAllAdvertisement } = { getAllAdvertisement: [] },
+  } = useQuery(
+    gql(`
+    query {
+      getAllAdvertisement {
+        name
+        price
+        location
+        images {
+          imageUrl
+        }
+      }
+    }
+  `)
+  );
+
   return (
     <Container>
-      <p>Home Page</p>
-
-      {/*/!* Sidebar is based on the left side on the page *!/*/}
-      {/*<SideBar />*/}
-      {/*/!* Inside content block will be all other content on the right side of page *!/*/}
-      {/*<ContentBlock>*/}
-      {/*  <HomeSlider />*/}
-      {/*</ContentBlock>*/}
+      {loading && <p>Loading...</p>}
+      {getAllAdvertisement.map(({ images, name, location, price }) => (
+        <CardProduct key={name} images={images} name={name} location={location} price={price} />
+      ))}
+      {error && <p>Виникла помилка: {error}</p>}
     </Container>
   );
 };
