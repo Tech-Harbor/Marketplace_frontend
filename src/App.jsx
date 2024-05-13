@@ -45,7 +45,8 @@ const App = () => {
       <Route path="/" element={<MainLayout />}>
         <Route index element={<HomePage />} />
         <Route path="category/:name" element={<ProductsPage />} />
-        <Route path="/home" element={<HomePage />} />
+
+        {/* Для цих роутів тимчасово визначено element={<HomePage />}*/}
         <Route path="/favorite" element={<HomePage />} />
         <Route path="/add" element={<HomePage />} />
         <Route path="/chat" element={<HomePage />} />

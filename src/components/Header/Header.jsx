@@ -17,6 +17,7 @@ import ButtonAuth from './ButtonAuth/ButtonAuth.jsx';
 import AuthForm from '../AuthForm/AuthForm.jsx';
 import { useSelector } from 'react-redux';
 import { authTokensSelector } from '../../redux/auth';
+import { Link } from 'react-router-dom';
 
 export const Header = () => {
   const isAuthTokens = useSelector(authTokensSelector);
@@ -24,7 +25,9 @@ export const Header = () => {
     <>
       <StyledHeader>
         <ContainerTopSide>
-          <StyledIconLogo />
+          <Link to={'/'}>
+            <StyledIconLogo />
+          </Link>
           <AnnouncementSearchForm />
 
           <ButtonWithIcons
