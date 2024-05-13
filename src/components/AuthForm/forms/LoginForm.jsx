@@ -3,15 +3,18 @@ import { useForm } from 'react-hook-form';
 
 import { loginUserThunk } from '../../../redux/auth';
 import { checkPasswordOverPatterns } from '../../../utils';
-import { FIELDS_PATTERN, INITIAL_STATES, TYPE_FORM } from '../../../constants';
+import { FIELDS_PATTERN, TYPE_FORM } from '../../../constants';
 
 import { FormField, FormFieldPassword } from './fields';
 import { AuthTextLink } from '../AuthTextLink/AuthTextLink.jsx';
 import { CheckBoxRememberMe } from './CheckBoxRememberMe/CheckBoxRememberMe.jsx';
 import { StyledButton, StyledForm, StyledWrapperRememberMe } from './forms.styled.js';
+import { useNavigate } from 'react-router-dom';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -27,7 +30,8 @@ export const LoginForm = () => {
 
   const handleSubmitForm = async data => {
     await dispatch(loginUserThunk(data));
-    reset(INITIAL_STATES.LOGIN);
+    navigate('');
+    reset();
   };
 
   return (

@@ -18,22 +18,23 @@ const App = () => {
   const [searchParams] = useSearchParams();
   const { sendRegistrationToken } = useActivateUser();
 
-  const reg_token = searchParams.get('reg_token');
-  const chp_token = searchParams.get('chp_token');
+  const regtoken = searchParams.get('regtoken');
+  const chptoken = searchParams.get('chptoken');
 
   useEffect(() => {
-    if (reg_token) {
-      sendRegistrationToken(reg_token);
-      searchParams.delete('reg_token');
+    if (regtoken) {
+      console.log('regtoken');
+      sendRegistrationToken(regtoken);
+      searchParams.delete('regtoken');
       searchParams.set('auth_modal', 'true');
       navigate(location.pathname + '?' + searchParams.toString(), { replace: true });
       dispatch(showTypeForm(TYPE_FORM.LOGIN));
     }
 
-    if (chp_token) {
-      dispatch(setResetPasswordToken(chp_token));
+    if (chptoken) {
+      dispatch(setResetPasswordToken(chptoken));
       dispatch(showTypeForm(TYPE_FORM.RESET_PSW));
-      searchParams.delete('chp_token');
+      searchParams.delete('chptoken');
       searchParams.set('auth_modal', 'true');
       navigate(location.pathname + '?' + searchParams.toString(), { replace: true });
     }

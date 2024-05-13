@@ -49,12 +49,16 @@ export const StyledButtonAddAnnouncement = styled.button`
 
 // BOTTOM SECTION
 export const AuthorizationSection = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: none;
 
-  height: 46px;
-  background-color: #1b1e23f2;
+  @media ${device.laptop} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 46px;
+    background-color: #1b1e23f2;
+  }
 `;
 
 export const StyledText = styled.p`
