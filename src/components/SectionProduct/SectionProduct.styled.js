@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { device } from '../../utils/index.js';
 
-export const CategoryContainer = styled.li`
+export const CategoryContainer = styled.div`
   width: 100%;
   margin-bottom: 26px;
 

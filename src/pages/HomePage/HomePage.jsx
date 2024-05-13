@@ -5,16 +5,15 @@ import { REQUESTS_FOR_PRODUCT_DATA } from '../../constants/requests.js';
 
 const HomePage = () => {
   return (
-    <div>
+    <>
+      <Advertising />
+
       <Categories />
-      {REQUESTS_FOR_PRODUCT_DATA.map(({ id, title, request }) => {
-        return title ? (
-          <SectionProduct key={id} request={request} title={title} />
-        ) : (
-          <Advertising key={id} />
-        );
-      })}
-    </div>
+
+      <SectionProduct request={REQUESTS_FOR_PRODUCT_DATA[0]} title="Найновіші" />
+
+      <SectionProduct request={REQUESTS_FOR_PRODUCT_DATA[1]} title="VIP оголошення" />
+    </>
   );
 };
 

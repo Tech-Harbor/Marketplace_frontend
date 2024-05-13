@@ -5,30 +5,30 @@ export const Categories = () => {
   const {
     loading,
     error,
-    data: { getAllAdvertisement } = { getAllAdvertisement: [] },
+    data: { getAllCategory } = { getAllCategory: [] },
   } = useQuery(
     gql(`
-    query {
-      getAllAdvertisement {
-        name
-        images {
-          imageUrl
-        }
-      }
+      query {
+    getAllCategory {
+        categoryName
+        image
     }
-  `)
+}
+    `)
   );
 
   return (
     <CategoryContainer>
       {loading && <p>Loading...</p>}
 
-      {!!getAllAdvertisement.length &&
+      {!loading && !getAllCategory.length && <p>Немає категорій, вийди розбійник</p>}
+
+      {!!getAllCategory.length &&
         Array.from({ length: 9 }).map((_, index) => (
           <Category key={index}>
-            <Image src={getAllAdvertisement[0].images[0].imageUrl} />
+            <Image src={getAllCategory[0].image} />
 
-            <Text>{getAllAdvertisement[0].name}</Text>
+            <Text>{getAllCategory[0].categoryName}</Text>
           </Category>
         ))}
 

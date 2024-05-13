@@ -5,11 +5,15 @@ import { device } from '../../utils/index.js';
 import { Header } from '../Header/Header.jsx';
 import { Footer } from '../Footer/Footer.jsx';
 
-const Main = styled.main`
+const Wrapper = styled.div`
   width: 100%;
-  padding: 0 16px;
   display: flex;
   justify-content: center;
+`;
+
+const Main = styled.main`
+  max-width: 1440px;
+  padding: 0 16px;
 
   @media ${device.laptop} {
     padding: 0 100px;
@@ -21,9 +25,11 @@ const MainLayout = () => {
     <>
       <Header />
 
-      <Main>
-        <Outlet />
-      </Main>
+      <Wrapper>
+        <Main>
+          <Outlet />
+        </Main>
+      </Wrapper>
 
       <Footer />
     </>

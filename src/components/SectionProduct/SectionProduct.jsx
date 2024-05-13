@@ -17,7 +17,7 @@ export const SectionProduct = ({ title, request }) => {
       <CardContainer>
         {loading && <p>Loading...</p>}
 
-        {!loading && !getAllAdvertisement.length && <p>Данних немає</p>}
+        {!loading && !getAllAdvertisement.length && <p>Немає оголошень, вийди розбійник</p>}
 
         {!!getAllAdvertisement.length &&
           Array.from({ length: 10 }).map((_, index) => (
