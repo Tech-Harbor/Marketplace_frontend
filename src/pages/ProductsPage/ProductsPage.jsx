@@ -1,5 +1,5 @@
 import Loader from '../../components/Loader/Loader.jsx';
-import ProductCardList from '../../components/ProductCardList/ProductCardList.jsx';
+// import ProductCardList from '../../components/ProductCardList/ProductCardList.jsx';
 
 import useGetData from '../../hooks/useGetData.js';
 
@@ -14,7 +14,7 @@ const ProductsPage = () => {
       <div className={s.productListPage_productCard}>
         {!data && <Loader />}
 
-        {data && <ProductCardList data={data} />}
+        {/*{data && <ProductCardList data={data} />}*/}
       </div>
     </div>
   );
