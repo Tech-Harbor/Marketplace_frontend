@@ -57,6 +57,12 @@
   --color-bg-form_input: #dadada;
   --color-bg-form_btn-disable: #9e9eb2;
   /*border: 1px solid #8B8B8B4D*/
+
+  /*When opening the modal, the scrollbar disappears, causing a 'shift' effect of the content on the screen.
+  Therefore, the scrollbar was removed using next code:*/
+  ::-webkit-scrollbar {
+    width: 0;
+  }
 }
 
 body {
