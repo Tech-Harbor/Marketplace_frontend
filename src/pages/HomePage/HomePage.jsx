@@ -35,11 +35,9 @@ const HomePage = () => {
   return (
     <Container>
       {loading && <p>Loading...</p>}
-
       {getAllAdvertisement.map(({ images, name, location, price }) => (
         <CardProduct key={name} images={images} name={name} location={location} price={price} />
       ))}
-
       {error && <p>Виникла помилка: {error}</p>}
     </Container>
   );

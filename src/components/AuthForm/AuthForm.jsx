@@ -14,7 +14,7 @@ import { Login, Registration, RequestEmail, ResetPassword } from './typeForms';
 import {
   StyledCloseButton,
   StyledContentWrapper,
-  StyledIconProfile,
+  // StyledIconProfile,
   StyledModal,
 } from './AuthForm.styled.js';
 
@@ -23,20 +23,17 @@ const modalLink = document.getElementById('modal-root');
 
 const AuthForm = () => {
   const dispatch = useDispatch();
-  const typeForm = useSelector(typeFormSelector);
-  const resetPasswordToken = useSelector(resetPasswordTokenSelector);
-
   const navigate = useNavigate();
   const location = useLocation();
-  const getAuthModal = new URLSearchParams(location.search).get('auth_modal');
-  const getJwt = new URLSearchParams(location.search).get('jwt');
 
-  const isShowModal = getAuthModal || getJwt;
+  const typeForm = useSelector(typeFormSelector);
+  const resetPasswordToken = useSelector(resetPasswordTokenSelector);
+  const isShowModal = new URLSearchParams(location.search).get('auth_modal');
 
   const openModal = () => {
     bodyLink.style.overflow = 'hidden';
 
-    if (isShowModal && !resetPasswordToken) {
+    if (isShowModal && !resetPasswordToken && !typeForm) {
       dispatch(showTypeForm(TYPE_FORM.LOGIN));
     }
     window.addEventListener('keydown', handleCloseByKeyPress);
@@ -81,9 +78,9 @@ const AuthForm = () => {
     }
   };
 
-  const openModalByAddQueryParam = () => {
-    navigate('?auth_modal=true'); // 'navigate' adds a url param to open modal
-  };
+  // const openModalByAddQueryParam = () => {
+  //   navigate('?auth_modal=true'); // 'navigate' adds a url param to open modal
+  // };
 
   /* modal will be open if url param has the "auth_modal=true" property */
   useEffect(() => {
@@ -94,7 +91,7 @@ const AuthForm = () => {
 
   return (
     <>
-      <StyledIconProfile onClick={openModalByAddQueryParam} />
+      {/*<StyledIconProfile onClick={openModalByAddQueryParam} />*/}
 
       {isShowModal
         ? createPortal(
