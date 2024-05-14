@@ -1,6 +1,6 @@
 import { FOOTER_TEXT_LIST } from './TextDropDownMenu.js';
 import { FooterList } from './FooterList/FooterList.jsx';
-import Oranger from '../../assets/svg/Oranger.svg?react';
+import Oranger from '../../assets/svg/icon-logo.svg?react';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';

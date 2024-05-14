@@ -1,52 +1,65 @@
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
+import { authTokensSelector } from '../../redux/auth';
+
+import AnnouncementSearchForm from './AnnouncementSearchForm/AnnouncementSearchForm.jsx';
+import ButtonWithIcons from './AnnouncementSearchForm/ButtonWithDropdownSection/ButtonWithIcons.jsx';
+import ButtonAuth from './ButtonAuth/ButtonAuth.jsx';
 import AuthForm from '../AuthForm/AuthForm.jsx';
 
+import IconProfile from '../../assets/svg/icon-profile.svg?react';
+import IconDown from '../../assets/svg/icon-profile-down.svg?react';
+import IconLocation from '../../assets/svg/icon-location.svg?react';
+
 import {
+  ContainerTopSide,
+  StyledButtonAddAnnouncement,
   StyledHeader,
-  StyledIcon,
   StyledIconLogo,
-  StyledIconMenu,
-  StyledIconShipping,
-  StyledMenuButton,
-  StyledSearchInput,
-  StyledTitle,
-  StyledWrapperButton,
+  AuthorizationSection,
+  StyledText,
 } from './Header.styled.js';
-import { StyledFlexDiv } from '../AuthForm/typeForms/typeForms.styled.js';
-// import SelectLang from "../SelectLang/SelectLang.jsx";
 
 export const Header = () => {
+  const isAuthTokens = useSelector(authTokensSelector);
   return (
-    <StyledHeader>
-      {/* LEFT SIDE */}
-      <NavLink to={'/'} className="link-logo">
-        <StyledIconLogo />
-        <StyledTitle>TechHaven</StyledTitle>
-      </NavLink>
+    <>
+      <StyledHeader>
+        <ContainerTopSide>
+          <Link to={'/'}>
+            <StyledIconLogo />
+          </Link>
+          <AnnouncementSearchForm />
 
-      {/* RIGHT SIDE */}
-      <StyledFlexDiv $direction="row">
-        {/* SEARCH BAR */}
-        <StyledFlexDiv className="icon-position search-input">
-          <StyledSearchInput />
-          <StyledWrapperButton>
-            <StyledIcon />
-          </StyledWrapperButton>
-        </StyledFlexDiv>
-        {/* Language button */}
-        <div style={{ marginLeft: '24px', height: '23px', width: '70px', backgroundColor: '#fff' }}>
-          UA
-        </div>
-        {/* ICONS */}
-        <StyledIconShipping />
+          <ButtonWithIcons
+            text={'Вибрати локацію'}
+            iconLeftSide={IconLocation}
+            className={'location-styles'}
+          />
 
-        <AuthForm />
+          {isAuthTokens && (
+            <ButtonWithIcons
+              text={'Профіль'}
+              iconLeftSide={IconProfile}
+              iconRightSide={IconDown}
+              className={'profile-styles'}
+            />
+          )}
 
-        {/* MOBILE MENU */}
-        <StyledMenuButton>
-          <StyledIconMenu />
-        </StyledMenuButton>
-      </StyledFlexDiv>
-    </StyledHeader>
+          <StyledButtonAddAnnouncement>Додати оголошення</StyledButtonAddAnnouncement>
+        </ContainerTopSide>
+
+        {!isAuthTokens && (
+          <AuthorizationSection>
+            <ButtonAuth text={'Увійти'} />
+            <StyledText>або</StyledText>
+            <ButtonAuth text={'Зареєструватися'} />
+          </AuthorizationSection>
+        )}
+      </StyledHeader>
+
+      <AuthForm />
+    </>
   );
 };

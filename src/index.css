@@ -38,21 +38,24 @@
   /* Ruskevych */
   --color-primary: #000;
   --color-primary-active: #ff8a00;
-  --color-btn-disabled: #808080bf;
   --color-secondary: #fff;
+
+  --color-btn-disabled: #808080bf;
   --color-icon-primary: #000000db;
   --color-icon-secondary: #8b8b8b;
   --color-label: #1b1e24;
   --color-border-input: #00000080;
   --color-error-input: #f74a4f;
-  --color-bg-form: #fff;
-  --color-bg-form_input: #dadada;
-  --color-bg-form_btn-disable: #9e9eb2;
   --color-auth-separator: #8b8b8b4d;
   --color-auth-separator_text: #000000a6;
   --color-button-border-google: #515567;
   --color-button-text-google: #515567;
 
+  --color-bg-primary: #1b1e24;
+  --color-bg-input-primary: #ecedef;
+  --color-bg-form: #fff;
+  --color-bg-form_input: #dadada;
+  --color-bg-form_btn-disable: #9e9eb2;
   /*border: 1px solid #8B8B8B4D*/
 }
 
@@ -98,6 +101,12 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+input {
+  padding: 0;
+  margin: 0;
+  outline: none;
 }
 
 /* Gilroy fonts*/
