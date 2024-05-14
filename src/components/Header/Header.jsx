@@ -1,9 +1,16 @@
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
+import { authTokensSelector } from '../../redux/auth';
+
 import AnnouncementSearchForm from './AnnouncementSearchForm/AnnouncementSearchForm.jsx';
 import ButtonWithIcons from './AnnouncementSearchForm/ButtonWithDropdownSection/ButtonWithIcons.jsx';
+import ButtonAuth from './ButtonAuth/ButtonAuth.jsx';
+import AuthForm from '../AuthForm/AuthForm.jsx';
 
-import iconProfile from '../../assets/svg/icon-profile.svg';
-import iconDown from '../../assets/svg/icon-profile-down.svg';
-import iconLocation from '../../assets/svg/icon-location.svg';
+import IconProfile from '../../assets/svg/icon-profile.svg?react';
+import IconDown from '../../assets/svg/icon-profile-down.svg?react';
+import IconLocation from '../../assets/svg/icon-location.svg?react';
 
 import {
   ContainerTopSide,
@@ -13,11 +20,6 @@ import {
   AuthorizationSection,
   StyledText,
 } from './Header.styled.js';
-import ButtonAuth from './ButtonAuth/ButtonAuth.jsx';
-import AuthForm from '../AuthForm/AuthForm.jsx';
-import { useSelector } from 'react-redux';
-import { authTokensSelector } from '../../redux/auth';
-import { Link } from 'react-router-dom';
 
 export const Header = () => {
   const isAuthTokens = useSelector(authTokensSelector);
@@ -32,14 +34,15 @@ export const Header = () => {
 
           <ButtonWithIcons
             text={'Вибрати локацію'}
-            iconLeftSide={iconLocation}
+            iconLeftSide={IconLocation}
             className={'location-styles'}
           />
+
           {isAuthTokens && (
             <ButtonWithIcons
               text={'Профіль'}
-              iconLeftSide={iconProfile}
-              iconRightSide={iconDown}
+              iconLeftSide={IconProfile}
+              iconRightSide={IconDown}
               className={'profile-styles'}
             />
           )}

@@ -6,7 +6,6 @@ import { setResetPasswordToken, showTypeForm } from './redux/auth';
 import { useActivateUser } from './hooks';
 import { TYPE_FORM } from './constants';
 
-// import HomePage from './pages/HomePage/HomePage.jsx';
 import ProductsPage from './pages/ProductsPage/ProductsPage.jsx';
 import MainLayout from './components/MainLayout/MainLayout.jsx';
 import HomePage from './pages/HomePage/HomePage.jsx';

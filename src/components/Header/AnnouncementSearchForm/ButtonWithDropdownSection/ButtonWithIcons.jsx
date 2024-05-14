@@ -3,19 +3,19 @@ import { StyledButtonSection, StyledIconWrapper } from './ButtonWithIcons.styled
 
 const ButtonWithIcons = ({
   text,
-  iconLeftSide,
-  iconRightSide,
+  iconLeftSide: IconLeftSide,
+  iconRightSide: IconRightSide,
   className,
   onClick,
   isOpenDropDown,
 }) => {
   return (
     <StyledButtonSection className={className} onClick={onClick}>
-      <img src={iconLeftSide} alt={`icon-for-${text}`} />
+      <IconLeftSide />
       {text}
-      {iconRightSide && (
+      {IconRightSide && (
         <StyledIconWrapper $isOpenDropDown={isOpenDropDown}>
-          <img src={iconRightSide} alt={`icon-for-${text}`} />
+          <IconRightSide />
         </StyledIconWrapper>
       )}
     </StyledButtonSection>
@@ -24,8 +24,8 @@ const ButtonWithIcons = ({
 
 ButtonWithIcons.propTypes = {
   text: PropTypes.string.isRequired,
-  iconLeftSide: PropTypes.any.isRequired, // TODO нічого крім any не працює, пошукай інші варіанти
-  iconRightSide: PropTypes.any,
+  iconLeftSide: PropTypes.elementType.isRequired,
+  iconRightSide: PropTypes.elementType,
   className: PropTypes.string,
   onClick: PropTypes.func,
   isOpenDropDown: PropTypes.bool,

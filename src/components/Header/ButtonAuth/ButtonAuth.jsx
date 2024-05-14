@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
-import { StyledButton } from './ButtonAuth.styled.js';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { showTypeForm } from '../../../redux/auth/index.js';
-import { TYPE_FORM } from '../../../constants/index.js';
+import { showTypeForm } from '../../../redux/auth';
+import { TYPE_FORM } from '../../../constants';
+import { StyledButton } from './ButtonAuth.styled.js';
 
 const ButtonAuth = ({ text }) => {
   const navigate = useNavigate();

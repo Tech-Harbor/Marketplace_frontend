@@ -1,10 +1,11 @@
 import { TYPE_FORM } from '../../../constants';
-import iconGoogle from '../../../assets/svg/icon-google.svg';
 
 import { LoginForm } from '../forms';
 import { AuthTextLink } from '../AuthTextLink/AuthTextLink.jsx';
 import LinkExternalAuth from './LinkExternalAuth/LinkExternalAuth.jsx';
 import Separator from './Separator/Separator.jsx';
+
+import { StyledSeparator } from './Separator/Separator.styled.js';
 import {
   StyledText,
   StyledTitle,
@@ -12,7 +13,6 @@ import {
   StyledWrapperLeftPart,
   StyledWrapperRightPart,
 } from './typeForms.styled.js';
-import { StyledSeparator } from './Separator/Separator.styled.js';
 
 export const Login = () => {
   return (
@@ -38,18 +38,12 @@ export const Login = () => {
           <LinkExternalAuth
             href={'https://api.oranger.store/oauth2/authorization/google'}
             linkText={'Продовжити через Google'}
-            icon={iconGoogle}
             className={'hidden-tablet'}
           />
 
           {/* TODO: це варіант кнопки Google для tablet */}
           <StyledText>Продовжити через</StyledText>
-          <LinkExternalAuth
-            href={'/'}
-            linkText={'Google'}
-            icon={iconGoogle}
-            className={'hidden-mobile'}
-          />
+          <LinkExternalAuth href={'/'} linkText={'Google'} className={'hidden-mobile'} />
         </StyledWrapperRightPart>
       </StyledWrapper>
     </>

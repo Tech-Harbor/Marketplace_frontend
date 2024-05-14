@@ -3,9 +3,9 @@ import { useForm } from 'react-hook-form';
 import ButtonWithIcons from './ButtonWithDropdownSection/ButtonWithIcons.jsx';
 
 import CategoriesDropDown from './CategoriesDropDown/CategoriesDropDown.jsx';
-import iconSectionsClose from '../../../assets/svg/icon-sections-close.svg';
-import iconSectionsOpen from '../../../assets/svg/icon-sections-open.svg';
-import iconSectionsDown from '../../../assets/svg/icon-sections-down.svg';
+import IconSectionsClose from '../../../assets/svg/icon-sections-close.svg?react';
+import IconSectionsOpen from '../../../assets/svg/icon-sections-open.svg?react';
+import IconSectionsDown from '../../../assets/svg/icon-sections-down.svg?react';
 
 import {
   StyledButtonSearch,
@@ -43,12 +43,11 @@ const AnnouncementSearchForm = () => {
       />
       <ButtonWithIcons
         text={'Розділи'}
-        iconLeftSide={isOpenDropDown ? iconSectionsOpen : iconSectionsClose}
-        iconRightSide={iconSectionsDown}
+        iconLeftSide={isOpenDropDown ? IconSectionsOpen : IconSectionsClose}
+        iconRightSide={IconSectionsDown}
         onClick={handleOpenDropDown}
         isOpenDropDown={isOpenDropDown}
       />
-      {/*{isOpenDropDown && <CategoriesDropDown handleCategoryClick={handleCategoryClick} />}*/}
       <CategoriesDropDown
         handleCategoryClick={handleCategoryClick}
         isOpenDropDown={isOpenDropDown}

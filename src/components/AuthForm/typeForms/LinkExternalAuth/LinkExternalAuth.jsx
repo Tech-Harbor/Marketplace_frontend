@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 import { useGoogleLogin } from '@react-oauth/google';
+import IconGoogle from '../../../../assets/svg/icon-google.svg?react';
 
 import { useApi } from '../../../../hooks';
-import { StyledIcon, StyledLink } from './LinkExternalAuth.styled.js';
+import { StyledLink } from './LinkExternalAuth.styled.js';
 
-const LinkExternalAuth = ({ href, linkText, icon, className }) => {
+const LinkExternalAuth = ({ href, linkText, className }) => {
   const { sendData } = useApi();
   const handleGoogleLogin = useGoogleLogin({
     onSuccess: codeResponse => {
@@ -19,7 +20,7 @@ const LinkExternalAuth = ({ href, linkText, icon, className }) => {
   return (
     <>
       <StyledLink href={href} onClick={handleGoogleLogin} className={className}>
-        <StyledIcon src={icon} alt={linkText} />
+        <IconGoogle />
         {linkText}
       </StyledLink>
     </>
@@ -29,7 +30,7 @@ const LinkExternalAuth = ({ href, linkText, icon, className }) => {
 LinkExternalAuth.propTypes = {
   href: PropTypes.string.isRequired,
   linkText: PropTypes.string.isRequired,
-  icon: PropTypes.object /* !TODO: That's not the string ... */,
+  IconGoogle: PropTypes.elementType,
   className: PropTypes.string,
 };
 
