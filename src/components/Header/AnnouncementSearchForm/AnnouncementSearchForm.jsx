@@ -17,8 +17,7 @@ import {
 const AnnouncementSearchForm = () => {
   const { register, handleSubmit, setValue, reset } = useForm();
   const [isOpenDropDown, setIsOpenDropDown] = useState(false);
-  const handleFromSubmit = data => {
-    console.log('send data', data);
+  const handleFromSubmit = () => {
     reset();
   };
 
