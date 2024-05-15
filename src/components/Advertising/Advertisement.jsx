@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { device } from '../../utils/index.js';
-import advertising from '../../assets/imges/advertising.jpg';
+import advertising from '../../assets/imges/Advertisement.jpg';
 
 const ContainerImage = styled.div`
   width: 100%;
@@ -13,8 +13,8 @@ const ContainerImage = styled.div`
   }
 `;
 
-const AdvertisingImage = styled.img.attrs({
-  alt: 'AdvertisingImage',
+const AdvertisementImage = styled.img.attrs({
+  alt: 'AdvertisementImage',
   src: advertising,
 })`
   width: 100%;
@@ -22,10 +22,10 @@ const AdvertisingImage = styled.img.attrs({
   object-fit: fill;
 `;
 
-export const Advertising = () => {
+export const Advertisement = () => {
   return (
     <ContainerImage>
-      <AdvertisingImage />
+      <AdvertisementImage />
     </ContainerImage>
   );
 };

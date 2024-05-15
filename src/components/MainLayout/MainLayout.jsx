@@ -6,7 +6,7 @@ import { Header } from '../Header/Header.jsx';
 import { Footer } from '../Footer/Footer.jsx';
 import NavigationBar from '../NavigationBar/NavigationBar.jsx';
 import { FakeBoxForNavBar } from './MainLayout.styled.js';
-import { Advertising } from '../Advertising/Advertising.jsx';
+import { Advertisement } from '../Advertising/Advertisement.jsx';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -30,7 +30,7 @@ const MainLayout = () => {
       <NavigationBar />
 
       <Wrapper>
-        <Advertising />
+        <Advertisement />
         <Main>
           <Outlet />
         </Main>
