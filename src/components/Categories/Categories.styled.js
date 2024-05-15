@@ -4,7 +4,6 @@ import { device } from '../../utils/index.js';
 export const CategoryContainer = styled.ul`
   width: 100%;
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
   gap: 18px 29px;
   margin: 16px auto 29px;
