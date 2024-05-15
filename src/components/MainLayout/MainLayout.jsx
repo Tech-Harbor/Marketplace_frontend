@@ -4,6 +4,8 @@ import { device } from '../../utils/index.js';
 
 import { Header } from '../Header/Header.jsx';
 import { Footer } from '../Footer/Footer.jsx';
+import NavigationBar from '../NavigationBar/NavigationBar.jsx';
+import { FakeBoxForNavBar } from './MainLayout.styled.js';
 import { Advertising } from '../Advertising/Advertising.jsx';
 
 const Wrapper = styled.div`
@@ -21,9 +23,13 @@ const Main = styled.main`
 `;
 
 const MainLayout = () => {
+  // const { data } = useGetData('products');
+
   return (
     <>
       <Header />
+
+      <NavigationBar />
 
       <Wrapper>
         <Advertising />
@@ -33,6 +39,8 @@ const MainLayout = () => {
       </Wrapper>
 
       <Footer />
+
+      <FakeBoxForNavBar />
     </>
   );
 };

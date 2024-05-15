@@ -6,9 +6,9 @@ import { setResetPasswordToken, showTypeForm } from './redux/auth';
 import { useActivateUser } from './hooks';
 import { TYPE_FORM } from './constants';
 
-import HomePage from './pages/HomePage/HomePage.jsx';
 import ProductsPage from './pages/ProductsPage/ProductsPage.jsx';
 import MainLayout from './components/MainLayout/MainLayout.jsx';
+import HomePage from './pages/HomePage/HomePage.jsx';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -17,22 +17,23 @@ const App = () => {
   const [searchParams] = useSearchParams();
   const { sendRegistrationToken } = useActivateUser();
 
-  const reg_token = searchParams.get('reg_token');
-  const chp_token = searchParams.get('chp_token');
+  const regtoken = searchParams.get('regtoken');
+  const chptoken = searchParams.get('chptoken');
 
   useEffect(() => {
-    if (reg_token) {
-      sendRegistrationToken(reg_token);
-      searchParams.delete('reg_token');
+    if (regtoken) {
+      console.log('regtoken');
+      sendRegistrationToken(regtoken);
+      searchParams.delete('regtoken');
       searchParams.set('auth_modal', 'true');
       navigate(location.pathname + '?' + searchParams.toString(), { replace: true });
       dispatch(showTypeForm(TYPE_FORM.LOGIN));
     }
 
-    if (chp_token) {
-      dispatch(setResetPasswordToken(chp_token));
+    if (chptoken) {
+      dispatch(setResetPasswordToken(chptoken));
       dispatch(showTypeForm(TYPE_FORM.RESET_PSW));
-      searchParams.delete('chp_token');
+      searchParams.delete('chptoken');
       searchParams.set('auth_modal', 'true');
       navigate(location.pathname + '?' + searchParams.toString(), { replace: true });
     }
@@ -43,6 +44,12 @@ const App = () => {
       <Route path="/" element={<MainLayout />}>
         <Route index element={<HomePage />} />
         <Route path="category/:name" element={<ProductsPage />} />
+
+        {/* Для цих роутів тимчасово визначено element={<HomePage />}*/}
+        <Route path="/favorite" element={<HomePage />} />
+        <Route path="/add" element={<HomePage />} />
+        <Route path="/chat" element={<HomePage />} />
+        <Route path="/profile" element={<HomePage />} />
       </Route>
     </Routes>
   );

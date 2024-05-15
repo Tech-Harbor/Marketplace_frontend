@@ -1,9 +1,9 @@
 import { TYPE_FORM } from '../../../constants';
-import iconGoogle from '../../../assets/svg/icon-google.svg';
 
 import { RegistrationForm } from '../forms';
 import { AuthTextLink } from '../AuthTextLink/AuthTextLink.jsx';
 import LinkExternalAuth from './LinkExternalAuth/LinkExternalAuth.jsx';
+import { StyledSeparator } from './Separator/Separator.styled.js';
 import {
   StyledText,
   StyledTitle,
@@ -11,7 +11,6 @@ import {
   StyledWrapperLeftPart,
   StyledWrapperRightPart,
 } from './typeForms.styled.js';
-import { StyledSeparator } from './Separator/Separator.styled.js';
 
 export const Registration = () => {
   return (
@@ -30,9 +29,8 @@ export const Registration = () => {
         <StyledWrapperRightPart>
           <StyledText>Продовжити через</StyledText>
           <LinkExternalAuth
-            href={'/'}
+            href={'https://api.oranger.store/oauth2/authorization/google'}
             linkText={'Google'}
-            icon={iconGoogle}
             className={'hidden-mobile'}
           />
         </StyledWrapperRightPart>
