@@ -18,23 +18,29 @@ const CardProduct = ({ images, name, location, price }) => {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <CardContainer to="/">
-      <Image src={images[0].imageUrl} />
+    <li>
+      <CardContainer to="/">
+        <Image src={images[0].imageUrl} />
 
-      <DataContainer>
-        <Title>{name}</Title>
+        <DataContainer>
+          <Title>{name}</Title>
 
-        <Location>{location}</Location>
+          <Location>{location}</Location>
 
-        <BottomContainer>
-          <Price>{price} грн</Price>
+          <BottomContainer>
+            <Price>{price} грн</Price>
 
-          <i onClick={() => setToggle(!toggle)}>
-            {toggle ? <FavoriteIcon sx={customStyles} /> : <FavoriteBorderIcon sx={customStyles} />}
-          </i>
-        </BottomContainer>
-      </DataContainer>
-    </CardContainer>
+            <i onClick={() => setToggle(!toggle)}>
+              {toggle ? (
+                <FavoriteIcon sx={customStyles} />
+              ) : (
+                <FavoriteBorderIcon sx={customStyles} />
+              )}
+            </i>
+          </BottomContainer>
+        </DataContainer>
+      </CardContainer>
+    </li>
   );
 };
 
