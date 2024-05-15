@@ -23,8 +23,6 @@ const Main = styled.main`
 `;
 
 const MainLayout = () => {
-  // const { data } = useGetData('products');
-
   return (
     <>
       <Header />
