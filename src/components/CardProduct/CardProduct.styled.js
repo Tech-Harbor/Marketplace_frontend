@@ -46,7 +46,7 @@ export const DataContainer = styled.div`
   padding: 0 12px 16px 12px;
 
   @media ${device.untilLaptop} {
-    padding: 0 9px 12px 9px;
+    padding: 0 9px 12px;
   }
 `;
 
