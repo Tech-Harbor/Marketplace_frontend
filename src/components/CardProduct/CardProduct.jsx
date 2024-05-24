@@ -20,7 +20,7 @@ const CardProduct = ({ images, name, location, price }) => {
   return (
     <li>
       <CardContainer to="/">
-        <Image src={images[0].imageUrl} />
+        <Image src={images[0]?.imageUrl} />
 
         <DataContainer>
           <Title>{name}</Title>

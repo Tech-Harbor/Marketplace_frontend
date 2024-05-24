@@ -7,8 +7,17 @@ export const SectionProduct = ({ title, request }) => {
   const {
     loading,
     error,
-    data: { getAllAdvertisement } = { getAllAdvertisement: [] },
+    data: { getAllAdvertisement: dataCardProduct } = { getAllAdvertisement: [] },
   } = useQuery(gql(request));
+
+  const cardProductList = [];
+  for (let i = 1; i <= 10; i++) {
+    const [{ images = [], name = '', location = '', price = 0 } = {}] = dataCardProduct;
+
+    cardProductList.push(
+      <CardProduct key={i} images={images} price={price} name={name} location={location} />
+    );
+  }
 
   return (
     <CategoryContainer>
@@ -17,20 +26,11 @@ export const SectionProduct = ({ title, request }) => {
       <CardContainer>
         {loading && <p>Loading...</p>}
 
-        {!loading && !getAllAdvertisement.length && <p>Немає оголошень, вийди розбійник</p>}
+        {!loading && !dataCardProduct.length && <p>Немає оголошень, вийди розбійник</p>}
 
-        {!!getAllAdvertisement.length &&
-          Array.from({ length: 10 }).map((_, index) => (
-            <CardProduct
-              key={index}
-              images={getAllAdvertisement[0].images}
-              name={getAllAdvertisement[0].name}
-              location={getAllAdvertisement[0].location}
-              price={getAllAdvertisement[0].price}
-            />
-          ))}
+        {!loading && !!dataCardProduct.length && cardProductList}
 
-        {error && <p>Виникла помилка: {error}</p>}
+        {error && <p>Виникла помилка: {error?.message}</p>}
       </CardContainer>
     </CategoryContainer>
   );
