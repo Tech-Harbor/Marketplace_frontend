@@ -1,5 +1,5 @@
 import NavBarItem from './NavBarItem/NavBarItem.jsx';
-import { SPRITE } from '../../constants/index.js';
+import { SPRITE } from '../../constants';
 import { StyledNavBarList } from './NavigationBar.styled.js';
 
 const NavigationBar = () => {

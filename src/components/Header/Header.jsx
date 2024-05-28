@@ -14,12 +14,12 @@ import IconLocation from '../../assets/svg/icon-location.svg?react';
 
 import {
   ContainerTopSide,
-  StyledButtonAddAnnouncement,
   StyledHeader,
   StyledIconLogo,
   AuthorizationSection,
   StyledText,
 } from './Header.styled.js';
+import LinkTo from './LinkTo/LinkTo.jsx';
 
 export const Header = () => {
   const isAuthTokens = useSelector(authTokensSelector);
@@ -47,7 +47,7 @@ export const Header = () => {
             />
           )}
 
-          <StyledButtonAddAnnouncement>Додати оголошення</StyledButtonAddAnnouncement>
+          <LinkTo to={'/announcement'} linkText={'Додати оголошення'} />
         </ContainerTopSide>
 
         {!isAuthTokens && (

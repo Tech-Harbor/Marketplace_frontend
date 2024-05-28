@@ -34,19 +34,6 @@ export const StyledIconLogo = styled.img.attrs({
   }
 `;
 
-export const StyledButtonAddAnnouncement = styled.button`
-  display: none;
-
-  @media ${device.laptop} {
-    display: block;
-    width: 216px;
-    height: 42px;
-    border-radius: 8px;
-    background-color: var(--color-primary-active);
-    color: var(--color-secondary);
-  }
-`;
-
 // BOTTOM SECTION
 export const AuthorizationSection = styled.div`
   display: none;
