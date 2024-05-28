@@ -1,4 +1,4 @@
-import { forwardRef, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import PropTypes from 'prop-types';
 import UploadFileOutlinedIcon from '@mui/icons-material/UploadFileOutlined';
@@ -10,7 +10,7 @@ import {
   ThumbsContainer,
 } from './ImagesUploader.styled.js';
 
-const ImagesUploader = forwardRef(({ setValue, ...rest }, ref) => {
+const ImagesUploader = ({ setValue, validation, ...rest }) => {
   const [files, setFiles] = useState([]);
   const { getRootProps, getInputProps } = useDropzone({
     accept: {
@@ -52,19 +52,20 @@ const ImagesUploader = forwardRef(({ setValue, ...rest }, ref) => {
         {ImageList}
 
         <ImageCard {...getRootProps()}>
-          <input {...getInputProps()} {...rest} ref={ref} />
+          <input {...validation} {...getInputProps()} {...rest} />
           <UploadFileOutlinedIcon />
           <Text>Click to upload or drag and drop</Text>
         </ImageCard>
       </ThumbsContainer>
     </StyledSection>
   );
-});
-
-ImagesUploader.displayName = 'ImagesUploader'; // TODO рішення помилки: при виконанні "git commit" отримав наступну помилку "Component definition is missing display name  react/display-name"
+};
 
 ImagesUploader.propTypes = {
   setValue: PropTypes.func.isRequired,
+  validation: PropTypes.shape({
+    required: PropTypes.string,
+  }).isRequired,
 };
 
 export default ImagesUploader;

@@ -51,7 +51,7 @@ const AnnouncementForm = () => {
       />
 
       {/* TODO знайти як встановлювати required для ImagesUploader */}
-      <ImagesUploader {...register('images')} setValue={setValue} />
+      <ImagesUploader validation={register('images')} setValue={setValue} />
 
       <NegotiablePriceSection id="toggle" validation={register('negotiable')} />
       <Input
