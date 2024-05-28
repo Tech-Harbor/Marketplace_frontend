@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { device } from '../../utils/index.js';
-import advertising from '../../assets/imges/Advertisement.jpg';
+import advertising from '../../assets/images/Advertisement.jpg';
 
 const ContainerImage = styled.div`
   width: 100%;

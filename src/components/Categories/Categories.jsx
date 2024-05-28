@@ -24,8 +24,6 @@ export const Categories = () => {
       <Category key={i}>
         <Image src={image} />
 
-        {/*Виникла проблема коли виводить і ошибку і що немає даних!*/}
-
         <Text>{categoryName}</Text>
       </Category>
     );
