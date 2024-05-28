@@ -29,7 +29,7 @@ export const SectionProduct = ({ title, request }) => {
 
         {!loading && !!cardProductData.length && cardProductList}
 
-        {error && <p>Виникла помилка: {error?.message}</p>}
+        {error && <p>Виникла помилка: {error.message}</p>}
       </CardContainer>
     </CategoryContainer>
   );
