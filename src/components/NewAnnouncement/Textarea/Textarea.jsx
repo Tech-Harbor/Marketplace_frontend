@@ -1,23 +1,23 @@
-import { forwardRef, useId } from 'react';
-import { TextareaWrapper, StyledLabel, StyledTextarea } from './Textarea.styled.js';
+import { useId } from 'react';
 import PropTypes from 'prop-types';
+import { TextareaWrapper, StyledLabel, StyledTextarea } from './Textarea.styled.js';
 
-const Textarea = forwardRef(({ label, className, ...rest }, ref) => {
+const Textarea = ({ label, validation, ...rest }) => {
   const id = useId();
 
   return (
-    <TextareaWrapper className={className}>
+    <TextareaWrapper {...rest}>
       <StyledLabel htmlFor={id}>{label}</StyledLabel>
-      <StyledTextarea {...rest} id={id} ref={ref} />
+      <StyledTextarea id={id} {...validation} {...rest} />
     </TextareaWrapper>
   );
-});
-
-Textarea.displayName = 'Textarea'; // TODO рішення помилки: при виконанні "git commit" отримав наступну помилку "Component definition is missing display name  react/display-name"
+};
 
 Textarea.propTypes = {
   label: PropTypes.string.isRequired,
-  className: PropTypes.string,
+  validation: PropTypes.shape({
+    required: PropTypes.string,
+  }).isRequired,
 };
 
 export default Textarea;

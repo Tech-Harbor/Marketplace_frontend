@@ -15,14 +15,14 @@ export const StyledText = styled.span`
   letter-spacing: -1px;
 `;
 
-export const Input = styled.input`
+export const StyledInput = styled.input`
   height: 0;
   width: 0;
   opacity: 0;
   z-index: -1;
 `;
 
-export const Label = styled.label`
+export const StyledLabel = styled.label`
   position: relative;
   display: inline-block;
   font-size: 6px;
@@ -30,14 +30,14 @@ export const Label = styled.label`
   width: 6em;
   height: 3.4em;
 
-  ${Input} {
+  ${StyledInput} {
     opacity: 0;
     width: 0;
     height: 0;
   }
 `;
 
-export const Slider = styled.span`
+export const StyledToggleSwitch = styled.span`
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -62,11 +62,11 @@ export const Slider = styled.span`
     transition: 0.4s;
   }
 
-  ${Input}:checked + & {
+  ${StyledInput}:checked + & {
     background-color: var(--color-primary-active);
   }
 
-  ${Input}:checked + &::before {
+  ${StyledInput}:checked + &::before {
     transform: translateX(2.6em);
   }
 `;

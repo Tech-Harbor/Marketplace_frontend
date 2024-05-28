@@ -1,23 +1,23 @@
-import { forwardRef, useId } from 'react';
-import { InputWrapper, StyledInput, StyledLabel } from './Input.styled.js';
+import { useId } from 'react';
 import PropTypes from 'prop-types';
+import { InputWrapper, StyledInput, StyledLabel } from './Input.styled.js';
 
-const Input = forwardRef(({ label, className, ...rest }, ref) => {
+const Input = ({ label, validation, ...rest }) => {
   const id = useId();
 
   return (
-    <InputWrapper className={className}>
+    <InputWrapper {...rest}>
       <StyledLabel htmlFor={id}>{label}</StyledLabel>
-      <StyledInput {...rest} id={id} ref={ref} />
+      <StyledInput id={id} {...validation} {...rest} />
     </InputWrapper>
   );
-});
-
-Input.displayName = 'Input'; // TODO рішення помилки: при виконанні "git commit" отримав наступну помилку "Component definition is missing display name  react/display-name"
+};
 
 Input.propTypes = {
   label: PropTypes.string.isRequired,
-  className: PropTypes.string,
+  validation: PropTypes.shape({
+    required: PropTypes.string,
+  }).isRequired,
 };
 
 export default Input;

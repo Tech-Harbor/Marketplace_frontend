@@ -5,7 +5,7 @@ import Input from '../Input/Input.jsx';
 import Textarea from '../Textarea/Textarea.jsx';
 import Select from '../Select/Select.jsx';
 import ButtonSubmitForm from '../ButtonSubmitForm/ButtonSubmitForm.jsx';
-import ToggleSwitch from '../ToggleSwitch/ToggleSwitch.jsx';
+import NegotiablePriceSection from '../NegotiablePriceSection/NegotiablePriceSection.jsx';
 import ImagesUploader from '../ImagesUploader/ImagesUploader.jsx';
 
 import { StyledForm } from './AnnouncementForm.styled.js';
@@ -41,24 +41,29 @@ const AnnouncementForm = () => {
     <StyledForm onSubmit={handleSubmit(handleOnSubmitForm)}>
       <Input
         label={'Назва'}
-        {...register('name', { required: true })}
+        validation={register('name', { required: true })}
         placeholder={'Наприклад, iPhone 12 Pro Max 512GB'}
-        className={'announcement-name'}
+        className={'announcement-name pl'}
       />
-      <Textarea label={'Опис:'} {...register('descriptionAdvertisement', { required: true })} />
+      <Textarea
+        label={'Опис:'}
+        validation={register('descriptionAdvertisement', { required: true })}
+      />
 
       {/* TODO знайти як встановлювати required для ImagesUploader */}
       <ImagesUploader {...register('images')} setValue={setValue} />
 
-      <ToggleSwitch id="toggle" {...register('negotiable')} />
+      <NegotiablePriceSection id="toggle" validation={register('negotiable')} />
       <Input
         label={'Ціна:'}
         type={'number'}
-        {...register('price', { required: true, valueAsNumber: true })}
+        validation={register('price', { required: true, valueAsNumber: true })}
         className={'announcement-price'}
       />
-      <Select label={'Розташування'} {...register('location', { required: true })} />
+      <Select label={'Розташування'} validation={register('location', { required: true })} />
       <ButtonSubmitForm type="submit" title={'Опублікувати оголошення'} />
+
+      {/* TODO запитати, як має працювати кнопка "Додати пізніше" */}
       <ButtonSubmitForm type="button" title={'Додати пізніше'} className={'btn__add-later'} />
     </StyledForm>
   );

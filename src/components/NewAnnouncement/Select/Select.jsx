@@ -1,13 +1,12 @@
-import { forwardRef } from 'react';
 import { CITIES } from '../../../constants';
-import { SelectWrapper, StyledLabel, StyledSelect } from './Select.styled.js';
 import PropTypes from 'prop-types';
+import { SelectWrapper, StyledLabel, StyledSelect } from './Select.styled.js';
 
-const Select = forwardRef(({ label, ...rest }, ref) => {
+const Select = ({ label, validation, ...rest }) => {
   return (
     <SelectWrapper>
       <StyledLabel htmlFor="custom-select">{label}</StyledLabel>
-      <StyledSelect {...rest} ref={ref}>
+      <StyledSelect {...validation} {...rest}>
         {CITIES.map((item, index) => (
           <option key={index} value={item.value}>
             {item.label}
@@ -16,12 +15,13 @@ const Select = forwardRef(({ label, ...rest }, ref) => {
       </StyledSelect>
     </SelectWrapper>
   );
-});
-
-Select.displayName = 'Select'; // TODO рішення помилки: при виконанні "git commit" отримав наступну помилку "Component definition is missing display name  react/display-name"
+};
 
 Select.propTypes = {
   label: PropTypes.string.isRequired,
+  validation: PropTypes.shape({
+    required: PropTypes.string,
+  }).isRequired,
 };
 
 export default Select;
