@@ -28,17 +28,23 @@ export const CardContainer = styled(Link)`
   }
 `;
 
-export const Image = styled.img`
+export const ImageContainer = styled.div`
   width: 100%;
   height: 152px;
-  text-align: center;
-  object-fit: scale-down;
   margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  text-align: center;
 
   @media ${device.untilLaptop} {
     height: 131px;
     margin-bottom: 5px;
   }
+`;
+
+export const Image = styled.img`
+  width: 100%;
+  object-fit: scale-down;
 `;
 
 export const DataContainer = styled.div`

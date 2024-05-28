@@ -1,5 +1,5 @@
 import { useQuery, gql } from '@apollo/client';
-import { CategoryContainer, Category, Image, Text } from './Categories.styled.js';
+import { CategoryContainer, Category, ImageContainer, Image, Text } from './Categories.styled.js';
 
 export const Categories = () => {
   const {
@@ -9,11 +9,11 @@ export const Categories = () => {
   } = useQuery(
     gql(`
       query {
-    getAllCategory {
-        categoryName
-        image
-    }
-}
+        getAllCategory {
+          categoryName
+          image
+        }
+      }
     `)
   );
 
@@ -22,9 +22,9 @@ export const Categories = () => {
   for (let i = 1; i <= 10; i++) {
     categoryList.push(
       <Category key={i}>
-        <Image src={image} />
-
-        {/*Виникла проблема коли виводить і ошибку і що немає даних!*/}
+        <ImageContainer>
+          <Image src={image} alt={categoryName} />
+        </ImageContainer>
 
         <Text>{categoryName}</Text>
       </Category>

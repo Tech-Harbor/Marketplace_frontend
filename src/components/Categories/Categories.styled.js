@@ -18,6 +18,12 @@ export const Category = styled.li`
   text-align: center;
 `;
 
+export const ImageContainer = styled.div`
+  display: flex;
+  align-items: center;
+  text-align: center;
+`;
+
 export const Image = styled.img`
   border-radius: 50%;
 `;

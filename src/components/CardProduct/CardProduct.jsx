@@ -2,6 +2,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import {
   CardContainer,
+  ImageContainer,
   Image,
   DataContainer,
   Title,
@@ -20,7 +21,9 @@ const CardProduct = ({ images, name, location, price }) => {
   return (
     <li>
       <CardContainer to="/">
-        <Image src={images[0]?.imageUrl} />
+        <ImageContainer>
+          <Image src={images[0]?.imageUrl} alt={name} />
+        </ImageContainer>
 
         <DataContainer>
           <Title>{name}</Title>
