@@ -5,7 +5,7 @@ export const Categories = () => {
   const {
     loading,
     error,
-    data: { getAllCategory: dataCategories } = { getAllCategory: [] },
+    data: { getAllCategory: categoriesData } = { getAllCategory: [] },
   } = useQuery(
     gql(`
       query {
@@ -18,12 +18,13 @@ export const Categories = () => {
   );
 
   const categoryList = [];
+  const [{ image = '', categoryName = '' } = {}] = categoriesData;
   for (let i = 1; i <= 10; i++) {
-    const [{ image = '', categoryName = '' } = {}] = dataCategories;
-
     categoryList.push(
       <Category key={i}>
         <Image src={image} />
+
+        {/*Виникла проблема коли виводить і ошибку і що немає даних!*/}
 
         <Text>{categoryName}</Text>
       </Category>
@@ -34,9 +35,9 @@ export const Categories = () => {
     <CategoryContainer>
       {loading && <p>Loading...</p>}
 
-      {!loading && !dataCategories.length && <p>Немає категорій, вийди розбійник</p>}
+      {!error && !loading && !categoriesData.length && <p>Немає категорій, вийди розбійник</p>}
 
-      {!loading && !!dataCategories.length && categoryList}
+      {!loading && !!categoriesData.length && categoryList}
 
       {error && <p>Виникла помилка: {error.message}</p>}
     </CategoryContainer>
