@@ -52,6 +52,7 @@ const AnnouncementSearchForm = () => {
         handleCategoryClick={handleCategoryClick}
         isOpenDropDown={isOpenDropDown}
       />
+
       <StyledButtonSearch>Пошук</StyledButtonSearch>
     </StyledSearchForm>
   );

@@ -18,8 +18,8 @@ import {
   StyledIconLogo,
   AuthorizationSection,
   StyledText,
+  StyledLink,
 } from './Header.styled.js';
-import LinkTo from './LinkTo/LinkTo.jsx';
 
 export const Header = () => {
   const isAuthTokens = useSelector(authTokensSelector);
@@ -47,7 +47,7 @@ export const Header = () => {
             />
           )}
 
-          <LinkTo to={'/announcement'} linkText={'Додати оголошення'} />
+          <StyledLink to={'/announcement'}>{'Додати оголошення'}</StyledLink>
         </ContainerTopSide>
 
         {!isAuthTokens && (

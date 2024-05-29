@@ -9,10 +9,8 @@ const NewAnnouncement = () => {
         <StyledLink to={'/'}>
           <NavigateBeforeIcon />
         </StyledLink>
-
         <StyledTitle>Додати оголошення</StyledTitle>
       </TitleSection>
-
       <AnnouncementForm />
     </Container>
   );

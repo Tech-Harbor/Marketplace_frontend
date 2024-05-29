@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { device } from '../../utils';
 import iconLogo from '../../assets/svg/icon-logo.svg';
@@ -55,4 +56,23 @@ export const StyledText = styled.p`
   font-weight: 400;
   line-height: 24px;
   color: #fff;
+`;
+
+export const StyledLink = styled(Link)`
+  display: none;
+
+  @media ${device.laptop} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 216px;
+    height: 42px;
+    border-radius: 8px;
+    background-color: var(--color-primary-active);
+    color: var(--color-secondary);
+    font-family: Gilroy-Medium, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+  }
 `;

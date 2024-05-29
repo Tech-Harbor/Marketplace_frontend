@@ -4,11 +4,10 @@ import { nanoid } from '@reduxjs/toolkit';
 import Input from '../Input/Input.jsx';
 import Textarea from '../Textarea/Textarea.jsx';
 import Select from '../Select/Select.jsx';
-import ButtonSubmitForm from '../ButtonSubmitForm/ButtonSubmitForm.jsx';
 import NegotiablePriceSection from '../NegotiablePriceSection/NegotiablePriceSection.jsx';
 import ImagesUploader from '../ImagesUploader/ImagesUploader.jsx';
 
-import { StyledForm } from './AnnouncementForm.styled.js';
+import { StyledButton, StyledForm } from './AnnouncementForm.styled.js';
 
 const AnnouncementForm = () => {
   const { register, handleSubmit, setValue } = useForm();
@@ -61,10 +60,14 @@ const AnnouncementForm = () => {
         className={'announcement-price'}
       />
       <Select label={'Розташування'} validation={register('location', { required: true })} />
-      <ButtonSubmitForm type="submit" title={'Опублікувати оголошення'} />
+      {/*<Select label={'Розділи'} validation={register('categories', { required: true })} />*/}
+
+      <StyledButton type="submit">{'Опублікувати оголошення'}</StyledButton>
 
       {/* TODO запитати, як має працювати кнопка "Додати пізніше" */}
-      <ButtonSubmitForm type="button" title={'Додати пізніше'} className={'btn__add-later'} />
+      <StyledButton type="button" className={'btn__add-later'}>
+        {'Додати пізніше'}
+      </StyledButton>
     </StyledForm>
   );
 };
