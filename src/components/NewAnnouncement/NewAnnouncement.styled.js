@@ -15,7 +15,8 @@ export const Container = styled.div`
 export const TitleSection = styled.div`
   display: flex;
   align-items: center;
-  padding: 15px;
+  margin-bottom: 20px;
+  //padding: 15px;
   border-bottom: 1px solid var(--color-border-primary);
 `;
 

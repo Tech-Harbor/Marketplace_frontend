@@ -6,15 +6,15 @@ import { Header } from '../Header/Header.jsx';
 import { Footer } from '../Footer/Footer.jsx';
 import NavigationBar from '../NavigationBar/NavigationBar.jsx';
 import { FakeBoxForNavBar } from './MainLayout.styled.js';
-// import { Advertisement } from '../Advertising/Advertisement.jsx';
+import { Advertisement } from '../Advertising/Advertisement.jsx';
 
-// const Wrapper = styled.div`
-//   width: 100%;
-// `;
+const Wrapper = styled.div`
+  width: 100%;
+`;
 
 const Main = styled.main`
   max-width: 1440px;
-  //padding: 0 16px; TODO Назар, цей паддінг необхідно прибрати. Те що попадає в main необхідно окремо обгортати container, якому і надавати паддінги
+  padding: 0 16px;
   margin: 0 auto;
 
   @media ${device.laptop} {
@@ -27,12 +27,12 @@ const MainLayout = () => {
     <>
       <Header />
 
-      {/*<Wrapper>*/}
-      {/*<Advertisement />*/}
-      <Main>
-        <Outlet />
-      </Main>
-      {/*</Wrapper>*/}
+      <Wrapper>
+        <Advertisement />
+        <Main>
+          <Outlet />
+        </Main>
+      </Wrapper>
 
       <Footer />
 
