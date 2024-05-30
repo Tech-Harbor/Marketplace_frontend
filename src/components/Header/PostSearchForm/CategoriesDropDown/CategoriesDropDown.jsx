@@ -25,9 +25,9 @@ const CategoriesDropDown = ({ handleCategoryClick, isOpenDropDown }) => {
       >
         <StyledDropDown ref={nodeRef}>
           <StyledListCategories>
-            {categories.map(({ categoryId, categoryName }) => (
-              <StyledCategories onClick={() => handleCategoryClick(categoryId)} key={categoryId}>
-                <StyledTitleCategories>{categoryName}</StyledTitleCategories>
+            {categories.map(({ itemId, itemName }) => (
+              <StyledCategories onClick={() => handleCategoryClick(itemId)} key={itemId}>
+                <StyledTitleCategories>{itemName}</StyledTitleCategories>
               </StyledCategories>
             ))}
           </StyledListCategories>

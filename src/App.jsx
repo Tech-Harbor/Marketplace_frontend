@@ -9,7 +9,7 @@ import { TYPE_FORM } from './constants';
 import ProductsPage from './pages/ProductsPage/ProductsPage.jsx';
 import MainLayout from './components/MainLayout/MainLayout.jsx';
 import HomePage from './pages/HomePage/HomePage.jsx';
-import NewAnnouncement from './components/NewAnnouncement/NewAnnouncement.jsx';
+import NewPost from './components/NewPost/NewPost.jsx';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -47,7 +47,7 @@ const App = () => {
         <Route path="category/:name" element={<ProductsPage />} />
 
         {/* Для цих роутів тимчасово визначено element={<HomePage />}*/}
-        <Route path="/announcement" element={<NewAnnouncement />} />
+        <Route path="/announcement" element={<NewPost />} />
         <Route path="/favorite" element={<HomePage />} />
         <Route path="/chat" element={<HomePage />} />
         <Route path="/profile" element={<HomePage />} />

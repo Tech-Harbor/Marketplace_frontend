@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 import { device } from '../../utils';
 
 export const Container = styled.div`
@@ -16,7 +16,7 @@ export const TitleSection = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 20px;
-  //padding: 15px;
+  padding: 15px 0;
   border-bottom: 1px solid var(--color-border-primary);
 `;
 

@@ -46,7 +46,6 @@ export const StyledToggleSwitch = styled.span`
   bottom: 0;
   background-color: #ccc;
   border-radius: 3.4em;
-
   transition: 0.4s;
 
   &::before {
@@ -58,7 +57,6 @@ export const StyledToggleSwitch = styled.span`
     bottom: 0.4em;
     background-color: white;
     border-radius: 50%;
-
     transition: 0.4s;
   }
 

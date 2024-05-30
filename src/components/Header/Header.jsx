@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux';
 
 import { authTokensSelector } from '../../redux/auth';
 
-import AnnouncementSearchForm from './AnnouncementSearchForm/AnnouncementSearchForm.jsx';
-import ButtonWithIcons from './AnnouncementSearchForm/ButtonWithDropdownSection/ButtonWithIcons.jsx';
+import PostSearchForm from './PostSearchForm/PostSearchForm.jsx';
+import ButtonWithIcons from './PostSearchForm/ButtonWithDropdownSection/ButtonWithIcons.jsx';
 import ButtonAuth from './ButtonAuth/ButtonAuth.jsx';
 import AuthForm from '../AuthForm/AuthForm.jsx';
 
@@ -30,7 +30,7 @@ export const Header = () => {
           <Link to={'/'}>
             <StyledIconLogo />
           </Link>
-          <AnnouncementSearchForm />
+          <PostSearchForm />
 
           <ButtonWithIcons
             text={'Вибрати локацію'}

@@ -8,11 +8,9 @@ export const StyledForm = styled.form`
 export const StyledButton = styled.button`
   width: 100%;
   height: 36px;
-
   border-radius: 8px;
   color: var(--color-secondary);
   background-color: var(--color-primary-active);
-
   font-family: Gilroy-Medium, sans-serif;
   font-size: 16px;
   font-weight: 500;

@@ -1,15 +1,15 @@
-import { CITIES } from '../../../constants';
 import PropTypes from 'prop-types';
 import { SelectWrapper, StyledLabel, StyledSelect } from './Select.styled.js';
 
-const Select = ({ label, validation, ...rest }) => {
+const Select = ({ label, validation, array, ...rest }) => {
   return (
     <SelectWrapper>
       <StyledLabel htmlFor="custom-select">{label}</StyledLabel>
-      <StyledSelect {...validation} {...rest}>
-        {CITIES.map((item, index) => (
-          <option key={index} value={item.value}>
-            {item.label}
+      <StyledSelect defaultValue="" {...validation} {...rest}>
+        <option value="">Select</option>
+        {array.map(({ itemId, itemName }) => (
+          <option key={itemId} value={itemId}>
+            {itemName}
           </option>
         ))}
       </StyledSelect>
@@ -19,6 +19,7 @@ const Select = ({ label, validation, ...rest }) => {
 
 Select.propTypes = {
   label: PropTypes.string.isRequired,
+  array: PropTypes.array.isRequired,
   validation: PropTypes.shape({
     required: PropTypes.string,
   }).isRequired,

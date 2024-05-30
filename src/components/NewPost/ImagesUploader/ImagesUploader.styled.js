@@ -22,13 +22,10 @@ export const ImageCard = styled.div`
   justify-content: center;
   width: 100px;
   height: 100px;
-
   border-radius: 8px;
   box-sizing: border-box;
-
   cursor: pointer;
   overflow: hidden;
-
   box-shadow:
     rgba(50, 50, 93, 0.25) 0 0 10px inset,
     rgba(50, 50, 93, 0.25) 0 0 10px inset;
@@ -45,7 +42,6 @@ export const Text = styled.span`
 
 export const StyledLabel = styled.label`
   margin-bottom: 8px;
-
   font-family: Gilroy-Regular, sans-serif;
   font-size: 15px;
   font-weight: 400;

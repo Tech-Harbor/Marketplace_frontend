@@ -12,9 +12,9 @@ import {
   StyledIconSearch,
   StyledSearchForm,
   StyledSearchInput,
-} from './AnnouncementSearchForm.styled.js';
+} from './PostSearchForm.styled.js';
 
-const AnnouncementSearchForm = () => {
+const PostSearchForm = () => {
   const { register, handleSubmit, setValue, reset } = useForm();
   const [isOpenDropDown, setIsOpenDropDown] = useState(false);
   const handleFromSubmit = data => {
@@ -58,4 +58,4 @@ const AnnouncementSearchForm = () => {
   );
 };
 
-export default AnnouncementSearchForm;
+export default PostSearchForm;

@@ -7,9 +7,10 @@ import Select from '../Select/Select.jsx';
 import NegotiablePriceSection from '../NegotiablePriceSection/NegotiablePriceSection.jsx';
 import ImagesUploader from '../ImagesUploader/ImagesUploader.jsx';
 
-import { StyledButton, StyledForm } from './AnnouncementForm.styled.js';
+import { categories, cities } from '../../../constants';
+import { StyledButton, StyledForm } from './PostForm.styled.js';
 
-const AnnouncementForm = () => {
+const PostForm = () => {
   const { register, handleSubmit, setValue } = useForm();
 
   const handleOnSubmitForm = data => {
@@ -42,25 +43,33 @@ const AnnouncementForm = () => {
         label={'Назва'}
         validation={register('name', { required: true })}
         placeholder={'Наприклад, iPhone 12 Pro Max 512GB'}
-        className={'announcement-name pl'}
+        className={'input-name'}
       />
-      <Textarea
-        label={'Опис:'}
-        validation={register('descriptionAdvertisement', { required: true })}
-      />
+
+      <Textarea label={'Опис:'} validation={register('description', { required: true })} />
 
       {/* TODO знайти як встановлювати required для ImagesUploader */}
       <ImagesUploader validation={register('images')} setValue={setValue} />
 
       <NegotiablePriceSection id="toggle" validation={register('negotiable')} />
+
       <Input
         label={'Ціна:'}
         type={'number'}
         validation={register('price', { required: true, valueAsNumber: true })}
-        className={'announcement-price'}
+        className={'input-price'}
       />
-      <Select label={'Розташування'} validation={register('location', { required: true })} />
-      {/*<Select label={'Розділи'} validation={register('categories', { required: true })} />*/}
+
+      <Select
+        label={'Розташування'}
+        array={cities}
+        validation={register('location', { required: true })}
+      />
+      <Select
+        label={'Розділи'}
+        array={categories}
+        validation={register('categories', { required: true })}
+      />
 
       <StyledButton type="submit">{'Опублікувати оголошення'}</StyledButton>
 
@@ -72,4 +81,4 @@ const AnnouncementForm = () => {
   );
 };
 
-export default AnnouncementForm;
+export default PostForm;

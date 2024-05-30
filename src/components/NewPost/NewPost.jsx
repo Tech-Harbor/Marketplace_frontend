@@ -1,8 +1,8 @@
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
-import AnnouncementForm from './AnnouncementForm/AnnouncementForm.jsx';
-import { Container, StyledLink, StyledTitle, TitleSection } from './NewAnnouncement.styled.js';
+import PostForm from './PostForm/PostForm.jsx';
+import { Container, StyledLink, StyledTitle, TitleSection } from './NewPost.styled.js';
 
-const NewAnnouncement = () => {
+const NewPost = () => {
   return (
     <Container>
       <TitleSection>
@@ -11,9 +11,9 @@ const NewAnnouncement = () => {
         </StyledLink>
         <StyledTitle>Додати оголошення</StyledTitle>
       </TitleSection>
-      <AnnouncementForm />
+      <PostForm />
     </Container>
   );
 };
 
-export default NewAnnouncement;
+export default NewPost;
