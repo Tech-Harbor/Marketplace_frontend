@@ -1,11 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-
-import { iconCustomStyles } from './IconCustomStyles.js';
-
 import {
   CardContainer,
   ImageContainer,
@@ -14,6 +9,8 @@ import {
   Location,
   BottomContainer,
   Price,
+  FollowOn,
+  FollowTurn,
 } from './CardProduct.styled.js';
 
 const CardProduct = ({ image, name, location, price }) => {
@@ -35,11 +32,7 @@ const CardProduct = ({ image, name, location, price }) => {
             <Price>{price} грн</Price>
 
             <button onClick={() => setToggle(!toggle)}>
-              {toggle ? (
-                <FavoriteIcon sx={iconCustomStyles} />
-              ) : (
-                <FavoriteBorderIcon sx={iconCustomStyles} />
-              )}
+              {toggle ? <FollowOn /> : <FollowTurn />}
             </button>
           </BottomContainer>
         </DataContainer>

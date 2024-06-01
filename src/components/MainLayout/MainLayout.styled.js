@@ -6,9 +6,9 @@ export const Wrapper = styled.div`
 `;
 
 export const Main = styled.main`
-  max-width: 1440px;
-  padding: 0 16px;
   margin: 0 auto;
+  padding: 0 16px;
+  max-width: 1440px;
 
   @media ${device.laptop} {
     padding: 0 100px;
@@ -16,8 +16,8 @@ export const Main = styled.main`
 `;
 
 export const FakeBoxForNavBar = styled.div`
-  background-color: red;
   height: 56px;
+  background-color: red;
 
   @media ${device.laptop} {
     display: none;

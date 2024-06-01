@@ -1,17 +1,10 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import { device } from '../../utils';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
-const fontStyles = `
-font-size: 12px;
-  line-height: 14px;
- 
-  @media ${device.untilLaptop} {
-    font-size: 10px;
-    line-height: 12px;
-  }
-`;
+import { device } from '../../utils';
 
 // TODO: Ще не вирішили, чи картка товара буде мати статичну вишину, чи динамічну;
 export const CardContainer = styled(Link)`
@@ -19,8 +12,8 @@ export const CardContainer = styled(Link)`
   width: 204px;
   height: 256px;
   border-radius: 8px;
-  box-shadow: 0 0 5px 0 var(--color-container-card-product);
   font-family: Gilroy-SemiBold, sans-serif;
+  box-shadow: 0 0 5px 0 var(--color-container-card-product);
 
   @media ${device.untilLaptop} {
     width: 155px;
@@ -29,23 +22,23 @@ export const CardContainer = styled(Link)`
 `;
 
 export const ImageContainer = styled.div`
-  width: 100%;
-  height: 152px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   margin-bottom: 15px;
+  width: 100%;
+  height: 152px;
 
   @media ${device.untilLaptop} {
-    height: 131px;
     margin-bottom: 5px;
+    height: 131px;
   }
 `;
 
 export const DataContainer = styled.div`
-  width: 100%;
   padding: 0 12px 16px 12px;
+  width: 100%;
 
   @media ${device.untilLaptop} {
     padding: 0 9px 12px;
@@ -54,25 +47,34 @@ export const DataContainer = styled.div`
 
 // TODO: Ще не вирішили, чи додавати три крапки в кінці першого рядка, чи переносити на другий, і аж тоді додавати;
 export const Title = styled.span`
-  ${fontStyles};
   display: block;
-  white-space: nowrap;
   overflow: hidden;
+  white-space: nowrap;
   text-overflow: ellipsis;
   margin-bottom: 7px;
+  font-family: Gilroy-Medium, sans-serif;
+  font-size: 12px;
+  line-height: 14px;
 
   @media ${device.untilLaptop} {
-    font-family: Gilroy-Medium, sans-serif;
     margin-bottom: 5px;
+    font-size: 10px;
+    line-height: 12px;
   }
 `;
 
 export const Location = styled.span`
-  font-family: Gilroy-Medium, sans-serif;
-  ${fontStyles};
-  color: var(--color-border-input);
   display: block;
   margin-bottom: 15px;
+  font-family: Gilroy-Medium, sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--color-border-input);
+
+  @media ${device.untilLaptop} {
+    font-size: 10px;
+    line-height: 12px;
+  }
 `;
 
 export const BottomContainer = styled.div`
@@ -82,11 +84,18 @@ export const BottomContainer = styled.div`
 
 // TODO: Ще не вирішили, що робити, коли ціна за велика, і руйнує макет;
 export const Price = styled.div`
+  font-family: Gilroy-Medium, sans-serif;
   font-size: 16px;
   line-height: 19px;
   color: var(--color-text-card-product-price);
+`;
 
-  @media ${device.untilLaptop} {
-    font-family: Gilroy-Medium, sans-serif;
-  }
+export const FollowOn = styled(FavoriteIcon)`
+  font-size: 20px;
+  color: var(--color-primary-active);
+`;
+
+export const FollowTurn = styled(FavoriteBorderIcon)`
+  font-size: 20px;
+  color: var(--color-primary-active);
 `;

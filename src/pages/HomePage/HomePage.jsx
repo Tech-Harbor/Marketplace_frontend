@@ -1,4 +1,4 @@
-import { REQUESTS_FOR_PRODUCT_DATA } from '../../constants/index.js';
+import { REQUESTS_FOR_PRODUCT_DATA } from '../../constants';
 
 import { Categories } from '../../components/Categories/Categories.jsx';
 import { SectionProduct } from '../../components/SectionProduct/SectionProduct.jsx';
