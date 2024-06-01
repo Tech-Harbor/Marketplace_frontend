@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { device } from '../../utils/index.js';
 
 export const CategoryContainer = styled.ul`
@@ -16,16 +17,18 @@ export const CategoryContainer = styled.ul`
 export const Category = styled.li`
   width: 90px;
   text-align: center;
+  display: block;
 `;
 
 export const ImageContainer = styled.div`
+  height: 90px;
+  border-radius: 50%;
+  font-size: 10px;
   display: flex;
   align-items: center;
-  text-align: center;
-`;
-
-export const Image = styled.img`
-  border-radius: 50%;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 8px;
 `;
 
 export const Text = styled.span`

@@ -1,5 +1,8 @@
 import { useQuery, gql } from '@apollo/client';
-import { CategoryContainer, Category, ImageContainer, Image, Text } from './Categories.styled.js';
+
+import { categories } from '../../constants';
+
+import { CategoryContainer, Category, ImageContainer, Text } from './Categories.styled.js';
 
 export const Categories = () => {
   const {
@@ -10,26 +13,15 @@ export const Categories = () => {
     gql(`
       query {
         getAllCategory {
-          categoryName
+          name
           image
         }
       }
     `)
   );
 
-  const categoryList = [];
-  const [{ image = '', categoryName = '' } = {}] = categoriesData;
-  for (let i = 1; i <= 10; i++) {
-    categoryList.push(
-      <Category key={i}>
-        <ImageContainer>
-          <Image src={image} alt={categoryName} />
-        </ImageContainer>
-
-        <Text>{categoryName}</Text>
-      </Category>
-    );
-  }
+  // TODO: Це тимчасово, поки бекенд не буде повертати досить даних, для їх використання
+  console.log(categoriesData);
 
   return (
     <CategoryContainer>
@@ -37,7 +29,17 @@ export const Categories = () => {
 
       {!error && !loading && !categoriesData.length && <p>Немає категорій, вийди розбійник</p>}
 
-      {!loading && !!categoriesData.length && categoryList}
+      {!loading &&
+        !!categoriesData.length &&
+        categories.map(({ categoryId, categoryName, categoryImage }) => (
+          <Category key={categoryId}>
+            <ImageContainer>
+              <img src={categoryImage} alt={categoryName} />
+            </ImageContainer>
+
+            <Text>{categoryName}</Text>
+          </Category>
+        ))}
 
       {error && <p>Виникла помилка: {error.message}</p>}
     </CategoryContainer>

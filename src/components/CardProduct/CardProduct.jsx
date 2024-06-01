@@ -1,28 +1,29 @@
-import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useState } from 'react';
+
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+
+import { iconCustomStyles } from './IconCustomStyles.js';
+
 import {
   CardContainer,
   ImageContainer,
-  Image,
   DataContainer,
   Title,
   Location,
   BottomContainer,
   Price,
 } from './CardProduct.styled.js';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import FavoriteIcon from '@mui/icons-material/Favorite';
 
-const customStyles = { color: '#FF8A00', fontSize: 20 };
-
-const CardProduct = ({ images, name, location, price }) => {
+const CardProduct = ({ image, name, location, price }) => {
   const [toggle, setToggle] = useState(false);
 
   return (
     <li>
       <CardContainer to="/">
         <ImageContainer>
-          <Image src={images[0]?.imageUrl} alt={name} />
+          <img src={image} alt={name} />
         </ImageContainer>
 
         <DataContainer>
@@ -33,13 +34,13 @@ const CardProduct = ({ images, name, location, price }) => {
           <BottomContainer>
             <Price>{price} грн</Price>
 
-            <i onClick={() => setToggle(!toggle)}>
+            <button onClick={() => setToggle(!toggle)}>
               {toggle ? (
-                <FavoriteIcon sx={customStyles} />
+                <FavoriteIcon sx={iconCustomStyles} />
               ) : (
-                <FavoriteBorderIcon sx={customStyles} />
+                <FavoriteBorderIcon sx={iconCustomStyles} />
               )}
-            </i>
+            </button>
           </BottomContainer>
         </DataContainer>
       </CardContainer>
@@ -48,11 +49,7 @@ const CardProduct = ({ images, name, location, price }) => {
 };
 
 CardProduct.propTypes = {
-  images: PropTypes.arrayOf(
-    PropTypes.shape({
-      imageUrl: PropTypes.string.isRequired,
-    })
-  ).isRequired,
+  image: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,

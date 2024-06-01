@@ -1,12 +1,14 @@
+import testImage from '../assets/images/TestImage.png';
+
 export const categories = [
-  { categoryId: 'goods', categoryName: 'Одяг та аксесуари' },
-  { categoryId: 'gardening', categoryName: 'Садівництво' },
-  { categoryId: 'auto', categoryName: 'Авто та комплектуючі' },
-  { categoryId: 'households', categoryName: 'Побутова техніка' },
-  { categoryId: 'desktops', categoryName: 'Десктопи' },
-  { categoryId: 'sport', categoryName: 'Спорт та аксесуари' },
-  { categoryId: 'children', categoryName: 'Дитячі аксесуари' },
-  { categoryId: 'climate', categoryName: 'Кліматичне обладнання' },
-  { categoryId: 'estate', categoryName: 'Нерухомість' },
-  { categoryId: 'beauty', categoryName: 'Краса та здоров’я' },
+  { categoryId: 'goods', categoryName: 'Одяг та аксесуари', categoryImage: testImage },
+  { categoryId: 'gardening', categoryName: 'Садівництво', categoryImage: testImage },
+  { categoryId: 'auto', categoryName: 'Авто та комплектуючі', categoryImage: testImage },
+  { categoryId: 'households', categoryName: 'Побутова техніка', categoryImage: testImage },
+  { categoryId: 'desktops', categoryName: 'Десктопи', categoryImage: testImage },
+  { categoryId: 'sport', categoryName: 'Спорт та аксесуари', categoryImage: testImage },
+  { categoryId: 'children', categoryName: 'Дитячі аксесуари', categoryImage: testImage },
+  { categoryId: 'climate', categoryName: 'Кліматичне обладнання', categoryImage: testImage },
+  { categoryId: 'estate', categoryName: 'Нерухомість', categoryImage: testImage },
+  { categoryId: 'beauty', categoryName: 'Краса та здоров’я', categoryImage: testImage },
 ];

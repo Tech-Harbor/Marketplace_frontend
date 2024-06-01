@@ -1,8 +1,7 @@
 import styled from 'styled-components';
-
 import { Link } from 'react-router-dom';
 
-import { device } from '../../utils/index.js';
+import { device } from '../../utils';
 
 const fontStyles = `
 font-size: 12px;
@@ -14,6 +13,7 @@ font-size: 12px;
   }
 `;
 
+// TODO: Ще не вирішили, чи картка товара буде мати статичну вишину, чи динамічну;
 export const CardContainer = styled(Link)`
   display: block;
   width: 204px;
@@ -31,20 +31,16 @@ export const CardContainer = styled(Link)`
 export const ImageContainer = styled.div`
   width: 100%;
   height: 152px;
-  margin-bottom: 15px;
   display: flex;
   align-items: center;
-  text-align: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 15px;
 
   @media ${device.untilLaptop} {
     height: 131px;
     margin-bottom: 5px;
   }
-`;
-
-export const Image = styled.img`
-  width: 100%;
-  object-fit: scale-down;
 `;
 
 export const DataContainer = styled.div`
@@ -56,6 +52,7 @@ export const DataContainer = styled.div`
   }
 `;
 
+// TODO: Ще не вирішили, чи додавати три крапки в кінці першого рядка, чи переносити на другий, і аж тоді додавати;
 export const Title = styled.span`
   ${fontStyles};
   display: block;
@@ -83,6 +80,7 @@ export const BottomContainer = styled.div`
   justify-content: space-between;
 `;
 
+// TODO: Ще не вирішили, що робити, коли ціна за велика, і руйнує макет;
 export const Price = styled.div`
   font-size: 16px;
   line-height: 19px;
