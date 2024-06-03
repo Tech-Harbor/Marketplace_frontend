@@ -43,11 +43,11 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<MainLayout />}>
-        {/*<Route index element={<HomePage />} />*/}
+        <Route index element={<HomePage />} />
         <Route path="category/:name" element={<ProductsPage />} />
 
         {/* Для цих роутів тимчасово визначено element={<HomePage />}*/}
-        <Route path="/announcement" element={<NewPost />} />
+        <Route path="/new-post" element={<NewPost />} />
         <Route path="/favorite" element={<HomePage />} />
         <Route path="/chat" element={<HomePage />} />
         <Route path="/profile" element={<HomePage />} />

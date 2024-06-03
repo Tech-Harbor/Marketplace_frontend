@@ -22,3 +22,7 @@ export const StyledSelect = styled.select`
   border: 1px solid var(--color-border-input);
   border-radius: 4px;
 `;
+
+export const StyledOption = styled.option`
+  height: 36px;
+`;

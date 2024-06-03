@@ -1,7 +1,7 @@
+import { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { CSSTransition } from 'react-transition-group';
 
-import { categories } from '../../../../constants';
 import {
   StyledCategories,
   StyledDropDown,
@@ -9,13 +9,12 @@ import {
   StyledListCategories,
   StyledTitleCategories,
 } from './CategoriesDropDown.styled.js';
-import { useRef } from 'react';
 
-const CategoriesDropDown = ({ handleCategoryClick, isOpenDropDown }) => {
+const CategoriesDropDown = ({ items, handleCategoryClick, isOpenDropDown, className }) => {
   const nodeRef = useRef(null);
 
   return (
-    <StyledDropDownWrapper>
+    <StyledDropDownWrapper className={className}>
       <CSSTransition
         in={isOpenDropDown}
         timeout={300}
@@ -23,10 +22,13 @@ const CategoriesDropDown = ({ handleCategoryClick, isOpenDropDown }) => {
         unmountOnExit
         nodeRef={nodeRef}
       >
-        <StyledDropDown ref={nodeRef}>
+        <StyledDropDown ref={nodeRef} className={className}>
           <StyledListCategories>
-            {categories.map(({ itemId, itemName }) => (
-              <StyledCategories onClick={() => handleCategoryClick(itemId)} key={itemId}>
+            {items.map(({ itemId, itemName }) => (
+              <StyledCategories
+                onClick={() => handleCategoryClick({ itemId, itemName })}
+                key={itemId}
+              >
                 <StyledTitleCategories>{itemName}</StyledTitleCategories>
               </StyledCategories>
             ))}
@@ -38,8 +40,10 @@ const CategoriesDropDown = ({ handleCategoryClick, isOpenDropDown }) => {
 };
 
 CategoriesDropDown.propTypes = {
+  items: PropTypes.array.isRequired,
   handleCategoryClick: PropTypes.func.isRequired,
   isOpenDropDown: PropTypes.bool.isRequired,
+  className: PropTypes.string,
 };
 
 export default CategoriesDropDown;

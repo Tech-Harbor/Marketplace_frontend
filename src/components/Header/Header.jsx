@@ -47,7 +47,7 @@ export const Header = () => {
             />
           )}
 
-          <StyledLink to={'/announcement'}>{'Додати оголошення'}</StyledLink>
+          <StyledLink to={'/new-post'}>{'Додати оголошення'}</StyledLink>
         </ContainerTopSide>
 
         {!isAuthTokens && (

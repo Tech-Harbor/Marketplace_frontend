@@ -1,21 +1,28 @@
-import { useForm } from 'react-hook-form';
+import { useState } from 'react';
 import { nanoid } from '@reduxjs/toolkit';
+import { useForm } from 'react-hook-form';
+
+import { categories } from '../../../constants';
+import IconSectionsDown from '../../../assets/svg/icon-sections-down.svg?react';
 
 import Input from '../Input/Input.jsx';
 import Textarea from '../Textarea/Textarea.jsx';
-import Select from '../Select/Select.jsx';
 import NegotiablePriceSection from '../NegotiablePriceSection/NegotiablePriceSection.jsx';
 import ImagesUploader from '../ImagesUploader/ImagesUploader.jsx';
+import ButtonWithIcons from '../../Header/PostSearchForm/ButtonWithDropdownSection/ButtonWithIcons.jsx';
+import CategoriesDropDown from '../../Header/PostSearchForm/CategoriesDropDown/CategoriesDropDown.jsx';
 
-import { categories, cities } from '../../../constants';
-import { StyledButton, StyledForm } from './PostForm.styled.js';
+import { StyledButton, StyledForm, StyledLabel, Wrapper } from './PostForm.styled.js';
 
 const PostForm = () => {
-  const { register, handleSubmit, setValue } = useForm();
+  const { register, handleSubmit, setValue, watch } = useForm();
+  const [isOpenDropDown, setIsOpenDropDown] = useState(false);
+  const selectedCategory = watch('category');
 
   const handleOnSubmitForm = data => {
-    const formData = new FormData();
     console.log('data', data);
+
+    const formData = new FormData();
 
     Object.entries(data).forEach(([key, value]) => {
       if (key === 'images') {
@@ -35,6 +42,16 @@ const PostForm = () => {
     for (let [key, value] of formData.entries()) {
       console.log(`${key}:`, value);
     }
+  };
+
+  const handleCategoryClick = value => {
+    setValue('category', value);
+    setIsOpenDropDown(false);
+  };
+
+  const handleOpenDropDown = e => {
+    e.preventDefault();
+    setIsOpenDropDown(!isOpenDropDown);
   };
 
   return (
@@ -60,16 +77,22 @@ const PostForm = () => {
         className={'input-price'}
       />
 
-      <Select
-        label={'Розташування'}
-        array={cities}
-        validation={register('location', { required: true })}
-      />
-      <Select
-        label={'Розділи'}
-        array={categories}
-        validation={register('categories', { required: true })}
-      />
+      <Wrapper>
+        <StyledLabel>Розташування</StyledLabel>
+        <ButtonWithIcons
+          text={selectedCategory?.itemName || 'Оберіть розділ ...'}
+          iconRightSide={IconSectionsDown}
+          onClick={handleOpenDropDown}
+          isOpenDropDown={isOpenDropDown}
+          className={'post-form'}
+        />
+        <CategoriesDropDown
+          items={categories}
+          handleCategoryClick={handleCategoryClick}
+          isOpenDropDown={isOpenDropDown}
+          className={'post-form'}
+        />
+      </Wrapper>
 
       <StyledButton type="submit">{'Опублікувати оголошення'}</StyledButton>
 

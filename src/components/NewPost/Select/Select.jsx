@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { SelectWrapper, StyledLabel, StyledSelect } from './Select.styled.js';
+import { SelectWrapper, StyledLabel, StyledOption, StyledSelect } from './Select.styled.js';
 
 const Select = ({ label, validation, array, ...rest }) => {
   return (
@@ -8,9 +8,9 @@ const Select = ({ label, validation, array, ...rest }) => {
       <StyledSelect defaultValue="" {...validation} {...rest}>
         <option value="">Select</option>
         {array.map(({ itemId, itemName }) => (
-          <option key={itemId} value={itemId}>
+          <StyledOption key={itemId} value={itemId}>
             {itemName}
-          </option>
+          </StyledOption>
         ))}
       </StyledSelect>
     </SelectWrapper>

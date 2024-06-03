@@ -24,3 +24,17 @@ export const StyledButton = styled.button`
     color: var(--color-primary-active);
   }
 `;
+
+export const Wrapper = styled.div`
+  position: relative;
+  margin-bottom: 34px;
+`;
+
+export const StyledLabel = styled.p`
+  margin-bottom: 8px;
+  font-family: Gilroy-Regular, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: -1px;
+`;

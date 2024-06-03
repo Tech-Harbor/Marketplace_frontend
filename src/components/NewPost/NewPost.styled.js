@@ -6,9 +6,9 @@ export const Container = styled.div`
   width: 100%;
 
   @media ${device.tablet} {
-    max-width: 500px;
+    max-width: 768px;
     margin: 0 auto;
-    border: 1px solid var(--color-border-primary);
+    padding: 0 24px;
   }
 `;
 
