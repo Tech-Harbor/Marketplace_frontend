@@ -1,22 +1,24 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import ButtonWithIcons from './ButtonWithDropdownSection/ButtonWithIcons.jsx';
 
+import ButtonWithIcons from './ButtonWithDropdownSection/ButtonWithIcons.jsx';
 import CategoriesDropDown from './CategoriesDropDown/CategoriesDropDown.jsx';
 import IconSectionsClose from '../../../assets/svg/icon-sections-close.svg?react';
 import IconSectionsOpen from '../../../assets/svg/icon-sections-open.svg?react';
 import IconSectionsDown from '../../../assets/svg/icon-sections-down.svg?react';
+import { categories } from '../../../constants/';
 
 import {
   StyledButtonSearch,
   StyledIconSearch,
   StyledSearchForm,
   StyledSearchInput,
-} from './AnnouncementSearchForm.styled.js';
+} from './PostSearchForm.styled.js';
 
-const AnnouncementSearchForm = () => {
+const PostSearchForm = () => {
   const { register, handleSubmit, setValue, reset } = useForm();
   const [isOpenDropDown, setIsOpenDropDown] = useState(false);
+
   const handleFromSubmit = data => {
     console.log('send data', data);
     reset();
@@ -43,18 +45,22 @@ const AnnouncementSearchForm = () => {
       />
       <ButtonWithIcons
         text={'Розділи'}
-        iconLeftSide={isOpenDropDown ? IconSectionsOpen : IconSectionsClose}
-        iconRightSide={IconSectionsDown}
         onClick={handleOpenDropDown}
         isOpenDropDown={isOpenDropDown}
+        iconLeftSide={isOpenDropDown ? IconSectionsOpen : IconSectionsClose}
+        iconRightSide={IconSectionsDown}
+        className={'post-search-form'}
       />
       <CategoriesDropDown
-        handleCategoryClick={handleCategoryClick}
+        items={categories}
+        handleClick={handleCategoryClick}
         isOpenDropDown={isOpenDropDown}
+        className={'post-search-form'}
       />
+
       <StyledButtonSearch>Пошук</StyledButtonSearch>
     </StyledSearchForm>
   );
 };
 
-export default AnnouncementSearchForm;
+export default PostSearchForm;
