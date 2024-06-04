@@ -1,7 +1,6 @@
-export const CITIES = [
-  { value: '', label: '' },
-  { value: 'Lviv', label: 'Львів' },
-  { value: 'Kyiv', label: 'Київ' },
-  { value: 'Kharkiv', label: 'Харків' },
-  { value: 'Odessa', label: 'Одеса' },
+export const cities = [
+  { itemId: 'Lviv', itemName: 'Львів' },
+  { itemId: 'Kyiv', itemName: 'Київ' },
+  { itemId: 'Kharkiv', itemName: 'Харків' },
+  { itemId: 'Odessa', itemName: 'Одеса' },
 ];

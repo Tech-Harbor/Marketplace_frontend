@@ -27,8 +27,6 @@ const MainLayout = () => {
     <>
       <Header />
 
-      <NavigationBar />
-
       <Wrapper>
         <Advertisement />
         <Main>
@@ -38,6 +36,7 @@ const MainLayout = () => {
 
       <Footer />
 
+      <NavigationBar />
       <FakeBoxForNavBar />
     </>
   );

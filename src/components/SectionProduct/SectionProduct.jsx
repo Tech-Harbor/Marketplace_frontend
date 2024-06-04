@@ -1,7 +1,7 @@
 import { useQuery, gql } from '@apollo/client';
 import PropTypes from 'prop-types';
-import CardProduct from '../CardProduct/CardProduct.jsx';
 import { CategoryContainer, Title, CardContainer } from './SectionProduct.styled.js';
+import CardProduct from '../CardProduct/CardProduct.jsx';
 
 export const SectionProduct = ({ title, request }) => {
   const {

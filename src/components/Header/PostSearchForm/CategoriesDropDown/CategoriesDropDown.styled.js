@@ -1,7 +1,11 @@
 import styled from 'styled-components';
-import { device } from '../../../../utils/index.js';
+import { device } from '../../../../utils';
 
 export const StyledDropDownWrapper = styled.div`
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+
   // Styles for CSSTransition
   .dropdown-enter {
     opacity: 0;
@@ -18,30 +22,34 @@ export const StyledDropDownWrapper = styled.div`
     transition: opacity 300ms;
   }
 
-  @media ${device.laptop} {
-    position: absolute;
-    top: 42px;
+  &.post-search-form {
+    @media ${device.laptop} {
+      width: 340px;
+      top: 42px;
+      left: 0;
+    }
+
+    @media ${device.desktop} {
+      width: 430px;
+    }
+  }
+
+  &.post-form {
+    top: 66px;
     left: 0;
   }
 `;
 
 export const StyledDropDown = styled.div`
   border-radius: 0 0 4px 4px;
-  background: #fcfcfc;
-  padding: 0.5rem;
-  width: 340px;
-  max-width: 36rem;
+  background: #fff;
+  padding: 20px;
   border: 1px solid #e6e6e6;
-
-  @media ${device.desktop} {
-    width: 430px;
-  }
 `;
 
 export const StyledListCategories = styled.ul`
   @media ${device.desktop} {
     display: grid;
-    width: 100%;
     grid-template-columns: 1fr 1fr;
   }
 `;

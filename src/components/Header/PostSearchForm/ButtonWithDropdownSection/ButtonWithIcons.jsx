@@ -11,9 +11,9 @@ const ButtonWithIcons = ({
 }) => {
   return (
     <StyledButtonSection className={className} onClick={onClick}>
-      <IconLeftSide />
+      {!!IconLeftSide && <IconLeftSide />}
       {text}
-      {IconRightSide && (
+      {!!IconRightSide && (
         <StyledIconWrapper $isOpenDropDown={isOpenDropDown}>
           <IconRightSide />
         </StyledIconWrapper>
@@ -24,7 +24,7 @@ const ButtonWithIcons = ({
 
 ButtonWithIcons.propTypes = {
   text: PropTypes.string.isRequired,
-  iconLeftSide: PropTypes.elementType.isRequired,
+  iconLeftSide: PropTypes.elementType,
   iconRightSide: PropTypes.elementType,
   className: PropTypes.string,
   onClick: PropTypes.func,
