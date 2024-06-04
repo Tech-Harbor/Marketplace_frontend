@@ -53,7 +53,7 @@ const PostSearchForm = () => {
       />
       <CategoriesDropDown
         items={categories}
-        handleCategoryClick={handleCategoryClick}
+        handleClick={handleCategoryClick}
         isOpenDropDown={isOpenDropDown}
         className={'post-search-form'}
       />

@@ -10,7 +10,7 @@ import {
   StyledTitleCategories,
 } from './CategoriesDropDown.styled.js';
 
-const CategoriesDropDown = ({ items, handleCategoryClick, isOpenDropDown, className }) => {
+const CategoriesDropDown = ({ items, handleClick, isOpenDropDown, className }) => {
   const nodeRef = useRef(null);
 
   return (
@@ -25,10 +25,7 @@ const CategoriesDropDown = ({ items, handleCategoryClick, isOpenDropDown, classN
         <StyledDropDown ref={nodeRef} className={className}>
           <StyledListCategories>
             {items.map(({ itemId, itemName }) => (
-              <StyledCategories
-                onClick={() => handleCategoryClick({ itemId, itemName })}
-                key={itemId}
-              >
+              <StyledCategories onClick={() => handleClick({ itemId, itemName })} key={itemId}>
                 <StyledTitleCategories>{itemName}</StyledTitleCategories>
               </StyledCategories>
             ))}
@@ -41,7 +38,7 @@ const CategoriesDropDown = ({ items, handleCategoryClick, isOpenDropDown, classN
 
 CategoriesDropDown.propTypes = {
   items: PropTypes.array.isRequired,
-  handleCategoryClick: PropTypes.func.isRequired,
+  handleClick: PropTypes.func.isRequired,
   isOpenDropDown: PropTypes.bool.isRequired,
   className: PropTypes.string,
 };

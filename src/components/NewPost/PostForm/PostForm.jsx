@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { nanoid } from '@reduxjs/toolkit';
 import { useForm } from 'react-hook-form';
 
-import { categories } from '../../../constants';
+import { categories, cities } from '../../../constants';
 import IconSectionsDown from '../../../assets/svg/icon-sections-down.svg?react';
 
 import Input from '../Input/Input.jsx';
@@ -16,8 +16,10 @@ import { StyledButton, StyledForm, StyledLabel, Wrapper } from './PostForm.style
 
 const PostForm = () => {
   const { register, handleSubmit, setValue, watch } = useForm();
-  const [isOpenDropDown, setIsOpenDropDown] = useState(false);
+  const [isOpenCategoriesDropDown, setIsOpenCategoriesDropDown] = useState(false);
+  const [isOpenLocationDropDown, setIsOpenLocationDropDown] = useState(false);
   const selectedCategory = watch('category');
+  const selectedLocation = watch('location');
 
   const handleOnSubmitForm = data => {
     console.log('data', data);
@@ -46,12 +48,24 @@ const PostForm = () => {
 
   const handleCategoryClick = value => {
     setValue('category', value);
-    setIsOpenDropDown(false);
+    setIsOpenCategoriesDropDown(false);
   };
 
-  const handleOpenDropDown = e => {
+  const handleLocationClick = value => {
+    setValue('location', value);
+    setIsOpenLocationDropDown(false);
+  };
+
+  const handleOpenCategoriesDropDown = e => {
     e.preventDefault();
-    setIsOpenDropDown(!isOpenDropDown);
+    setIsOpenLocationDropDown(false);
+    setIsOpenCategoriesDropDown(!isOpenCategoriesDropDown);
+  };
+
+  const handleLocationDropDown = e => {
+    e.preventDefault();
+    setIsOpenCategoriesDropDown(false);
+    setIsOpenLocationDropDown(!isOpenLocationDropDown);
   };
 
   return (
@@ -78,18 +92,35 @@ const PostForm = () => {
       />
 
       <Wrapper>
-        <StyledLabel>Розташування</StyledLabel>
+        <StyledLabel>Розділи</StyledLabel>
         <ButtonWithIcons
           text={selectedCategory?.itemName || 'Оберіть розділ ...'}
           iconRightSide={IconSectionsDown}
-          onClick={handleOpenDropDown}
-          isOpenDropDown={isOpenDropDown}
+          onClick={handleOpenCategoriesDropDown}
+          isOpenDropDown={isOpenCategoriesDropDown}
           className={'post-form'}
         />
         <CategoriesDropDown
           items={categories}
-          handleCategoryClick={handleCategoryClick}
-          isOpenDropDown={isOpenDropDown}
+          handleClick={handleCategoryClick}
+          isOpenDropDown={isOpenCategoriesDropDown}
+          className={'post-form'}
+        />
+      </Wrapper>
+
+      <Wrapper>
+        <StyledLabel>Розташування</StyledLabel>
+        <ButtonWithIcons
+          text={selectedLocation?.itemName || 'Оберіть локацію ...'}
+          iconRightSide={IconSectionsDown}
+          onClick={handleLocationDropDown}
+          isOpenDropDown={isOpenLocationDropDown}
+          className={'post-form'}
+        />
+        <CategoriesDropDown
+          items={cities}
+          handleClick={handleLocationClick}
+          isOpenDropDown={isOpenLocationDropDown}
           className={'post-form'}
         />
       </Wrapper>

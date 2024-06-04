@@ -4,6 +4,7 @@ import { device } from '../../../../utils';
 export const StyledDropDownWrapper = styled.div`
   position: absolute;
   width: 100%;
+  z-index: 10;
 
   // Styles for CSSTransition
   .dropdown-enter {
