@@ -1,11 +1,11 @@
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
-import { device } from '../../utils/index.js';
+
+import { device } from '../../utils';
 
 import { Header } from '../Header/Header.jsx';
 import { Footer } from '../Footer/Footer.jsx';
 import NavigationBar from '../NavigationBar/NavigationBar.jsx';
-import { FakeBoxForNavBar } from './MainLayout.styled.js';
 import { Advertisement } from '../Advertising/Advertisement.jsx';
 
 const Wrapper = styled.div`
@@ -37,7 +37,6 @@ const MainLayout = () => {
       <Footer />
 
       <NavigationBar />
-      <FakeBoxForNavBar />
     </>
   );
 };
