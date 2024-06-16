@@ -10,6 +10,7 @@ import ProductsPage from './pages/ProductsPage/ProductsPage.jsx';
 import MainLayout from './components/MainLayout/MainLayout.jsx';
 import HomePage from './pages/HomePage/HomePage.jsx';
 import NewPost from './components/NewPost/NewPost.jsx';
+import Profile from './components/Profile/Profile.jsx';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -50,7 +51,12 @@ const App = () => {
         <Route path="/new-post" element={<NewPost />} />
         <Route path="/favorite" element={<HomePage />} />
         <Route path="/chat" element={<HomePage />} />
-        <Route path="/profile" element={<HomePage />} />
+        <Route path="/profile" element={<Profile />}>
+          <Route path="settings" element={<div>Settings</div>} />
+          <Route path="help" element={<div>help</div>} />
+          <Route path="terms" element={<div>terms</div>} />
+          <Route path="policy" element={<div>policy</div>} />
+        </Route>
       </Route>
     </Routes>
   );
