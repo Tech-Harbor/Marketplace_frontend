@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { Link } from 'react-router-dom';
+import { device } from '../../utils';
 
 const levelChangeSize = '(max-width: 580px)';
 
@@ -12,6 +13,11 @@ export const Container = styled.footer`
 
   @media ${levelChangeSize} {
     padding: 6px 16px 26px 16px;
+  }
+
+  //  additional place +56px for NavigationBar
+  @media ${device.untilLaptop} {
+    padding-bottom: 106px;
   }
 `;
 

@@ -26,9 +26,7 @@ export const StyledSearchInput = styled.input.attrs({
   padding-left: 17px;
   padding-right: 35px; // reserved place for icon
   width: 100%;
-
   height: 36px;
-
   border: 0;
   border-radius: 8px;
   background-color: var(--color-bg-form);
@@ -40,10 +38,8 @@ export const StyledSearchInput = styled.input.attrs({
   @media ${device.laptop} {
     padding-left: 35px; // reserved place for icon
     padding-right: 17px;
-
     width: 205px;
     height: 42px;
-
     border-radius: ${({ $isOpenDropDown }) => ($isOpenDropDown ? '4px 0 0 0' : '4px 0 0 4px')};
 
     @media ${device.desktop} {
