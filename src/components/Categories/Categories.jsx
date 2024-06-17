@@ -31,13 +31,13 @@ export const Categories = () => {
 
       {!loading &&
         !!categoriesData.length &&
-        categories.map(({ categoryId, categoryName, categoryImage }) => (
-          <Category key={categoryId}>
+        categories.map(({ itemId, itemName, itemImage }) => (
+          <Category key={itemId}>
             <ImageContainer>
-              <img src={categoryImage} alt={categoryName} />
+              <img src={itemImage} alt={itemName} />
             </ImageContainer>
 
-            <Text>{categoryName}</Text>
+            <Text>{itemName}</Text>
           </Category>
         ))}
 
