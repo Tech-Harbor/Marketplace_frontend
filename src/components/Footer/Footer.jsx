@@ -1,25 +1,26 @@
-import { FOOTER_TEXT_LIST } from './TextDropDownMenu.js';
 import { FooterList } from './FooterList/FooterList.jsx';
+
 import Oranger from '../../assets/svg/icon-logo.svg?react';
-import TelegramIcon from '@mui/icons-material/Telegram';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
+
+import { FOOTER_LINKS_LIST } from '../../constants/footerMenu.js';
+
 import {
   Container,
   FooterMenu,
   ContainerIconLink,
   ContainerSocialNetworks,
+  Telegram,
+  Instagram,
+  Facebook,
   OrangerLink,
   TextAboutRights,
 } from './Footer.styled.js';
-
-const customStyles = { color: 'white', fontSize: 30 };
 
 export const Footer = () => {
   return (
     <Container>
       <FooterMenu>
-        {FOOTER_TEXT_LIST.map(({ id, linkList }) => (
+        {FOOTER_LINKS_LIST.map(({ id, linkList }) => (
           <FooterList key={id} linkList={linkList} />
         ))}
       </FooterMenu>
@@ -27,7 +28,7 @@ export const Footer = () => {
       <ContainerIconLink>
         <ContainerSocialNetworks>
           <a href="https://t.me/+JTkkdn9oAnViZDcy" target="_blank" rel="noreferrer">
-            <TelegramIcon sx={customStyles} />
+            <Telegram />
           </a>
 
           <a
@@ -35,7 +36,7 @@ export const Footer = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <InstagramIcon sx={customStyles} />
+            <Instagram />
           </a>
 
           <a
@@ -43,7 +44,7 @@ export const Footer = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <FacebookOutlinedIcon sx={customStyles} />
+            <Facebook />
           </a>
         </ContainerSocialNetworks>
 

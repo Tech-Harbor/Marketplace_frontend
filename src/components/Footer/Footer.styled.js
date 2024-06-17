@@ -1,15 +1,19 @@
 import styled from 'styled-components';
-
 import { Link } from 'react-router-dom';
+
+import TelegramIcon from '@mui/icons-material/Telegram';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
+
 import { device } from '../../utils';
 
 const levelChangeSize = '(max-width: 580px)';
 
 export const Container = styled.footer`
+  padding: 88px 16px 50px 16px;
   width: 100%;
   height: 100%;
   background-color: var(--color-label);
-  padding: 88px 16px 50px 16px;
 
   @media ${levelChangeSize} {
     padding: 6px 16px 26px 16px;
@@ -22,16 +26,16 @@ export const Container = styled.footer`
 `;
 
 export const FooterMenu = styled.div`
-  max-width: 840px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   margin: 0 auto;
+  max-width: 840px;
 `;
 
 export const ContainerIconLink = styled.div`
-  text-align: center;
   margin-top: 88px;
+  text-align: center;
 
   & > * {
     margin: 0 auto;
@@ -43,10 +47,22 @@ export const ContainerIconLink = styled.div`
 `;
 
 export const ContainerSocialNetworks = styled.div`
-  width: fit-content;
   display: flex;
   column-gap: 25px;
   margin-bottom: 27px;
+  width: fit-content;
+`;
+
+export const Telegram = styled(TelegramIcon).attrs({ sx: { fontSize: '30px' } })`
+  color: var(--color-secondary);
+`;
+
+export const Instagram = styled(InstagramIcon).attrs({ sx: { fontSize: '30px' } })`
+  color: var(--color-secondary);
+`;
+
+export const Facebook = styled(FacebookOutlinedIcon).attrs({ sx: { fontSize: '30px' } })`
+  color: var(--color-secondary);
 `;
 
 export const OrangerLink = styled(Link)`

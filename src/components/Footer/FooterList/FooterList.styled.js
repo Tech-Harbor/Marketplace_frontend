@@ -30,11 +30,11 @@ export const FooterMenuLink = styled(Link)`
   color: var(--color-btn-text);
 
   @media ${levelChangeSize} {
+    padding: 20px 7px;
+    border-bottom: 1px solid #6c727533;
     font-family: 'Gilroy-Medium', sans-serif;
     font-weight: 600;
     font-size: 20px;
     line-height: 24px;
-    padding: 20px 7px;
-    border-bottom: 1px solid #6c727533;
   }
 `;

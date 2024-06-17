@@ -1,4 +1,4 @@
-export const FOOTER_TEXT_LIST = [
+export const FOOTER_LINKS_LIST = [
   {
     id: 1,
     linkList: [
