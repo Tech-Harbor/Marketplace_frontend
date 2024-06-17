@@ -5,3 +5,5 @@ export { FIELDS_PATTERN } from './patterns.js';
 export { cities } from './cities.js';
 export { SPRITE } from './NavBarItems.js';
 export { categories } from './categories.js';
+export { PRODUCT_LIST } from './productList.js';
+export { REQUESTS_FOR_PRODUCT_DATA } from './requests.js';

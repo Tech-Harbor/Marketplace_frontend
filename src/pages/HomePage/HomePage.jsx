@@ -1,15 +1,16 @@
-// import { Categories } from '../../components/Categories/Categories.jsx';
-// import { SectionProduct } from '../../components/SectionProduct/SectionProduct.jsx';
-// import { REQUESTS_FOR_PRODUCT_DATA } from '../../constants/requests.js';
+import { REQUESTS_FOR_PRODUCT_DATA } from '../../constants';
+
+import { Categories } from '../../components/Categories/Categories.jsx';
+import { SectionProduct } from '../../components/SectionProduct/SectionProduct.jsx';
 
 const HomePage = () => {
   return (
     <>
-      {/*<Categories />*/}
+      <Categories />
 
-      {/*<SectionProduct request={REQUESTS_FOR_PRODUCT_DATA[0]} title="Найновіші" />*/}
+      <SectionProduct request={REQUESTS_FOR_PRODUCT_DATA[0]} title="Найновіші" />
 
-      {/*<SectionProduct request={REQUESTS_FOR_PRODUCT_DATA[1]} title="VIP оголошення" />*/}
+      <SectionProduct request={REQUESTS_FOR_PRODUCT_DATA[1]} title="VIP оголошення" />
     </>
   );
 };

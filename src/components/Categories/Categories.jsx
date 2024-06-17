@@ -1,38 +1,47 @@
 import { useQuery, gql } from '@apollo/client';
-import { CategoryContainer, Category, Image, Text } from './Categories.styled.js';
+
+import { categories } from '../../constants';
+
+import { CategoryContainer, Category, ImageContainer, Text } from './Categories.styled.js';
 
 export const Categories = () => {
   const {
     loading,
     error,
-    data: { getAllCategory } = { getAllCategory: [] },
+    data: { getAllCategory: categoriesData } = { getAllCategory: [] },
   } = useQuery(
     gql(`
       query {
-    getAllCategory {
-        categoryName
-        image
-    }
-}
+        getAllCategory {
+          name
+          image
+        }
+      }
     `)
   );
+
+  // TODO: Це тимчасово, поки бекенд не буде повертати досить даних, для їх використання
+  console.log(categoriesData);
 
   return (
     <CategoryContainer>
       {loading && <p>Loading...</p>}
 
-      {!loading && !getAllCategory.length && <p>Немає категорій, вийди розбійник</p>}
+      {!error && !loading && !categoriesData.length && <p>Немає категорій, вийди розбійник</p>}
 
-      {!!getAllCategory.length &&
-        Array.from({ length: 9 }).map((_, index) => (
-          <Category key={index}>
-            <Image src={getAllCategory[0].image} />
+      {!loading &&
+        !!categoriesData.length &&
+        categories.map(({ itemId, itemName, itemImage }) => (
+          <Category key={itemId}>
+            <ImageContainer>
+              <img src={itemImage} alt={itemName} />
+            </ImageContainer>
 
-            <Text>{getAllCategory[0].categoryName}</Text>
+            <Text>{itemName}</Text>
           </Category>
         ))}
 
-      {error && <p>Виникла помилка: {error}</p>}
+      {error && <p>Виникла помилка: {error.message}</p>}
     </CategoryContainer>
   );
 };

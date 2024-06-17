@@ -1,14 +1,21 @@
-import { useQuery, gql } from '@apollo/client';
 import PropTypes from 'prop-types';
-import { CategoryContainer, Title, CardContainer } from './SectionProduct.styled.js';
+import { useQuery, gql } from '@apollo/client';
+
 import CardProduct from '../CardProduct/CardProduct.jsx';
+
+import { PRODUCT_LIST } from '../../constants';
+
+import { CategoryContainer, Title, CardContainer } from './SectionProduct.styled.js';
 
 export const SectionProduct = ({ title, request }) => {
   const {
     loading,
     error,
-    data: { getAllAdvertisement } = { getAllAdvertisement: [] },
+    data: { getAllAdvertisement: cardProductData } = { getAllAdvertisement: [] },
   } = useQuery(gql(request));
+
+  // TODO: Це тимчасово, поки бекенд не буде повертати досить даних, для їх використання
+  console.log(cardProductData);
 
   return (
     <CategoryContainer>
@@ -17,20 +24,15 @@ export const SectionProduct = ({ title, request }) => {
       <CardContainer>
         {loading && <p>Loading...</p>}
 
-        {!loading && !getAllAdvertisement.length && <p>Немає оголошень, вийди розбійник</p>}
+        {!error && !loading && !cardProductData.length && <p>Немає оголошень, вийди розбійник</p>}
 
-        {!!getAllAdvertisement.length &&
-          Array.from({ length: 10 }).map((_, index) => (
-            <CardProduct
-              key={index}
-              images={getAllAdvertisement[0].images}
-              name={getAllAdvertisement[0].name}
-              location={getAllAdvertisement[0].location}
-              price={getAllAdvertisement[0].price}
-            />
+        {!loading &&
+          !!cardProductData.length &&
+          PRODUCT_LIST.map(({ id, image, name, location, price }) => (
+            <CardProduct key={id} image={image} price={price} name={name} location={location} />
           ))}
 
-        {error && <p>Виникла помилка: {error}</p>}
+        {error && <p>Виникла помилка: {error.message}</p>}
       </CardContainer>
     </CategoryContainer>
   );
