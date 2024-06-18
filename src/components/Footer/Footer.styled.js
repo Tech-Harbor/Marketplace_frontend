@@ -7,21 +7,14 @@ import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 
 import { device } from '../../utils';
 
-const levelChangeSize = '(max-width: 580px)';
-
 export const Container = styled.footer`
-  padding: 88px 16px 50px 16px;
+  padding: 6px 16px 26px;
   width: 100%;
   height: 100%;
   background-color: var(--color-label);
 
-  @media ${levelChangeSize} {
-    padding: 6px 16px 26px 16px;
-  }
-
-  //  additional place +56px for NavigationBar
-  @media ${device.untilLaptop} {
-    padding-bottom: 106px;
+  @media ${device.laptop} {
+    padding: 88px 16px 50px;
   }
 `;
 
@@ -34,15 +27,15 @@ export const FooterMenu = styled.div`
 `;
 
 export const ContainerIconLink = styled.div`
-  margin-top: 88px;
+  margin-top: 33px;
   text-align: center;
 
   & > * {
     margin: 0 auto;
   }
 
-  @media ${levelChangeSize} {
-    margin-top: 33px;
+  @media ${device.laptop} {
+    margin-top: 88px;
   }
 `;
 
@@ -53,17 +46,13 @@ export const ContainerSocialNetworks = styled.div`
   width: fit-content;
 `;
 
-export const Telegram = styled(TelegramIcon).attrs({ sx: { fontSize: '30px' } })`
+const createStyledIcon = IconComponent => styled(IconComponent).attrs({ sx: { fontSize: '30px' } })`
   color: var(--color-secondary);
 `;
 
-export const Instagram = styled(InstagramIcon).attrs({ sx: { fontSize: '30px' } })`
-  color: var(--color-secondary);
-`;
-
-export const Facebook = styled(FacebookOutlinedIcon).attrs({ sx: { fontSize: '30px' } })`
-  color: var(--color-secondary);
-`;
+export const Telegram = createStyledIcon(TelegramIcon);
+export const Instagram = createStyledIcon(InstagramIcon);
+export const Facebook = createStyledIcon(FacebookOutlinedIcon);
 
 export const OrangerLink = styled(Link)`
   display: inline-block;
@@ -74,7 +63,7 @@ export const TextAboutRights = styled.span`
   display: block;
   width: fit-content;
   font-family: 'Gilroy-Regular', sans-serif;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 16px;
   line-height: 19px;
   color: #b8b9be;

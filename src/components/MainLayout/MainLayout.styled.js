@@ -3,6 +3,7 @@ import { device } from '../../utils/index.js';
 
 export const Wrapper = styled.div`
   width: 100%;
+  flex: 1 1 auto;
 `;
 
 export const Main = styled.main`

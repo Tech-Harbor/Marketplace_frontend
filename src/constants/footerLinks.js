@@ -1,3 +1,4 @@
+//TODO: Додати посилання на сторінки
 export const FOOTER_LINKS_LIST = [
   {
     id: 1,

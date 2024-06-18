@@ -2,7 +2,7 @@ import { FooterList } from './FooterList/FooterList.jsx';
 
 import Oranger from '../../assets/svg/icon-logo.svg?react';
 
-import { FOOTER_LINKS_LIST } from '../../constants/footerMenu.js';
+import { FOOTER_LINKS_LIST } from '../../constants/footerLinks.js';
 
 import {
   Container,

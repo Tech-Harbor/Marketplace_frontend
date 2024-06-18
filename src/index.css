@@ -61,8 +61,16 @@
   /*border: 1px solid #8B8B8B4D*/
 }
 
+html,
 body {
   margin: 0;
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }
 
 button {
