@@ -6,9 +6,10 @@ import { setResetPasswordToken, showTypeForm } from './redux/auth';
 import { useActivateUser } from './hooks';
 import { TYPE_FORM } from './constants';
 
-import ProductsPage from './pages/ProductsPage/ProductsPage.jsx';
 import MainLayout from './components/MainLayout/MainLayout.jsx';
 import HomePage from './pages/HomePage/HomePage.jsx';
+import Profile from './components/Profile/Profile.jsx';
+import ProductsPage from './pages/ProductsPage/ProductsPage.jsx';
 import NewPost from './components/NewPost/NewPost.jsx';
 
 const App = () => {
@@ -23,7 +24,6 @@ const App = () => {
 
   useEffect(() => {
     if (regtoken) {
-      console.log('regtoken');
       sendRegistrationToken(regtoken);
       searchParams.delete('regtoken');
       searchParams.set('auth_modal', 'true');
@@ -46,11 +46,17 @@ const App = () => {
         <Route index element={<HomePage />} />
         <Route path="category/:name" element={<ProductsPage />} />
 
-        {/* Для цих роутів тимчасово визначено element={<HomePage />}*/}
         <Route path="/new-post" element={<NewPost />} />
-        <Route path="/favorite" element={<HomePage />} />
-        <Route path="/chat" element={<HomePage />} />
-        <Route path="/profile" element={<HomePage />} />
+        <Route path="/favorite" element={<div>favorite</div>} />
+        <Route path="/chat" element={<div>chat</div>} />
+
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/edit" element={<div>profile/edit</div>} />
+        <Route path="/profile/settings" element={<div>profile/settings</div>} />
+        <Route path="/profile/help" element={<div>/profile/help</div>} />
+        <Route path="/profile/terms" element={<div>/profile/terms</div>} />
+        <Route path="/profile/policy" element={<div>/profile/policy</div>} />
+        <Route path="/profile/user-posts" element={<div>/profile/user-posts</div>} />
       </Route>
     </Routes>
   );
