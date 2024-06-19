@@ -15,12 +15,3 @@ export const Main = styled.main`
     padding: 0 100px;
   }
 `;
-
-export const FakeBoxForNavBar = styled.div`
-  height: 56px;
-  background-color: red;
-
-  @media ${device.laptop} {
-    display: none;
-  }
-`;

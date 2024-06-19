@@ -8,7 +8,8 @@ import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 import { device } from '../../utils';
 
 export const Container = styled.footer`
-  padding: 6px 16px 26px;
+  //Add 26px + 56px (reserve place for NavigationBar)
+  padding: 6px 16px 82px;
   width: 100%;
   height: 100%;
   background-color: var(--color-label);
