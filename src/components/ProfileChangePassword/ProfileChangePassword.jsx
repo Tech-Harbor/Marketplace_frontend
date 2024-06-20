@@ -56,7 +56,7 @@ const ProfileChangePassword = () => {
         />
 
         <StyledButton $isFormValid={isFormValid} className={'profile-change-password'}>
-          Продовжити
+          Зберігти зміни
         </StyledButton>
       </StyledForm>
     </>
