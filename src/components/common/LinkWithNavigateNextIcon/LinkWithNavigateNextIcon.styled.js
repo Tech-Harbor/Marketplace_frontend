@@ -21,4 +21,13 @@ export const Wrapper = styled.div`
     padding: 0;
     font-size: 15px;
   }
+
+  &.link-profile-settings {
+    margin-bottom: 25px;
+    padding: 0 15px;
+    font-family: Gilroy-Regular, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5;
+  }
 `;

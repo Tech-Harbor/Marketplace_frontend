@@ -11,6 +11,7 @@ import HomePage from './pages/HomePage/HomePage.jsx';
 import Profile from './components/Profile/Profile.jsx';
 import ProductsPage from './pages/ProductsPage/ProductsPage.jsx';
 import NewPost from './components/NewPost/NewPost.jsx';
+import ProfileSettings from './components/ProfileSettings/ProfileSettings.jsx';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -51,8 +52,10 @@ const App = () => {
         <Route path="/chat" element={<div>chat</div>} />
 
         <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/settings" element={<ProfileSettings />} />
+        <Route path="/profile/settings/change-email" element={<div>change email</div>} />
+
         <Route path="/profile/edit" element={<div>profile/edit</div>} />
-        <Route path="/profile/settings" element={<div>profile/settings</div>} />
         <Route path="/profile/help" element={<div>/profile/help</div>} />
         <Route path="/profile/terms" element={<div>/profile/terms</div>} />
         <Route path="/profile/policy" element={<div>/profile/policy</div>} />

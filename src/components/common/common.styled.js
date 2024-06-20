@@ -31,3 +31,15 @@ export const StyledLink = styled(Link)`
     color: var(--color-btn-text);
   }
 `;
+
+export const StyledButton = styled.button`
+  width: 100%;
+  height: 36px;
+  border: none;
+  border-radius: 8px;
+  font-family: Gilroy-Medium, sans-serif;
+  font-size: 16px;
+  line-height: 1.2;
+  color: var(--color-btn-text);
+  background-color: var(--color-primary-active);
+`;
