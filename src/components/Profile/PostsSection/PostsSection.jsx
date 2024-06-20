@@ -1,9 +1,6 @@
-import { Link } from 'react-router-dom';
-import NavigateNextOutlinedIcon from '@mui/icons-material/NavigateNextOutlined.js';
-
+import { LinkWithNavigateNextIcon } from '../../common';
 import PostCard from '../PostCard/PostCard.jsx';
-import { Posts, Section } from './PostsSection.styled.js';
-import { Wrapper } from '../OptionLinkWithIcon/OptionLinkWithIcon.styled.js';
+import { Section } from './PostsSection.styled.js';
 
 // TODO тимчасовий масив initialPosts та import postImage
 import postImage from '../../../assets/imges/post-photo-exampe_sq.jpg';
@@ -36,14 +33,18 @@ const PostsSection = () => {
 
   return (
     <Section>
-      <Wrapper className={'all-post-link'}>
-        <p>{'Всі оголошення'}</p>
-        {/*TODO записати to={'/'} як буде готовий макет "Ваші оголошення"*/}
-        <Link to={'/'}>
-          <NavigateNextOutlinedIcon />
-        </Link>
-      </Wrapper>
-      <Posts>{!!posts && posts.map(post => <PostCard key={post.id} {...post} />)}</Posts>
+      {/*TODO записати to={'/'} як буде готовий макет "Ваші оголошення"*/}
+      <LinkWithNavigateNextIcon
+        to={'/profile/user-posts'}
+        title={'Всі оголошення'}
+        className={'link-all-posts'}
+      />
+
+      <ul className={'posts-list'}>
+        {posts.map(post => (
+          <PostCard key={post.id} {...post} />
+        ))}
+      </ul>
     </Section>
   );
 };

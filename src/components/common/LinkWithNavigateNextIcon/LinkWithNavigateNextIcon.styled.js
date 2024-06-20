@@ -1,29 +1,21 @@
 import styled from 'styled-components';
 
-export const Section = styled.section`
-  margin-bottom: 20px;
-`;
-
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 15px 0;
 
-  p {
-    font-family: Gilroy-Regular, sans-serif;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 22px;
-    letter-spacing: -1px;
-    text-align: left;
-  }
+  font-family: Gilroy-Regular, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 22px;
 
-  a {
+  .link {
     height: 24px;
   }
 
-  &.all-post-link {
+  &.link-all-posts {
     justify-content: flex-end;
     margin-bottom: 14px;
     padding: 0;

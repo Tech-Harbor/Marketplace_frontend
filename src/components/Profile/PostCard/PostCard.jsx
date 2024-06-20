@@ -2,35 +2,37 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
-import { DescriptionWrapper, StyledItem, PriceWrapper } from './PostCard.styled.js';
+import { StyledItem } from './PostCard.styled.js';
 
 const PostCard = ({ postImage, postTitle, postLocation, postPrice }) => {
   const [toggle, setToggle] = useState(false);
+  const formatedPostPrice = postPrice.toLocaleString('uk-UA');
+
   return (
     <StyledItem>
       <img src={postImage} alt={postTitle} />
 
-      <DescriptionWrapper>
-        <h3>{postTitle}</h3>
-        <p className={'location'}>{postLocation}</p>
+      <div className={'post-description'}>
+        <h3 className={'post-title'}>{postTitle}</h3>
+        <p className={'post-location'}>{postLocation}</p>
 
-        <PriceWrapper>
-          <p className={'price'}>{`${postPrice} грн`}</p>
-          <button onClick={() => setToggle(!toggle)}>
+        <div className={'wrapper'}>
+          <p className={'price'}>{`${formatedPostPrice} грн`}</p>
+          <button onClick={() => setToggle(!toggle)} className={'button-favorite'}>
             {!toggle && <FavoriteBorderOutlinedIcon />}
             {toggle && <FavoriteOutlinedIcon />}
           </button>
-        </PriceWrapper>
-      </DescriptionWrapper>
+        </div>
+      </div>
     </StyledItem>
   );
 };
 
 PostCard.propTypes = {
-  postImage: PropTypes.string,
-  postTitle: PropTypes.string,
-  postLocation: PropTypes.string,
-  postPrice: PropTypes.number,
+  postImage: PropTypes.string.isRequired,
+  postTitle: PropTypes.string.isRequired,
+  postLocation: PropTypes.string.isRequired,
+  postPrice: PropTypes.number.isRequired,
 };
 
 export default PostCard;

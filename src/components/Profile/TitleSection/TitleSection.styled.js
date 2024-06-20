@@ -9,25 +9,22 @@ export const TitleProfileSection = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  width: 100%;
+  display: flex;
+  justify-content: space-between;
   margin-left: 10px;
+  width: 100%;
 
-  > div {
-    display: flex;
-    justify-content: space-between;
+  .name {
+    font-family: Gilroy-Medium, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 22px;
+  }
 
-    p.name {
-      font-family: Gilroy-Medium, sans-serif;
-      font-size: 15px;
-      font-weight: 600;
-      line-height: 22px;
-    }
-
-    p.email {
-      font-family: Gilroy-Regular, sans-serif;
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 22px;
-    }
+  .email {
+    font-family: Gilroy-Regular, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
   }
 `;
