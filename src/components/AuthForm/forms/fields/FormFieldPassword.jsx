@@ -19,6 +19,7 @@ export const FormFieldPassword = ({
   fieldError,
   passwordValue,
   repeatPasswordValue,
+  ...rest
 }) => {
   const [isToggleOn, setIsToggleOn] = useState(false);
   const onClick = e => {
@@ -30,7 +31,7 @@ export const FormFieldPassword = ({
 
   return (
     <>
-      <StyledFieldName>{text}</StyledFieldName>
+      <StyledFieldName {...rest}>{text}</StyledFieldName>
       <StyledWrapperFieldPassword>
         <StyledInput
           type={isToggleOn ? 'text' : 'password'}

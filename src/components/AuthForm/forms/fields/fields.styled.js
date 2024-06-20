@@ -15,8 +15,10 @@ export const StyledFieldName = styled.p`
   font-weight: 400;
   line-height: 22px;
   letter-spacing: -0.4px;
-  text-align: left;
   color: var(--color-label);
+
+  &.profile-change-password {
+  }
 
   @media ${device.tablet} {
     &.margin-tablet {
@@ -94,6 +96,10 @@ export const StyledWrapperFieldPassword = styled.div`
   position: relative;
   display: flex;
   align-items: center;
+
+  &.profile-change-password {
+    margin-bottom: 25px;
+  }
 `;
 
 // Styles for wrapper button of icon

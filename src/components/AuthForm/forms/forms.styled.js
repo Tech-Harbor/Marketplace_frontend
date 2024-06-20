@@ -26,6 +26,9 @@ export const StyledButton = styled.button`
   background-color: ${({ $isFormValid }) =>
     $isFormValid ? 'var(--color-primary-active)' : 'var(--color-btn-disabled)'};
 
+  &.profile-change-password {
+    margin-top: 30px;
+  }
   // @media ${device.laptop} {
   // }
   // @media ${device.desktop} {

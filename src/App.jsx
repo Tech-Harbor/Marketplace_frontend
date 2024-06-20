@@ -12,6 +12,7 @@ import Profile from './components/Profile/Profile.jsx';
 import ProductsPage from './pages/ProductsPage/ProductsPage.jsx';
 import NewPost from './components/NewPost/NewPost.jsx';
 import ProfileSettings from './components/ProfileSettings/ProfileSettings.jsx';
+import ProfileChangePassword from './components/ProfileChangePassword/ProfileChangePassword.jsx';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -53,7 +54,7 @@ const App = () => {
 
         <Route path="/profile" element={<Profile />} />
         <Route path="/profile/settings" element={<ProfileSettings />} />
-        <Route path="/profile/settings/change-email" element={<div>change email</div>} />
+        <Route path="/profile/settings/change-password" element={<ProfileChangePassword />} />
 
         <Route path="/profile/edit" element={<div>profile/edit</div>} />
         <Route path="/profile/help" element={<div>/profile/help</div>} />
