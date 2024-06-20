@@ -4,7 +4,6 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 0;
 
   font-family: Gilroy-Regular, sans-serif;
   font-size: 20px;
