@@ -1,4 +1,5 @@
-export const FOOTER_TEXT_LIST = [
+//TODO: Додати посилання на сторінки
+export const FOOTER_LINKS_LIST = [
   {
     id: 1,
     linkList: [

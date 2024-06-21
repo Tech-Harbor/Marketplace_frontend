@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+
 import { FooterMenuList, FooterMenuItem, FooterMenuLink } from './FooterList.styled.js';
 
 export const FooterList = ({ linkList }) => {

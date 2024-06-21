@@ -5,7 +5,7 @@ import { Footer } from '../Footer/Footer.jsx';
 import NavigationBar from '../NavigationBar/NavigationBar.jsx';
 import { Advertisement } from '../Advertisement/Advertisement.jsx';
 
-import { Wrapper, Main, FakeBoxForNavBar } from './MainLayout.styled.js';
+import { Wrapper, Main } from './MainLayout.styled.js';
 
 const MainLayout = () => {
   return (
@@ -23,8 +23,6 @@ const MainLayout = () => {
       </Wrapper>
 
       <Footer />
-
-      <FakeBoxForNavBar />
     </>
   );
 };
