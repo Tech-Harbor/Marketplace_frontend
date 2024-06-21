@@ -16,9 +16,7 @@ export const FooterMenuItem = styled.li`
     margin-bottom: 0;
 
     @media ${device.laptop} {
-      &:not(:last-child) {
-        margin-bottom: 16px;
-      }
+      margin-bottom: 16px;
     }
   }
 `;
