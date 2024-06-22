@@ -1,16 +1,17 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
-import { StyledItem } from './PostCard.styled.js';
+import { StyledButton, StyledItem } from './PostCard.styled.js';
 
-const PostCard = ({ postImage, postTitle, postLocation, postPrice }) => {
+const PostCard = ({ postImage, postTitle, postLocation, postPrice, className }) => {
   const [toggle, setToggle] = useState(false);
   const formatedPostPrice = postPrice.toLocaleString('uk-UA');
 
   return (
     <StyledItem>
-      <img src={postImage} alt={postTitle} />
+      <img src={postImage} alt={postTitle} className={className} />
 
       <div className={'post-description'}>
         <h3 className={'post-title'}>{postTitle}</h3>
@@ -18,10 +19,10 @@ const PostCard = ({ postImage, postTitle, postLocation, postPrice }) => {
 
         <div className={'wrapper'}>
           <p className={'price'}>{`${formatedPostPrice} грн`}</p>
-          <button onClick={() => setToggle(!toggle)} className={'button-favorite'}>
+          <StyledButton onClick={() => setToggle(!toggle)} className={className}>
             {!toggle && <FavoriteBorderOutlinedIcon />}
             {toggle && <FavoriteOutlinedIcon />}
-          </button>
+          </StyledButton>
         </div>
       </div>
     </StyledItem>
@@ -33,6 +34,7 @@ PostCard.propTypes = {
   postTitle: PropTypes.string.isRequired,
   postLocation: PropTypes.string.isRequired,
   postPrice: PropTypes.number.isRequired,
+  className: PropTypes.string,
 };
 
 export default PostCard;

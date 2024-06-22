@@ -17,6 +17,7 @@ import ProfileChangeEmail from './components/ProfileChangeEmail/ProfileChangeEma
 import ProfileHelp from './components/ProfileHelp/ProfileHelp.jsx';
 import ProfileTerms from './components/ProfileTerms/ProfileTerms.jsx';
 import ProfilePolicy from './components/ProfilePolicy/ProfilePolicy.jsx';
+import ProfileUserPosts from './components/ProfileUserPosts/ProfileUserPosts.jsx';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -57,6 +58,9 @@ const App = () => {
         <Route path="/chat" element={<div>chat</div>} />
 
         <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/edit" element={<div>profile/edit</div>} />
+        <Route path="/profile/user-posts" element={<ProfileUserPosts />} />
+
         <Route path="/profile/settings" element={<ProfileSettings />} />
         <Route path="/profile/settings/change-password" element={<ProfileChangePassword />} />
         <Route path="/profile/settings/change-email" element={<ProfileChangeEmail />} />
@@ -66,9 +70,6 @@ const App = () => {
         <Route path="/profile/terms" element={<ProfileTerms />} />
 
         <Route path="/profile/policy" element={<ProfilePolicy />} />
-
-        <Route path="/profile/edit" element={<div>profile/edit</div>} />
-        <Route path="/profile/user-posts" element={<div>/profile/user-posts</div>} />
       </Route>
     </Routes>
   );

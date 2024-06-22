@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledItem = styled.li`
   width: 100%;
-  overflow: hidden;
+  //overflow: hidden;
   border-radius: 8px;
   box-shadow: 0 0 5px 0 var(--color-shadow);
 
@@ -17,6 +17,7 @@ export const StyledItem = styled.li`
   .post-description {
     padding: 4px 4px 12px 4px;
   }
+
   .post-title {
     overflow: hidden;
     margin-bottom: 5px;
@@ -45,7 +46,18 @@ export const StyledItem = styled.li`
     justify-content: space-between;
   }
 
-  .button-favorite {
-    color: var(--color-primary-active);
+  .profile-posts {
+    width: 100%;
+    height: 135px;
+    object-fit: cover;
+    object-position: right top;
+  }
+`;
+
+export const StyledButton = styled.button`
+  color: var(--color-primary-active);
+
+  &.profile-posts {
+    display: none;
   }
 `;
