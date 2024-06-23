@@ -1,44 +1,43 @@
-// import { useRef, useState } from 'react';
-// import { Container, StyledHiddenInput } from './AvatarUpload.styled.js';
-//
-// export const AvatarUpload = ({ register }) => {
-//   const hiddenInputRef = useRef(null);
-//
-//   const { ref: registerRef, ...rest } = register('profilePicture');
-//
-//   const [preview, setPreview] = useState(null);
-//
-//   const handleUploadedFile = event => {
-//     const file = event.target.files[0];
-//     if (file) {
-//       const urlImage = URL.createObjectURL(file);
-//       setPreview(urlImage);
-//     }
-//   };
-//
-//   const onUpload = () => {
-//     if (hiddenInputRef.current) {
-//       hiddenInputRef.current.click();
-//     }
-//   };
-//
-//   const uploadButtonLabel = preview ? 'Change image' : 'Upload image';
-//
-//   return (
-//     <Container>
-//       <StyledHiddenInput
-//         name={'profilePicture'}
-//         type="file"
-//         onChange={handleUploadedFile}
-//         ref={e => {
-//           registerRef(e);
-//           hiddenInputRef.current = e;
-//         }}
-//       />
-//       <img src={preview} alt="avatar" />
-//       <button type={'button'} onClick={onUpload}>
-//         {uploadButtonLabel}
-//       </button>
-//     </Container>
-//   );
-// };
+import { useState } from 'react';
+import { useDropzone } from 'react-dropzone';
+import PropTypes from 'prop-types';
+import { Container } from './AvatarUpload.styled.js';
+import defaultAvatar from '../../../../assets/svg/defaultAvatar.svg';
+
+export const AvatarUpload = ({ validation, setValue, ...rest }) => {
+  const [files, setFiles] = useState([]);
+  const { getRootProps, getInputProps } = useDropzone({
+    accept: {
+      'image/*': [],
+    },
+
+    onDrop: acceptedFiles => {
+      console.log('acceptedFiles', acceptedFiles);
+      const mappedFiles = acceptedFiles.map(file =>
+        Object.assign(file, {
+          preview: URL.createObjectURL(file),
+        })
+      );
+
+      setFiles(mappedFiles);
+      setValue('avatar', mappedFiles);
+    },
+    multiple: false,
+  });
+
+  const avatar = files[0]?.preview || defaultAvatar;
+
+  return (
+    <Container {...getRootProps()}>
+      <input {...getInputProps()} {...validation} {...rest} />
+      <img src={avatar} alt="alt" className={'img-avatar'} />
+    </Container>
+  );
+};
+
+AvatarUpload.propTypes = {
+  setValue: PropTypes.func.isRequired,
+  validation: PropTypes.shape({
+    required: PropTypes.string,
+  }).isRequired,
+};

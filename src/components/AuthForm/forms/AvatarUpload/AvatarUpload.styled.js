@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  //width: 300px;
-  border: 2px solid red;
-`;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
 
-export const StyledHiddenInput = styled.input`
-  display: none;
-  color: blue;
+  .img-avatar {
+    width: 100px;
+  }
 `;

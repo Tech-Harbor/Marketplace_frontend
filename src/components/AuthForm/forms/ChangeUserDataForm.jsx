@@ -1,49 +1,27 @@
-import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
-
-import { showTypeForm } from '../../../redux/auth';
-import { useApi } from '../../../hooks';
-import { makeFirstLetterUpperCase } from '../../../utils';
 import { FIELDS_PATTERN } from '../../../constants';
 
 import { FormField, FormFieldPhone } from './fields';
+import { AvatarUpload } from './AvatarUpload/AvatarUpload.jsx';
 import { StyledForm, StyledButton } from './forms.styled.js';
-// import { AvatarUpload } from './AvatarUpload/AvatarUpload.jsx';
 
 export const ChangeUserDataForm = () => {
   const {
     register,
     handleSubmit,
-    reset,
+    setValue,
     formState: { errors, isValid },
   } = useForm({
     mode: 'onChange',
   });
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  const { sendData } = useApi();
 
   const handleSubmitForm = async data => {
-    console.log('ChangeUserDataForm data: ', data);
-    await sendData(
-      // API_URL.SIGNUP, // TODO swagger ??
-      '',
-      {
-        ...data,
-        firstname: makeFirstLetterUpperCase(data.firstname),
-      }
-    );
-    navigate('');
-    dispatch(showTypeForm(null));
-    reset();
+    console.log('data: ', data);
   };
 
   return (
     <StyledForm onSubmit={handleSubmit(handleSubmitForm)}>
-      {/*  сюди необхідно додати код завантаження аватара*/}
-      {/*<AvatarUpload register={register} />*/}
+      <AvatarUpload validation={register('avatar')} setValue={setValue} />
 
       <FormField
         name="firstname"
