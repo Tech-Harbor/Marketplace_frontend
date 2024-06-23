@@ -1,13 +1,19 @@
 import { PageTitle } from '../../common/index.js';
-import { SectionAnchors, TextList } from './Account.styled.js';
-import { StyledLink, StyledOrderedLists, StyledText, StyledTitle } from '../commonStyle.styled.js';
+import {
+  Section,
+  StyledLink,
+  StyledOrderedLists,
+  StyledText,
+  StyledTitle,
+  TextList,
+} from '../commonStyle.styled.js';
 
 export const Account = () => {
   return (
     <>
       <PageTitle to={'/profile/help'} title="Акаунт" />
 
-      <SectionAnchors>
+      <Section>
         <StyledLink href="#reg">Реєстрація</StyledLink>
         <StyledLink href="#auth">Авторизація</StyledLink>
         <StyledLink href="#delete">Видалення</StyledLink>
@@ -15,7 +21,7 @@ export const Account = () => {
         <StyledLink href="#email" className={'sub-text'}>
           Змінити електронну пошту
         </StyledLink>
-        <StyledLink href="#password" className={'sub-text'}>
+        <StyledLink href="#password" className={'sub-text bottom-indent'}>
           Змінити пароль
         </StyledLink>
 
@@ -71,7 +77,7 @@ export const Account = () => {
               Щоб змінити електронну адресу, пов’язану з вашим обліковим записом:
             </StyledText>
 
-            <StyledOrderedLists className={'text-list text'}>
+            <StyledOrderedLists className={'text-list text bottom-indent'}>
               <li>Увійдіть в обліковий запис Oranger, який потрібно редагувати.</li>
               <li>Натисніть кнопку «Налаштування», що висвічується у вашому профілю.</li>
               <li>Введіть свою стару та нову адреси електронної пошти у відповідне поле.</li>
@@ -85,7 +91,7 @@ export const Account = () => {
               </li>
             </StyledOrderedLists>
 
-            <StyledText id={'password'} className={'text--center text--center--margin'}>
+            <StyledText id={'password'} className={'text--center '}>
               Змінити пароль.
             </StyledText>
             <StyledText className={'text'}>
@@ -102,7 +108,7 @@ export const Account = () => {
             </StyledOrderedLists>
           </li>
         </TextList>
-      </SectionAnchors>
+      </Section>
     </>
   );
 };

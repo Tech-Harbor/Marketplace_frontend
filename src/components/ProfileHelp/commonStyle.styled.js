@@ -1,5 +1,15 @@
 import styled from 'styled-components';
 
+export const Section = styled.section`
+  padding: 25px 0;
+`;
+
+export const TextList = styled.ul`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+`;
+
 export const StyledLink = styled.a`
   display: block;
   margin-bottom: 15px;
@@ -16,6 +26,10 @@ export const StyledLink = styled.a`
     margin-left: 20px;
     font-size: 16px;
     line-height: 1.4;
+  }
+
+  &.bottom-indent {
+    margin-bottom: 30px;
   }
 `;
 
@@ -37,15 +51,15 @@ export const StyledText = styled.p`
   &.text--center {
     margin-bottom: 10px;
     text-align: center;
-
-    &--margin {
-      margin-top: 20px;
-    }
   }
 
   &.text--auth {
     margin-top: 10px;
     padding: 0 40px;
+  }
+
+  &.bottom-indent {
+    margin-bottom: 30px;
   }
 `;
 
@@ -60,4 +74,8 @@ export const StyledOrderedLists = styled.ol`
   font-size: 15px;
   font-weight: 400;
   line-height: 22px;
+
+  &.bottom-indent {
+    margin-bottom: 30px;
+  }
 `;
