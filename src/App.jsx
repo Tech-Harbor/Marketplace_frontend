@@ -12,13 +12,22 @@ import Profile from './components/Profile/Profile.jsx';
 import ProductsPage from './pages/ProductsPage/ProductsPage.jsx';
 import NewPost from './components/NewPost/NewPost.jsx';
 import ProfileSettings from './components/ProfileSettings/ProfileSettings.jsx';
-import ProfileChangePassword from './components/ProfileChangePassword/ProfileChangePassword.jsx';
-import ProfileChangeEmail from './components/ProfileChangeEmail/ProfileChangeEmail.jsx';
+import ProfileChangePassword from './components/ProfileSettings/ProfileChangePassword/ProfileChangePassword.jsx';
+import ProfileChangeEmail from './components/ProfileSettings/ProfileChangeEmail/ProfileChangeEmail.jsx';
 import ProfileHelp from './components/ProfileHelp/ProfileHelp.jsx';
 import ProfileTerms from './components/ProfileTerms/ProfileTerms.jsx';
 import ProfilePolicy from './components/ProfilePolicy/ProfilePolicy.jsx';
 import ProfileUserPosts from './components/ProfileUserPosts/ProfileUserPosts.jsx';
-import { Account, Search } from './components/ProfileHelp/index.js';
+import {
+  Account,
+  Feedback,
+  Posts,
+  ReviewsRating,
+  Search,
+  Services,
+  TechnicalQuestions,
+} from './components/ProfileHelp/helpPages/index.js';
+import { ProfileEditUserData } from './components/ProfileEditUserData/ProfileEditUserData.jsx';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -59,7 +68,7 @@ const App = () => {
         <Route path="/chat" element={<div>chat</div>} />
 
         <Route path="/profile" element={<Profile />} />
-        <Route path="/profile/edit" element={<div>profile/edit</div>} />
+        <Route path="/profile/edit" element={<ProfileEditUserData />} />
         <Route path="/profile/user-posts" element={<ProfileUserPosts />} />
 
         <Route path="/profile/settings" element={<ProfileSettings />} />
@@ -69,9 +78,13 @@ const App = () => {
         <Route path="/profile/help" element={<ProfileHelp />} />
         <Route path="/profile/help/account" element={<Account />} />
         <Route path="/profile/help/search" element={<Search />} />
+        <Route path="/profile/help/posts" element={<Posts />} />
+        <Route path="/profile/help/services" element={<Services />} />
+        <Route path="/profile/help/reviews-rating" element={<ReviewsRating />} />
+        <Route path="/profile/help/technical-questions" element={<TechnicalQuestions />} />
+        <Route path="/profile/help/feedback" element={<Feedback />} />
 
         <Route path="/profile/terms" element={<ProfileTerms />} />
-
         <Route path="/profile/policy" element={<ProfilePolicy />} />
       </Route>
     </Routes>

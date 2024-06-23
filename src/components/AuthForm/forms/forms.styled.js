@@ -41,3 +41,7 @@ export const StyledWrapperRememberMe = styled.div`
   justify-content: space-between;
   margin-top: 20px;
 `;
+
+export const StyledHiddenInput = styled.input`
+  //display: none;
+`;

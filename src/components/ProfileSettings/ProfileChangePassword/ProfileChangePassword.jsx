@@ -1,9 +1,9 @@
 import { useForm } from 'react-hook-form';
-import { checkPasswordOverPatterns } from '../../utils';
+import { checkPasswordOverPatterns } from '../../../utils/index.js';
 
-import { PageTitle } from '../common';
-import { FormFieldPassword } from '../AuthForm/forms/fields';
-import { StyledButton } from '../AuthForm/forms/forms.styled.js';
+import { PageTitle } from '../../common/index.js';
+import { FormFieldPassword } from '../../AuthForm/forms/fields/index.js';
+import { StyledButton } from '../../AuthForm/forms/forms.styled.js';
 import { StyledForm } from './ProfileChangePassword.styled.js';
 
 const ProfileChangePassword = () => {

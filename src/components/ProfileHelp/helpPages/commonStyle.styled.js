@@ -78,4 +78,12 @@ export const StyledOrderedLists = styled.ol`
   &.bottom-indent {
     margin-bottom: 30px;
   }
+
+  &.posts-list {
+    list-style-type: circle;
+    font-family: Gilroy-Regular, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 22px;
+  }
 `;

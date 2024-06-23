@@ -1,9 +1,9 @@
 import { useForm } from 'react-hook-form';
 
-import { FIELDS_PATTERN } from '../../constants';
-import { PageTitle } from '../common';
-import { FormField } from '../AuthForm/forms/fields';
-import { StyledButton } from '../AuthForm/forms/forms.styled.js';
+import { FIELDS_PATTERN } from '../../../constants/index.js';
+import { PageTitle } from '../../common/index.js';
+import { FormField } from '../../AuthForm/forms/fields/index.js';
+import { StyledButton } from '../../AuthForm/forms/forms.styled.js';
 import { StyledForm } from './ProfileChangeEmail.styled.js';
 
 const ProfileChangeEmail = () => {

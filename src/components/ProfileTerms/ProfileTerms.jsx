@@ -6,7 +6,7 @@ const ProfileTerms = () => {
     <>
       <PageTitle to={'/profile'} title="Умови використання" />
 
-      <Section>Макет відсутній</Section>
+      <Section style={{ color: 'red' }}>МАКЕТ ВІДСУТНІЙ</Section>
     </>
   );
 };

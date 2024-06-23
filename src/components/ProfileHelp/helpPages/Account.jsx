@@ -1,4 +1,4 @@
-import { PageTitle } from '../../common/index.js';
+import { PageTitle } from '../../common';
 import {
   Section,
   StyledLink,
@@ -6,7 +6,7 @@ import {
   StyledText,
   StyledTitle,
   TextList,
-} from '../commonStyle.styled.js';
+} from './commonStyle.styled.js';
 
 export const Account = () => {
   return (

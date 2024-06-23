@@ -1,5 +1,5 @@
-import { PageTitle } from '../../common/index.js';
-import { Section, StyledLink, StyledText, StyledTitle, TextList } from '../commonStyle.styled.js';
+import { PageTitle } from '../../common';
+import { Section, StyledLink, StyledText, StyledTitle, TextList } from './commonStyle.styled.js';
 
 export const Search = () => {
   return (

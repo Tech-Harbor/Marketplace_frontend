@@ -13,7 +13,7 @@ const ProfileHelp = () => {
         <LinkWithNavigateNextIcon to={'/profile/help/account'} title={'Акаунт'} />
         <LinkWithNavigateNextIcon to={'/profile/help/search'} title={'Пошук'} />
         <LinkWithNavigateNextIcon to={'/profile/help/posts'} title={'Оголошення'} />
-        <LinkWithNavigateNextIcon to={'/profile/help/paid-services'} title={'Платні послуги'} />
+        <LinkWithNavigateNextIcon to={'/profile/help/services'} title={'Платні послуги'} />
         <LinkWithNavigateNextIcon
           to={'/profile/help/reviews-rating'}
           title={'Відгуки та рейтинг'}
