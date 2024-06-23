@@ -29,7 +29,7 @@ const ImagesUploader = ({ setValue, validation, ...rest }) => {
       setValue('images', mappedFiles);
     },
   });
-  console.log('files', files);
+
   const ImageList = files.map(file => (
     <ImageCard key={file.name}>
       <img

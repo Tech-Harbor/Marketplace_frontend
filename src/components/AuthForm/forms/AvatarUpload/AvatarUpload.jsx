@@ -12,7 +12,6 @@ export const AvatarUpload = ({ validation, setValue, ...rest }) => {
     },
 
     onDrop: acceptedFiles => {
-      console.log('acceptedFiles', acceptedFiles);
       const mappedFiles = acceptedFiles.map(file =>
         Object.assign(file, {
           preview: URL.createObjectURL(file),
