@@ -18,6 +18,8 @@ import ProfileHelp from './components/ProfileHelp/ProfileHelp.jsx';
 import ProfileTerms from './components/ProfileTerms/ProfileTerms.jsx';
 import ProfilePolicy from './components/ProfilePolicy/ProfilePolicy.jsx';
 import ProfileUserPosts from './components/ProfileUserPosts/ProfileUserPosts.jsx';
+import { ProfileEditUserData } from './components/ProfileEditUserData/ProfileEditUserData.jsx';
+import { DeleteProfile } from './components/ProfileSettings/DeleteProfile/DeleteProfile.jsx';
 import {
   Account,
   Feedback,
@@ -26,8 +28,7 @@ import {
   Search,
   Services,
   TechnicalQuestions,
-} from './components/ProfileHelp/helpPages/index.js';
-import { ProfileEditUserData } from './components/ProfileEditUserData/ProfileEditUserData.jsx';
+} from './components/ProfileHelp/helpPages';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -74,6 +75,7 @@ const App = () => {
         <Route path="/profile/settings" element={<ProfileSettings />} />
         <Route path="/profile/settings/change-password" element={<ProfileChangePassword />} />
         <Route path="/profile/settings/change-email" element={<ProfileChangeEmail />} />
+        <Route path="/profile/settings/delete-profile" element={<DeleteProfile />} />
 
         <Route path="/profile/help" element={<ProfileHelp />} />
         <Route path="/profile/help/account" element={<Account />} />
