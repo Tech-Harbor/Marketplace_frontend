@@ -26,6 +26,9 @@ export const StyledButton = styled.button`
   background-color: ${({ $isFormValid }) =>
     $isFormValid ? 'var(--color-primary-active)' : 'var(--color-btn-disabled)'};
 
+  &.profile-change-password {
+    margin-top: 30px;
+  }
   // @media ${device.laptop} {
   // }
   // @media ${device.desktop} {
@@ -37,4 +40,8 @@ export const StyledWrapperRememberMe = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-top: 20px;
+`;
+
+export const StyledHiddenInput = styled.input`
+  //display: none;
 `;

@@ -5,7 +5,7 @@
 
   /*color-scheme: light dark;*/
 
-  color: rgba(0, 0, 0);
+  color: #1b1e24;
   /*background-color: #e1f3fb;*/
 
   font-synthesis: none;
@@ -51,14 +51,20 @@
   --color-button-border-google: #515567;
   --color-button-text-google: #515567;
 
+  --color-text-price: #307052;
+
   --color-border-primary: #8b8b8b;
+  --color-border-secondary: #6c727533;
+
+  --color-shadow: #0000001a;
 
   --color-bg-primary: #1b1e24;
   --color-bg-input-primary: #ecedef;
   --color-bg-form: #fff;
   --color-bg-form_input: #dadada;
   --color-bg-form_btn-disable: #9e9eb2;
-  /*border: 1px solid #8B8B8B4D*/
+
+  --color-shadow: #0000001a /*border: 1px solid #8B8B8B4D*/;
 }
 
 body {
@@ -86,8 +92,7 @@ p {
   margin: 0;
 }
 
-ul,
-li {
+ul {
   margin: 0;
   padding: 0;
   list-style: none;
