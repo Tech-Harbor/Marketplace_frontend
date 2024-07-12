@@ -12,9 +12,9 @@ const NewPost = () => {
 
   return (
     <>
-      {isPublished ? (
-        <SuccessAnnouncement onSuccess={() => setIsPublished(false)} />
-      ) : (
+      {isPublished && <SuccessAnnouncement onSuccess={() => setIsPublished(false)} />}
+
+      {!isPublished && (
         <Container>
           <TitleSection>
             <StyledLink to={'/'}>
