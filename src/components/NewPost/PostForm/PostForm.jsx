@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { nanoid } from '@reduxjs/toolkit';
 import { useForm } from 'react-hook-form';
+import PropTypes from 'prop-types';
 
 import { categories, cities } from '../../../constants';
 import IconSectionsDown from '../../../assets/svg/icon-sections-down.svg?react';
@@ -14,7 +15,7 @@ import CategoriesDropDown from '../../Header/PostSearchForm/CategoriesDropDown/C
 
 import { StyledButton, StyledForm, StyledLabel, Wrapper } from './PostForm.styled.js';
 
-const PostForm = () => {
+const PostForm = ({ onSuccess }) => {
   const { register, handleSubmit, setValue, watch } = useForm();
   const [isOpenCategoriesDropDown, setIsOpenCategoriesDropDown] = useState(false);
   const [isOpenLocationDropDown, setIsOpenLocationDropDown] = useState(false);
@@ -44,6 +45,8 @@ const PostForm = () => {
     for (let [key, value] of formData.entries()) {
       console.log(`${key}:`, value);
     }
+
+    onSuccess();
   };
 
   const handleCategoryClick = value => {
@@ -133,6 +136,10 @@ const PostForm = () => {
       </StyledButton>
     </StyledForm>
   );
+};
+
+PostForm.propTypes = {
+  onSuccess: PropTypes.func.isRequired,
 };
 
 export default PostForm;
